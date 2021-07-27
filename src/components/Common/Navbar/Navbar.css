@@ -8,6 +8,7 @@
 .nav.scrolled {
   background-color: #172755;
   transition: background-color 200ms linear;
+  box-shadow: rgba(0, 0, 0, 0.7) 2px 0 10px 4px;
 }
 
 .nav-contain {
