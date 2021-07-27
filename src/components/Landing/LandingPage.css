@@ -1,0 +1,20 @@
+.section-landing-header {
+  height: 60vh;
+  background-color: #172755;
+  /* clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%); */
+  /* border-bottom: 5px solid #dc2626; */
+  position: relative;
+  /* z-index: 1; */
+  padding-top: 5rem;
+}
+
+.section-contents {
+  margin-top: 20rem;
+}
+
+.section-contacts {
+  position: relative;
+  background-color: #172755;
+  padding: 3rem;
+  margin-top: 10rem;
+}

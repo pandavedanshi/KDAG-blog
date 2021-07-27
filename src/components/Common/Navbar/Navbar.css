@@ -1,0 +1,41 @@
+.nav {
+  position: fixed;
+  z-index: 20;
+  width: 100%;
+  transition: background-color 200ms linear;
+}
+
+.nav.scrolled {
+  background-color: #172755;
+  transition: background-color 200ms linear;
+}
+
+.nav-contain {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+  border-bottom: 2px solid #2a407c;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-items {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  max-width: 40rem;
+}
+
+.nav-logo {
+  margin: 1rem 2rem 1rem 0;
+  display: flex;
+  align-items: center;
+  color: white; /* TODO: remove later */
+}
+
+.nav-item {
+  font-size: 1.5rem;
+  color: #8794ba;
+  margin: 1.5rem 0;
+}
