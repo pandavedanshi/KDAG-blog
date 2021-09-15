@@ -35,8 +35,19 @@
   color: white; /* TODO: remove later */
 }
 
+/* TODO: remove later */
+.nav-logo a {
+  text-decoration: none;
+  color: #8794ba;
+}
+
 .nav-item {
   font-size: 1.5rem;
   color: #8794ba;
   margin: 1.5rem 0;
+}
+
+.nav-item a {
+  color: #8794ba;
+  text-decoration: none;
 }

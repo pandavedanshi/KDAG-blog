@@ -1,10 +1,10 @@
 import "./App.css";
-import LandingPage from "./components/Landing/LandingPage.js";
+import AppRouter from "./Router/AppRouter";
 
 function App() {
   return (
     <>
-      <LandingPage />
+      <AppRouter />
     </>
   );
 }
