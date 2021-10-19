@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ResourcesList.css";
 import ResourcesCard from "./ResourcesCard";
 import resources from "./ResourcesStatic";

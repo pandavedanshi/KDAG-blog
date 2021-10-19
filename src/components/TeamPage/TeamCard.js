@@ -21,7 +21,7 @@ const TeamCard = ({member}) => {
              </div>
              <div class="member-social-icon" >
                <div class="member-social-icon-icon">
-                 <a target="_blank" href={member?.facebook || "#"}><i class="fab fa-facebook"></i></a>
+                 <a href={member?.facebook || "#"}><i class="fab fa-facebook"></i></a>
                </div>
                {/* <div class="member-social-icon-icon">
                  <a href={member?.twitter || "#"}><i class="fab fa-twitter"></i></a>

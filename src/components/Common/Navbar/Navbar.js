@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./Navbar.css";
-import ham from "./../../../assets/svgs/ham.svg"
+// import ham from "./../../../assets/svgs/ham.svg"
 
 import { Link } from "react-router-dom";
 
