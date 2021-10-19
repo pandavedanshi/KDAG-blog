@@ -26,12 +26,12 @@ const Footer = () => {
                     </div>
                     <div class="six wide column">
                         <h4 class="ui inverted header">Kharagpur Data Analytics Group</h4>
-                        <div class="ui inverted link list"><a href="http://iitkgp.ac.in" target="_blank" class="item">Indian Institute of Technology Kharagpur, India</a></div>
+                        <div class="ui inverted link list"><a href="http://iitkgp.ac.in" class="item">Indian Institute of Technology Kharagpur, India</a></div>
                     </div>
                 </div>
                 <div class="ui inverted section divider"></div>
 
-                <a href="index.html"><img src="./assets/images/kdag.png" class="ui centered mini image" /></a>
+                <a href="index.html"><img src="./assets/images/kdag.png" class="ui centered mini image" alt="kdag-logo" /></a>
 
                 <div class="ui horizontal inverted small divided link list">
                     <a class="item" href="http://iitkgp.ac.in">IIT KGP</a>

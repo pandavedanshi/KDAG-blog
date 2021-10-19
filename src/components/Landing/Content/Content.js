@@ -37,7 +37,7 @@ const Content = () => {
             <div className="content-pair-heading content-nonmobile">
               <span className="content-pair-word">RESOURCES</span>: Choose your own path in machine learning by exploring our resource library!
             </div>
-            <div className="content-pair-paragraph content-mobile">
+            <div className="content-pair-paragraph content-nonmobile">
             Every year KDAG conducts the Winter workshop for students of IIT KGP who are interested in the field of data analytics. From python basics to CNN, these modules have been meticulously curated to cover a spectrum of topics. KDAG also provides a planned preparation guide for interviews to help students with internship and placement drive
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./EventsList.css";
 import EventsCard from "./EventsCard";
 import events from "./EventsStatic";

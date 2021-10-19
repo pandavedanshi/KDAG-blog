@@ -1,6 +1,6 @@
 import React from "react";
 import "./ResourcesCard.css";
-import dataAnalysis from "./../../../assets/pics/dataanlysis_nyc.png";
+// import dataAnalysis from "./../../../assets/pics/dataanlysis_nyc.png";
 
 const ResourcesCard = ({ resource }) => {
   return (

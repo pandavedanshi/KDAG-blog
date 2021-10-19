@@ -50,7 +50,7 @@
   .member-social-icon-SM {
     display: flex;
     justify-content: right;
-    align-items: end;
+    align-items: flex-end;
   }
   
   .member-social-icon-icon-SM {
