@@ -6,9 +6,7 @@ const Header = () => {
     <div class="blog-list-header">
       <div class="blog-list-header-title">KDAG BLOG</div>
       <div class="blog-list-header-subtitle">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
-        autem dolor facere asperiores, suscipit illum quisquam nobis veritatis
-        cum fugiat?
+      As we dive deeper into the world of Machine Learning everyday, it becomes imperative to stay up-to-date with the different machine learning algorithms that not only help us build our data models but also provide an in-depth understanding of data science. Plunge right in and happy learning!
       </div>
     </div>
   );

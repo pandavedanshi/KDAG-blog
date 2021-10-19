@@ -24,19 +24,19 @@ const TeamPage = () => {
         }
         </div>
 
-        <TeamPageHeading text="Senior Members" />
-        <div className="members-head-list">
+        <TeamPageHeading text="Advisors" />
+        <div className="members-head-list members-head-list-bottom">
             
-        {seniormembers?.map((member) => {
+        {advisors?.map((member) => {
             return <TeamCardSM key={member.id} member = {member} />;
           }) 
         }
         </div>
 
-        <TeamPageHeading text="Advisors" />
-        <div className="members-head-list members-head-list-bottom">
+        <TeamPageHeading text="Senior Members" />
+        <div className="members-head-list">
             
-        {advisors?.map((member) => {
+        {seniormembers?.map((member) => {
             return <TeamCardSM key={member.id} member = {member} />;
           }) 
         }

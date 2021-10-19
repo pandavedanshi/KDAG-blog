@@ -46,7 +46,7 @@ const Content = () => {
         <div className="content-pair">
           <div className="content-pair-text">
             <div className="content-pair-heading">
-              <span className="content-pair-word">EVENTS</span>:Check out the plethora of events conducted by KDAG!
+              <span className="content-pair-word">EVENTS</span>: Check out the plethora of events conducted by KDAG!
             </div>
             <div className="content-pair-paragraph">
             Data Science workshops, internship bootcamps, panel discussions on research internships opportunities in ML/AI , reading sessions , hackathons and what not! KDAG is pleased to bring it  forth to you to enhance your knowledge.You are just one click away from getting access to all of this! Go ahead and all the best!
