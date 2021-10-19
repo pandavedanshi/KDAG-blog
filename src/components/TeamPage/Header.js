@@ -6,7 +6,7 @@ const Header = () => {
     <div class="resources-list-header">
       <div class="resources-list-header-title">OUR TEAM</div>
       <div class="resources-list-header-subtitle">
-      Meet our executive team- all of them being active members in bringing all ML/ AI enthusiasts under the roof of Kharagpur Data Analytics Group!
+      Meet our executive team- all of them being active members in bringing all ML/AI enthusiasts under the roof of Kharagpur Data Analytics Group!
       </div>
     </div>
   );
