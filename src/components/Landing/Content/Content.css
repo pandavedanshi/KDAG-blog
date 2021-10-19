@@ -39,3 +39,9 @@
 .content-pair-graphics img {
   width: 100%;
 }
+
+@media (max-width: 570px) {
+  .content-pair-graphics {
+    display: none;
+  }
+}

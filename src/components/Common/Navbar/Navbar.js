@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./Navbar.css";
+import ham from "./../../../assets/svgs/ham.svg"
 
 import { Link } from "react-router-dom";
 
@@ -26,18 +27,40 @@ const Navbar = () => {
           </div>
           <div className="nav-items">
             <div className="nav-item">
-              <Link to="#">Projects</Link>
+              <Link to="/events">Events</Link>
             </div>
             <div className="nav-item">
-              <Link to="#">FAQ</Link>
+              <Link to="/resources">Resources</Link>
             </div>
             <div className="nav-item">
               <Link to="/blogs">Blog</Link>
             </div>
-            <div className="nav-item">
+            {/* <div className="nav-item">
               <Link to="#">Go Down</Link>
-            </div>
+            </div> */}
           </div>
+          <nav class="drop">
+          <ul class="cf">
+        
+          <li>
+          <svg class="dropdown hamburgermenu" width="76" height="51" viewBox="0 0 76 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="76" height="11.7049" rx="5.85246" fill="white" fill-opacity="0.3"/>
+          <rect y="39.2951" width="76" height="11.7049" rx="5.85246" fill="white" fill-opacity="0.3"/>
+          <rect y="19.2295" width="76" height="11.7049" rx="5.85246" fill="white" fill-opacity="0.3"/>
+          </svg>
+
+            {/* <img class="dropdown hamburgermenu" src={ham} alt="menu" /> */}
+            <ul>
+              <li><a href="#">Projects</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">BLOG</a></li>
+              <li><a href="#">GO DOWN</a></li>
+            </ul>
+          </li>
+       
+          </ul>
+          </nav>
+          
         </div>
       </div>
     </div>
