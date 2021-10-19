@@ -35,7 +35,7 @@ const Content = () => {
         <div className="content-pair">
         <div className="content-pair-text content-mobile">
             <div className="content-pair-heading">
-              <span className="content-pair-word">Projects</span>: Have a look
+              <span className="content-pair-word">Blogs</span>: Have a look
               at our exciting projects
             </div>
             <div className="content-pair-paragraph">
