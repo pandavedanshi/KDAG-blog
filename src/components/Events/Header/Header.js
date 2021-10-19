@@ -6,9 +6,7 @@ const Header = () => {
     <div class="resources-list-header">
       <div class="resources-list-header-title">EVENTS</div>
       <div class="resources-list-header-subtitle">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
-        autem dolor facere asperiores, suscipit illum quisquam nobis veritatis
-        cum fugiat?
+      Keeping up with our aim of bringing the fascinating world of Machine Learning and data analytics to the student community, we host a number of events in which contestants can not only compete but also learn and develop their talents. Here's to collaborative learning!
       </div>
     </div>
   );

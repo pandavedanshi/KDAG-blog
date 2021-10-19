@@ -6,9 +6,7 @@ const Header = () => {
     <div class="resources-list-header">
       <div class="resources-list-header-title">RESOURCES</div>
       <div class="resources-list-header-subtitle">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
-        autem dolor facere asperiores, suscipit illum quisquam nobis veritatis
-        cum fugiat?
+      Confused about where to get started with Data Science and Analytics. Not getting hold of proper resources or roadmap? Hold on, here we bring a compilation of articles that touches the basics of Python to the mathematical models in Deep learning and AI. Campus junta, if want some “teeps and treeks” on the CDC intern in Analytics profile, you are at the right place!
       </div>
     </div>
   );

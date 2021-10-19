@@ -13,16 +13,16 @@ const TeamCardSM = ({member}) => {
            <div class="member-name-SM">
              <p>{member?.name || "Name of Member"}</p>
            </div>
-           <div class="member-email-SM">
+           {/* <div class="member-email-SM">
              <p>{member?.email || "email id"}</p>
-           </div>
+           </div> */}
             </div>
 
            <div class="member-profile-follow-SM">
              <div class="member-social-icon-SM" >
-               <div class="member-social-icon-icon-SM">
+               {/* <div class="member-social-icon-icon-SM">
                  <a href={member?.facebook || "#"}><i class="fab fa-facebook"></i></a>
-               </div>
+               </div> */}
                {/* <div class="member-social-icon-icon">
                  <a href={member?.twitter || "#"}><i class="fab fa-twitter"></i></a>
                </div> */}

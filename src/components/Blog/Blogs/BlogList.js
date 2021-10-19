@@ -6,7 +6,7 @@ const dummy = [0, 1, 2, 3, 4, 5, 6, 7];
 
 const BlogList = () => {
   // To be used later
-  const [blogs, setBlogs] = useState();
+  //const [blogs, setBlogs] = useState();
 
   return (
     <div class="blog-list-cards">
