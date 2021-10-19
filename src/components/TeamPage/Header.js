@@ -6,9 +6,7 @@ const Header = () => {
     <div class="resources-list-header">
       <div class="resources-list-header-title">OUR TEAM</div>
       <div class="resources-list-header-subtitle">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
-        autem dolor facere asperiores, suscipit illum quisquam nobis veritatis
-        cum fugiat?
+      Meet our executive team- all of them being active members in bringing all ML/ AI enthusiasts under the roof of Kharagpur Data Analytics Group!
       </div>
     </div>
   );
