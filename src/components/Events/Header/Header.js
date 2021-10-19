@@ -4,7 +4,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <div class="resources-list-header">
-      <div class="resources-list-header-title">KDAG BLOG</div>
+      <div class="resources-list-header-title">EVENTS</div>
       <div class="resources-list-header-subtitle">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
         autem dolor facere asperiores, suscipit illum quisquam nobis veritatis

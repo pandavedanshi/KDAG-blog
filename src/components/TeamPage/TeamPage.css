@@ -1,0 +1,12 @@
+.members-head-list {
+    display: flex;
+    width: 90%;
+    max-width: 60rem;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.members-head-list-bottom {
+    margin-bottom: 5rem;
+}

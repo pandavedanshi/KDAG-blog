@@ -35,6 +35,9 @@ const Navbar = () => {
             <div className="nav-item">
               <Link to="/blogs">Blog</Link>
             </div>
+            <div className="nav-item">
+              <Link to="/team">Team</Link>
+            </div>
             {/* <div className="nav-item">
               <Link to="#">Go Down</Link>
             </div> */}
@@ -50,11 +53,13 @@ const Navbar = () => {
           </svg>
 
             {/* <img class="dropdown hamburgermenu" src={ham} alt="menu" /> */}
+
+
             <ul>
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">BLOG</a></li>
-              <li><a href="#">GO DOWN</a></li>
+              <li><Link to="/events">Events</Link></li>
+              <li><Link to="/resources">Resources</Link></li>
+              <li><Link to="/blogs">Blog</Link></li>
+              <li><Link to="/team">Team</Link></li>
             </ul>
           </li>
        

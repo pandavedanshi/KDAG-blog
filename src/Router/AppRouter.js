@@ -5,6 +5,9 @@ import LandingPage from "../components/Landing/LandingPage";
 import BlogPage from "../components/Blog/BlogPage";
 import ResourcesPage from "../components/Resources/ResourcesPage";
 import EventsPage from "../components/Events/EventsPage";
+import TeamPage from "../components/TeamPage/TeamPage"
+
+import Footer from "../components/Common/Footer/Footer";
 
 const AppRouter = () => {
   return (
@@ -23,7 +26,11 @@ const AppRouter = () => {
           <Route path="/events">
             <EventsPage />
           </Route>
+          <Route path="/team">
+            <TeamPage />
+          </Route>
         </Switch>
+        <Footer />
       </Router>
     </React.StrictMode>
   );

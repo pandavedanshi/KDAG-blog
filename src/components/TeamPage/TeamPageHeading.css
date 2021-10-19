@@ -1,0 +1,21 @@
+.team-page-heading {
+    width: 90%;
+    max-width: 80rem;
+    margin: 2rem auto auto;
+    display: flex;
+    align-items: center;
+}
+
+.team-page-bullet {
+    display: flex;
+    justify-content: right;
+}
+
+.team-page-bullet svg {
+    width: 80%;
+}
+
+.team-page-heading-text {
+    font-size: 2.5rem;
+    padding-left: 1rem;
+}

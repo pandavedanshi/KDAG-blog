@@ -40,8 +40,28 @@
   width: 100%;
 }
 
-@media (max-width: 570px) {
+.content-mobile {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .content-pair {
+    display: block;
+  }
+
   .content-pair-graphics {
+    width: 100%;
+  }
+
+  .content-pair-text {
+    width: 100%;
+  }
+
+  .content-mobile {
+    display: block;
+  }
+
+  .content-nonmobile {
     display: none;
   }
 }

@@ -74,8 +74,16 @@
   opacity: 10%;
 }
 
-@media (max-width: 570px) {
-  .header-image {
+@media (max-width: 800px) {
+  .header-graphics {
     display: None;
+  }
+
+  .header-title {
+    width: 100%;
+    /* padding: 1rem 0;
+    position: relative;
+    z-index: 10;
+    min-width: 300px; */
   }
 }
