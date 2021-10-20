@@ -10,7 +10,7 @@ const resources = [
       id: 2,
       name: "Panel Discussions",
       subtitle: "March 2021",
-      description: "Wondering what to do and how to do your CDC intern or how to apply for research opportunities in ML/AI? We have with us the pre-final year students who have cracked their CDC internships and panelists who have done research interns at various institutes in India and abroad They are here to help with your questions such as what and how to prepare",
+      description: "Wondering what to do for your CDC intern or how to apply for research opportunities in ML/AI? We have with us the pre-final year students who have cracked their CDC internships and panelists who have done research interns at various institutes in India and abroad They are here to help with your questions such as what and how to prepare",
       link: "https://docs.google.com/document/d/1T0ERSENlLyKsLzqSzBtFuqvlsWumP4-xVS7z-uGm9X0/edit#heading=h.c69b3bdgsox"
       
     },
