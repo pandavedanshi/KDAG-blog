@@ -87,3 +87,9 @@
     min-width: 300px; */
   }
 }
+
+@media (max-width:  1200px) {
+  .stripe {
+    top: 80%;
+  }
+}

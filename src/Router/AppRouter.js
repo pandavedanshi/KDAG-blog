@@ -5,7 +5,8 @@ import LandingPage from "../components/Landing/LandingPage";
 import BlogPage from "../components/Blog/BlogPage";
 import ResourcesPage from "../components/Resources/ResourcesPage";
 import EventsPage from "../components/Events/EventsPage";
-import TeamPage from "../components/TeamPage/TeamPage"
+import TeamPage from "../components/TeamPage/TeamPage";
+import ScrollToTop from "../components/Common/ScrollToTop/ScrollToTop.js";
 
 import Footer from "../components/Common/Footer/Footer";
 
@@ -13,6 +14,7 @@ const AppRouter = () => {
   return (
     <React.StrictMode>
       <Router>
+        <ScrollToTop>
         <Switch>
           <Route exact path="/">
             <LandingPage />
@@ -30,6 +32,7 @@ const AppRouter = () => {
             <TeamPage />
           </Route>
         </Switch>
+        </ScrollToTop>
         <Footer />
       </Router>
     </React.StrictMode>

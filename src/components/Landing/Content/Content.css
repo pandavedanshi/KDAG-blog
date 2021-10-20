@@ -44,6 +44,10 @@
   display: none;
 }
 
+.content-pair-link {
+  text-decoration: none;
+}
+
 @media (max-width: 800px) {
   .content-pair {
     display: block;

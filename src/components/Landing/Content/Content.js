@@ -1,5 +1,6 @@
 import React from "react";
 import "./Content.css";
+import {Link} from "react-router-dom";
 
 import headerGraphics from "./../../../assets/svgs/header-graphics.svg";
 
@@ -7,10 +8,11 @@ const Content = () => {
   return (
     <>
       <div className="content-container">
+        <Link to="/blogs" className="content-pair-link">
         <div className="content-pair">
           <div className="content-pair-text">
             <div className="content-pair-heading">
-              <span className="content-pair-word">BLOGS</span>: Welcome to the pathway to master Data Science!
+              <span className="content-pair-word">BLOG</span>: Welcome to the pathway to master Data Science!
             </div>
             <div className="content-pair-paragraph">
             As we dive deeper into the world of Machine Learning everyday, it becomes imperative to stay up-to-date with the different machine learning algorithms that not only help us build our data models but also provide an in-depth understanding of data science. Plunge right in and happy learning!
@@ -20,7 +22,9 @@ const Content = () => {
             <img src={headerGraphics} alt="CONTENT GRAPHICS 1" />
           </div>
         </div>
+        </Link>
 
+        <Link to="/resources" className="content-pair-link">
         <div className="content-pair">
         <div className="content-pair-text content-mobile">
             <div className="content-pair-heading">
@@ -42,7 +46,9 @@ const Content = () => {
             </div>
           </div>
         </div>
+        </Link>
 
+        <Link to="/events" className="content-pair-link">
         <div className="content-pair">
           <div className="content-pair-text">
             <div className="content-pair-heading">
@@ -56,6 +62,7 @@ const Content = () => {
             <img src={headerGraphics} alt="CONTENT GRAPHICS 1" />
           </div>
         </div>
+        </Link>
       </div>
     </>
   );

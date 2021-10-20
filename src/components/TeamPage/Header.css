@@ -5,7 +5,7 @@
       rgba(90, 5, 5, 1)
     ),
     url("./../../assets/pics/analytics7.jpg");
-  height: 25rem;
+  height: 30rem;
   padding-top: 10rem;
   background-size: cover;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
@@ -26,4 +26,5 @@
   color: #ddd;
   width: 50%;
   margin: auto;
+  min-width: 30rem;
 }

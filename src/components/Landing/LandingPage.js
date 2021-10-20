@@ -19,13 +19,16 @@ const LandingPage = () => {
 
       {/* content section  */}
       <section className="section-contents">
+        <div className="Hackathon-button">
+          <a href="#" className="Hackathon-button-button">Register for our upcoming Hackathon</a>
+        </div>
         <Content />
       </section>
 
       {/* Contact Section */}
-      <section className="section-contacts">
+      {/*<section className="section-contacts">
         <Contact />
-      </section>
+      </section>*/}
     </>
   );
 };
