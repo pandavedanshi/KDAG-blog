@@ -1,8 +1,8 @@
 import React from "react";
 import "./Header.css";
-import logoRed from "./../../../assets/svgs/logo-red.svg";
+import logoRed from "./../../../assets/pics/KDAG_logo.png";
 import logoBlue from "./../../../assets/svgs/logo-blue.svg";
-import headerGraphics from "./../../../assets/svgs/header-graphics.svg";
+import headerGraphics from "./../../../assets/pics/main-screen.png";
 import logoTrans1 from "./../../../assets/svgs/logo-trans-1.svg";
 const Header = () => {
   return (

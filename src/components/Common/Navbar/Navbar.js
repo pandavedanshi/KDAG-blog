@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./Navbar.css";
-// import ham from "./../../../assets/svgs/ham.svg"
+import logo from "./../../../assets/pics/KDAG_logo.png";
 
 import { Link } from "react-router-dom";
 
@@ -22,8 +22,7 @@ const Navbar = () => {
       <div className="nav">
         <div className="nav-contain">
           <div className="nav-logo">
-            <Link to="/">LOGO</Link>
-            {/* <!-- TODO: logo --> */}
+            <Link to="/"><img src={logo} alt="LOGO" /></Link>
           </div>
           <div className="nav-items">
             <div className="nav-item">

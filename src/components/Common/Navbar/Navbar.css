@@ -19,6 +19,7 @@
   border-bottom: 2px solid #2a407c;
   position: relative;
   z-index: 10;
+  align-items: center;
 }
 
 .nav-items {
@@ -26,19 +27,26 @@
   width: 40%;
   justify-content: space-between;
   max-width: 40rem;
+  align-items: center;
 }
 
 .nav-logo {
-  margin: 0.5rem 2rem 0.5rem 0;
+  margin: 1rem 2rem 0 0;
   display: flex;
   align-items: center;
-  color: white; /* TODO: remove later */
+  color: #dc2626; /* TODO: remove later */
+  font-size: 2rem;
+}
+
+.nav-logo img {
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 /* TODO: remove later */
 .nav-logo a {
   text-decoration: none;
-  color: #8794ba;
+  color: white;
 }
 
 .nav-item {

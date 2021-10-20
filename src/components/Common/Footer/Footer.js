@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './Footer.css';
+import logo from "../../../assets/pics/KDAG_logo.png"
 // import 'semantic-ui-css/semantic.min.css';
 
 const Footer = () => {
@@ -31,7 +32,7 @@ const Footer = () => {
                 </div>
                 <div class="ui inverted section divider"></div>
 
-                <a href="index.html"><img src="./assets/images/kdag.png" class="ui centered mini image" alt="kdag-logo" /></a>
+                <a href="index.html"><img src={logo} class="ui centered mini image footer-image" alt="kdag-logo" /></a> &nbsp;
 
                 <div class="ui horizontal inverted small divided link list">
                     <a class="item" href="http://iitkgp.ac.in">IIT KGP</a>

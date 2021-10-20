@@ -4776,5 +4776,10 @@
   .ui.segment.footer {
       padding: 4rem;
   }
+
+  .footer-image {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
   
   

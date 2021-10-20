@@ -2,7 +2,9 @@ import React from "react";
 import "./Content.css";
 import {Link} from "react-router-dom";
 
-import headerGraphics from "./../../../assets/svgs/header-graphics.svg";
+import blogPic from "./../../../assets/pics/Blogs.png";
+import eventsPic from "./../../../assets/pics/Events.png";
+import resourcesPic from "./../../../assets/pics/Resources.png";
 
 const Content = () => {
   return (
@@ -19,7 +21,7 @@ const Content = () => {
             </div>
           </div>
           <div className="content-pair-graphics">
-            <img src={headerGraphics} alt="CONTENT GRAPHICS 1" />
+            <img src={blogPic} alt="CONTENT GRAPHICS 1" />
           </div>
         </div>
         </Link>
@@ -35,7 +37,7 @@ const Content = () => {
             </div>
           </div>
           <div className="content-pair-graphics">
-            <img src={headerGraphics} alt="CONTENT GRAPHICS 1" />
+            <img src={resourcesPic} alt="CONTENT GRAPHICS 1" />
           </div>
           <div className="content-pair-text content-nonmobile">
             <div className="content-pair-heading content-nonmobile">
@@ -59,7 +61,7 @@ const Content = () => {
             </div>
           </div>
           <div className="content-pair-graphics">
-            <img src={headerGraphics} alt="CONTENT GRAPHICS 1" />
+            <img src={eventsPic} alt="CONTENT GRAPHICS 1" />
           </div>
         </div>
         </Link>
