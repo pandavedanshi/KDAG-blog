@@ -5,7 +5,7 @@ import "./LandingPage.css";
 import Navbar from "./../Common/Navbar/Navbar.js";
 import Header from "./Header/Header.js";
 import Content from "./Content/Content.js";
-import Contact from "./Contact/Contact";
+// import Contact from "./Contact/Contact";
 
 const LandingPage = () => {
   return (
@@ -20,7 +20,7 @@ const LandingPage = () => {
       {/* content section  */}
       <section className="section-contents">
         <div className="Hackathon-button">
-          <a href="#" className="Hackathon-button-button">Register for our upcoming Hackathon</a>
+          <a href="/" className="Hackathon-button-button">Register for our upcoming Hackathon</a>
         </div>
         <Content />
       </section>
