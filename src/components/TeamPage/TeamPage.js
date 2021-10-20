@@ -25,7 +25,7 @@ const TeamPage = () => {
         </div>
 
         <TeamPageHeading text="Advisors" />
-        <div className="members-head-list members-head-list-bottom">
+        <div className="members-head-list">
             
         {advisors?.map((member) => {
             return <TeamCardSM key={member.id} member = {member} />;
@@ -34,7 +34,7 @@ const TeamPage = () => {
         </div>
 
         <TeamPageHeading text="Senior Members" />
-        <div className="members-head-list">
+        <div className="members-head-list members-head-list-bottom">
             
         {seniormembers?.map((member) => {
             return <TeamCardSM key={member.id} member = {member} />;

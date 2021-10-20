@@ -32,6 +32,7 @@ const BlogCard = ({ blog }) => {
             </>
           )}
         </div> */}
+        <span class="blog-list-card-date">{blog?.date || "Apr 17, 2021"}</span>
         <hr />
         <div class="blog-list-card-description">
           {blog?.description ||
