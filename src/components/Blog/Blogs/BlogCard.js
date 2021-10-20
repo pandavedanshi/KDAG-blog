@@ -14,7 +14,7 @@ const BlogCard = ({ blog }) => {
         <div class="blog-list-card-title">
           {blog?.title || "Blog Page Title"}
         </div>
-        <div class="blog-list-card-author">
+        {/* <div class="blog-list-card-author">
           by
           {blog?.authors?.map((author, index) => {
             return (
@@ -31,7 +31,7 @@ const BlogCard = ({ blog }) => {
               <span class="blog-list-card-date">Jan 23, 2021</span>
             </>
           )}
-        </div>
+        </div> */}
         <hr />
         <div class="blog-list-card-description">
           {blog?.description ||
