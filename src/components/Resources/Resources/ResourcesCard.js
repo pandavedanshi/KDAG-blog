@@ -7,7 +7,7 @@ const ResourcesCard = ({ resource }) => {
   return (
     <div class="resources-list-card-wrapper">
 <Fade bottom>
-    <div class="resources-list-card">
+    <div className="resources-list-card">
 
       <div className="resources-list-card-left">
         <div className="resources-list-card-icon">
