@@ -1,10 +1,13 @@
+.member-card-wrapper-SM {
+  margin: 1rem;
+  width: 50%;
+  max-width: 20rem;
+} 
+
 .member-card-SM {
     padding: 1rem;
     box-shadow: 2px 2px 5px 1px #777;
     border-radius: 5px; 
-    margin: 1rem;
-    width: 50%;
-    max-width: 20rem;
     transition: all .3s ease;
     display: flex;
     align-items: center;

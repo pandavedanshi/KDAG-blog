@@ -1,9 +1,12 @@
 import React from "react";
+import Flex from "react-reveal/Fade";
 import "./TeamCard.css";
 
 const TeamCard = ({member}) => {
     return (
-        <div class="member-card">
+      <div class="member-card-wrapper">
+      <Flex bottom>
+        <div className="member-card">
             <div class="member-profile-image">
               <img src={member?.image} alt="John" />
             </div>
@@ -32,6 +35,8 @@ const TeamCard = ({member}) => {
             </div>
         </div>
         </div>
+      </Flex>
+      </div>
     )
 }
 

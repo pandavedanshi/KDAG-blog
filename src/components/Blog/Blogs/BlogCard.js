@@ -1,10 +1,12 @@
 import React from "react";
 import "./BlogCard.css";
 import dataAnalysis from "./../../../assets/pics/dataanlysis_nyc.png";
+import Fade from "react-reveal/Fade";
 
 const BlogCard = ({ blog }) => {
   return (
     <a class="blog-list-card-link" href={blog?.link}>
+    <Fade bottom>
     <div class="blog-list-card">
       <div class="blog-list-card-image">
         <img src={blog?.img || dataAnalysis} alt="" />
@@ -61,6 +63,7 @@ const BlogCard = ({ blog }) => {
         </div>
       </div>
     </div>
+    </Fade>
     </a>
   );
 };
