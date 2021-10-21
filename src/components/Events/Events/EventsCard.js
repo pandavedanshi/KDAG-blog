@@ -8,7 +8,7 @@ const EventsCard = ({ event }) => {
             <Fade bottom>
         <div className="events-card">
             <div className="events-card-left">
-
+                <img src={event.image} alt="event-poster" />
             </div>
             <div className="events-card-right">
                 <div className="events-card-title">{event.title || "Event Title"}</div>
