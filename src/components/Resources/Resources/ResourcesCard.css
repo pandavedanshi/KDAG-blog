@@ -1,8 +1,14 @@
-.resources-list-card {
+.resources-list-card-wrapper {
   width: 25%;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
-  margin: 2rem;
   min-width: 20rem;
+  margin: 2rem;
+  display: flex;
+}
+
+.resources-list-card {
+  width: 100%;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  
   display: flex;
   /* flex-direction: column; */
   padding: 1.5rem;

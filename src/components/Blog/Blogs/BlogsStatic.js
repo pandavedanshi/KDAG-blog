@@ -1,7 +1,17 @@
+import intro from "../../../assets/pics/blogs/week 4-1 Data preprocessing.JPG"
+import img8 from "../../../assets/pics/blogs/week 1 Linear regression.jpg"
+import img7 from "../../../assets/pics/blogs/week 2 Logistic regression.JPG"
+import img6 from "../../../assets/pics/blogs/week 3-1 KNN.JPG"
+import img5 from "../../../assets/pics/blogs/week 4-2 Data preprocessing.JPG"
+import img4 from "../../../assets/pics/blogs/week 5 Support vector machines.JPG"
+import img3 from "../../../assets/pics/blogs/week 6-2 Decision trees.JPG"
+import img2 from "../../../assets/pics/blogs/week 7 Naive bias.JPG"
+import img1 from "../../../assets/pics/blogs/Week8_hackathon.jpeg"
+
 const blogs = [
     {
         index:"9",
-        img:"",
+        img: intro,
         topic:"AI Weekly Series",
         title:"Introduction to the Gigantic ML World!",
         authors:{},
@@ -12,18 +22,18 @@ const blogs = [
     },
     {
         index:"8",
-        img:"",
+        img: img8,
         topic:"AI Weekly Series",
         title:"Linear Regression",
         authors:{},
         description:"Do you remember drawing a straight line V-I characteristic in your cherished Electrical Lab? Do you remember how you drew it when the points didn’t really line up ?The Idea of the “best fit line” stems from the mathematical principle of least squares which turns out to be a rather simple but highly useful algorithm. Take a look at the blog for more insights",
-        tag:["Linear Regression", "Data Science", "Coding, Gradient Descent", "Kaggle Competition"],
+        tag:["Linear Regression", "Data Science", "Coding", "Gradient Descent", "Kaggle Competition"],
         link:"https://kdagiit.medium.com/linear-regression-ba3fe4ba38c0",
         date:"5 July, 2021"
     },
     {
         index:"7",
-        img:"",
+        img: img7,
         topic:"AI Weekly Series",
         title:"Logistic Regression",
         authors:{},
@@ -34,7 +44,7 @@ const blogs = [
     },
     {
         index:"6",
-        img:"",
+        img: img6,
         topic:"AI Weekly Series",
         title:"K-Nearest Neighbour (KNN) Algorithm",
         authors:{},
@@ -45,7 +55,7 @@ const blogs = [
     },
     {
         index:"5",
-        img:"",
+        img: img5,
         topic:"AI Weekly Series",
         title:"Data Preprocessing — A key to success!",
         authors:{},
@@ -57,7 +67,7 @@ const blogs = [
     
     {
         index:"4",
-        img:"",
+        img: img4,
         topic:"AI Weekly Series",
         title:"Support Vector Machines — It’s not-so-complicated!",
         authors:{},
@@ -68,7 +78,7 @@ const blogs = [
     },
     {
         index:"3",
-        img:"",
+        img: img3,
         topic:"AI Weekly Series",
         title:"Decision Trees — Just the everyday things!",
         authors:{},
@@ -79,7 +89,7 @@ const blogs = [
     },
     {
         index:"2",
-        img:"",
+        img: img2,
         topic:"AI Weekly Series",
         title:"Naive Bayes Algorithm",
         authors:{},
@@ -90,7 +100,7 @@ const blogs = [
     },
     {
         index:"1",
-        img:"",
+        img: img1,
         topic:"AI Weekly Series",
         title:"How to win a data science hackathon",
         authors:{},

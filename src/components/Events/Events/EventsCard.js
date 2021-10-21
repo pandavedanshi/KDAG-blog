@@ -1,11 +1,14 @@
 import React from "react"
 import "./EventsCard.css"
+import Fade from "react-reveal/Fade";
 
 const EventsCard = ({ event }) => {
     return (
+        <div>
+            <Fade bottom>
         <div className="events-card">
             <div className="events-card-left">
-
+                <img src={event.image} alt="event-poster" />
             </div>
             <div className="events-card-right">
                 <div className="events-card-title">{event.title || "Event Title"}</div>
@@ -15,6 +18,8 @@ const EventsCard = ({ event }) => {
                     <div className="events-card-button"><div className="events-card-button2">Event Information</div><div className="events-card-button1"><i class="fa fa-link"></i></div></div>
                 </a>
             </div>
+        </div>
+            </Fade>
         </div>
     )
 }

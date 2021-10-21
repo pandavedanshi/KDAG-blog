@@ -1,10 +1,13 @@
 import React from "react";
 import "./ResourcesCard.css";
+import Fade from "react-reveal/Fade";
 // import dataAnalysis from "./../../../assets/pics/dataanlysis_nyc.png";
 
 const ResourcesCard = ({ resource }) => {
   return (
-    <div class="resources-list-card">
+    <div class="resources-list-card-wrapper">
+<Fade bottom>
+    <div className="resources-list-card">
 
       <div className="resources-list-card-left">
         <div className="resources-list-card-icon">
@@ -23,6 +26,8 @@ const ResourcesCard = ({ resource }) => {
         <a href={resource.link}><div className="resources-list-card-button">View Resource</div></a>
       </div>
 
+    </div>
+</Fade>
     </div>
   );
 };
