@@ -7,7 +7,7 @@ const BlogCard = ({ blog }) => {
   return (
     <a class="blog-list-card-link" href={blog?.link}>
     <Fade bottom>
-    <div class="blog-list-card">
+    <div className="blog-list-card">
       <div class="blog-list-card-image">
         <img src={blog?.img || dataAnalysis} alt="" />
       </div>
