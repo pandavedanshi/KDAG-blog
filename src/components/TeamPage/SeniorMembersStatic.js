@@ -3,6 +3,14 @@ import naruto  from "../../assets/pics/naruto.jpg";
 const members = [
     {
         image: naruto,
+        name: "Aalok Agrawal",
+        facebook: "www.facebook.com",
+        twitter: "www.twitter.com",
+        linkedin: "https://www.linkedin.com/in/aalok-agrawal-554225195/"
+
+    },
+    {
+        image: naruto,
         name: "Abhilash Sinha",
         // email: "abhilashxaviers@gmail.com",
         facebook: "www.facebook.com",
@@ -44,6 +52,25 @@ const members = [
         linkedin: "https://www.linkedin.com/in/chinmay-jain-a833aa193"
 
     },
+    {
+        image: naruto,
+        name: "Dhruv Shah",
+        email: "yash@gmail.com",
+        facebook: "www.facebook.com",
+        twitter: "www.twitter.com",
+        linkedin: "https://www.linkedin.com/in/dhruv-1201/"
+
+    },
+    {
+        image: naruto,
+        name: "Divyangna Sharma",
+        email: "yash@gmail.com",
+        facebook: "www.facebook.com",
+        twitter: "www.twitter.com",
+        linkedin: "https://www.linkedin.com/in/divyangna-sharma-5354291b5"
+
+    },
+    
     {
         image: naruto,
         name: "Hari G",
