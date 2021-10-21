@@ -1,5 +1,3 @@
-import naruto  from "../../assets/pics/naruto.jpg";
-
 const members = [
     {
         image: "https://drive.google.com/uc?id=1Ms0k34H_oaFOh5upGdyegZg1Vy3jArAe",
