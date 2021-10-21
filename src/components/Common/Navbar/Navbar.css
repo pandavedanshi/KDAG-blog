@@ -32,11 +32,14 @@
 }
 
 .nav-logo {
-  margin: 1rem 2rem 0 0;
+  margin: 0.5rem 2rem 0 0;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
   color: #dc2626; /* TODO: remove later */
   font-size: 2rem;
+  height: 100%;
+  padding-bottom: 0.5rem;
 }
 
 .nav-logo img {
@@ -44,10 +47,23 @@
   height: 2.5rem;
 }
 
+.navbar-kdag {
+  width: 20rem;
+  font-size: 1rem;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  margin-left: 1rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.95)
+}
+
 /* TODO: remove later */
 .nav-logo a {
   text-decoration: none;
   color: white;
+  display: flex;
+  align-items: center;
 }
 
 .nav-item {

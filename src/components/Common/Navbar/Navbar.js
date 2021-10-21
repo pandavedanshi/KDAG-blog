@@ -22,7 +22,7 @@ const Navbar = ({color}) => {
       <div className="nav">
         <div className="nav-contain">
           <div className="nav-logo">
-            <Link to="/"><img src={logo} alt="LOGO" /></Link>
+            <Link to="/"><img src={logo} alt="LOGO" /><div className="navbar-kdag">KHARAGPUR DATA ANALYTICS GROUP</div></Link>
           </div>
           <div className="nav-items">
             <div className="nav-item">
