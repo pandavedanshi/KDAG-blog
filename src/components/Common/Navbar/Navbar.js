@@ -4,7 +4,7 @@ import logo from "./../../../assets/pics/KDAG_logo.png";
 
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({color}) => {
   useEffect(() => {
     const navColor = (e) => {
       let nav = document.getElementsByClassName("nav")[0];

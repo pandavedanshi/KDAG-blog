@@ -16,7 +16,7 @@
   justify-content: space-between;
   width: 95%;
   margin: auto;
-  border-bottom: 2px solid #2a407c;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 10;
   align-items: center;
@@ -28,6 +28,7 @@
   justify-content: space-between;
   max-width: 40rem;
   align-items: center;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .nav-logo {
@@ -51,12 +52,11 @@
 
 .nav-item {
   font-size: 1.2rem;
-  color: #8794ba;
   margin: 1rem 0;
 }
 
 .nav-item a {
-  color: #8794ba;
+  color: inherit;
   text-decoration: none;
 }
 
