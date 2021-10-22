@@ -1,0 +1,91 @@
+.events-card {
+    display: flex;
+    width: 90%;
+    margin: 3rem auto;
+    box-shadow: 1px 1px 10px 4px #777;
+    max-width: 70rem;
+    transition: transform .2s ease;
+}
+
+.events-card:hover {
+    transform: scale(1.02);
+}
+
+.events-card-left {
+    width: 40%;
+    background-color: rgba(78, 62, 255, 0.5);
+}
+
+.events-card-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.events-card-right {
+    width: 60%;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.events-card-title {
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.events-card-location {
+    margin-top: 1rem;
+    color: #777;
+}
+
+.events-card-date {
+    color: #777;
+    margin-top: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.events-card a {
+    text-decoration: none;
+}
+
+.events-card-button {
+    width: 60%;
+    margin: auto;
+    background-color: #4E3EFF;
+    color: white;
+    /* position: relative; */
+    display: flex;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
+    min-width: 20rem;
+}
+
+.events-card-button2 {
+    display: inline-block;
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.events-card-button1 {
+    display: inline-block;
+    /* position: absolute;
+    right: 0;
+    top: 0; */
+    padding: 1rem;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width:900px) {
+    .events-card {
+        display: block;
+        max-width: 30rem;
+    }
+
+    .events-card-left {
+        width: 100%;
+        height: 20rem;
+    }
+
+    .events-card-right {
+        width: 100%;
+    }
+}
