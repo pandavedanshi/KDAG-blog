@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./Navbar.css";
-import logo from "./../../../assets/pics/KDAG_logo.png";
+import logo from "./../../../assets/pics/KDAG_logo.jpeg";
 
 import { Link, NavLink } from "react-router-dom";
 

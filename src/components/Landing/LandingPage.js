@@ -5,7 +5,7 @@ import "./LandingPage.css";
 import Navbar from "./../Common/Navbar/Navbar.js";
 import Header from "./Header/Header.js";
 import Content from "./Content/Content.js";
-import logo from "../../assets/pics/KDAG_logo_full.png";
+import logo from "../../assets/pics/KDAG_logo_full.jpeg";
 import Fade from "react-reveal/Fade";
 // import Contact from "./Contact/Contact";
 

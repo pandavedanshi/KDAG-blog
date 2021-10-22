@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './Footer.css';
-import logo from "../../../assets/pics/KDAG_logo.png"
+import logo from "../../../assets/pics/KDAG_logo.jpeg"
 // import 'semantic-ui-css/semantic.min.css';
 
 const Footer = () => {
@@ -21,7 +21,7 @@ const Footer = () => {
                     <div class="four wide column">
                         <h4 class="ui inverted header">Contact Us</h4>
                         <div class="ui inverted link list">
-                            <a href="https://www.facebook.com/kgpdag" class="item">Facebook</a>
+                            <a target="_blank" rel="noreferrer noopener" href="https://www.facebook.com/kgpdag" class="item">Facebook</a>
                             <a href="mailto:kdagiitkgp@gmail.com" class="item">kdagiitkgp@gmail.com</a>
                         </div>
                     </div>
