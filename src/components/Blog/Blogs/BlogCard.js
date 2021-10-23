@@ -5,7 +5,7 @@ import Fade from "react-reveal/Fade";
 
 const BlogCard = ({ blog }) => {
   return (
-    <a class="blog-list-card-link" href={blog?.link}>
+    <a class="blog-list-card-link" href={blog?.link} target="_blank" rel="noreferrer noopener">
     <Fade bottom>
     <div className="blog-list-card">
       <div class="blog-list-card-image">

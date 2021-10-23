@@ -30,7 +30,7 @@ const TeamCardSM = ({member}) => {
                  <a href={member?.twitter || "#"}><i class="fab fa-twitter"></i></a>
                </div> */}
                <div class="member-social-icon-icon-SM">
-                 <a href={member?.linkedin || "#"}><i class="fab fa-linkedin"></i></a>
+                 <a href={member?.linkedin || "#"} target="_blank" rel="noreferrer noopener"><i class="fab fa-linkedin"></i></a>
                </div>
             </div>
         </div>

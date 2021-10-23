@@ -23,7 +23,7 @@ const ResourcesCard = ({ resource }) => {
         <div className="resources-list-card-title">{resource.name}</div>
         <div className="resources-list-card-subtitle">{resource.subtitle}</div>
         <div className="resources-list-card-description">{resource.description}</div>
-        <a href={resource.link}><div className="resources-list-card-button">View Resource</div></a>
+        <a href={resource.link} target="_blank" rel="noreferrer noopener"><div className="resources-list-card-button">View Resource</div></a>
       </div>
 
     </div>
