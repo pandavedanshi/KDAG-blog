@@ -8,6 +8,47 @@
   padding-top: 2rem;
 }
 
+.about-kdag-wrapper {
+  border-bottom: 3px solid #172755;
+  width: 90%;
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+}
+
+.heading-about-kdag {
+  color: #172755;
+  margin: 1rem auto;
+}
+
+.rule-about-kdag {
+  border: 0.2rem solid #dc2626;
+  margin-bottom: 1rem;
+  background-color: #dc2626;
+}
+
+.about-kdag {
+  font-size: 1.5rem;
+  width: 90%;
+  max-width: 70rem;
+  font-family: "Poppins", sans-serif;
+  color: #6b6f7d;
+  margin: auto;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.about-kdag-image {
+  width: 100%;
+  margin-right: 2rem;
+}
+
+.about-kdag-image img {
+  width: 100%;
+  border-radius: 5%;
+  box-shadow: 10px 10px 30px 0 rgba(0, 0, 0, 0.3);
+}
+
 .section-contents {
   margin-top: 20rem;
 }
@@ -69,5 +110,13 @@
 @media screen and (max-width: 800px) {
   .Hackathon-button-button {
     font-size: 1.3rem;
+  }
+
+  .about-kdag-image {
+    display: none;
+  }
+
+  .about-kdag {
+    text-align: center;
   }
 }

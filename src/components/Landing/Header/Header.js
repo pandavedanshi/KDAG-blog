@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import logoRed from "./../../../assets/pics/KDAG_logo.png";
+import logoRed from "./../../../assets/pics/KDAG_logo.jpeg";
 import logoBlue from "./../../../assets/svgs/logo-blue.svg";
 import headerGraphics from "./../../../assets/pics/main-screen.png";
 import logoTrans1 from "./../../../assets/svgs/logo-trans-1.svg";

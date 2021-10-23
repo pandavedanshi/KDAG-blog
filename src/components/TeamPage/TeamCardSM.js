@@ -1,9 +1,12 @@
 import React from "react";
+import Fade from "react-reveal/Fade";
 import "./TeamCardSM.css";
 
 const TeamCardSM = ({member}) => {
     return (
-        <div class="member-card-SM">
+      <div class="member-card-wrapper-SM">
+      <Fade bottom>
+        <div className="member-card-SM">
             <div class="member-card-section-0-SM">
             <div class="member-profile-image-SM">
               <img src={member?.image} alt="John" />
@@ -27,11 +30,13 @@ const TeamCardSM = ({member}) => {
                  <a href={member?.twitter || "#"}><i class="fab fa-twitter"></i></a>
                </div> */}
                <div class="member-social-icon-icon-SM">
-                 <a href={member?.linkedin || "#"}><i class="fab fa-linkedin"></i></a>
+                 <a href={member?.linkedin || "#"} target="_blank" rel="noreferrer noopener"><i class="fab fa-linkedin"></i></a>
                </div>
             </div>
         </div>
         </div>
+      </Fade>
+      </div>
     )
 }
 

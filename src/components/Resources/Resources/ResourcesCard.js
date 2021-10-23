@@ -1,11 +1,14 @@
 import React from "react";
 import "./ResourcesCard.css";
+import Fade from "react-reveal/Fade";
 // import dataAnalysis from "./../../../assets/pics/dataanlysis_nyc.png";
 
 const ResourcesCard = ({ resource }) => {
   return (
-    <div class="resources-list-card">
-
+    <div class="resources-list-card-wrapper">
+<Fade bottom>
+    <div className="resources-list-card">
+      <div className="resources-list-card-contain">
       <div className="resources-list-card-left">
         <div className="resources-list-card-icon">
         <svg width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,10 +22,15 @@ const ResourcesCard = ({ resource }) => {
       <div className="resources-list-card-right">
         <div className="resources-list-card-title">{resource.name}</div>
         <div className="resources-list-card-subtitle">{resource.subtitle}</div>
-        <div className="resources-list-card-description">{resource.description}</div>
-        <a href={resource.link}><div className="resources-list-card-button">View Resource</div></a>
+        
       </div>
+      </div>
+      <div className="resources-list-card-description">{resource.description}</div>
+      <a href={resource.link} target="_blank" rel="noreferrer noopener"><div className="resources-list-card-button">View Resource</div></a>
+    
+    </div>
 
+</Fade>
     </div>
   );
 };

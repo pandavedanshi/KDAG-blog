@@ -35,22 +35,41 @@
 }
 
 .nav-logo {
-  margin: 1rem 2rem 0 0;
+  margin: 0.5rem 2rem 0 0;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
   color: #dc2626; /* TODO: remove later */
   font-size: 2rem;
+  height: 100%;
+  padding-bottom: 0.5rem;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
 }
 
 .nav-logo img {
   width: 2.5rem;
   height: 2.5rem;
+  border-radius: 5%;
+  box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.9);
+}
+
+.navbar-kdag {
+  width: 20rem;
+  font-size: 1rem;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  margin-left: 0.5rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.95)
 }
 
 /* TODO: remove later */
 .nav-logo a {
   text-decoration: none;
   color: white;
+  display: flex;
+  align-items: center;
 }
 
 .nav-item {
