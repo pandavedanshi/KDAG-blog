@@ -37,7 +37,7 @@ const members = [
 
     {
         image: naruto,
-        name: "Yash Agarwal",
+        name: "Yash Agrawal",
         email: "yash@gmail.com",
         facebook: "https://www.facebook.com/yash.agrawal.754570/",
         twitter: "www.twitter.com",

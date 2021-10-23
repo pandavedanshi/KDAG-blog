@@ -20,7 +20,7 @@ const LandingPage = () => {
       {/* content section  */}
       <section className="section-contents">
         <div className="Hackathon-button">
-          <a href="/" className="Hackathon-button-button">Register for our upcoming Hackathon</a>
+          <div className="Hackathon-button-button">Data Science Hackathon Coming Soon...</div>
         </div>
         <Content />
       </section>
