@@ -5,6 +5,7 @@ import logo from "../../../assets/pics/KDAG_logo.jpeg";
 import facebookIcon from "../../../assets/pics/facebook.png"
 import gmailIcon from "../../../assets/pics/gmail.png"
 import linkedinIcon from "../../../assets/pics/linkedin.png"
+import instagramIcon from "../../../assets/pics/instagram.png"
 // import 'semantic-ui-css/semantic.min.css';
 
 const Footer = () => {
@@ -26,6 +27,7 @@ const Footer = () => {
                         <div class="ui horizontal inverted small divided link list">
                             <a target="_blank" rel="noreferrer noopener" href="https://www.facebook.com/kgpdag" class="item"><img src={facebookIcon} alt="Facebook" /></a>
                             <a target="_blank" rel="noreferrer noopener" href="https://www.linkedin.com/company/kdag/" class="item"><img src={linkedinIcon} alt="Linkedin" /></a>
+                            <a target="_blank" rel="noreferrer noopener" href="https://www.instagram.com/kdag.iitkgp/" class="item"><img src={instagramIcon} alt="Instagram" /></a>
                             <a href="mailto:kdagiitkgp@gmail.com" class="item"><img src={gmailIcon} alt="Mail" /></a>
                         </div>
                     </div>
