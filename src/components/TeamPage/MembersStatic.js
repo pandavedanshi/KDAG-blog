@@ -34,8 +34,8 @@ const members = [
     },
 
     {
+        name: "Yash Agrawal",
         image: "https://drive.google.com/uc?id=1deTFsabpQC4wDE4PAAiQQrL54snX5hqm",
-        name: "Yash Agarwal",
         email: "yash@gmail.com",
         facebook: "https://www.facebook.com/yash.agrawal.754570/",
         twitter: "www.twitter.com",

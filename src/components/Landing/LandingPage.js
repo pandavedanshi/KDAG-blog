@@ -23,7 +23,7 @@ const LandingPage = () => {
       <section className="section-contents">
         <Fade bottom>
         <div className="Hackathon-button">
-          <a href="/" target="_blank" rel="noreferrer noopener" className="Hackathon-button-button">Register for our upcoming Hackathon</a>
+          <div className="Hackathon-button-button">Data Science Hackathon Coming Soon...</div>
         </div>
         </Fade>
 

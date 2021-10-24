@@ -30,6 +30,9 @@
   align-items: center;
   color: rgba(255, 255, 255, 0.4);
 }
+.nav-item:hover{
+  opacity:0.5;
+}
 
 .nav-logo {
   margin: 0.5rem 2rem 0 0;
