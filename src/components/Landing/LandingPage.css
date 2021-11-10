@@ -73,22 +73,98 @@
 
 .Hackathon-button-button {
   padding:  1rem 3rem;
-  background-color: #eaffff;
+  background-color: #dc2626;
   font-size: 2rem;
   border-radius: 10px;
-  color: #232e7d;
+  color: white;
   text-decoration: none;
-  /* transition: all .3s ease; */
+  transition: all .3s ease;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
   font-family: "Poppins", sans-serif;
 }
 
-/* .Hackathon-button-button:hover {
+.Hackathon-button-button:hover {
   transform: scale(1.02);
   background-color: #ed3737;
   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.5);
-} */
+}
 
+
+.modal-box{
+  top: 100px;
+  /* height: 530px; */
+  max-width: 760px;
+  width:90%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: linen;
+  z-index: 100;
+  border-radius: 7px;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.9);
+}
+
+.modal-box img{
+  width: 100%;
+  border-radius: 0;
+}
+
+.modal-box label{
+  color: #dc2626;
+  font-size: 1.2em;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.modal-box label:hover{
+  cursor: pointer;
+}
+.modal-background{
+  background-color: white;
+  opacity: 0.8;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+.modal-content{
+  padding: 0 20px;
+}
+.modal-content p{
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  color: #444;
+  margin-top: 0.7rem;
+}
+
+
+.modal-registration{
+  margin: 1rem 0;
+}
+.modal-register-btn{
+  font-size: 1.1em;
+  color: white;
+  width: 90%;
+  /* border-radius: 30px; */
+  background-color: #dc2626;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: auto;
+  transition: all .2s;
+}
+
+.modal-register-btn:hover {
+  background-color: #ed3737;
+  
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 @media screen and (max-width: 1200px) {
   .section-landing-header {
