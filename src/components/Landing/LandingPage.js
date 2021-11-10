@@ -6,6 +6,7 @@ import Navbar from "./../Common/Navbar/Navbar.js";
 import Header from "./Header/Header.js";
 import Content from "./Content/Content.js";
 import logo from "../../assets/pics/KDAG_logo_full.jpeg";
+import hack_poster from "../../assets/pics/HACKPoster.png"; 
 import Fade from "react-reveal/Fade";
 // import Contact from "./Contact/Contact";
 
@@ -20,7 +21,7 @@ const LandingPage = () => {
     })
 
     window.onclick = function(event) {
-        if (event.target != modal) {
+        if (event.target !== modal) {
           modal.style.display = "none";
           // modalClick.style.display='none';
         }
@@ -35,7 +36,7 @@ const LandingPage = () => {
         <br />
       </div> */}
       <div id="modal-box" class="modal-box">
-          <img src="image/pic1.png" alt="" />
+          <img src={hack_poster} alt="" />
           <label for="modal-click" id="modal-close" class="fas fa-times">
               
           </label>
@@ -48,13 +49,13 @@ const LandingPage = () => {
           </div>
 
           <div class="modal-registration">
-              <a href="http://tinyurl.com/kdshreg">
-                  <button class="modal-register-btn">
+              <a href="http://tinyurl.com/kdshreg" target="_blank" rel="noreferrer noopener">
+                  <div class="modal-register-btn">
                       <span>
-                          Registration
+                        Register for Kharagpur Data Science Hackathon
                       </span>
       
-                  </button>
+                  </div>
               </a>
             
           </div>
@@ -71,7 +72,7 @@ const LandingPage = () => {
       <section className="section-contents">
         <Fade bottom>
         <div className="Hackathon-button">
-          <div className="Hackathon-button-button"><a href="">Register for Data Science Hackathon</a></div>
+          <div className="Hackathon-button-button"><a href="http://tinyurl.com/kdshreg" target="_blank" rel="noreferrer noopener">Register for Kharagpur Data Science Hackathon</a></div>
         </div>
         </Fade>
 
