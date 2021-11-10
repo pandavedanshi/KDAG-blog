@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./LandingPage.css";
 
 //Components
@@ -10,9 +10,57 @@ import Fade from "react-reveal/Fade";
 // import Contact from "./Contact/Contact";
 
 const LandingPage = () => {
+  useEffect(() => {
+    var modal=document.getElementById('modal-box');
+    // var modalClick=document.getElementById('modal-click');
+
+    document.getElementById('modal-close').addEventListener('click',function(e){
+        modal.style.display='none';
+        // modalClick.style.display='none';
+    })
+
+    window.onclick = function(event) {
+        if (event.target != modal) {
+          modal.style.display = "none";
+          // modalClick.style.display='none';
+        }
+    }
+  }, [])
+
   return (
     <>
       <Navbar />
+
+      {/* <div id="modal-click" className="modal-background">
+        <br />
+      </div> */}
+      <div id="modal-box" class="modal-box">
+          <img src="image/pic1.png" alt="" />
+          <label for="modal-click" id="modal-close" class="fas fa-times">
+              
+          </label>
+      
+
+          <div class="modal-content">
+              <p>
+                  KDSH aims to foster innovative analytical thinking as well as data science skills in the participants through a real-world challenge.
+              </p>
+          </div>
+
+          <div class="modal-registration">
+              <a href="http://tinyurl.com/kdshreg">
+                  <button class="modal-register-btn">
+                      <span>
+                          Registration
+                      </span>
+      
+                  </button>
+              </a>
+            
+          </div>
+
+       
+      </div>
 
       {/* Header Section */}
       <section className="section-landing-header">
@@ -23,7 +71,7 @@ const LandingPage = () => {
       <section className="section-contents">
         <Fade bottom>
         <div className="Hackathon-button">
-          <div className="Hackathon-button-button">Data Science Hackathon Coming Soon...</div>
+          <div className="Hackathon-button-button"><a href="">Register for Data Science Hackathon</a></div>
         </div>
         </Fade>
 
