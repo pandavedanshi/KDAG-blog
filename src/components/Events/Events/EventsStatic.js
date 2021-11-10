@@ -1,13 +1,14 @@
 import KDSH2020 from "../../../assets/pics/events/KDSH2020.jpg";
 import SummerAI from "../../../assets/pics/events/SummerAIChallenge.jpg";
-import KDSH2021 from "../../../assets/pics/events/KDSH2021.png";
+import KDSH2021 from "../../../assets/pics/HACKPoster.png";
 
 const events = [
     {
         id: 1,
         title: "Kharagpur Data Science Hackathon 2021",
         location: "Dare2Compete",
-        link: "Coming Soon",
+        date: "Registration Deadline 20th Nov 2021",
+        link: "http://tinyurl.com/kdshreg",
         image: KDSH2021
     },
     {
