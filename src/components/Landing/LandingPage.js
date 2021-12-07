@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./LandingPage.css";
 
 //Components
@@ -6,27 +6,27 @@ import Navbar from "./../Common/Navbar/Navbar.js";
 import Header from "./Header/Header.js";
 import Content from "./Content/Content.js";
 import logo from "../../assets/pics/KDAG_logo_full.jpeg";
-import hack_poster from "../../assets/pics/HACKPoster.png"; 
+// import hack_poster from "../../assets/pics/HACKPoster.png"; 
 import Fade from "react-reveal/Fade";
 // import Contact from "./Contact/Contact";
 
 const LandingPage = () => {
-  useEffect(() => {
-    var modal=document.getElementById('modal-box');
-    // var modalClick=document.getElementById('modal-click');
+  // useEffect(() => {
+  //   var modal=document.getElementById('modal-box');
+  //   // var modalClick=document.getElementById('modal-click');
 
-    document.getElementById('modal-close').addEventListener('click',function(e){
-        modal.style.display='none';
-        // modalClick.style.display='none';
-    })
+  //   document.getElementById('modal-close').addEventListener('click',function(e){
+  //       modal.style.display='none';
+  //       // modalClick.style.display='none';
+  //   })
 
-    window.onclick = function(event) {
-        if (event.target !== modal) {
-          modal.style.display = "none";
-          // modalClick.style.display='none';
-        }
-    }
-  }, [])
+  //   window.onclick = function(event) {
+  //       if (event.target !== modal) {
+  //         modal.style.display = "none";
+  //         // modalClick.style.display='none';
+  //       }
+  //   }
+  // }, [])
 
   return (
     <>
@@ -35,7 +35,7 @@ const LandingPage = () => {
       {/* <div id="modal-click" className="modal-background">
         <br />
       </div> */}
-      <div id="modal-box" class="modal-box">
+      {/* <div id="modal-box" class="modal-box">
           <img src={hack_poster} alt="" />
           <label for="modal-click" id="modal-close" class="fas fa-times">
               
@@ -61,7 +61,7 @@ const LandingPage = () => {
           </div>
 
        
-      </div>
+      </div> */}
 
       {/* Header Section */}
       <section className="section-landing-header">
@@ -70,11 +70,11 @@ const LandingPage = () => {
 
       {/* content section  */}
       <section className="section-contents">
-        <Fade bottom>
+        {/* <Fade bottom>
         <div className="Hackathon-button">
           <div className="Hackathon-button-button"><a href="http://tinyurl.com/kdshreg" target="_blank" rel="noreferrer noopener">Register for Kharagpur Data Science Hackathon</a></div>
         </div>
-        </Fade>
+        </Fade> */}
 
 
         <div className="about-kdag-wrapper">
