@@ -1,4 +1,5 @@
 import intro from "../../../assets/pics/blogs/week 4-1 Data preprocessing.JPG"
+import img9 from "../../../assets/pics/blogs/baggingandrandomforests.png"
 import img8 from "../../../assets/pics/blogs/week 1 Linear regression.jpg"
 import img7 from "../../../assets/pics/blogs/week 2 Logistic regression.JPG"
 import img6 from "../../../assets/pics/blogs/week 3-1 KNN.JPG"
@@ -108,7 +109,18 @@ const blogs = [
         tag:["AI", "data science", "hackathons", "winning", "teamwork"],
         link:"https://kdagiit.medium.com/how-to-win-a-data-science-hackathon-702bacbe8d16",
         date:"8 Oct, 2021"
-    }
+    },
+    {
+        index:"10",
+        img: img9,
+        topic:"AI Weekly Series",
+        title:"Bagging and Random Forests: Reducing Bias and variance using Randomness",
+        authors:{},
+        description:"It is better to be approximately right than precisely wrong. After getting a glimpse of various ML algorithms like decision trees and K-nearest neighbors, let’s address the main issue in these algorithms ‘Overfitting'",
+        tag:["Data Science", "Machine Learning", "Artificial Intelligence", "Random Forest", "Ensemble Learning"],
+        link:"https://kdagiit.medium.com/bagging-and-random-forests-reducing-bias-and-variance-using-randomness-8d516214fe7f",
+        date:"4 Dec,2021"
+    },
 
 ];
 
