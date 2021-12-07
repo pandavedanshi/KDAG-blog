@@ -7,7 +7,7 @@ const events = [
         id: 1,
         title: "Kharagpur Data Science Hackathon 2021",
         location: "Dare2Compete",
-        date: "Registration Deadline 20th Nov 2021",
+        date: "20th Nov 2021 - 7th Dec 2021",
         link: "http://tinyurl.com/kdshreg",
         image: KDSH2021
     },
