@@ -7,8 +7,10 @@ const EventsCard = ({ event }) => {
         <div>
             <Fade bottom>
         <div className="events-card">
-            <div className="events-card-left">
-                <img src={event.image} alt="event-poster" />
+            <div className="events-card-left" 
+            style={{backgroundImage: `url(${event.image})`}}
+            >
+                {/* <img src={event.image} alt="event-poster" /> */}
             </div>
             <div className="events-card-right">
                 <div className="events-card-title">{event.title || "Event Title"}</div>
@@ -17,7 +19,7 @@ const EventsCard = ({ event }) => {
                 {/* {event.link==="Coming Soon" ? 
                     <div className="events-card-button"><div className="events-card-button2">Coming Soon</div></div> :  */}
                     <a href={event.link || "#"} target="_blank" rel="noreferrer noopener">
-                        <div className="events-card-button"><div className="events-card-button2">Event Information</div><div className="events-card-button1"><i class="fa fa-link"></i></div></div>
+                        <div className="events-card-button"><div className="events-card-button2">{event.infotext ? event.infotext : "Event Information"}</div><div className="events-card-button1"><i class="fa fa-link"></i></div></div>
                     </a>
                 
             </div>
