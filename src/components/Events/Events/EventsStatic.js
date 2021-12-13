@@ -8,7 +8,7 @@ const events = [
         id: 0,
         title: "Winter Workshop 2021",
         location: "MS Teams",
-        date: "Starting 15th Dec 2021",
+        date: "Starting 16th Dec 2021",
         link: "https://tinyurl.com/winterworkshopreg",
         image: WW21,
         infotext: "Register Now"
