@@ -1,8 +1,18 @@
 import KDSH2020 from "../../../assets/pics/events/KDSH2020.jpg";
 import SummerAI from "../../../assets/pics/events/SummerAIChallenge.jpg";
 import KDSH2021 from "../../../assets/pics/HACKPoster.png";
+import WW21 from "../../../assets/pics/WW21.png";
 
 const events = [
+    {
+        id: 0,
+        title: "Winter Workshop 2021",
+        location: "MS Teams",
+        date: "Starting 15th Dec 2021",
+        link: "https://tinyurl.com/winterworkshopreg",
+        image: WW21,
+        infotext: "Register Now"
+    },
     {
         id: 1,
         title: "Kharagpur Data Science Hackathon 2021",
