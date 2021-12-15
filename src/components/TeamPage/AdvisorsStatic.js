@@ -21,7 +21,7 @@ const members = [
         linkedin: "https://www.linkedin.com/mwlite/in/onkar-sabnis-883094170"
     },
     {
-        image: "https://drive.google.com/uc?id=19IwDYB0YmzUfF9HpTvAkiJD29RGcdEvr",
+        image: "https://sibasmarak.github.io/images/siba-dark-light-bg.jpeg",
         name: "Siba Smarak Panigrahi",
         facebook: "www.facebook.com",
         twitter: "www.twitter.com",
