@@ -7,6 +7,7 @@ import ResourcesPage from "../components/Resources/ResourcesPage";
 import EventsPage from "../components/Events/EventsPage";
 import TeamPage from "../components/TeamPage/TeamPage";
 import ScrollToTop from "../components/Common/ScrollToTop/ScrollToTop.js";
+import WinterWorkshop from "../components/WinterWorkshop/WinterWorkshop";
 
 import Footer from "../components/Common/Footer/Footer";
 
@@ -30,6 +31,9 @@ const AppRouter = () => {
           </Route>
           <Route path="/team">
             <TeamPage />
+          </Route>
+          <Route path="/winter-workshop">
+            <WinterWorkshop />
           </Route>
         </Switch>
         </ScrollToTop>
