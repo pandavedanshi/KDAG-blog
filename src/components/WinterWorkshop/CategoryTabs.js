@@ -2,7 +2,7 @@ import React from "react";
 import { Tabs } from "antd";
 
 import Topics from "./Topics";
-import CategoryTab from "./CategoryTab";
+// import CategoryTab from "./CategoryTab";
 
 const { TabPane } = Tabs;
 
@@ -17,7 +17,7 @@ const CategoryTabs = (props) => {
       <Tabs defaultActiveKey="1">
         {props.category.map((e) => (
           <TabPane tab={e.title} key={e.tab}>
-            <CategoryTab category={e} />
+            {/* <CategoryTab category={e} /> */}
           </TabPane>
         ))}
       </Tabs>

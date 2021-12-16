@@ -1,5 +1,5 @@
 import React from "react";
-import "./Topics.css";
+// import "./Topics.css";
 import recording from "../../assets/pics/winterworkshop/recording.svg";
 
 function Card(props) {
