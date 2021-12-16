@@ -12,7 +12,7 @@ const active_style = {
 const Navbar = ({color}) => {
   useEffect(() => {
     const navColor = (e) => {
-      let nav = document.getElementsByClassName("nav")[0];
+      let nav = document.getElementsByClassName("kdag-nav")[0];
       nav.classList.toggle("scrolled", window.scrollY > 0);
     };
     navColor();
@@ -23,26 +23,26 @@ const Navbar = ({color}) => {
   }, []);
 
   return (
-    <div className="nav-container">
-      <div className="nav">
-        <div className="nav-contain">
-          <div className="nav-logo">
-            <Link to="/"><img src={logo} alt="LOGO" /><div className="navbar-kdag">KHARAGPUR DATA ANALYTICS GROUP</div></Link>
+    <div className="kdag-nav-container">
+      <div className="kdag-nav">
+        <div className="kdag-nav-contain">
+          <div className="kdag-nav-logo">
+            <Link to="/"><img src={logo} alt="LOGO" /><div className="kdag-navbar-kdag">KHARAGPUR DATA ANALYTICS GROUP</div></Link>
           </div>
-          <div className="nav-items">
-            <div className="nav-item">
+          <div className="kdag-nav-items">
+            <div className="kdag-nav-item">
               <NavLink activeStyle={active_style} to="/events">Events</NavLink>
             </div>
-            <div className="nav-item">
+            <div className="kdag-nav-item">
               <NavLink activeStyle={active_style} to="/resources">Resources</NavLink>
             </div>
-            <div className="nav-item">
+            <div className="kdag-nav-item">
               <NavLink activeStyle={active_style} to="/blogs">Blog</NavLink>
             </div>
-            <div className="nav-item">
+            <div className="kdag-nav-item">
               <NavLink activeStyle={active_style} to="/team">Team</NavLink>
             </div>
-            {/* <div className="nav-item">
+            {/* <div className="kdag-nav-item">
               <Link to="#">Go Down</Link>
             </div> */}
           </div>

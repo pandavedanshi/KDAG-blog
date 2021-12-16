@@ -7,6 +7,7 @@ import ResourcesPage from "../components/Resources/ResourcesPage";
 import EventsPage from "../components/Events/EventsPage";
 import TeamPage from "../components/TeamPage/TeamPage";
 import ScrollToTop from "../components/Common/ScrollToTop/ScrollToTop.js";
+import WinterWorkshop from "../components/WinterWorkshop/WinterWorkshop";
 
 import Footer from "../components/Common/Footer/Footer";
 import WinterWorkshop from "../components/WinterWorkshop/WinterWorkshop";

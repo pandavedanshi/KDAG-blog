@@ -1,23 +1,25 @@
 import React from "react";
 import { Tabs } from "antd";
 
-import Topics from "./Topics";
-// import CategoryTab from "./CategoryTab";
+import CategoryTab from "./CategoryTab";
 
 const { TabPane } = Tabs;
 
-const categoryToComponentMap = {
-  "Topics": Topics,
-
+const TabButton = (props) => {
+  return (
+    <div className="winter-workshop-category-tab">
+      {props.title}
+    </div>
+  )
 }
 
 const CategoryTabs = (props) => {
   return (
     <div>
-      <Tabs defaultActiveKey="1">
+      <Tabs defaultActiveKey="1" size="large">
         {props.category.map((e) => (
-          <TabPane tab={e.title} key={e.tab}>
-            {/* <CategoryTab category={e} /> */}
+          <TabPane tab={<TabButton title={e.title} />} key={e.tab}>
+            <CategoryTab category={e} />
           </TabPane>
         ))}
       </Tabs>

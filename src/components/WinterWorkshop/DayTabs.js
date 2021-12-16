@@ -1,6 +1,6 @@
 import React from "react";
-import workshopbanner from "../../assets/pics/winterworkshop/winterworkshop.svg";
 import { Tabs } from "antd";
+import snowflake from "../../assets/pics/winterworkshop/snow1black.svg"
 
 import CategoryTabs from "./CategoryTabs";
 
@@ -9,9 +9,11 @@ const { TabPane } = Tabs;
 const DayTabs = (props) => {
   return (
     <div>
-      <Tabs defaultActiveKey="1" tabPosition="left">
+      <Tabs defaultActiveKey="1" tabPosition="left" size="large">
         {props.days.map((e) => (
-          <TabPane tab={e.day} key={e.id}>
+          <TabPane tab={<div>
+            <img src={snowflake} width={15} alt="snowflake" /> {e.day}
+          </div>} key={e.id}>
             <CategoryTabs category={e.category} />
           </TabPane>
         ))}
