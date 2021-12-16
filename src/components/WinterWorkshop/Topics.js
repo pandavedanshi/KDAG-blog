@@ -34,7 +34,7 @@ function Card(props) {
 const Topics = (props) => {
   return (
     <div className="winter-workshop-main-container">
-      <div>
+      {/* <div>
         <div className="winter-workshop-main-head">
           <div className="winter-workshop-Topicrect"> </div>
           <span className="winter-workshop-topic">Topics Covered</span>
@@ -45,7 +45,7 @@ const Topics = (props) => {
         })}
         <Card topic1="#" topic2="#" topic3="#" topic4="#" recording="#" />
         <Card topic1="#" topic2="#" topic3="#" topic4="#" recording="#" />
-      </div>
+      </div> */}
     </div>
   );
 };

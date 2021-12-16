@@ -1,33 +1,26 @@
 import React from "react";
-
-import "./Resources.css"
-
-
-const { TabPane } = Tabs;
-
-
+import ResourcesCard from "./ResourcesCard";
 
 const Resources = (props) => {
   return (
-    <div>
-       <div className="main-container">
-      <div className="main-head-box">
-        <div className="main-head">
-          <div className="Topicrect"> </div>
-          <div className="topic">Resources</div>
-        </div>
-      </div>
-
-      <div className="blogs-head">
+    <div className="winter-workshop-resources">
+      <div className="winter-workshop-blogs-head">
         <span>Blogs</span>
-        <span className="see-all">See all</span>
-        <img src="\icons\arrow.svg" alt="" />
-       
       </div>
+      <div className="winter-workshop-container">
+        {props.blogs.map((e) => (
+          <ResourcesCard {...e} />
+        ))}
+      </div>
+      <div className="winter-workshop-blogs-head">
+        <span>Videos</span>
+      </div>
+      <div className="winter-workshop-container">
+        {props.videos.map((e) => (
+          <ResourcesCard {...e} />
+        ))}
       </div>
     </div>
-
-    
   );
 };
 

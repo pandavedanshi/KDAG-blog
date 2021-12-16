@@ -17,7 +17,7 @@ const CategoryTabs = (props) => {
       <Tabs defaultActiveKey="1">
         {props.category.map((e) => (
           <TabPane tab={e.title} key={e.tab}>
-            <CategoryTab category={props.category.title} />
+            <CategoryTab category={e} />
           </TabPane>
         ))}
       </Tabs>
