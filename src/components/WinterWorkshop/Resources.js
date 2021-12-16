@@ -9,7 +9,7 @@ const Resources = (props) => {
       </div>
       <div className="winter-workshop-container">
         {props.blogs.map((e) => (
-          <ResourcesCard {...e} />
+          <ResourcesCard {...e} color="#407BFFB2" />
         ))}
       </div>
       <div className="winter-workshop-blogs-head">
@@ -17,7 +17,7 @@ const Resources = (props) => {
       </div>
       <div className="winter-workshop-container">
         {props.videos.map((e) => (
-          <ResourcesCard {...e} />
+          <ResourcesCard {...e} color="#80B46EB2" />
         ))}
       </div>
     </div>

@@ -1,35 +1,34 @@
 import React from "react";
 // import "./Topics.css";
-import recording from "../../assets/pics/winterworkshop/recording.svg";
 
-function Card(props) {
-  return (
-    <div>
-      <div className="winter-workshop-content-container">
-        <div className="winter-workshop-session-head">Session {props.id}</div>
-        <div className="winter-workshop-session-subhead">
-          | {props.time}{" "}
-        </div>
+// function Card(props) {
+//   return (
+//     <div>
+//       <div className="winter-workshop-content-container">
+//         <div className="winter-workshop-session-head">Session {props.id}</div>
+//         <div className="winter-workshop-session-subhead">
+//           | {props.time}{" "}
+//         </div>
 
-        <div className="winter-workshop-record">
-          <img
-            className="winter-workshop-record-img"
-            src={props.recording}
-            href="{props.recording"
-          />
-          <span className="winter-workshop-record-text">Recording</span>
-        </div>
-        <div className="winter-workshop-topic-tabs">
-          <div className="winter-workshop-topics">
-            {props.topics.map((e) => {
-              <span className="winter-workshop-topic-links">{e}</span>
-            })}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+//         <div className="winter-workshop-record">
+//           <img
+//             className="winter-workshop-record-img"
+//             src={props.recording}
+//             href="{props.recording"
+//           />
+//           <span className="winter-workshop-record-text">Recording</span>
+//         </div>
+//         <div className="winter-workshop-topic-tabs">
+//           <div className="winter-workshop-topics">
+//             {props.topics.map((e) => {
+//               <span className="winter-workshop-topic-links">{e}</span>
+//             })}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 const Topics = (props) => {
   return (
