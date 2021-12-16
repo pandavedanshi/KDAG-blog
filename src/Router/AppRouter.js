@@ -9,6 +9,7 @@ import TeamPage from "../components/TeamPage/TeamPage";
 import ScrollToTop from "../components/Common/ScrollToTop/ScrollToTop.js";
 
 import Footer from "../components/Common/Footer/Footer";
+import WinterWorkshop from "../components/WinterWorkshop/WinterWorkshop";
 
 const AppRouter = () => {
   return (
@@ -30,6 +31,9 @@ const AppRouter = () => {
           </Route>
           <Route path="/team">
             <TeamPage />
+          </Route>
+          <Route path="/winter-workshop">
+            <WinterWorkshop />
           </Route>
         </Switch>
         </ScrollToTop>

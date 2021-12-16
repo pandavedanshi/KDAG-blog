@@ -1,4 +1,5 @@
 import "./App.css";
+import 'antd/dist/antd.css';
 import AppRouter from "./Router/AppRouter";
 
 function App() {
