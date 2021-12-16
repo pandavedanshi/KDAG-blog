@@ -10,6 +10,7 @@
 .winter-workshop-container {
   display: flex;
   /* justify-content: space-between; */
+  flex-wrap: wrap;
 }
 
 .winter-workshop-blog-box {
@@ -19,6 +20,7 @@
   margin: 1rem;
   color: white;
   box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.3);
+  width: 20rem;
 }
 
 .winter-workshop-blog-head-topic {

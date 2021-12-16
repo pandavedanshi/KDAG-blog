@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500");
+
+:root {
+  --black: #000000;
+  --gray: #4a4a4a;
+  --lightgray: #f4f4f4;
+  --blue: #407bff;
+  --white: #ffffff;
+}
+
+html {
+  font-size: 100%;
+}
+
+.winter-workshop-session-container {
+  width: 48rem;
+  height: auto;
+  margin-top: 3rem;
+}
+
+.winter-workshop-session-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 48rem;
+  height: 3rem;
+  margin: 4px 0px 6px 0px;
+}
+
+.winter-workshop-session-name {
+  width: 5.56rem;
+  height: 2rem;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: var(--black);
+}
+
+.winter-workshop-session-time {
+  margin-left: 0.5rem;
+  width: 11.4rem;
+  height: 1.5rem;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--gray);
+}
+
+.winter-workshop-session-recording {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11rem;
+  height: 3rem;
+  margin-right: 0px;
+  border-radius: 0.5rem;
+  background-color: var(--blue);
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+.recording-icon {
+  margin-right: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.winter-workshop-topic-container {
+  align-items: center;
+  background-color: var(--lightgray);
+  border-radius: 0.5rem;
+  display: flex;
+  height: 3.125rem;
+  min-width: 48rem;
+}
+
+.winter-workshop-topic-div {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.125rem;
+  margin-left: 1.125rem;
+  min-height: 1.75rem;
+  width: 40rem;
+}

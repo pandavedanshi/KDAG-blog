@@ -1,8 +1,11 @@
 import React from "react";
 import ResourcesCard from "./ResourcesCard";
+import TabHeading from "./TabHeading";
 
 const Resources = (props) => {
   return (
+    <>
+    <TabHeading title="Resources" />
     <div className="winter-workshop-resources">
       <div className="winter-workshop-blogs-head">
         <span>Blogs</span>
@@ -21,6 +24,7 @@ const Resources = (props) => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

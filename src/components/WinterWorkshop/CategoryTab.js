@@ -1,9 +1,9 @@
 import React from "react";
 
-import Topics from "./Topics";
-import Projects from "./Topics";
+import Topics from "./Topic";
+import Projects from "./Projects";
 import Resources from "./Resources";
-import Tasks from "./Topics";
+import Tasks from "./Tasks";
 
 const CategoryTab = (props) => {
   return (

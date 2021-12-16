@@ -1,0 +1,30 @@
+import React from "react";
+import TabHeading from "./TabHeading";
+
+const Tasks = (props) => {
+  return (
+    <div>
+    <TabHeading title="Tasks" />      
+      <div style={{marginTop: "1rem"}}>
+        {props.tasks.length > 0 ? props.tasks.map((e) => (
+          <p
+            style={{
+              fontSize: "1.2rem",
+              color: "#777",
+              padding: "1rem",
+              boxShadow: "1px 1px 10px 1px rgba(0, 0, 0, 0.2",
+              maxWidth: "30rem",
+              borderRadius: "10px",
+              marginLeft: "1rem",
+              marginBottom: "1rem"
+            }}
+          >
+            {e}
+          </p>
+        )) : "No Tasks"}
+      </div>
+    </div>
+  );
+};
+
+export default Tasks;

@@ -11,7 +11,8 @@ const events = [
         date: "Starting 16th Dec 2021",
         link: "https://tinyurl.com/winterworkshopreg",
         image: WW21,
-        infotext: "Register Now"
+        infotext: "Register Now",
+        resources: "/winter-workshop"
     },
     {
         id: 1,
