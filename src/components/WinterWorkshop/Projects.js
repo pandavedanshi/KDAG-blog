@@ -27,10 +27,10 @@ const Projects = (props) => {
             >
               <div style={{ fontWeight: "bold" }}>{e.heading}</div>
               <div>
-                <a style={{ margin: "1rem" }} href={e.githublink}>
+                <a style={{ margin: "1rem" }} href={e.githublink} target="_blank" rel="noopener noreferrer">
                   <i class="fab fa-github"></i>
                 </a>
-                <a href={e.githublink}>
+                <a href={e.githublink} target="_blank" rel="noopener noreferrer">
                   <i class="fab fa-google-drive"></i>
                 </a>
               </div>
