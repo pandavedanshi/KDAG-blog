@@ -226,7 +226,7 @@ const DataApi = [
   {
     id: 2,
     day: "Day 2",
-    status: false,
+    status: true,
     category: [
       {
         tab: 1,
@@ -234,10 +234,10 @@ const DataApi = [
         sessions: [
           {
             id: 1,
-            time: "10 Nov, 11:00am - 1:00pm",
-            recordinglink:
-              "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%200)_20211216_053908.mp4?web=1",
-            topics: ["Introduction", "Linear", "Logistic"],
+            time: "18 Dec, 11:00am - 1:00pm",
+            recordinglink: "https://drive.google.com/file/d/1ABqJPc4dg0B4Sg93oOCVEtHFnOyGNSWy/view?usp=sharing",
+            topics: ["Bayesian Classifier", "Decision Trees"],
+            presentation: "https://docs.google.com/presentation/d/1-uZkfUKSdblLttyRGWO-rCuEr16TOjfLQiq7AisW8GI/edit#slide=id.g10879f6aa51_0_215"
           },
         ],
       },
@@ -247,51 +247,51 @@ const DataApi = [
         title: "Resources",
         blogs: [
           {
-            topic: "Linear Regression",
-            heading: "KDAG AI Weekly Blog on Linear Regression",
-            link: "https://kdagiit.medium.com/linear-regression-ba3fe4ba38c0",
+            topic: "Decision Trees",
+            heading: "Datacamp Decision Trees",
+            link: "https://www.datacamp.com/community/tutorials/decision-tree-classification-python",
           },
           {
-            topic: "Logistic Regression",
-            heading: "KDAG AI Weekly Blog on Logistic Regression",
-            link: "https://kdagiit.medium.com/logistic-regression-60194ba582e8",
+            topic: "Decision Trees",
+            heading: "KDAG AI Weekly Blog on Decision Trees",
+            link: "https://kdagiit.medium.com/decision-trees-just-the-everyday-things-d41056e77ff2",
+          },
+          {
+            topic: "Bayesian Classifiers",
+            heading: "KDAG AI Weekly Blog on Bayesian Classifier",
+            link: "https://kdagiit.medium.com/naive-bayes-algorithm-4b8b990c7319",
           },
         ],
         videos: [
           {
-            topic: "Linear Regression",
+            topic: "Decision Trees",
             heading: "Stanford Machine Learning course",
-            link: "https://www.youtube.com/watch?v=4b4MUYve_U8&list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU&index=2&t=1867s",
+            link: "https://www.youtube.com/watch?v=wr9gUr-eWdA&list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU&index=10",
           },
           {
-            topic: "Linear Regression",
-            heading: "Krish Naik Machine Learning Playlist",
-            link: "https://www.youtube.com/watch?v=1-OGRohmH2s&list=PLZoTAELRMXVPBTrWtJkn3wWQxZkmTXGwe&index=34",
+            topic: "Decision Trees",
+            heading: "How to avoid overfitting",
+            link: "https://www.youtube.com/watch?v=SLOyyFHbiqo",
           },
           {
-            topic: "Linear Regression",
-            heading: "Krish Naik Machine Learning Playlist",
-            link: "https://www.youtube.com/watch?v=5rvnlZWzox8&list=PLZoTAELRMXVPBTrWtJkn3wWQxZkmTXGwe&index=37",
+            topic: "Bayesian Classifiers",
+            heading: "Naive Bayes Classifier in Python | Edureka",
+            link: "https://www.youtube.com/watch?v=vz_xuxYS2PM",
           },
           {
-            topic: "Logistic Regression",
-            heading: "Stanford Machine Learning course",
-            link: "https://www.youtube.com/watch?v=het9HFqo1TQ&list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU&index=3",
+            topic: "Bayesian Classifiers",
+            heading: "Estimating Probabilities from Data: Naive Bayes - Cornell CS4780",
+            link: "https://www.youtube.com/watch?v=pDHEX2usCS0",
           },
           {
-            topic: "Logistic Regression",
-            heading: "Krish Naik Machine Learning Playlist",
-            link: "https://www.youtube.com/watch?v=L_xBe7MbPwk&list=PLZoTAELRMXVPBTrWtJkn3wWQxZkmTXGwe&index=47",
+            topic: "Bayesian Classifiers",
+            heading: "Naive Bayes, Clearly Explained",
+            link: "https://youtu.be/O2L2Uv9pdDA",
           },
           {
-            topic: "Logistic Regression",
-            heading: "Krish Naik Machine Learning Playlist",
-            link: "https://www.youtube.com/watch?v=uFfsSgQgerw&list=PLZoTAELRMXVPBTrWtJkn3wWQxZkmTXGwe&index=48",
-          },
-          {
-            topic: "Logistic Regression",
-            heading: "Krish Naik Machine Learning Playlist",
-            link: "https://www.youtube.com/watch?v=V8fS0T_ktn4&list=PLZoTAELRMXVPBTrWtJkn3wWQxZkmTXGwe&index=49",
+            topic: "Bayesian Classifiers",
+            heading: "Gaussian Naive Bayes, Clearly Explained",
+            link: "https://youtu.be/H3EjCKtlVog",
           },
         ],
       },
@@ -301,33 +301,24 @@ const DataApi = [
         title: "Projects",
         projectlist: [
           {
-            heading: "Logistic Regression",
+            heading: "Bayesian Classifiers",
             githublink: "",
             drivelink:
-              "https://drive.google.com/drive/folders/1QCSw9TKCcw_Nsq43hGX_tEz917spPv1a",
+              "https://drive.google.com/drive/folders/1uUd3MbNyMkDoHHRf5oGAQ_y-zStWbd73?usp=sharing",
             description: "",
-          },
-          {
-            heading: "Linear Regression from scratch",
-            githublink: "",
-            drivelink:
-              "https://drive.google.com/drive/folders/1QCSw9TKCcw_Nsq43hGX_tEz917spPv1a",
-            description: "",
-          },
-          {
-            heading: "Linear Regression from normal equation",
-            githublink: "",
-            drivelink:
-              "https://drive.google.com/drive/folders/1QCSw9TKCcw_Nsq43hGX_tEz917spPv1a",
-            description: "",
-          },
+          }
         ],
       },
       {
         tab: 4,
         icon: "/icons/taskgray.svg",
         title: "Tasks",
-        tasks: [],
+        tasks: [
+            {
+              link: "https://forms.gle/EpNmniHDpjyDTPcTA",
+              name: "Bayesian",
+            },
+          ],
       },
     ],
   },
