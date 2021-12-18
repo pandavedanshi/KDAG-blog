@@ -131,14 +131,14 @@ const DataApi = [
           {
             id: 1,
             time: "17 Dec, 11:00am - 1:00pm",
-            recordinglink: "#",
+            recordinglink: "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%201)_20211217_054349.mp4?web=1",
             topics: ["KNN", "Nearest Mean Classification"],
             presentation: "https://docs.google.com/presentation/d/1T9mVY582yDRkzH_dF6Zg-9gbY2DmJ8Y0h2raLmxHhPc/edit#slide=id.g10860a216a7_0_63",
           },
           {
             id: 2,
             time: "17 Dec, 11:00am - 1:00pm",
-            recordinglink: "#",
+            recordinglink: "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%201)_20211217_054349.mp4?web=1",
             topics: ["SVM", "Kernels"],
             presentation: "https://docs.google.com/presentation/d/1q7lJCQGWcSaaFwGBEGYXesQZ4JsXoVsGEbaoNrz5gA8/edit?usp=sharing",
           }
