@@ -337,6 +337,7 @@ const DataApi = [
             recordinglink:
               "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%200)_20211216_053908.mp4?web=1",
             topics: ["Introduction", "Linear", "Logistic"],
+            presentation: ""
           },
         ],
       },
