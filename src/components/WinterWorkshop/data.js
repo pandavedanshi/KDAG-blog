@@ -119,6 +119,108 @@ const DataApi = [
       },
     ],
   },
+    {
+    id: 1,
+    day: "Day 1",
+    status: true,
+    category: [
+      {
+        tab: 1,
+        title: "Topics",
+        sessions: [
+          {
+              id: 1,
+              time: "10 Nov, 11:00am - 1:00pm",
+              recordinglink:
+                "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%200)_20211216_053908.mp4?web=1",
+              topics: ["k-Nearest Neighbours"],
+              presentation: "https://docs.google.com/presentation/d/1T9mVY582yDRkzH_dF6Zg-9gbY2DmJ8Y0h2raLmxHhPc/edit#slide=id.g10860a216a7_0_63",
+            },
+          {
+              id: 2,
+              time: "10 Nov, 11:00am - 1:00pm",
+              recordinglink:
+                "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%200)_20211216_053908.mp4?web=1",
+              topics: ["Support Vector Machine"],
+              presentation: "https://docs.google.com/presentation/d/1q7lJCQGWcSaaFwGBEGYXesQZ4JsXoVsGEbaoNrz5gA8/edit?usp=sharing",
+           },
+        ],
+      },
+      {
+        tab: 2,
+        icon: "/icons/resourcesgray.svg",
+        title: "Resources",
+        blogs: [
+            {
+                topic: "KNN",
+                heading: "KNN Classification using Scikit-learn",
+                link: "https://www.datacamp.com/community/tutorials/k-nearest-neighbor-classification-scikit-learn",
+            },
+            {
+              topic: "SVM",
+              heading: "Nonlinear SVMs",
+              link: "https://nlp.stanford.edu/IR-book/html/htmledition/nonlinear-svms-1.html",
+            },
+          ],
+        videos: [
+          {
+              topic: "SVM",
+              heading: "CS231n Winter 2016: Data-driven approach, kNN",
+              link: "https://youtu.be/8inugqHkfvE",
+          },
+          {
+            topic: "SVM",
+            heading: "Stanford CS229: Machine Learning (Autumn 2018)",
+            link: "https://youtu.be/lDwow4aOrtg",
+          },
+          {
+            topic: "SVM",
+            heading: "Support Vector Machine Basic Intuition- Part 1",
+            link: "https://youtu.be/H9yACitf-KM",
+          },
+          {
+            topic: "SVM",
+            heading: "Maths Intuition Behind Support Vector Machine Part 2",
+            link: "https://youtu.be/Js3GLb1xPhc",
+          },
+        ],
+      },
+      {
+        tab: 3,
+        icon: "/icons/projectgray.svg",
+        title: "Projects",
+        projectlist: [
+          {
+              heading: "KNN from scratch and using sklearn",
+              githublink: "",
+              drivelink: "https://colab.research.google.com/drive/1OhyrRCNRq5xbo9BB9p-S67uPHTu_A1PJ?usp=sharing",
+              description: "",
+            },
+            {
+              heading: "Exploring Support Vector Machines for diabetes Dataset",
+              githublink: "",
+              drivelink: "https://colab.research.google.com/drive/1gyBewDZE759M9x35NZOA50tWFAUGM5CF?usp=sharing",
+              description: "",
+            },
+        ],
+      },
+      {
+        tab: 4,
+        icon: "/icons/taskgray.svg",
+        title: "Tasks",
+        tasks: [
+            {
+                link: "https://docs.google.com/forms/d/1B8PqfoMgGUvxvEhG2lll_TqbCsQUSXNkaMOY7N5JzdQ/viewform?edit_requested=true",
+                name: "KNN",
+            },
+            {
+                link: "https://docs.google.com/forms/d/e/1FAIpQLScX3zhuyPPQVeYy4ldjlJmVcxqNahGB2TVKM9Jtf0sIVcFUEg/viewform",
+                name: "SVM",
+            },
+          ],
+      },
+    ],
+  },
   {
     id: 2,
     day: "Day 2",
@@ -207,90 +309,6 @@ const DataApi = [
             name: "Bayesian",
           },
         ],
-      },
-    ],
-  },
-  {
-    id: 3,
-    day: "Day 3",
-    status: true,
-    category: [
-      {
-        tab: 1,
-        title: "Topics",
-        sessions: [
-          {
-            id: 1,
-            time: "20 Dec, 11:00am - 1:00pm",
-            recordinglink: "https://drive.google.com/file/d/1ABqJPc4dg0B4Sg93oOCVEtHFnOyGNSWy/view?usp=sharing",
-            topics: ["Bagging", "Random Forest"],
-            presentation: "https://docs.google.com/presentation/d/10tMNKvsCC2llg1UI0o4Irh4ROmBs2vkEUOqYL5aqX5M/edit?usp=sharing"
-          },
-        ],
-      },
-      {
-        tab: 2,
-        icon: "/icons/resourcesgray.svg",
-        title: "Resources",
-        blogs: [
-          {
-            topic: "Random Forest",
-            heading: "Datacamp Random Forest",
-            link: "https://www.datacamp.com/community/tutorials/random-forests-classifier-python",
-          },
-          {
-            topic: "Random Forest & Bagging",
-            heading: "KDAG AI Weekly Blog on Random Forest and Bagging",
-            link: "https://kdagiit.medium.com/bagging-and-random-forests-reducing-bias-and-variance-using-randomness-8d516214fe7f",
-          },
-          {
-            topic: "Bagging & Boosting",
-            heading: "Bagging and Boosting by KDAG advisor SSP",
-            link: "https://www.youtube.com/playlist?list=PLcvdI4f2qdKWnxiaUuOb6Jffwbsfs5jM3",
-          },
-          {
-            topic: "Bagging",
-            heading: "Datacamp Bagging Explanation",
-            link: "https://campus.datacamp.com/courses/machine-learning-with-tree-based-models-in-python/bagging-and-random-forests?ex=1",
-          },
-        ],
-        videos: [
-          {
-            topic: "Bagging",
-            heading: "Cornell Machine Learning course",
-            link: "https://www.youtube.com/watch?v=4EOCQJgqAOY",
-          },
-          {
-            topic: "Bagging",
-            heading: "Krish Naik Bagging Tutorial",
-            link: "https://www.youtube.com/watch?v=KIOeZ5cFZ50",
-          },
-        ],
-      },
-      {
-        tab: 3,
-        icon: "/icons/projectgray.svg",
-        title: "Projects",
-        projectlist: [
-          {
-            heading: "Bagging Classifier",
-            githublink: "",
-            drivelink:
-              "https://colab.research.google.com/drive/1OVvgBJRdSK9V-UGNPkDZSg0MQJlIV8Ng?usp=sharing",
-            description: "",
-          }
-        ],
-      },
-      {
-        tab: 4,
-        icon: "/icons/taskgray.svg",
-        title: "Tasks",
-        tasks: [
-            {
-              link: "https://docs.google.com/forms/d/e/1FAIpQLSfG_3Qh-sxyT6sdyGQTdEXOMSeHDnBbX0LBHA4G-JS1grCqew/viewform",
-              name: "Bagging and Random Forest",
-            },
-          ],
       },
     ],
   },
