@@ -120,8 +120,8 @@ const DataApi = [
     ],
   },
   {
-    id: 1,
-    day: "Day 1",
+    id: 2,
+    day: "Day 2",
     status: true,
     category: [
       {
@@ -130,18 +130,11 @@ const DataApi = [
         sessions: [
           {
             id: 1,
-            time: "17 Dec, 11:00am - 1:00pm",
+            time: "18 Dec, 11:00am - 1:00pm",
             recordinglink: "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%201)_20211217_054349.mp4?web=1",
-            topics: ["KNN", "Nearest Mean Classification"],
-            presentation: "https://docs.google.com/presentation/d/1T9mVY582yDRkzH_dF6Zg-9gbY2DmJ8Y0h2raLmxHhPc/edit#slide=id.g10860a216a7_0_63",
+            topics: ["Bayesian Classifier", "Decision Trees"],
+            presentation: "https://docs.google.com/presentation/d/1-uZkfUKSdblLttyRGWO-rCuEr16TOjfLQiq7AisW8GI/edit#slide=id.g10879f6aa51_0_215",
           },
-          {
-            id: 2,
-            time: "17 Dec, 11:00am - 1:00pm",
-            recordinglink: "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%201)_20211217_054349.mp4?web=1",
-            topics: ["SVM", "Kernels"],
-            presentation: "https://docs.google.com/presentation/d/1q7lJCQGWcSaaFwGBEGYXesQZ4JsXoVsGEbaoNrz5gA8/edit?usp=sharing",
-          }
         ],
       },
       {
@@ -149,39 +142,37 @@ const DataApi = [
         icon: "/icons/resourcesgray.svg",
         title: "Resources",
         blogs: [
-          {
-            topic: "KNN",
-            heading: "DataCamp - KNN Classification using Scikit-learn",
-            link: "https://www.datacamp.com/community/tutorials/k-nearest-neighbor-classification-scikit-learn",
-          },
-          {
-            topic: "SVM",
-            heading: "Nonlinear SVM",
-            link: "https://nlp.stanford.edu/IR-book/html/htmledition/nonlinear-svms-1.html",
-          },
-        ],
+              {
+                topic: "Decision Tree",
+                heading: "KDAG AI Weekly Blog on Decision Trees",
+                link: "https://kdagiit.medium.com/decision-trees-just-the-everyday-things-d41056e77ff2",
+              },
+              {
+                topic: "Bayesian Classifier",
+                heading: "KDAG AI Weekly Blog on Bayesian Classifier",
+                link: "https://kdagiit.medium.com/naive-bayes-algorithm-4b8b990c7319",
+              },
+            ],
         videos: [
           {
-            topic: "KNN",
-            heading:
-              "CS231n Winter 2016: Lecture 2: Data-driven approach, kNN, Linear Classification 1",
-            link: "https://www.youtube.com/watch?v=8inugqHkfvE",
+            topic: "Naive Bayes",
+            heading: "Naive Bayes Algorithm | Edureka",
+            link: "https://www.youtube.com/watch?v=1-OGRohmH2s&list=PLZoTAELRMXVPBTrWtJkn3wWQxZkmTXGwe&index=34",
           },
           {
-            topic: "SVM",
-            heading: "Lecture 6 - Support Vector Machines | Stanford CS229",
-            link: "https://www.youtube.com/watch?v=lDwow4aOrtg",
+            topic: "Naive Bayes",
+            heading: "Naive Bayes -Cornell CS4780 SP17",
+            link: "https://www.youtube.com/watch?v=pDHEX2usCS0",
           },
           {
-            topic: "SVM",
-            heading: "Support Vector Machine (SVM) Basic Intuition- Part 1",
-            link: "https://youtu.be/H9yACitf-KM",
+            topic: "Naive Bayes",
+            heading: "Naive Bayes, Clearly Explained!!",
+            link: "https://youtu.be/O2L2Uv9pdDA",
           },
           {
-            topic: "SVM",
-            heading:
-              "Maths Intuition Behind Support Vector Machine Part 2 | Machine Learning Data Science",
-            link: "https://youtu.be/Js3GLb1xPhc",
+            topic: "Naive Bayes",
+            heading: "Gaussian Naive Bayes, Clearly Explained!!",
+            link: "https://youtu.be/H3EjCKtlVog",
           },
         ],
       },
@@ -191,17 +182,17 @@ const DataApi = [
         title: "Projects",
         projectlist: [
           {
-            heading: "KNN",
+            heading: "Gaussian Naive Bayes - Scratch Implementation",
             githublink: "",
             drivelink:
-              "https://colab.research.google.com/drive/1OhyrRCNRq5xbo9BB9p-S67uPHTu_A1PJ?usp=sharing#scrollTo=IRZR78zY1dQU",
+              "https://colab.research.google.com/drive/1udSyWZ9bozkbTiZkav53F7Bvd_w44IEy?usp=sharing",
             description: "",
           },
           {
-            heading: "SVM",
+            heading: "Gaussian Naive Bayes Hands-On Implementation",
             githublink: "",
             drivelink:
-              "https://colab.research.google.com/drive/1gyBewDZE759M9x35NZOA50tWFAUGM5CF?usp=sharing",
+              "https://colab.research.google.com/drive/1PduKNnQNz_OC2FUEOEglg9NCbsjvkaKc?usp=sharing",
             description: "",
           },
         ],
@@ -212,14 +203,94 @@ const DataApi = [
         title: "Tasks",
         tasks: [
           {
-            link: "https://docs.google.com/forms/d/1B8PqfoMgGUvxvEhG2lll_TqbCsQUSXNkaMOY7N5JzdQ/edit",
-            name: "KNN",
+            link: "https://forms.gle/EpNmniHDpjyDTPcTA",
+            name: "Bayesian",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 3,
+    day: "Day 3",
+    status: true,
+    category: [
+      {
+        tab: 1,
+        title: "Topics",
+        sessions: [
+          {
+            id: 1,
+            time: "20 Dec, 11:00am - 1:00pm",
+            recordinglink: "https://drive.google.com/file/d/1ABqJPc4dg0B4Sg93oOCVEtHFnOyGNSWy/view?usp=sharing",
+            topics: ["Bagging", "Random Forest"],
+            presentation: "https://docs.google.com/presentation/d/10tMNKvsCC2llg1UI0o4Irh4ROmBs2vkEUOqYL5aqX5M/edit?usp=sharing"
+          },
+        ],
+      },
+      {
+        tab: 2,
+        icon: "/icons/resourcesgray.svg",
+        title: "Resources",
+        blogs: [
+          {
+            topic: "Random Forest",
+            heading: "Datacamp Random Forest",
+            link: "https://www.datacamp.com/community/tutorials/random-forests-classifier-python",
           },
           {
-            link: "https://forms.gle/6LUh8F8txoS95tpe9",
-            name: "SVM",
+            topic: "Random Forest & Bagging",
+            heading: "KDAG AI Weekly Blog on Random Forest and Bagging",
+            link: "https://kdagiit.medium.com/bagging-and-random-forests-reducing-bias-and-variance-using-randomness-8d516214fe7f",
+          },
+          {
+            topic: "Bagging & Boosting",
+            heading: "Bagging and Boosting by KDAG advisor SSP",
+            link: "https://www.youtube.com/playlist?list=PLcvdI4f2qdKWnxiaUuOb6Jffwbsfs5jM3",
+          },
+          {
+            topic: "Bagging",
+            heading: "Datacamp Bagging Explanation",
+            link: "https://campus.datacamp.com/courses/machine-learning-with-tree-based-models-in-python/bagging-and-random-forests?ex=1",
+          },
+        ],
+        videos: [
+          {
+            topic: "Bagging",
+            heading: "Cornell Machine Learning course",
+            link: "https://www.youtube.com/watch?v=4EOCQJgqAOY",
+          },
+          {
+            topic: "Bagging",
+            heading: "Krish Naik Bagging Tutorial",
+            link: "https://www.youtube.com/watch?v=KIOeZ5cFZ50",
+          },
+        ],
+      },
+      {
+        tab: 3,
+        icon: "/icons/projectgray.svg",
+        title: "Projects",
+        projectlist: [
+          {
+            heading: "Bagging Classifier",
+            githublink: "",
+            drivelink:
+              "https://colab.research.google.com/drive/1OVvgBJRdSK9V-UGNPkDZSg0MQJlIV8Ng?usp=sharing",
+            description: "",
           }
         ],
+      },
+      {
+        tab: 4,
+        icon: "/icons/taskgray.svg",
+        title: "Tasks",
+        tasks: [
+            {
+              link: "https://docs.google.com/forms/d/e/1FAIpQLSfG_3Qh-sxyT6sdyGQTdEXOMSeHDnBbX0LBHA4G-JS1grCqew/viewform",
+              name: "Bagging and Random Forest",
+            },
+          ],
       },
     ],
   },
