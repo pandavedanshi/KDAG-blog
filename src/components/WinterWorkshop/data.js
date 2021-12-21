@@ -308,6 +308,10 @@ const DataApi = [
             link: "https://forms.gle/EpNmniHDpjyDTPcTA",
             name: "Bayesian",
           },
+          {
+            link: "https://forms.gle/PXScznkSMXspnvj8A",
+            name: "Decision Trees"
+          }
         ],
       },
     ],
