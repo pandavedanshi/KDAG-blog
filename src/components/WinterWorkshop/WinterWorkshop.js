@@ -9,7 +9,7 @@ import "./WinterWorkshop.css"
 const WinterWorkshop = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar noborder />
       <Header />
       <div style={{
         padding: "5rem"

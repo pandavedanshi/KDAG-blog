@@ -13,7 +13,7 @@ html {
 }
 
 .winter-workshop-session-container {
-  width: 48rem;
+  width: 100%;
   height: auto;
   margin-top: 3rem;
 }
@@ -22,14 +22,17 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  width: 48rem;
-  height: 3rem;
+  width: 100%;
   margin: 4px 0px 6px 0px;
+  flex-wrap: wrap;
+}
+
+.winter-workshop-session-heading-in {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .winter-workshop-session-name {
-  width: 5.56rem;
-  height: 2rem;
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
@@ -39,21 +42,19 @@ html {
 
 .winter-workshop-session-time {
   margin-left: 0.5rem;
-  width: 11.4rem;
-  height: 1.5rem;
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
   font-size: 1rem;
   color: var(--gray);
+  display: flex;
+  align-items: center;
 }
 
 .winter-workshop-session-recording {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 11rem;
-  height: 3rem;
   margin-right: 0px;
   border-radius: 0.5rem;
   background-color: var(--blue);
@@ -63,7 +64,12 @@ html {
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
+  padding: 1rem;
   font-size: 1.125rem;
+  flex-grow: 1;
+  flex-basis: 0;
+  flex-shrink: 1;
+  margin-bottom: 1rem;
 }
 
 .recording-icon {
@@ -78,7 +84,9 @@ html {
   border-radius: 0.5rem;
   display: flex;
   height: 3.125rem;
-  min-width: 48rem;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;  
 }
 
 .winter-workshop-topic-div {
@@ -88,5 +96,6 @@ html {
   font-size: 1.125rem;
   margin-left: 1.125rem;
   min-height: 1.75rem;
-  width: 40rem;
+  width: 100%;
+  /* padding: 1rem; */
 }

@@ -16,10 +16,13 @@
   justify-content: space-between;
   width: 95%;
   margin: auto;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 10;
   align-items: center;
+}
+
+.kdag-nav-contain-border {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .kdag-nav-items {
@@ -82,7 +85,7 @@
   text-decoration: none;
 }
 
-nav ul {
+.kdag-nav-mobile ul {
   -webkit-font-smoothing: antialiased;
   /* text-shadow: 0 1px 0 #fff; */
   background: #172755;
@@ -92,14 +95,14 @@ nav ul {
   /* position: absolute;
   right: 0; */
 }
-nav li {
+.kdag-nav-mobile li {
   float: left;
   margin: 0;
   padding: 0;
   position: relative;
   width: 100%;
 }
-nav a {
+.kdag-nav-mobile a {
   background: #172755;
 
   color: #8794ba;
@@ -114,16 +117,16 @@ nav a {
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-nav .dropdown:after {
+.kdag-nav-mobile .dropdown:after {
   content: " ▶";
 }
-nav .dropdown:hover:after {
+.kdag-nav-mobile .dropdown:hover:after {
   content: "\25bc";
 }
-nav li:hover a {
+.kdag-nav-mobile li:hover a {
   background: #172755;
 }
-nav li ul {
+.kdag-nav-mobile li ul {
   float: right;
   right: 0;
   opacity: 0;
@@ -139,17 +142,17 @@ nav li ul {
   width: 20rem;
   box-shadow: 1px 1px 15px 10px rgba(0, 0, 0, 0.5)
 }
-nav li:hover ul {
+.kdag-nav-mobile li:hover ul {
   opacity: 1;
   top: 50px;
   visibility: visible;
 }
-nav li ul li {
+.kdag-nav-mobile li ul li {
   float: none;
   width: 100%;
   color: white;
 }
-nav li ul a:hover {
+.kdag-nav-mobile li ul a:hover {
   background: #bbb;
   width: 100%;
 }
@@ -190,7 +193,7 @@ nav li ul a:hover {
   .drop {
     display: block;
   }
-  nav a {
+  .kdag-nav-mobile a {
     padding: 2px;
   }
   /* .cf {

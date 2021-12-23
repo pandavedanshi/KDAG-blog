@@ -9,7 +9,7 @@ const { TabPane } = Tabs;
 const DayTabs = (props) => {
   return (
     <div>
-      <Tabs defaultActiveKey="0" tabPosition="left" size="large">
+      <Tabs defaultActiveKey="0" tabPosition="left" size="small">
         {props.days.map((e) => (
           <TabPane tab={<div>
             <img src={snowflake} width={15} alt="snowflake" /> {e.day}

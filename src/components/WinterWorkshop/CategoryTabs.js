@@ -15,7 +15,7 @@ const TabButton = (props) => {
 
 const CategoryTabs = (props) => {
   return (
-    <div>
+    <div className="winter-workshop-category-tabs">
       <Tabs defaultActiveKey="1" size="large">
         {props.category.map((e) => (
           <TabPane tab={<TabButton title={e.title} />} key={e.tab}>

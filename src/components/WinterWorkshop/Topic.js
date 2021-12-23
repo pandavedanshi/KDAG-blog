@@ -11,15 +11,15 @@ const TopicTab = (props) => {
         {props.sessions.map((e) => (
           <>
             <div className="winter-workshop-session-heading">
-              <span>
-                <span className="winter-workshop-session-name">
+              <div className="winter-workshop-session-heading-in">
+                <div className="winter-workshop-session-name">
                   Session {e.id}
-                </span>
-                <span className="winter-workshop-session-time">{e.time}</span>
-              </span>
-              <div style={{display: "flex"}}>
+                </div>
+                <div className="winter-workshop-session-time"><span>{e.time}</span></div>
+              </div>
+              <div style={{display: "flex", flexWrap: "wrap"}}>
 
-              <a href={e.recordinglink} target="_blank" rel="noopener noreferrer">
+              <a style={{marginRight: "1rem"}} href={e.recordinglink} target="_blank" rel="noopener noreferrer">
                 <div className="winter-workshop-session-recording">
                   <img
                     src={recording}
@@ -29,7 +29,7 @@ const TopicTab = (props) => {
                   Recording
                 </div>
               </a>
-              <a style={{marginLeft: "1rem"}}href={e.presentation} target="_blank" rel="noopener noreferrer">
+              <a href={e.presentation} target="_blank" rel="noopener noreferrer">
                 <div className="winter-workshop-session-recording">
                   <i class="fab fa-google-drive"></i>&nbsp;
                   Presentation
@@ -51,7 +51,7 @@ export default TopicTab;
 const Topic = (props) => {
   return props.topics.map((e) => (
     <div className="winter-workshop-topic-container">
-      <span className="winter-workshop-topic-div">{e}</span>
+      <div className="winter-workshop-topic-div">{e}</div>
     </div>
   ));
 };
