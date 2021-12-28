@@ -25,7 +25,7 @@ const members = [
         name: "Siba Smarak Panigrahi",
         facebook: "www.facebook.com",
         twitter: "www.twitter.com",
-        linkedin: "https://sibasmarak.github.io/"
+        website: "https://sibasmarak.github.io/"
     },
     {
         image: "https://drive.google.com/uc?id=1q4N4gq-w9xpTxPaShqwHN2v3v5sXyXeF",
