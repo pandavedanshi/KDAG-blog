@@ -9,6 +9,7 @@ import TeamPage from "../components/TeamPage/TeamPage";
 import ScrollToTop from "../components/Common/ScrollToTop/ScrollToTop.js";
 import Footer from "../components/Common/Footer/Footer";
 import WinterWorkshop from "../components/WinterWorkshop/WinterWorkshop";
+import CertificateGeneration from "../components/CertificateGeneration/CertificateGeneration";
 
 const AppRouter = () => {
   return (
@@ -33,6 +34,9 @@ const AppRouter = () => {
           </Route>
           <Route path="/winter-workshop">
             <WinterWorkshop />
+          </Route>
+          <Route path="/certificate-generation">
+            <CertificateGeneration />
           </Route>
         </Switch>
         </ScrollToTop>

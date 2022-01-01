@@ -9,10 +9,10 @@ const events = [
         title: "Winter Workshop 2021",
         location: "MS Teams",
         date: "Starting 16th Dec 2021",
-        link: "https://tinyurl.com/winterworkshopreg",
+        link: "/certificate-generation",
         image: WW21,
-        infotext: "Register Now",
-        resources: "/winter-workshop"
+        infotext: "Generate Certificates",
+        resources: "/winter-workshop",
     },
     {
         id: 1,
@@ -20,7 +20,7 @@ const events = [
         location: "Dare2Compete",
         date: "20th Nov 2021 - 7th Dec 2021",
         link: "http://tinyurl.com/kdshreg",
-        image: KDSH2021
+        image: KDSH2021,
     },
     {
         id: 2,
@@ -28,7 +28,7 @@ const events = [
         location: "Dare2Compete",
         date: "1st May 2021 - 8th May 2021",
         link: "https://dare2compete.com/o/summer-ai-challenge-indian-institute-of-technology-iit-kharagpur-161678?fbclid=IwAR04rjavk6rd5_8wTrSjVj3jJBpFEhnrjXePqDxid_bGRT51ZDcPlID3XXo",
-        image: SummerAI
+        image: SummerAI,
     },
     {
         id: 3,
@@ -36,8 +36,8 @@ const events = [
         location: "Dare2Compete",
         date: "15th March 2021 - 6th April 2021",
         link: "https://dare2compete.com/o/kharagpur-data-science-hackathon-kharagpur-data-analytics-group-148743?fbclid=IwAR1E1C-_-4gCSdY8FkZ4eaa9wk5FbigCm_JDTDoLn10MNIBikDYso2r1p70",
-        image: KDSH2020
-    }
+        image: KDSH2020,
+    },
 ];
 
 export default events;
