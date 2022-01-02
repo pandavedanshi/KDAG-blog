@@ -9,9 +9,7 @@ const events = [
         title: "Winter Workshop 2021",
         location: "MS Teams",
         date: "Starting 16th Dec 2021",
-        link: "/certificate-generation",
         image: WW21,
-        infotext: "Generate Certificates",
         resources: "/winter-workshop",
     },
     {
@@ -21,6 +19,7 @@ const events = [
         date: "20th Nov 2021 - 7th Dec 2021",
         link: "http://tinyurl.com/kdshreg",
         image: KDSH2021,
+        certificates: "/certificate-generation",
     },
     {
         id: 2,
