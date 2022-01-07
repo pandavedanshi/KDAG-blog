@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../Common/Navbar/Navbar";
 import "./CertificateGeneration.css";
+import "./Header/Header.css"
 import Header from "./Header/Header";
 import certificates from "./certificates";
 import { ToastContainer, toast } from "react-toastify";
@@ -30,10 +31,11 @@ const CertificateGeneration = () => {
   return (
     <div>
       <Navbar />
-      <Header />
-      <ToastContainer />
-      <div className="search">
-        <form className="content search-form" onSubmit={handleSubmit}>
+      <div class="resources-list-header">
+            <div class="resources-list-header-title">
+                CERTIFICATE GENERATION
+                <div className="certificate-search">
+        <form className="certificate-content certificate-search-form" onSubmit={handleSubmit}>
           <input
             type="email"
             placeholder="Enter your registered email"
@@ -43,6 +45,10 @@ const CertificateGeneration = () => {
           <input type="submit" value="Submit" />
         </form>
       </div>
+            </div>
+      </div>
+      <ToastContainer />
+      
     </div>
   );
 };
