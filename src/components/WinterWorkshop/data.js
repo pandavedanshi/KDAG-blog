@@ -119,7 +119,7 @@ const DataApi = [
       },
     ],
   },
-    {
+  {
     id: 1,
     day: "Day 1",
     status: true,
@@ -129,21 +129,23 @@ const DataApi = [
         title: "Topics",
         sessions: [
           {
-              id: 1,
-              time: "10 Nov, 11:00am - 1:00pm",
-              recordinglink:
-                "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%200)_20211216_053908.mp4?web=1",
-              topics: ["k-Nearest Neighbours"],
-              presentation: "https://docs.google.com/presentation/d/1T9mVY582yDRkzH_dF6Zg-9gbY2DmJ8Y0h2raLmxHhPc/edit#slide=id.g10860a216a7_0_63",
-            },
+            id: 1,
+            time: "10 Nov, 11:00am - 1:00pm",
+            recordinglink:
+              "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%200)_20211216_053908.mp4?web=1",
+            topics: ["k-Nearest Neighbours"],
+            presentation:
+              "https://docs.google.com/presentation/d/1T9mVY582yDRkzH_dF6Zg-9gbY2DmJ8Y0h2raLmxHhPc/edit#slide=id.g10860a216a7_0_63",
+          },
           {
-              id: 2,
-              time: "10 Nov, 11:00am - 1:00pm",
-              recordinglink:
-                "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%200)_20211216_053908.mp4?web=1",
-              topics: ["Support Vector Machine"],
-              presentation: "https://docs.google.com/presentation/d/1q7lJCQGWcSaaFwGBEGYXesQZ4JsXoVsGEbaoNrz5gA8/edit?usp=sharing",
-           },
+            id: 2,
+            time: "10 Nov, 11:00am - 1:00pm",
+            recordinglink:
+              "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%200)_20211216_053908.mp4?web=1",
+            topics: ["Support Vector Machine"],
+            presentation:
+              "https://docs.google.com/presentation/d/1q7lJCQGWcSaaFwGBEGYXesQZ4JsXoVsGEbaoNrz5gA8/edit?usp=sharing",
+          },
         ],
       },
       {
@@ -151,22 +153,22 @@ const DataApi = [
         icon: "/icons/resourcesgray.svg",
         title: "Resources",
         blogs: [
-            {
-                topic: "KNN",
-                heading: "KNN Classification using Scikit-learn",
-                link: "https://www.datacamp.com/community/tutorials/k-nearest-neighbor-classification-scikit-learn",
-            },
-            {
-              topic: "SVM",
-              heading: "Nonlinear SVMs",
-              link: "https://nlp.stanford.edu/IR-book/html/htmledition/nonlinear-svms-1.html",
-            },
-          ],
+          {
+            topic: "KNN",
+            heading: "KNN Classification using Scikit-learn",
+            link: "https://www.datacamp.com/community/tutorials/k-nearest-neighbor-classification-scikit-learn",
+          },
+          {
+            topic: "SVM",
+            heading: "Nonlinear SVMs",
+            link: "https://nlp.stanford.edu/IR-book/html/htmledition/nonlinear-svms-1.html",
+          },
+        ],
         videos: [
           {
-              topic: "SVM",
-              heading: "CS231n Winter 2016: Data-driven approach, kNN",
-              link: "https://youtu.be/8inugqHkfvE",
+            topic: "SVM",
+            heading: "CS231n Winter 2016: Data-driven approach, kNN",
+            link: "https://youtu.be/8inugqHkfvE",
           },
           {
             topic: "SVM",
@@ -191,17 +193,19 @@ const DataApi = [
         title: "Projects",
         projectlist: [
           {
-              heading: "KNN from scratch and using sklearn",
-              githublink: "",
-              drivelink: "https://colab.research.google.com/drive/1OhyrRCNRq5xbo9BB9p-S67uPHTu_A1PJ?usp=sharing",
-              description: "",
-            },
-            {
-              heading: "Exploring Support Vector Machines for diabetes Dataset",
-              githublink: "",
-              drivelink: "https://colab.research.google.com/drive/1gyBewDZE759M9x35NZOA50tWFAUGM5CF?usp=sharing",
-              description: "",
-            },
+            heading: "KNN from scratch and using sklearn",
+            githublink: "",
+            drivelink:
+              "https://colab.research.google.com/drive/1OhyrRCNRq5xbo9BB9p-S67uPHTu_A1PJ?usp=sharing",
+            description: "",
+          },
+          {
+            heading: "Exploring Support Vector Machines for diabetes Dataset",
+            githublink: "",
+            drivelink:
+              "https://colab.research.google.com/drive/1gyBewDZE759M9x35NZOA50tWFAUGM5CF?usp=sharing",
+            description: "",
+          },
         ],
       },
       {
@@ -209,15 +213,15 @@ const DataApi = [
         icon: "/icons/taskgray.svg",
         title: "Tasks",
         tasks: [
-            {
-                link: "https://docs.google.com/forms/d/1B8PqfoMgGUvxvEhG2lll_TqbCsQUSXNkaMOY7N5JzdQ/viewform?edit_requested=true",
-                name: "KNN",
-            },
-            {
-                link: "https://docs.google.com/forms/d/e/1FAIpQLScX3zhuyPPQVeYy4ldjlJmVcxqNahGB2TVKM9Jtf0sIVcFUEg/viewform",
-                name: "SVM",
-            },
-          ],
+          {
+            link: "https://docs.google.com/forms/d/1B8PqfoMgGUvxvEhG2lll_TqbCsQUSXNkaMOY7N5JzdQ/viewform?edit_requested=true",
+            name: "KNN",
+          },
+          {
+            link: "https://docs.google.com/forms/d/e/1FAIpQLScX3zhuyPPQVeYy4ldjlJmVcxqNahGB2TVKM9Jtf0sIVcFUEg/viewform",
+            name: "SVM",
+          },
+        ],
       },
     ],
   },
@@ -233,9 +237,11 @@ const DataApi = [
           {
             id: 1,
             time: "18 Dec, 11:00am - 1:00pm",
-            recordinglink: "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%201)_20211217_054349.mp4?web=1",
+            recordinglink:
+              "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Winter%20Workshop%20%2721%20(Day%201)_20211217_054349.mp4?web=1",
             topics: ["Bayesian Classifier", "Decision Trees"],
-            presentation: "https://docs.google.com/presentation/d/1-uZkfUKSdblLttyRGWO-rCuEr16TOjfLQiq7AisW8GI/edit#slide=id.g10879f6aa51_0_215",
+            presentation:
+              "https://docs.google.com/presentation/d/1-uZkfUKSdblLttyRGWO-rCuEr16TOjfLQiq7AisW8GI/edit#slide=id.g10879f6aa51_0_215",
           },
         ],
       },
@@ -244,17 +250,17 @@ const DataApi = [
         icon: "/icons/resourcesgray.svg",
         title: "Resources",
         blogs: [
-              {
-                topic: "Decision Tree",
-                heading: "KDAG AI Weekly Blog on Decision Trees",
-                link: "https://kdagiit.medium.com/decision-trees-just-the-everyday-things-d41056e77ff2",
-              },
-              {
-                topic: "Bayesian Classifier",
-                heading: "KDAG AI Weekly Blog on Bayesian Classifier",
-                link: "https://kdagiit.medium.com/naive-bayes-algorithm-4b8b990c7319",
-              },
-            ],
+          {
+            topic: "Decision Tree",
+            heading: "KDAG AI Weekly Blog on Decision Trees",
+            link: "https://kdagiit.medium.com/decision-trees-just-the-everyday-things-d41056e77ff2",
+          },
+          {
+            topic: "Bayesian Classifier",
+            heading: "KDAG AI Weekly Blog on Bayesian Classifier",
+            link: "https://kdagiit.medium.com/naive-bayes-algorithm-4b8b990c7319",
+          },
+        ],
         videos: [
           {
             topic: "Naive Bayes",
@@ -310,8 +316,8 @@ const DataApi = [
           },
           {
             link: "https://forms.gle/PXScznkSMXspnvj8A",
-            name: "Decision Trees"
-          }
+            name: "Decision Trees",
+          },
         ],
       },
     ],
@@ -328,9 +334,11 @@ const DataApi = [
           {
             id: 1,
             time: "20 Dec, 11:00am - 1:00pm",
-            recordinglink: "https://drive.google.com/file/d/1ABqJPc4dg0B4Sg93oOCVEtHFnOyGNSWy/view?usp=sharing",
+            recordinglink:
+              "https://drive.google.com/file/d/1ABqJPc4dg0B4Sg93oOCVEtHFnOyGNSWy/view?usp=sharing",
             topics: ["Bagging", "Random Forest"],
-            presentation: "https://docs.google.com/presentation/d/10tMNKvsCC2llg1UI0o4Irh4ROmBs2vkEUOqYL5aqX5M/edit?usp=sharing"
+            presentation:
+              "https://docs.google.com/presentation/d/10tMNKvsCC2llg1UI0o4Irh4ROmBs2vkEUOqYL5aqX5M/edit?usp=sharing",
           },
         ],
       },
@@ -384,7 +392,7 @@ const DataApi = [
             drivelink:
               "https://colab.research.google.com/drive/1OVvgBJRdSK9V-UGNPkDZSg0MQJlIV8Ng?usp=sharing",
             description: "",
-          }
+          },
         ],
       },
       {
@@ -392,11 +400,11 @@ const DataApi = [
         icon: "/icons/taskgray.svg",
         title: "Tasks",
         tasks: [
-            {
-              link: "https://docs.google.com/forms/d/e/1FAIpQLSfG_3Qh-sxyT6sdyGQTdEXOMSeHDnBbX0LBHA4G-JS1grCqew/viewform",
-              name: "Bagging and Random Forest",
-            },
-          ],
+          {
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSfG_3Qh-sxyT6sdyGQTdEXOMSeHDnBbX0LBHA4G-JS1grCqew/viewform",
+            name: "Bagging and Random Forest",
+          },
+        ],
       },
     ],
   },
@@ -415,7 +423,8 @@ const DataApi = [
             recordinglink:
               "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Meeting%20in%20_General_-20211222_111325-Meeting%20Recording.mp4?web=1",
             topics: ["Boosting", "AdaBoost", "XGBoost"],
-            presentation:"https://docs.google.com/presentation/d/1PBgNvDGjfdktp1dohD0RkZb7crfDpEIH5fMgP9ppNY0/edit#slide=id.g108a599ae68_0_140",
+            presentation:
+              "https://docs.google.com/presentation/d/1PBgNvDGjfdktp1dohD0RkZb7crfDpEIH5fMgP9ppNY0/edit#slide=id.g108a599ae68_0_140",
           },
         ],
       },
@@ -547,11 +556,11 @@ const DataApi = [
         icon: "/icons/taskgray.svg",
         title: "Tasks",
         tasks: [
-            {
-              link: "https://docs.google.com/forms/d/1a5VS5a0QT-5W7KeolrTgSgcP7GFwq1ZE-734tMnU1Tg/edit?usp=sharing",
-              name: "Boosting, AdaBoost, XGBoost",
-            },
-          ],
+          {
+            link: "https://docs.google.com/forms/d/1a5VS5a0QT-5W7KeolrTgSgcP7GFwq1ZE-734tMnU1Tg/edit?usp=sharing",
+            name: "Boosting, AdaBoost, XGBoost",
+          },
+        ],
       },
     ],
   },
@@ -570,7 +579,8 @@ const DataApi = [
             recordinglink:
               "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Meeting%20in%20_General_-20211222_111325-Meeting%20Recording.mp4?web=1",
             topics: ["K-means clustering", "Hierarchical Clustering"],
-            presentation:"https://docs.google.com/presentation/d/10CRR7TXuqMiz5tM1iCFjlEKSMw_qh2CDon3nscSUMfs/edit?usp=sharingPCA:",
+            presentation:
+              "https://docs.google.com/presentation/d/10CRR7TXuqMiz5tM1iCFjlEKSMw_qh2CDon3nscSUMfs/edit?usp=sharingPCA:",
           },
           {
             id: 1,
@@ -578,7 +588,8 @@ const DataApi = [
             recordinglink:
               "https://iitkgpacin.sharepoint.com/sites/KDAGPanelDiscussion/Shared%20Documents/General/Recordings/Meeting%20in%20_General_-20211222_111325-Meeting%20Recording.mp4?web=1",
             topics: ["PCA"],
-            presentation:"https://docs.google.com/presentation/d/1LkSJ2PRvDVoch-kzkn3YJ33QYMoG10fGEs-KUuaDxhs/edit#slide=id.g6c4305b01e_0_25",
+            presentation:
+              "https://docs.google.com/presentation/d/1LkSJ2PRvDVoch-kzkn3YJ33QYMoG10fGEs-KUuaDxhs/edit#slide=id.g6c4305b01e_0_25",
           },
         ],
       },
@@ -604,7 +615,8 @@ const DataApi = [
           },
           {
             topic: "Clustering",
-            heading: "Understanding the concept of Hierarchical clustering Technique",
+            heading:
+              "Understanding the concept of Hierarchical clustering Technique",
             link: "https://towardsdatascience.com/understanding-the-concept-of-hierarchical-clustering-technique-c6e8243758ec",
           },
           {
@@ -634,7 +646,8 @@ const DataApi = [
           },
           {
             topic: "PCA",
-            heading: "Understanding Singular Value Decomposition and its Application in Data Science",
+            heading:
+              "Understanding Singular Value Decomposition and its Application in Data Science",
             link: "https://towardsdatascience.com/understanding-singular-value-decomposition-and-its-application-in-data-science-388a54be95d",
           },
         ],
@@ -699,22 +712,22 @@ const DataApi = [
         icon: "/icons/taskgray.svg",
         title: "Tasks",
         tasks: [
-            {
-              link: "https://colab.research.google.com/drive/1enOmU8H4S2wwQ123uVOMF9loGz_L9iSk#scrollTo=O1RvhotpF7ph",
-              name: "Clustering",
-            },
           {
-              link: "https://colab.research.google.com/drive/1PChR6ugpFWq2pfVqbeRuDnOHetOB5Epl?usp=sharing",
-              name: "PCA",
-            },
-          ],
+            link: "https://colab.research.google.com/drive/1enOmU8H4S2wwQ123uVOMF9loGz_L9iSk#scrollTo=O1RvhotpF7ph",
+            name: "Clustering",
+          },
+          {
+            link: "https://colab.research.google.com/drive/1PChR6ugpFWq2pfVqbeRuDnOHetOB5Epl?usp=sharing",
+            name: "PCA",
+          },
+        ],
       },
     ],
   },
   {
     id: 6,
     day: "Day 6",
-    status: false,
+    status: true,
     category: [
       {
         tab: 1,
@@ -724,9 +737,10 @@ const DataApi = [
             id: 1,
             time: "23 Dec, 11:00am - 1:00pm",
             recordinglink:
-              "",
+              "https://drive.google.com/file/d/105KhR9cXAfZk37OF9Dsqe0Ti1XvCfbo7/view?usp=sharing",
             topics: ["Gaussian Mixture Models", "Anomaly Detection"],
-            presentation:"",
+            presentation:
+              "https://docs.google.com/presentation/d/1JWOd1a_iqlp6PkuG8CSTfQDAHCIvJbm-UzCtUwIKDwg/edit?usp=sharing",
           },
         ],
       },
@@ -736,26 +750,37 @@ const DataApi = [
         title: "Resources",
         blogs: [
           {
-            topic: "",
-            heading: "",
-            link: "",
+            topic: "Anomaly Detection",
+            heading: "Anomaly Detection with Machine Learning: An Introduction",
+            link: "https://www.bmc.com/blogs/machine-learning-anomaly-detection/",
           },
           {
-            topic: "",
-            heading: "",
-            link: "",
+            topic: "Anomaly Detection",
+            heading: "What is Anomaly Detection? ",
+            link: "https://www.anodot.com/blog/what-is-anomaly-detection/",
+          },
+          {
+            topic: "Anomaly Detection",
+            heading:
+              "ML in Manufacturing: Detecting Defects with Unsupervised Learning and Image Feature Extraction ",
+            link: "https://blog.bigml.com/category/algorithms/anomaly-detection/",
           },
         ],
         videos: [
           {
-            topic: "",
-            heading: "",
-            link: "",
+            topic: "Anomaly Detection",
+            heading: "Andrew Ng lectures",
+            link: "https://www.youtube.com/watch?v=086OcT-5DYI&t=90s&ab_channel=ArtificialIntelligence-AllinOne",
           },
           {
-            topic: "",
-            heading: "",
-            link: "",
+            topic: "Anomaly Detection",
+            heading: " Krish Naik tutorial",
+            link: "https://www.youtube.com/watch?v=kbssBdFf764&t=74s&ab_channel=KrishNaik",
+          },
+          {
+            topic: "Anomaly Detection",
+            heading: "Coding using Isolation forest in sklearn",
+            link: "https://www.youtube.com/watch?v=Q7YGBwKVpds&ab_channel=AKPython",
           },
         ],
       },
@@ -765,24 +790,10 @@ const DataApi = [
         title: "Projects",
         projectlist: [
           {
-            heading: "Logistic Regression",
+            heading: "Anomaly Detection",
             githublink: "",
             drivelink:
-              "https://drive.google.com/drive/folders/1QCSw9TKCcw_Nsq43hGX_tEz917spPv1a",
-            description: "",
-          },
-          {
-            heading: "Linear Regression from scratch",
-            githublink: "",
-            drivelink:
-              "https://drive.google.com/drive/folders/1QCSw9TKCcw_Nsq43hGX_tEz917spPv1a",
-            description: "",
-          },
-          {
-            heading: "Linear Regression from normal equation",
-            githublink: "",
-            drivelink:
-              "https://drive.google.com/drive/folders/1QCSw9TKCcw_Nsq43hGX_tEz917spPv1a",
+              "https://colab.research.google.com/drive/1DWCgXa98PNm8aIMN0pTdmQwwt2Cj2jEP?usp=sharing",
             description: "",
           },
         ],
@@ -793,9 +804,9 @@ const DataApi = [
         title: "Tasks",
         tasks: [
           {
-              link: "",
-              name: "",
-           },
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSedr4zHK1kLUsiIqkf6OTemKsKz3Xh1HI6s-CY2jLRqYVR0pA/viewform?usp=sf_link",
+            name: "Anomaly Detection",
+          },
         ],
       },
     ],
