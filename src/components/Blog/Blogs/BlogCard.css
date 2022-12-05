@@ -26,14 +26,14 @@
 }
 
 .blog-list-card-topic {
-  color: #dc2626;
+  color: #dd0000;
   font-family: Nunito, sans-serif;
   font-size: 1rem;
   font-weight: 700;
 }
 
 .blog-list-card-title {
-  color: #0b1329;
+  color: #fff;
   font-family: Poppins, sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
@@ -50,7 +50,7 @@
 }
 
 .blog-list-card-date {
-  color: #172755;
+  color: #f29191;
 }
 
 .blog-list-card hr {

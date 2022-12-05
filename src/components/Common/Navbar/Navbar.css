@@ -6,7 +6,9 @@
 }
 
 .kdag-nav.scrolled {
+  background-color: transparent;
   transition: background-color 200ms linear;
+  box-shadow: rgba(0, 0, 0, 0.7) 2px 0 10px 4px;
 }
 
 .kdag-nav-contain {
@@ -32,7 +34,7 @@
   color: rgba(255, 255, 255, 0.4);
 }
 .kdag-nav-item:hover{
-  opacity:0.5;
+  color: #dd0000;
 }
 
 .kdag-nav-logo {
@@ -153,6 +155,11 @@
 .kdag-nav-mobile li ul a:hover {
   background: #bbb;
   width: 100%;
+}
+.nav-links {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
 }
 
 /* Clearfix */

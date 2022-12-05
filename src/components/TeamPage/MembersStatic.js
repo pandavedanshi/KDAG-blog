@@ -16,7 +16,7 @@ const members = [
     },
    
     {
-        image: "https://drive.google.com/uc?id=1lPoTGh2e3lYlaJ1K1Xsz4hiTEh0CvZ79",
+        image: "https://drive.google.com/uc?id=1B6OIeRFbvYuT9Ox3JDeU8F8_A2wF15cD",
         name: "Anushka Chatterjee",
         email: "yash@gmail.com",
         facebook: "https://www.facebook.com/anushka.chatterjee.127201",
@@ -25,7 +25,7 @@ const members = [
     },
 
     {
-        image: "https://drive.google.com/uc?id=1TG5Z0-Pf_HLGWT5ZcckDnBIkCItz9KLH",
+        image: "https://drive.google.com/uc?id=1B7A31Gi0AfzGWQl-gAXWTAjZ2F3FATOY",
         name: "Sneha Majumder",
         email: "yash@gmail.com",
         facebook: "",
@@ -35,7 +35,7 @@ const members = [
 
     {
         name: "Shaswat Shrivastav",
-        image: "https://drive.google.com/uc?id=1deTFsabpQC4wDE4PAAiQQrL54snX5hqm",
+        image: "https://drive.google.com/uc?id=1B65F5RrGfw18p1NLgIHxAzw6udhY8E_7",
         email: "yash@gmail.com",
         facebook: "https://www.facebook.com/shaswat.shrivastava.75",
         twitter: "www.twitter.com",
@@ -43,12 +43,29 @@ const members = [
     },
 
     {
-        name: "Shaswat Shrivastav",
-        image: "https://drive.google.com/uc?id=1deTFsabpQC4wDE4PAAiQQrL54snX5hqm",
+        name: "Shashwat Naidu",
+        image: "https://drive.google.com/uc?id=1ygiEVPRzlKeX1n2IAHOJuAiQo-S_75HA",
         email: "yash@gmail.com",
-        facebook: "https://www.facebook.com/shaswat.shrivastava.75",
+        facebook: "https://www.facebook.com/shashwat.naidu.7?mibextid=ZbWKwL",
         twitter: "www.twitter.com",
-        linkedin: "https://www.linkedin.com/in/shaswat-shrivastav-95096a219/"
+        linkedin: "https://www.linkedin.com/in/shashwat-naidu-258413225"
+    },
+
+    {
+        name: "Omee Katrodiya",
+        image: "https://drive.google.com/uc?id=1AimOCNhCYEdxkVRtMPxjW84taE1NZLzO",
+        email: "yash@gmail.com",
+        facebook: "https://www.facebook.com/profile.php?id=100009741094806&mibextid=ZbWKwL",
+        linkedin: "https://www.linkedin.com/in/omee-katrodiya"
+    },
+
+    {
+        name: "Ayush Aryan",
+        image: "https://drive.google.com/uc?id=1AzgrYNiqb-0vxyAfA68AQArPBi27ZpK9",
+        email: "yash@gmail.com",
+        facebook: "https://www.facebook.com/ayush.aryan.71?mibextid=ZbWKwL",
+        twitter: "www.twitter.com",
+        linkedin: "https://www.linkedin.com/in/ayush-aryan-b73b24200"
     }
 
 ]

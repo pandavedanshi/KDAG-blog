@@ -10,7 +10,7 @@ import logo from "../../assets/pics/KDAG_logo_full.jpeg";
 import Fade from "react-reveal/Fade";
 import Particless from "../Common/Particles/Particless";
 import VideoJS from './Video/VideoJS'
-import video1 from './Video/banner.mp4'
+import video1 from './Video/final.mp4'
 // import Contact from "./Contact/Contact";
 
 const LandingPage = () => {

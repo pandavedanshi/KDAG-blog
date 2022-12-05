@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from './Button';
 import "./Navbar.css";
 import logo from "./../../../assets/pics/KDAG_logo.jpeg";
@@ -22,6 +22,31 @@ const Navbar = ({ color, noborder }) => {
       document.removeEventListener("scroll", navColor);
     };
   }, []);
+  
+  const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const onMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+    console.log(dropdown);
+  };
+
+  const onMouseLeave = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
+    console.log(dropdown);
+  };
+  
 
   return (
     <div className="kdag-nav-container">
@@ -52,21 +77,24 @@ const Navbar = ({ color, noborder }) => {
               </NavLink>
             </div>
             <div className="kdag-nav-item">
-              <NavLink activeStyle={active_style} to="/team">
+              <NavLink 
+              onClick={closeMobileMenu} 
+              activeStyle={active_style}
+              to="/team">
                 Team
               </NavLink>
-              {/* {Dropdown && <Dropdown/>} */}
+              {dropdown && <Dropdown/>}
+              
             </div>
             {/* <div className="kdag-nav-item">
               <Link to="#">Go Down</Link>
             </div> */}
           </div>
-          {/* <div className="kdag-nav-item">
-            <NavLink activeStyle={active_style} to="/Register">
-              Register Now
-            </NavLink>
-            <Button />
-          </div> */}
+          <div className="kdag-nav-item">
+              <NavLink activeStyle={active_style} to="/Register">
+              </NavLink>
+              <Button />
+            </div>
           <nav className="kdag-nav-mobile drop">
             <ul className="kdag-nav-mobile-ul cf">
               <li>
@@ -115,11 +143,13 @@ const Navbar = ({ color, noborder }) => {
                   <li>
                     <NavLink to="/blogs">Blog</NavLink>
                   </li>
-                  <li>
+                  <li
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}>
                     <NavLink to="/team">Team</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/Register Now">Register Now</NavLink>
+                    <NavLink to="/Register Now"></NavLink>
                   </li>
                 </ul>
               </li>
