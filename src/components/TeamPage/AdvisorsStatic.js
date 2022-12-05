@@ -1,46 +1,45 @@
 const members = [
     {
-        image: "https://drive.google.com/uc?id=1-7Q0fBFxG-z3fQ7iHhsiee5R3uZcMAA3",
-        name: "Aditi Singhania",
-        facebook: "www.facebook.com",
+        image: "https://drive.google.com/uc?id=1izRV6qaRAUzYEbkN2VIMitnRubuc_iu-",
+        name: "Duhita Wani",
+        email: "yash@gmail.com",
+        facebook: "https://www.facebook.com/duhita.wani",
         twitter: "www.twitter.com",
-        linkedin: "https://www.linkedin.com/mwlite/in/aditi-singhania-436371146"
+        linkedin: "https://www.linkedin.com/in/duhita-wani-b4a393193/"
     },
-    {
-        image: "https://drive.google.com/uc?id=1zhAiw6lLFt4wfPiu25uMwmzSuCY6KNGG",
-        name: "Aditya Girish Pawate",
-        facebook: "www.facebook.com",
-        twitter: "www.twitter.com",
-        linkedin: "https://www.linkedin.com/in/aditya-girish-pawate-16a023169/"
+ {
+        image: "https://drive.google.com/uc?id=1sXlo-RT-q0Qru7-6hYCEbfnDfwgQWo-x",
+        name: "Ritik",
+        email: "yash@gmail.com",
+        facebook: "https://m.facebook.com/100026094961171/",
+        linkedin: "https://www.linkedin.com/in/the-ritik-singh/"
     },
+   
     {
-        image: "https://drive.google.com/uc?id=1SDLlCIHny8xwKmPWe4JvdDhncxIQRKbB",
-        name: "Onkar Sabnis",
-        facebook: "www.facebook.com",
+        image: "https://drive.google.com/uc?id=1lPoTGh2e3lYlaJ1K1Xsz4hiTEh0CvZ79",
+        name: "Shivam Bhosale",
+        email: "yash@gmail.com",
+        facebook: "https://www.facebook.com/shivam.bhosale.3914",
         twitter: "www.twitter.com",
-        linkedin: "https://www.linkedin.com/mwlite/in/onkar-sabnis-883094170"
-    },
-    {
-        image: "https://sibasmarak.github.io/images/siba-dark-light-bg.jpeg",
-        name: "Siba Smarak Panigrahi",
-        facebook: "www.facebook.com",
-        twitter: "www.twitter.com",
-        website: "https://sibasmarak.github.io/"
-    },
-    {
-        image: "https://drive.google.com/uc?id=1q4N4gq-w9xpTxPaShqwHN2v3v5sXyXeF",
-        name: "Srinivas Iyengar",
-        facebook: "www.facebook.com",
-        twitter: "www.twitter.com",
-        linkedin: "https://www.linkedin.com/mwlite/in/srinivas-iyengar-8a7777187"
+        linkedin: "https://www.linkedin.com/in/bhosaleshivam/"
     },
 
     {
-        image: "https://drive.google.com/uc?id=1Ebv3LhLh_Yptk3pxZLtIAqGftceJ21Pw",
-        name: "Varun Madhavan",
-        facebook: "www.facebook.com",
+        image: "https://drive.google.com/uc?id=1TG5Z0-Pf_HLGWT5ZcckDnBIkCItz9KLH",
+        name: "Sohan Patnaik",
+        email: "yash@gmail.com",
+        facebook: "https://www.facebook.com/sohan.patnaik.10",
         twitter: "www.twitter.com",
-        linkedin: "https://www.linkedin.com/mwlite/in/varun-madhavan"
+        linkedin: "https://www.linkedin.com/in/sohan-patnaik-29061a1a4/"
+    },
+
+    {
+        name: "Yash Agrawal",
+        image: "https://drive.google.com/uc?id=1deTFsabpQC4wDE4PAAiQQrL54snX5hqm",
+        email: "yash@gmail.com",
+        facebook: "https://www.facebook.com/yash.agrawal.754570/",
+        twitter: "www.twitter.com",
+        linkedin: "https://www.linkedin.com/in/yash-agrawal-6b4253194/"
     }
 
 ]
