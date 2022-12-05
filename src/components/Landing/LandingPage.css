@@ -1,6 +1,6 @@
 .section-landing-header {
   height: 20rem;
-  background-color: #172755;
+  background-color: #551717;
   /* clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%); */
   /* border-bottom: 5px solid #dc2626; */
   position: relative;
@@ -16,7 +16,7 @@
 }
 
 .heading-about-kdag {
-  color: #172755;
+  color: #fff;
   margin: 1rem auto;
 }
 
@@ -195,4 +195,9 @@ a {
   .about-kdag {
     text-align: center;
   }
+}
+
+.banner {
+  height: 500px;
+  margin-bottom: -300px;
 }

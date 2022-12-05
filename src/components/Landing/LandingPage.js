@@ -8,6 +8,9 @@ import Content from "./Content/Content.js";
 import logo from "../../assets/pics/KDAG_logo_full.jpeg";
 // import hack_poster from "../../assets/pics/HACKPoster.png"; 
 import Fade from "react-reveal/Fade";
+import Particless from "../Common/Particles/Particless";
+import VideoJS from './Video/VideoJS'
+import video1 from './Video/banner.mp4'
 // import Contact from "./Contact/Contact";
 
 const LandingPage = () => {
@@ -64,8 +67,11 @@ const LandingPage = () => {
       </div> */}
 
       {/* Header Section */}
-      <section className="section-landing-header">
-        <Header />
+      <section className="banner">
+        {/* <Header /> */}
+        <a href="https://unstop.com/hackathon/kharagpur-data-science-hackathon-indian-institute-of-technology-iit-kharagpur-232484" target="_blank">
+          <video src={video1} height="600" width="100%" autoplay="true" muted loop></video>
+        </a>
       </section>
 
       {/* content section  */}
@@ -81,11 +87,11 @@ const LandingPage = () => {
         
 
         <div className="about-kdag">
-        <Fade left>
-        <div className="about-kdag-image">
+        {/* <Fade left> */}
+        {/* <div className="about-kdag-image">
           <img src={logo} alt="LOGO" />
-        </div>
-        </Fade>
+        </div> */}
+        {/* </Fade> */}
 
 <Fade right>
 
@@ -104,6 +110,8 @@ const LandingPage = () => {
       {/*<section className="section-contacts">
         <Contact />
       </section>*/}
+
+      <Particless />
     </>
   );
 };

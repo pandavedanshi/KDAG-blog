@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header/Header";
 import BlogList from "./Blogs/BlogList";
 import Navbar from "../Common/Navbar/Navbar";
+import Particless from "../Common/Particles/Particless";
 
 const BlogPage = () => {
   return (
@@ -9,6 +10,7 @@ const BlogPage = () => {
       <Navbar />
       <Header />
       <BlogList />
+      <Particless />
     </>
   );
 };
