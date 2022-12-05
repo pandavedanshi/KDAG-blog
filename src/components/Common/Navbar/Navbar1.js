@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { Button } from './Button';
 import "./Navbar.css";
 import logo from "./../../../assets/pics/KDAG_logo.jpeg";
-import Dropdown from './Dropdown';
+
 import { Link, NavLink } from "react-router-dom";
 
 const active_style = {
@@ -55,18 +54,11 @@ const Navbar = ({ color, noborder }) => {
               <NavLink activeStyle={active_style} to="/team">
                 Team
               </NavLink>
-              {/* {Dropdown && <Dropdown/>} */}
             </div>
             {/* <div className="kdag-nav-item">
               <Link to="#">Go Down</Link>
             </div> */}
           </div>
-          {/* <div className="kdag-nav-item">
-            <NavLink activeStyle={active_style} to="/Register">
-              Register Now
-            </NavLink>
-            <Button />
-          </div> */}
           <nav className="kdag-nav-mobile drop">
             <ul className="kdag-nav-mobile-ul cf">
               <li>
@@ -117,9 +109,6 @@ const Navbar = ({ color, noborder }) => {
                   </li>
                   <li>
                     <NavLink to="/team">Team</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/Register Now">Register Now</NavLink>
                   </li>
                 </ul>
               </li>

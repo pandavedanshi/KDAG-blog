@@ -198,6 +198,13 @@ a {
 }
 
 .banner {
-  height: 500px;
+  height: 600px;
   margin-bottom: -300px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.banner-video {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }

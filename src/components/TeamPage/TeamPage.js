@@ -39,16 +39,18 @@ const TeamPage = () => {
         }
         </div>
 
-        <Fade left>
+        <br /><br /><br /><br /><br /><br /><br />
+
+        {/* <Fade left>
         <TeamPageHeading text="Senior Members" />
-        </Fade>
-        <div className="members-head-list members-head-list-bottom">
+        </Fade> */}
+        {/* <div className="members-head-list members-head-list-bottom">
             
         {seniormembers?.map((member) => {
             return <TeamCardSM key={member.id} member = {member} />;
           }) 
         }
-        </div>
+        </div> */}
         <Particless />
         </>
     )

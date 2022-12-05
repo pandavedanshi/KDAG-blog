@@ -1,10 +1,4 @@
 .blog-list-header {
-  background: linear-gradient(
-      180deg,
-      rgba(220, 66, 66, 0.8),
-      rgba(0,0,0,1)
-    ),
-    url("./../../../assets/pics/analytics7.jpg");
   height: 30rem;
   padding-top: 10rem;
   background-size: cover;
