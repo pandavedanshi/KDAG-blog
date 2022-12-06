@@ -83,7 +83,7 @@ const Navbar = ({ color, noborder }) => {
               to="/team">
                 Team
               </NavLink>
-              {dropdown && <Dropdown/>}
+              {/* {dropdown && <Dropdown/>} */}
               
             </div>
             {/* <div className="kdag-nav-item">
