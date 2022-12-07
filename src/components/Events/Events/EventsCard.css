@@ -1,9 +1,23 @@
-.events-card {
+/*.events-card {
     display: flex;
     width: 90%;
     margin: 3rem auto;
     box-shadow: 1px 1px 10px 4px #777;
     max-width: 70rem;
+    transition: transform .2s ease;
+}*/
+.events-card {
+    display: flex;
+    width: 90%;
+    margin: 3rem auto;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255,0.1);
+    overflow: hidden;
+    max-width: 70rem;
+    border-top: 1px solid rgba(255, 255, 255,0.1);
+    border-left: 1px solid rgba(255, 255, 255,0.1);
+    backdrop-filter: blur(5px);
     transition: transform .2s ease;
 }
 
