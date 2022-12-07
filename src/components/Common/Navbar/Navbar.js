@@ -149,7 +149,7 @@ const Navbar = ({ color, noborder }) => {
                     <NavLink to="/team">Team</NavLink>
                   </li>
                   <li>
-                    <NavLink to={{pathname: 'https://unstop.com/hackathon/kharagpur-data-science-hackathon-indian-institute-of-technology-iit-kharagpur-232484'}} target="_blank">Register Now</NavLink>
+                    <NavLink to={{pathname: 'https://unstop.com/hackathon/kharagpur-data-science-hackathon-2022-indian-institute-of-technology-iit-kharagpur-542463'}} target="_blank">Register Now</NavLink>
                   </li>
                 </ul>
               </li>

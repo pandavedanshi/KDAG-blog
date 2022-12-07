@@ -69,7 +69,7 @@ const LandingPage = () => {
       {/* Header Section */}
       <section className="banner">
         {/* <Header /> */}
-        <a href="https://unstop.com/hackathon/kharagpur-data-science-hackathon-indian-institute-of-technology-iit-kharagpur-232484" target="_blank" className="banner-video">
+        <a href="https://unstop.com/hackathon/kharagpur-data-science-hackathon-2022-indian-institute-of-technology-iit-kharagpur-542463" target="_blank" className="banner-video">
           <video src={video1} height="600" width="auto" autoplay="true" muted loop></video>
         </a>
       </section>
