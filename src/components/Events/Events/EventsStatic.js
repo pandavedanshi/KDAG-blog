@@ -9,8 +9,8 @@ const events = [
         id: 0,
         title: "Kharagpur Data Science Hackathon 2022",
         location: "Dare2Compete",
-        date: "16th December 2022 - 17th January 2022",
-        link: "https://unstop.com/hackathon/kharagpur-data-science-hackathon-2022-indian-institute-of-technology-iit-kharagpur-542463",
+        date: "16th December 2022 - 25th January 2023",
+        link: "/KDSH2022",
         image: KDSH2022,
     },
 

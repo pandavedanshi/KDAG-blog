@@ -5,7 +5,6 @@ import TeamPageHeading from "./TeamPageHeading";
 import members from "./MembersStatic"
 import seniormembers from "./SeniorMembersStatic";
 import advisors from "./AdvisorsStatic";
-import Navbar from "../Common/Navbar/Navbar";
 import Header from "./Header";
 import Fade from "react-reveal/Fade";
 import Particless from '../Common/Particles/Particless'
@@ -15,7 +14,6 @@ import "./TeamPage.css"
 const TeamPage = () => {
     return  (
         <>
-        <Navbar />
         <Header />
         <Fade left>
         <TeamPageHeading text="Heads" />

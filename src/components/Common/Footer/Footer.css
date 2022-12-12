@@ -33,7 +33,8 @@
   
   .ui.inverted.segment,
   .ui.primary.inverted.segment {
-    background: #1B1C1D;
+    background: rgba(255, 255, 255,0.1);
+    backdrop-filter: blur(5px);
     color: rgba(255, 255, 255, 0.9);
   }
   

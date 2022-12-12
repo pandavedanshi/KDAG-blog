@@ -2,16 +2,10 @@ import React from "react";
 import "./LandingPage.css";
 
 //Components
-import Navbar from "./../Common/Navbar/Navbar.js";
-import Header from "./Header/Header.js";
-import Content from "./Content/Content.js";
-import logo from "../../assets/pics/KDAG_logo_full.jpeg";
-// import hack_poster from "../../assets/pics/HACKPoster.png"; 
+import Content from "./Content/Content.js"; 
 import Fade from "react-reveal/Fade";
 import Particless from "../Common/Particles/Particless";
-import VideoJS from './Video/VideoJS'
-import video1 from './Video/final.mp4'
-// import Contact from "./Contact/Contact";
+import video1 from './Video/final.mp4';
 
 const LandingPage = () => {
   // useEffect(() => {
@@ -33,8 +27,6 @@ const LandingPage = () => {
 
   return (
     <>
-      <Navbar />
-
       {/* <div id="modal-click" className="modal-background">
         <br />
       </div> */}
