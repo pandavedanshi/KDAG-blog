@@ -137,6 +137,12 @@ span.text {
   .past-hackathons h1 {
     font-size: 45px;
   }
+  .owl-carousel {
+    padding: 0px !important;
+  }
+  #shadow-effect p {
+    padding: 0px !important;
+  }
 }
 
 /* Carousel */
@@ -156,21 +162,21 @@ span.text {
   line-height: 6;
   margin: 0 0 17px 0;
   font-weight: 300;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 350px;
+  padding-right: 350px;
 }
 .img-circle {
   border-radius: 50%;
   vertical-align: middle;
-  max-width: 220px;
-  min-height: 220px;
+  max-width: 200px;
+  min-height: 200px;
   transform-style: preserve-3d;
   margin: 0 auto 17px;
 }
 .owl-carousel {
   margin-top: 6%;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 350px;
+  padding-right: 350px;
 }
 .testimonial-name {
   margin: 5px auto 0;
