@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import KDSH2022 from "../../../../assets/pics/events/KDSH2022_New.jpeg"
+import KDSH2022 from "../../../../assets/pics/events/KDSH2022_Latest.png"
 
 const Header = () => {
   return (
