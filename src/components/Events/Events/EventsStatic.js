@@ -2,7 +2,7 @@ import KDSH2020 from "../../../assets/pics/events/KDSH2020.jpg";
 import SummerAI from "../../../assets/pics/events/SummerAIChallenge.jpg";
 import KDSH2021 from "../../../assets/pics/HACKPoster.png";
 import WW21 from "../../../assets/pics/WW21.png";
-import KDSH2022 from "../../../assets/pics/events/KDSH2022.jpeg";
+import KDSH2022 from "../../../assets/pics/events/KDSH2022_Latest.png";
 
 const events = [
     {
