@@ -13,7 +13,7 @@
 
 .kdag-nav-contain {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 95%;
   margin: auto;
   position: relative;
@@ -30,7 +30,7 @@
   width: 40%;
   justify-content: space-between;
   max-width: 40rem;
-  align-items: center;
+  align-items: normal;
   color: rgba(255, 255, 255, 0.4);
 }
 .kdag-nav-item:hover{
@@ -46,6 +46,7 @@
   font-size: 2rem;
   height: 100%;
   padding-bottom: 0.5rem;
+  margin-left: -50px;
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
 }
 

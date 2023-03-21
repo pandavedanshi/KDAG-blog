@@ -90,11 +90,6 @@ const Navbar = ({ color, noborder }) => {
               <Link to="#">Go Down</Link>
             </div> */}
           </div>
-          <div className="kdag-nav-item">
-              <NavLink activeStyle={active_style} to="/Register">
-              </NavLink>
-              <Button />
-            </div>
           <nav className="kdag-nav-mobile drop">
             <ul className="kdag-nav-mobile-ul cf">
               <li>
@@ -147,9 +142,6 @@ const Navbar = ({ color, noborder }) => {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}>
                     <NavLink to="/team">Team</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={{pathname: 'https://unstop.com/hackathon/kharagpur-data-science-hackathon-2022-indian-institute-of-technology-iit-kharagpur-542463'}} target="_blank">Register Now</NavLink>
                   </li>
                 </ul>
               </li>

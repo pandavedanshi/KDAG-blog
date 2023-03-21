@@ -1,10 +1,7 @@
 .section-landing-header {
   height: 20rem;
   background-color: #551717;
-  /* clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%); */
-  /* border-bottom: 5px solid #dc2626; */
   position: relative;
-  /* z-index: 1; */
   padding-top: 2rem;
 }
 
@@ -99,71 +96,45 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
-  background: linen;
+  background: rgb(250, 124, 124);
   z-index: 100;
   border-radius: 7px;
   box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.9);
 }
 
-.modal-box img{
-  width: 100%;
-  border-radius: 0;
+.modal-heading{
+  color: rgb(70, 70, 70);
+  margin-bottom: 50px;
 }
 
-.modal-box label{
-  color: #dc2626;
+#modal-close{
+  z-index: 110;
+  color: #8e8c8c;
   font-size: 1.2em;
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 5px;
+  right: 10px;
 }
-.modal-box label:hover{
+
+#modal-close:hover{
   cursor: pointer;
 }
 .modal-background{
-  background-color: white;
-  opacity: 0.8;
+  background-color: transparent;
   height: 100%;
   position: fixed;
   top: 0px;
   width: 100%;
 }
 .modal-content{
-  padding: 0 20px;
-}
-.modal-content p{
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
-  color: #444;
-  margin-top: 0.7rem;
-}
-
-
-.modal-registration{
-  margin: 1rem 0;
-}
-.modal-register-btn{
-  font-size: 1.1em;
-  color: white;
-  width: 90%;
-  /* border-radius: 30px; */
-  background-color: #dc2626;
-  padding: 0.5rem;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: auto;
-  transition: all .2s;
-}
-
-.modal-register-btn:hover {
-  background-color: #ed3737;
-  
+  padding: 20px;
+  color: rgb(40, 40, 40);
+  background-color: rgb(229, 220, 220) !important;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+  text-decoration: none !important; 
+  color: inherit !important;
 }
 
 @media screen and (max-width: 1200px) {
@@ -207,4 +178,8 @@ a {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.form-control {
+  background-color: rgb(219, 219, 219) !important;
 }
