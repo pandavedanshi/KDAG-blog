@@ -61,7 +61,7 @@ const LandingPage = () => {
         name.toLowerCase() == name_cand[0].toLowerCase() &&
         email === name_cand[1]
       ) {
-        a.href = images[name + ".png"].default;
+        a.href = images[name_cand[0] + ".png"].default;
         a.download = "Certificate.png";
         a.click();
         flag = 1;
@@ -70,6 +70,7 @@ const LandingPage = () => {
     if(flag == 0){
       alert("Invalid credentials!");
     }
+    console.log(flag);
     document.body.removeChild(a);
   };
 
@@ -162,6 +163,7 @@ const LandingPage = () => {
               <textarea
                 className="form-control"
                 id="textarea"
+                rows="1"
                 placeholder="Type here"
                 name="Problems"
                 required
