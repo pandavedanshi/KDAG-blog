@@ -40,6 +40,15 @@ const members = [
         facebook: "https://www.facebook.com/yash.agrawal.754570/",
         twitter: "www.twitter.com",
         linkedin: "https://www.linkedin.com/in/yash-agrawal-6b4253194/"
+    },
+
+    {
+        name: "Aditya Girish Pawate",
+        image: "https://media.licdn.com/dms/image/C5603AQHDRY5ESInURg/profile-displayphoto-shrink_800_800/0/1663420507973?e=1687996800&v=beta&t=5cudJDWo6x552bnfnD0e1C7nCr7SxTDcy_iJyMpgueE",
+        email: "adityagirishpawate@gmail.com",
+        facebook: "https://www.facebook.com/AdityaGirishPawate",
+        twitter: "www.twitter.com",
+        linkedin: "https://www.linkedin.com/in/aditya-girish-pawate-16a023169/"
     }
 
 ]
