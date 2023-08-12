@@ -30,6 +30,10 @@ const LandingPage = () => {
     ["Subhajyoti Halder", "subhajyotihalder72@gmail.com"],
     ["Anubhab Tripathi", "tripathianubhab@gmail.com"],
     ["Akash Kundu", "akashkundu2xx4@gmail.com"],
+    ["Aayush Jitendra Kumar", "jitendra.kumar.epf@gmail.com"],
+    ["Shaswat Sheshank", "sheshank.shaswat1111@gmail.com"],
+    ["Avinash Kumar", "avinashjnvr@gmail.com"],
+    ["Sandeep Mishra", "sandeepmishraismyname@gmail.com"]
   ];
 
   function importAll(r) {
