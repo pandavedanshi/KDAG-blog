@@ -1,54 +1,71 @@
 const members = [
     {
-        image: "https://drive.google.com/uc?id=1izRV6qaRAUzYEbkN2VIMitnRubuc_iu-",
-        name: "Duhita Wani",
-        email: "yash@gmail.com",
+        image: "https://media.licdn.com/dms/image/C4D03AQGnaly6GOZI8w/profile-displayphoto-shrink_100_100/0/1657031508386?e=1699488000&v=beta&t=DkRHQF729tyXTwz_EolXOVxNZd28XliA-IQump7hv_k",
+        name: "Pratik Singh",
+        email: "pratik.singh.801.ps@gmail.com",
         facebook: "https://www.facebook.com/duhita.wani",
         twitter: "www.twitter.com",
-        linkedin: "https://www.linkedin.com/in/duhita-wani-b4a393193/"
+        linkedin: "https://www.linkedin.com/in/pratik-singh-4026311b9/"
     },
  {
-        image: "https://drive.google.com/uc?id=1sXlo-RT-q0Qru7-6hYCEbfnDfwgQWo-x",
-        name: "Ritik",
-        email: "yash@gmail.com",
-        facebook: "https://m.facebook.com/100026094961171/",
-        linkedin: "https://www.linkedin.com/in/the-ritik-singh/"
+        image: "https://scontent.fmaa8-1.fna.fbcdn.net/v/t39.30808-6/352212161_2010216715995402_8521977764161486397_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=BLVG5aH0c3QAX9TSJtx&_nc_ht=scontent.fmaa8-1.fna&oh=00_AfCn9ZtiG1zkZ7ktCC9e_b6pf1hO3V7Q8mAIidmJ3GiYxg&oe=64FB7AC9",
+        name: "Kinjal Sensharma",
+        email: "kinsen2764@gmail.com",
+        facebook: "https://www.facebook.com/profile.php?id=100010212784429",
+        linkedin: "https://www.linkedin.com/in/kinjal-sensharma-2597081bb/"
     },
    
     {
-        image: "https://drive.google.com/uc?id=1lPoTGh2e3lYlaJ1K1Xsz4hiTEh0CvZ79",
-        name: "Shivam Bhosale",
+        image: "https://drive.google.com/uc?id=1B6OIeRFbvYuT9Ox3JDeU8F8_A2wF15cD",
+        name: "Anushka Chatterjee",
         email: "yash@gmail.com",
-        facebook: "https://www.facebook.com/shivam.bhosale.3914",
+        facebook: "https://www.facebook.com/anushka.chatterjee.127201",
         twitter: "www.twitter.com",
-        linkedin: "https://www.linkedin.com/in/bhosaleshivam/"
+        linkedin: "https://www.linkedin.com/in/anushka-chatterjee-7483a9212/"
     },
 
     {
-        image: "https://drive.google.com/uc?id=1TG5Z0-Pf_HLGWT5ZcckDnBIkCItz9KLH",
-        name: "Sohan Patnaik",
+        image: "https://drive.google.com/uc?id=1B7A31Gi0AfzGWQl-gAXWTAjZ2F3FATOY",
+        name: "Sneha Majumder",
         email: "yash@gmail.com",
-        facebook: "https://www.facebook.com/sohan.patnaik.10",
+        facebook: "",
         twitter: "www.twitter.com",
-        linkedin: "https://www.linkedin.com/in/sohan-patnaik-29061a1a4/"
+        linkedin: "https://www.linkedin.com/in/sneha-majumder-21aa4a210/"
     },
 
     {
-        name: "Yash Agrawal",
-        image: "https://drive.google.com/uc?id=1deTFsabpQC4wDE4PAAiQQrL54snX5hqm",
+        name: "Shaswat Shrivastav",
+        image: "https://drive.google.com/uc?id=1B65F5RrGfw18p1NLgIHxAzw6udhY8E_7",
         email: "yash@gmail.com",
-        facebook: "https://www.facebook.com/yash.agrawal.754570/",
+        facebook: "https://www.facebook.com/shaswat.shrivastava.75",
         twitter: "www.twitter.com",
-        linkedin: "https://www.linkedin.com/in/yash-agrawal-6b4253194/"
+        linkedin: "https://www.linkedin.com/in/shaswat-shrivastav-95096a219/"
     },
 
     {
-        name: "Aditya Girish Pawate",
-        image: "https://media.licdn.com/dms/image/C5603AQHDRY5ESInURg/profile-displayphoto-shrink_800_800/0/1663420507973?e=1687996800&v=beta&t=5cudJDWo6x552bnfnD0e1C7nCr7SxTDcy_iJyMpgueE",
-        email: "adityagirishpawate@gmail.com",
-        facebook: "https://www.facebook.com/AdityaGirishPawate",
+        name: "Shashwat Naidu",
+        image: "https://drive.google.com/uc?id=1ygiEVPRzlKeX1n2IAHOJuAiQo-S_75HA",
+        email: "yash@gmail.com",
+        facebook: "https://www.facebook.com/shashwat.naidu.7?mibextid=ZbWKwL",
         twitter: "www.twitter.com",
-        linkedin: "https://www.linkedin.com/in/aditya-girish-pawate-16a023169/"
+        linkedin: "https://www.linkedin.com/in/shashwat-naidu-258413225"
+    },
+
+    {
+        name: "Omee Katrodiya",
+        image: "https://drive.google.com/uc?id=1AimOCNhCYEdxkVRtMPxjW84taE1NZLzO",
+        email: "yash@gmail.com",
+        facebook: "https://www.facebook.com/profile.php?id=100009741094806&mibextid=ZbWKwL",
+        linkedin: "https://www.linkedin.com/in/omee-katrodiya"
+    },
+
+    {
+        name: "Ayush Aryan",
+        image: "https://drive.google.com/uc?id=1AzgrYNiqb-0vxyAfA68AQArPBi27ZpK9",
+        email: "yash@gmail.com",
+        facebook: "https://www.facebook.com/ayush.aryan.71?mibextid=ZbWKwL",
+        twitter: "www.twitter.com",
+        linkedin: "https://www.linkedin.com/in/ayush-aryan-b73b24200"
     }
 
 ]
