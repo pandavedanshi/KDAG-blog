@@ -7,7 +7,7 @@ const EventsCard = ({ event }) => {
   return (
       <div>
           <Fade bottom>
-              <div className="events-card">
+              <div className="events-card" >
                   <div
                       className="events-card-left"
                       style={{ backgroundImage: `url(${event.image})` }}
@@ -30,6 +30,8 @@ const EventsCard = ({ event }) => {
                       {/* {event.link==="Coming Soon" ? 
                     <div className="events-card-button"><div className="events-card-button2">Coming Soon</div></div> :  */}
                       {event.resources ? (
+                        
+                      <div className="events-card-button-outerMost">
                           <Link to={event.resources}>
                               <div className="events-card-button">
                                   <div className="events-card-button2">
@@ -39,27 +41,32 @@ const EventsCard = ({ event }) => {
                   <i class="fa fa-link"></i>
                 </div> */}
                               </div>
-                          </Link>
+                          </Link> 
+                      </div>
                       ) : (
                           <div />
                       )}
-                      {event.link && <a
-                          href={event.link || "#"}
-                          target="_blank"
-                          rel="noreferrer noopener"
-                      >
-                          <div className="events-card-button">
-                              <div className="events-card-button2">
-                                  {event.infotext
-                                      ? event.infotext
-                                      : "Event Information"}
-                              </div>
-                              <div className="events-card-button1">
-                                  <i class="fa fa-link"></i>
-                              </div>
-                          </div>
-                      </a>}
+                      
+                      <div className="events-card-button-outerMost">
+                            {event.link && <a
+                                href={event.link || "#"}
+                                target="_blank"
+                                rel="noreferrer noopener">
+                                <div className="events-card-button">
+                                    <div className="events-card-button2">
+                                        {event.infotext
+                                            ? event.infotext
+                                            : "Event Information"}
+                                    </div>
+                                    <div className="events-card-button1">
+                                        <i class="fa fa-link"></i>
+                                    </div>
+                                </div>
+                            </a>}
+                      </div>
                       {event.certificates ? (
+                        
+                      <div className="events-card-button-outerMost">
                           <Link to={event.certificates}>
                               <div className="events-card-button">
                                   <div className="events-card-button2">
@@ -70,6 +77,7 @@ const EventsCard = ({ event }) => {
                 </div> */}
                               </div>
                           </Link>
+                      </div>
                       ) : (
                           <div />
                       )}
