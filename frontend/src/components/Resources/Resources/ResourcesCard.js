@@ -26,7 +26,7 @@ const ResourcesCard = ({ resource }) => {
       </div>
       </div>
       <div className="resources-list-card-description">{resource.description}</div>
-      <a href={resource.link} target="_blank" rel="noreferrer noopener"><div className="resources-list-card-button">View Resource</div></a>
+      <div className="resources-list-card-button-outerMost"><a href={resource.link} target="_blank" rel="noreferrer noopener"><div className="resources-list-card-button">View Resource</div></a></div>
     
     </div>
 

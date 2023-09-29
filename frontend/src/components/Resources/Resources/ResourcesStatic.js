@@ -10,7 +10,7 @@ const resources = [
     id: 2,
     name: "Paper Reading Sessions",
     subtitle: "Feb 2021 - Present",
-    description: "Come on data enthusiasts! How about an R-Rated session on Convolutional Neural Networks or a rather mathematical approach to understanding a deep learning model through research papers? The reading sessions are usually kept short and to the point. So letâ€™s delve deep into exciting data science topics with proper resources!",
+    description: "Come on data enthusiasts! How about an R-Rated session on Convolutional Neural Networks or a rather mathematical approach to understanding a deep learning model through research papers? The reading sessions are usually kept short and to the point. So let's delve deep into exciting data science topics with proper resources!",
     link: "https://docs.google.com/document/d/1nrZ4aYcKM5M9OT_cLahFPo2C2baajt6uRMB37ypfezY/edit#heading=h.u63rmwevtk85" 
   },
   {

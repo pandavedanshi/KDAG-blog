@@ -4,7 +4,7 @@ import ResourcesList from "./Resources/ResourcesList";
 import Particless from "../Common/Particles/Particless";
 
 const ResourcesPage = () => {
-  return (
+  return ( 
     <>
       <Header />
       <ResourcesList />
