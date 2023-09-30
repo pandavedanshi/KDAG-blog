@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './Footer.css';
 import logo from "../../../assets/pics/KDAG_logo.jpeg";
 import facebookIcon from "../../../assets/pics/facebook.png"
@@ -42,7 +42,9 @@ const Footer = () => {
 
                 <div class="ui horizontal inverted small divided link list">
                     <a class="item" target="_blank" rel="noreferrer noopener" href="http://iitkgp.ac.in">IIT KGP</a>
-                    <a class="item" target="_blank" rel="noreferrer noopener" href="/contact">Contact Us</a>
+                    <NavLink to="/team">
+                        | Contact Us
+                    </NavLink>
                 </div>
             </div>
         </div>

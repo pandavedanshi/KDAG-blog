@@ -81,7 +81,7 @@
 .kdag-nav-item {
   font-size: 1.2rem;
   margin: 1rem 0;
-  color: black;
+  /* color: black; */
   -webkit-text-stroke: 1px #646464;
 }
 
