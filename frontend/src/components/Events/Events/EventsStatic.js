@@ -10,7 +10,8 @@ const events = [
         title: "Kharagpur Data Science Hackathon 2022",
         location: "Dare2Compete",
         date: "16th December 2022 - 25th January 2023",
-        link: "/KDSH2022",
+        // link: "/KDSH2022",
+        link: "/",
         image: KDSH2022,
     },
 

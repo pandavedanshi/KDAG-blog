@@ -15,13 +15,13 @@
   transition: 1s;
 }
 
-.resources-list-header-title {
+/* .resources-list-header-title {
   font-family: Poppins, sans-serif;
   font-size: 4rem;
   font-weight: 700;
   text-align: center;
   color: #ffffff;
-}
+} */
 
 .resources-list-header-subtitle {
   font-family: Poppins, sans-serif;
