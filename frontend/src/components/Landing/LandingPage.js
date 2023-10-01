@@ -227,7 +227,7 @@ const LandingPage = () => {
                   <div className="banner-info-flex">
                       <div className="banner-info">
                       <FontAwesomeIcon icon="fa-regular fa-calendar-days" />   <p id="banner-info">26 November 2023</p>
-                          <p id="banner-info">Netaji Auditorium</p>
+                      <FontAwesomeIcon icon="fa-solid fa-location-dot" /> <p id="banner-info">Netaji Auditorium</p>
                       </div>
                   </div>
                   <div className="banner-button-flex">
