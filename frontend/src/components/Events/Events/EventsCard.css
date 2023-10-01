@@ -10,7 +10,7 @@
     border-left: 1px solid rgba(255, 255, 255,0.1);
     backdrop-filter: blur(5px);
     transition: transform .2s ease;
-    transition: all 0.3s;
+    transition: all 0.4s;
 }
 
 .events-card:hover {
@@ -44,7 +44,7 @@
     font-weight: 700;
     margin: 1rem;
     color: #fff;
-    transition: all 0.3s;
+    transition: all 0.4s;
 }
 
 .events-card:hover .events-card-title{
