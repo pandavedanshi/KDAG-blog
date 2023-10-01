@@ -1,6 +1,9 @@
 import React from "react";
+import Birthday from "./countdown/count";
 import "./LandingPage.css";
 import { useEffect } from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 //Components
 import Content from "./Content/Content.js";
@@ -8,6 +11,7 @@ import Fade from "react-reveal/Fade";
 import Particless from "../Common/Particles/Particless";
 import video1 from "./Video/final.mp4";
 import certificate from "../../assets/KDSH2022Certificates/Akash Kundu.png"
+import Header from "./Header/Header";
 
 const LandingPage = () => {
   const eligibleCandidates = [
@@ -190,8 +194,9 @@ const LandingPage = () => {
       </div>
 
       {/* Header Section */}
-      <section className="banner">
-        {/* <Header /> */}
+      
+      <section className="banner" color="white">
+        {/* <Header />
         <a
           href="https://unstop.com/hackathon/kharagpur-data-science-hackathon-2022-indian-institute-of-technology-iit-kharagpur-542463"
           target="_blank"
@@ -205,7 +210,68 @@ const LandingPage = () => {
             muted
             loop
           ></video>
-        </a>
+  </a> */}
+          <div className="banner-main">
+                  <div className="banner-image-div">
+                  </div>
+                  <div className="banner-heading-flex">
+                      <div className="banner-heading">
+                        <h2>Kharagpur Data Science Hackathon</h2>
+                      </div>
+                  </div>
+                  <div className="banner-content-flex">
+                      <div className="banner-content">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, sapiente. Non libero porro suscipit laudantium qui aliquid repellat eos velit, dolorum fuga vitae numquam voluptas ullam alias animi minima deleniti! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure hic nobis rem laborum expedita, quasi minima odio eum inventore autem debitis dicta omnis ducimus amet culpa quibusdam nesciunt? Porro, assumenda! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum obcaecati voluptate magni sed similique a veniam error, ab porro pariatur omnis illo earum autem consectetur sapiente repellat doloremque quaerat laboriosam?</p>
+                      </div>
+                  </div>
+                  <div className="banner-info-flex">
+                      <div className="banner-info">
+                      <FontAwesomeIcon icon="fa-regular fa-calendar-days" />   <p id="banner-info">26 November 2023</p>
+                          <p id="banner-info">Netaji Auditorium</p>
+                      </div>
+                  </div>
+                  <div className="banner-button-flex">
+                        <div className="banner-button"> 
+                            <button class="btn-12"><span>Register Now</span></button>
+                        </div>
+                        <button id="banner-button-media" class="btn-12"><span>Register Now</span></button>
+                  </div>
+          </div>
+        <div className="banner-countdown">
+                <div className="banner-countdown-heading-flex">
+                        <div className="banner-countdown-heading">
+                              <h2>Count every second until the event</h2>
+                        </div>
+                </div>
+                <div className="banner-count-flex">
+                         <Birthday/>
+                </div>
+        </div>
+        <div className="banner-queries">
+            <div className="query-heading-flex">
+                  <div className="query-heading">
+                        <h2>Ask Your Queries!</h2>
+                  </div>
+            </div>
+            <div className="query-person-details-flex">
+                    <h5 id="query-name">Name</h5>
+                    <h5 id="query-email">Email</h5>
+                    <h5 id="query">Query</h5>
+            </div>
+            <div className="query-box-flex">
+                    <input type="text" id="query-box-name" />
+                    <input type="text" id="query-box-email"/>
+                    <input type="text" id="query-box-query" />
+            </div>
+            <div className="query-submit-button-flex">
+                  <div className="query-submit-button">
+                        <button class="btn-12"><span>Submit</span></button>
+                  </div>
+            </div>
+        </div>
+
+        {/* <link rel="stylesheet" href="dd" >Register Now</link> */}
+        
       </section>
 
       {/* content section  */}
