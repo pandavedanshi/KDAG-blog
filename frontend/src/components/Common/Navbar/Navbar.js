@@ -6,8 +6,9 @@ import Dropdown from './Dropdown';
 import { Link, NavLink } from "react-router-dom";
 
 const active_style = {
-  borderBottom: "2px solid rgba(255, 255, 255, 0.7)",
-  color: "rgba(255, 255, 255, 0.7)",
+  borderBottom: "2px solid rgba(255, 255, 255, 0.8)",
+  paddingBottom: "2px",
+  color: "rgba(255, 255, 255, 0.8)",
 };
 
 const Navbar = ({ color, noborder }) => {
