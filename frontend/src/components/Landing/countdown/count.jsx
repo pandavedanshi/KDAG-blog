@@ -1,138 +1,79 @@
 import React, { useState, useEffect } from 'react';
+function calculateTimeRemaining(eventDate) {
+  const currentTime = new Date();
+  const timeRemaining = eventDate - currentTime;
+  const seconds = Math.floor((timeRemaining / 1000) % 60);
+  const minutes = Math.floor((timeRemaining / 1000 / 60) % 60);
+  const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
+  const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+  return { days, hours, minutes, seconds };
+}
+const Countdown = ({ eventDate }) => {
+  const [isEventLive, setIsEventLive] = useState(false);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const currentTime = new Date();
+      setIsEventLive(currentTime >= eventDate);
+    }, 1000);
 
-const Countdown = ({ countdownData, event_name }) => {
-  if (!countdownData.isItBday) {
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [eventDate]);
+
+  if (!isEventLive) {
+    const timeRemaining = calculateTimeRemaining(eventDate);
     return (
       <div>
-        
+        <div className="banner-countdown-heading-flex">
+          <div className="banner-countdown-heading">
+            <h2>Count every second until the event</h2>
+          </div>
+        </div>
         <div className='countdown-wrapper'>
           <div className='countdown-box'>
-            {countdownData.days} 
+            {timeRemaining.days} 
             <span className='legend'>Days</span>
           </div>
           <div className='countdown-box'>
-            {countdownData.hours}  
+            {timeRemaining.hours}  
             <span className='legend'>Hours</span>
           </div>
           <div className='countdown-box'>
-            {countdownData.minutes}  
+            {timeRemaining.minutes}  
             <span className='legend'>Minutes</span>
           </div>
           <div className='countdown-box'>
-            {countdownData.seconds} 
+            {timeRemaining.seconds} 
             <span className='legend'>Seconds</span>
           </div>
         </div>
       </div>
     );
-  } 
-};
-const Birthday = ({ event_name, day, month }) => {
-  // useState Hooks
-  const [state, setState] = useState({
-    seconds: 0,
-    hours: 0,
-    minutes: 0,
-    days: 0,
-    isIteventday: false,
-  });
-
-  if (event_name === undefined || day === undefined || month === undefined) {
-    // This is if not enough params are provided
-    event_name = 'KDSH'; // Name of the Person
-    month = 10; // Month of the Birthday
-    day = 28; // Day of the Birthday
   }
 
-  // get current time
-  const currentTime = new Date();
-  // get current year
-  const currentYear = currentTime.getFullYear();
+  return (
+    <div className='Banner-Eventislive'>
+      <h1>Registrations are Open Now</h1>
+    </div>
+  );
+};
 
-  // Getting the Birthday in Data Object
-  // WE subtract 1 from momnth ; Months start from 0 in Date Object
-  // Bithday Boolean
-  const isIteventday =
-    currentTime.getDate() === day && currentTime.getMonth() === month - 1;
+const Birthday = () => {
+  const [day, setDay] = useState(11);    // set Event date , month and year 
+  const [month, setMonth] = useState(10);
+  const [year, setYear] = useState(2023);
+  const eventDate = new Date(year, month - 1, day);
 
-  useEffect(() => {
-    setInterval(() => {
-      const countdown = () => {
-        // Getting the Current Date
-        const dateAtm = new Date();
 
-        // if the Birthday has passed
-        // then set the Birthday countdown for next year
-        let birthdayDay = new Date(currentYear, month - 1, day);
-        if (dateAtm > birthdayDay) {
-          birthdayDay = new Date(currentYear + 1, month - 1, day);
-        } else if (dateAtm.getFullYear() === birthdayDay.getFullYear() + 1) {
-          birthdayDay = new Date(currentYear, month - 1, day);
-        }
-
-        // Getitng Current Time
-        const currentTime = dateAtm.getTime();
-        // Getting Birthdays Time
-        const birthdayTime = birthdayDay.getTime();
-
-        // Time remaining for the Birthday
-        const timeRemaining = birthdayTime - currentTime;
-
-        let seconds = Math.floor(timeRemaining / 1000);
-        let minutes = Math.floor(seconds / 60);
-        let hours = Math.floor(minutes / 60);
-        let days = Math.floor(hours / 24);
-
-        seconds %= 60;
-        minutes %= 60;
-        hours %= 24;
-
-        // Setting States
-        setState((prevState) => ({
-          ...prevState,
-          seconds,
-          minutes,
-          hours,
-          days,
-          isIteventday,
-        }));
-        // console.log(`${days}:${hours}:${minutes}:${seconds} , ${isItBday}`);
-      };
-      if (!isIteventday) {
-        countdown();
-      } else {
-        setState((prevState) => ({
-          ...prevState,
-          isIteventday: true,
-        }));
-      }
-    }, 1000);
-  }, [currentYear, day, isIteventday, month]);
-
-  let birth = new Date(currentYear, month - 1, day);
-  const monthNames = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  let monthBday = monthNames[birth.getMonth()];
 
   return (
-   
     <div className='page'>
-      <Countdown countdownData={state} event_name={event_name}/>
+      <Countdown eventDate={eventDate} />
     </div>
   );
 };
 
 export default Birthday;
+

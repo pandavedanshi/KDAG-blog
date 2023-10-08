@@ -245,7 +245,7 @@ a {
 .banner-countdown{
   height: 29%;
   width: 100%;
-  background: linear-gradient(#DD2626,black);
+  background: linear-gradient(red,black);
 }
 .banner-countdown-heading-flex{
   height: 50px;
@@ -260,12 +260,14 @@ a {
     color: white;
 }
 .banner-count-flex{
+
   height: 160px;
   width: 100%;
   position: relative;
   display: flex;
   align-items: center;
-  padding-left: 10%;
+  padding-left: 0%;
+  top: 15%;
 }
 .form-control {
   background-color: rgb(219, 219, 219) !important;
@@ -380,12 +382,13 @@ body {
 }
 
 .page {
-  width: 1400px;
+  width:100%;
   height: 170px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-left: 6%;
 }
 .heading {
   font-size: 45px;
@@ -616,6 +619,15 @@ a {
 #banner-button-media{
   display: none;
 }
+.Banner-Eventislive{
+  width: 100%;
+  margin-left: 0;
+  padding-left: 0;
+  height: 100%;
+  color: white;
+  position: relative;
+  padding-right: 7%;
+}
 /* media queries */
 @media only screen and (max-width:450px) {
   .banner-heading-flex{
@@ -751,4 +763,14 @@ a {
 .banner-button-flex{
   padding-right: 24%;
 }
+.page{
+  position: relative;
+  top: 15%;
 }
+.Banner-Eventislive{
+  position: relative;
+  top: 25%;
+  right: 1%;
+}
+}
+

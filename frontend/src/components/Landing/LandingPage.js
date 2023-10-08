@@ -212,6 +212,9 @@ const LandingPage = () => {
           ></video>
   </a> */}
           <div className="banner-main">
+                  <div className="bannner-design">
+                      
+                  </div>
                   <div className="banner-image-div">
                   </div>
                   <div className="banner-heading-flex">
@@ -238,11 +241,6 @@ const LandingPage = () => {
                   </div>
           </div>
         <div className="banner-countdown">
-                <div className="banner-countdown-heading-flex">
-                        <div className="banner-countdown-heading">
-                              <h2>Count every second until the event</h2>
-                        </div>
-                </div>
                 <div className="banner-count-flex">
                          <Birthday/>
                 </div>
