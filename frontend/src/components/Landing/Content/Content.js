@@ -38,7 +38,7 @@ const Content = () => {
 
         <div className="content-pair-text content-mobile">
             <div className="content-pair-heading">
-              <span className="content-pair-word">RESOURCES</span> : Choose your own path in machine learning by exploring our resource library!
+              <span className="content-pair-word">RESOURCES</span> : Choose the path you like in machine learning by exploring our resource library!
             </div>
             <hr />
             <div className="content-pair-paragraph">
@@ -59,7 +59,7 @@ const Content = () => {
         <Fade right>
           <div className="content-pair-text content-nonmobile">
             <div className="content-pair-heading content-nonmobile">
-              <span className="content-pair-word">RESOURCES</span> : Choose your own path in machine learning by exploring our resource library!
+              <span className="content-pair-word">RESOURCES</span> : Choose the path you like in machine learning by exploring our resource library!
             </div>
             <hr />
             <div className="content-pair-paragraph content-nonmobile">
