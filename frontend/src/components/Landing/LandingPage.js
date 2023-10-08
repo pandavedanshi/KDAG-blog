@@ -36,99 +36,99 @@ const LandingPage = () => {
     ["Sandeep Mishra", "sandeepmishraismyname@gmail.com"]
   ];
 
-  function importAll(r) {
-    let images = {};
-    r.keys().map((item) => {
-      images[item.replace("./", "")] = r(item);
-    });
-    return images;
-  }
+  // function importAll(r) {
+  //   let images = {};
+  //   r.keys().map((item) => {
+  //     images[item.replace("./", "")] = r(item);
+  //   });
+  //   return images;
+  // }
 
-  const images = importAll(
-    require.context("../../assets/KDSH2022Certificates", false, /.png/)
-  );
+  // const images = importAll(
+  //   require.context("../../assets/KDSH2022Certificates", false, /.png/)
+  // );
 
-  const downloadCertificate = () => {
-    // let names = Object.keys(images);
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    if(name == "" || email == "") {
-      alert("Please enter the name and email address to download certificate!");
-      return;
-    }
-    let flag = 0;
-    const a = document.createElement("a");
-    document.body.appendChild(a);
+  // const downloadCertificate = () => {
+  //   // let names = Object.keys(images);
+  //   let name = document.getElementById("name").value;
+  //   let email = document.getElementById("email").value;
+  //   if(name == "" || email == "") {
+  //     alert("Please enter the name and email address to download certificate!");
+  //     return;
+  //   }
+  //   let flag = 0;
+  //   const a = document.createElement("a");
+  //   document.body.appendChild(a);
     
-    eligibleCandidates.map((name_cand) => {
-      if (
-        name.toLowerCase() == name_cand[0].toLowerCase() &&
-        email === name_cand[1]
-      ) {
-        a.href = images[name_cand[0] + ".png"].default;
-        a.download = "Certificate.png";
-        a.click();
-        flag = 1;
-      }
-    });
-    if(flag == 0){
-      alert("Invalid credentials!");
-    }
-    console.log(flag);
-    document.body.removeChild(a);
-  };
+  //   eligibleCandidates.map((name_cand) => {
+  //     if (
+  //       name.toLowerCase() == name_cand[0].toLowerCase() &&
+  //       email === name_cand[1]
+  //     ) {
+  //       a.href = images[name_cand[0] + ".png"].default;
+  //       a.download = "Certificate.png";
+  //       a.click();
+  //       flag = 1;
+  //     }
+  //   });
+  //   if(flag == 0){
+  //     alert("Invalid credentials!");
+  //   }
+  //   console.log(flag);
+  //   document.body.removeChild(a);
+  // };
 
-  useEffect(() => {
-    var modal = document.getElementById("modal-box");
+  // useEffect(() => {
+  //   var modal = document.getElementById("modal-box");
 
-    document
-      .getElementById("modal-close")
-      .addEventListener("click", function (e) {
-        modal.style.display = "none";
-      });
+  //   document
+  //     .getElementById("modal-close")
+  //     .addEventListener("click", function (e) {
+  //       modal.style.display = "none";
+  //     });
 
-    const form = document.getElementById("form");
-    const submitButton = document.getElementById("submitbtn");
-    let scriptURL = "";
+  //   const form = document.getElementById("form");
+  //   const submitButton = document.getElementById("submitbtn");
+  //   let scriptURL = "";
 
-    form.addEventListener("submit", (e) => {
-      submitButton.disabled = true;
-      e.preventDefault();
-      let requestBody = new FormData(form);
-      let name = document.getElementById("name").value;
-      let email = document.getElementById("email").value;
-      eligibleCandidates.map((name_cand) => {
-        if (
-          name.toLowerCase() == name_cand[0].toLowerCase() &&
-          email === name_cand[1]
-        ) {
-          scriptURL =
-            "https://script.google.com/macros/s/AKfycbz07q9MBjKxVwS1Yrv3X0whxB0MuSWEpCYeMc6kGx09hQOcXbJDctfCLa8xgnRnb0y7/exec";
-        }
-      });
-      if (scriptURL == "") {
-        alert("Please check in your credentials again!!");
-        submitButton.disabled = false;
-        return;
-      }
-      fetch(scriptURL, { method: "POST", body: requestBody })
-        .then((response) => {
-          alert(
-            "Thank you for submitting!! We will look into it soon"
-          );
-          submitButton.disabled = false;
-          modal.style.display = "none";
-        })
-        .catch((error) => {
-          alert("Sorry an error has occured!!");
-          submitButton.disabled = false;
-        });
-    });
-  }, []);
+  //   form.addEventListener("submit", (e) => {
+  //     submitButton.disabled = true;
+  //     e.preventDefault();
+  //     let requestBody = new FormData(form);
+  //     let name = document.getElementById("name").value;
+  //     let email = document.getElementById("email").value;
+  //     eligibleCandidates.map((name_cand) => {
+  //       if (
+  //         name.toLowerCase() == name_cand[0].toLowerCase() &&
+  //         email === name_cand[1]
+  //       ) {
+  //         scriptURL =
+  //           "https://script.google.com/macros/s/AKfycbz07q9MBjKxVwS1Yrv3X0whxB0MuSWEpCYeMc6kGx09hQOcXbJDctfCLa8xgnRnb0y7/exec";
+  //       }
+  //     });
+  //     if (scriptURL == "") {
+  //       alert("Please check in your credentials again!!");
+  //       submitButton.disabled = false;
+  //       return;
+  //     }
+  //     fetch(scriptURL, { method: "POST", body: requestBody })
+  //       .then((response) => {
+  //         alert(
+  //           "Thank you for submitting!! We will look into it soon"
+  //         );
+  //         submitButton.disabled = false;
+  //         modal.style.display = "none";
+  //       })
+  //       .catch((error) => {
+  //         alert("Sorry an error has occured!!");
+  //         submitButton.disabled = false;
+  //       });
+  //   });
+  // }, []);
 
   return (
     <>
-      <div id="modal-click" className="modal-background">
+      {/* <div id="modal-click" className="modal-background">
         <br />
       </div>
       <div id="modal-box" class="modal-box">
@@ -187,7 +187,7 @@ const LandingPage = () => {
             Download the certificate
           </button>
         </div>
-      </div>
+      </div> */}
 
       {/* Header Section */}
       <section className="banner">
