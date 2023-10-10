@@ -10,6 +10,7 @@
   width: 90%;
   margin: 2rem auto;
   padding-bottom: 2rem;
+  position: relative;
 }
 
 .heading-about-kdag {
@@ -200,17 +201,630 @@ a {
 }
 
 .banner {
-  height: 600px;
-  margin-bottom: -300px;
+  height: 140vh;
+  margin-bottom: 13%;
   background-color: rgba(0, 0, 0, 0.7);
+  position: relative;
 }
 
-.banner-video {
+
+.banner-main{ 
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.banner-image-div{
+  width: 100%;
+  height: 100%;
+  background-image: url('./Video/desktop-wallpaper-black-and-red-red-and-black-8k.jpg');
+  background-size: cover;
+  opacity: 0.5;
+  z-index: -2;
+}
+.banner-heading-flex{
+    position: relative;
+    display: flex;
+    bottom: 560px;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+.banner-heading{
+  height: fit-content;
+  width: fit-content;
+  text-align: left;
+  color: white;
+}
+.banner-content-flex{
+  height: 250px;
+  width: 100%;
+  position: relative;
+  bottom: 470px;
+  display: flex;
+  flex-direction: row;
+  padding-right: 5.7%;
+  justify-content: space-around;
+}
+
+.banner-poster {
+  box-shadow: 0 0 8px 8px white inset;
+}
+
+.banner-content{
+  height:fit-content;
+  width:500px;
+  text-align: left;
+}
+.banner-info-flex{
+  height:40px;
+  width: 100%;
+  position: relative;
+  bottom: 450px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+#banner-info{
+  display: inline-block;
+  margin-right: 25px;
+}
+
+.icon{
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  position: relative;
+  color: white;
+}
+
+.banner-button-flex{
+    height: 125px;
+    width: 100%;
+    position: relative;
+    bottom: 450px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    padding-bottom: 5%;
+}
+.banner-countdown{
+  height: 29%;
+  width: 100%;
+  background: linear-gradient(red,black);
+  padding-top: 1%;
+}
+.banner-countdown-heading-flex{
+  height: 50px;
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
+.banner-countdown-heading{
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    left: 34%;
+    color: white;
+}
+.banner-count-flex{
 
+  height: 160px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 0%;
+  top: 15%;
+}
 .form-control {
   background-color: rgb(219, 219, 219) !important;
 }
+.banner-queries{
+  height: 30%;
+  width: 100%;
+  position: relative;
+}
+.query-heading-flex{
+  height:60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.query-heading{
+    height: fit-content;
+    width: fit-content;
+    color: white;
+    position: absolute;
+    left: 42%;
+  }
+  .query-person-details-flex{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  #query-name{
+    display: inline-block;
+    position: absolute;
+    left: 20%;
+    color: white;
+    position: relative;
+    left: 5%;
+  }
+  #query-email{
+    display: inline-block;
+    color: white;
+    position: relative;
+    left: 26%;
+  }
+  #query{
+    display: inline-block;
+    color: white;
+    position: relative;
+    left: 47%;
+  }
+  .query-box-flex{
+    height:28%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  #query-box-name{
+    background-color: white;
+    height:90%;
+    width: 19.73%;
+    opacity: 0.6;
+    position: relative;
+    left: 5%;
+    color: black;
+  }
+  #query-box-email{
+    background-color: white;
+    height:90%;
+    width: 19.73%;
+    opacity: 0.6;
+    position: relative;
+    left: 10%;
+    color: black;
+  }
+  #query-box-query{
+    background-color: white;
+    height:90%;
+    width:42.76%;
+    opacity: 0.6;
+    position: relative;
+    left:14.5%;
+    color: black
+  }
+.query-submit-button-flex{
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.query-submit-button{
+  height: fit-content;
+  width: fit-content;
+  position: relative;
+  left: 45%;
+  padding-top: 30px;
+}
+/* Banner */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200&display=swap');
+
+/* VARIABLES */
+:root {
+  --main-bg-color-dark: #212529;
+  --main-text-color-dark: #e8e8e8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--main-bg-color-dark);
+  color: var(--main-text-color-dark);
+  background-color: #1d1d1d;
+}
+
+.page {
+  width:100%;
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 6%;
+}
+.heading {
+  font-size: 45px;
+}
+.highlight {
+  color: #7f78d2;
+}
+.countdown-wrapper {
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 40px 0;
+}
+.countdown-box {
+  background-color:black;
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  border-radius: 15px;
+  width: 100px;
+  height: 100px;
+  margin-right: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.legend {
+  font-size: 15px;
+  color: white;
+}
+.wish-message {
+  font-size: 20px;
+  font-weight: 700;
+}
+.birthdate {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+}
+.credits {
+  margin-top: 15px;
+}
+.github-logo {
+  opacity: 0.5;
+  width: 50px;
+}
+.github-logo:hover {
+  opacity: 1;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+.form input {
+  margin: 10px;
+}
+input {
+  color: var(--main-text-color-dark);
+  outline: none;
+  width: 300px;
+  height: 40px;
+  background-color: transparent;
+  border: 1px rgba(255, 255, 255, 0.2) solid;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px;
+}
+select {
+  width: 300px;
+  height: 40px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.527);
+  font-family: Montserrat, sans-serif;
+  border: 1px rgba(255, 255, 255, 0.164) solid;
+  padding-left: 20px;
+  
+  border-radius: 5px;
+  font-size: 18px;
+  margin-top: 10px;
+  outline: none;
+}
+input:focus,
+select:focus,
+.btn:focus {
+  border: 1px rgba(255, 255, 255, 1) solid;
+  transition: all 0.5s;
+}
+.btn {
+  width: 300px;
+  height: 40px;
+  margin-top: 20px;
+  outline: none;
+  border: 1px rgba(255, 255, 255, 0.2) solid;
+  background-color: transparent;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.719);
+  font-size: 18px;
+  font-weight: 700;
+}
+.btn:hover {
+  color: white;
+}
+a {
+  color: #7f78d2;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.gen-link {
+  margin-top: 20px;
+  font-size: 400;
+} 
+
+/* button */
+.btn-12,
+.btn-12 *,
+.btn-12 :after,
+.btn-12 :before,
+.btn-12:after,
+.btn-12:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn-12 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 100%;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.btn-12:disabled {
+  cursor: default;
+}
+
+.btn-12:-moz-focusring {
+  outline: auto;
+}
+
+.btn-12 svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn-12 [hidden] {
+  display: none;
+}
+
+.btn-12 {
+  border-radius: 99rem;
+  border-width: 2px;
+  overflow: hidden;
+  padding: 0.8rem 3rem;
+  position: relative;
+}
+
+.btn-12 span {
+  mix-blend-mode: difference;
+}
+
+.btn-12:after,
+.btn-12:before {
+  background: linear-gradient(
+    90deg,
+    #fff 25%,
+    transparent 0,
+    transparent 50%,
+    #fff 0,
+    #fff 75%,
+    transparent 0
+  );
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: translateY(var(--progress, 100%));
+  transition: transform 0.2s ease;
+}
+
+.btn-12:after {
+  --progress: -100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 25%,
+    #fff 0,
+    #fff 50%,
+    transparent 0,
+    transparent 75%,
+    #fff 0
+  );
+  z-index: -1;
+}
+
+.btn-12:hover:after,
+.btn-12:hover:before {
+  --progress: 0;
+}
+
+.query-button{
+  width: fit-content;
+  position: relative;
+  left: 650px;
+  bottom: 40px;
+}
+#query-box-media-query{
+  display: none;
+}
+#banner-button-media{
+  display: none;
+}
+.Banner-Eventislive{
+  width: 100%;
+  margin-left: 0;
+  padding-top: 2%;
+  padding-left: 0;
+  height: 100%;
+  color: white;
+  position: relative;
+  padding-right: 7%;
+}
+/* media queries */
+@media only screen and (max-width:450px) {
+  .banner-heading-flex{
+    display: flex;
+    align-items: center;
+    bottom: 540px;
+  }
+  .banner-heading{
+    text-align: center;
+  }
+  .banner-heading > h3{
+    font-size: 30px;
+  }
+  .banner-content-flex{
+    justify-content: space-between;
+    bottom: 460px;
+    flex-direction: column-reverse;
+  }
+  
+  .countdown-box{
+    height: 60px;
+    width: 60px;
+    margin-right: 20px;
+    font-size: 15px;
+    border-radius: 14px;
+    padding: 0;
+  }
+  .banner-count-flex{
+    align-items: center;
+    padding-left: 4%;
+  }
+  .legend{
+    font-size: 10px;
+  }
+  .banner-countdown-heading-flex{
+    align-items: center;
+  }
+  .banner-countdown-heading{
+    position: relative;
+    left: 0%;
+    font-size: larger;
+    top: 20px;
+  }
+  .banner-countdown{
+    height: fit-content;
+  }
+  .banner-count-flex{
+    position: relative;
+    bottom: 20px;
+  }
+  .banner-content{
+    text-align: center;
+    width: fit-content;
+    margin-bottom: 30px;
+  }
+  .banner-content-flex{
+    align-items: center;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+ 
+  .banner-content-flex{
+    position: relative;
+    padding-top: 1%;
+  }
+ 
+  .banner{
+    margin-bottom: 250px;
+    height: 90vh;
+  }
+
+  .banner-main{
+    height: 70vh;
+  }
+
+  .query-heading-flex{
+    align-items: center;
+  }
+  .query-heading{
+    height: fit-content;
+    width: fit-content;
+    color: white;
+    position: absolute;
+   left:32%;
+  }
+.query-submit-button-flex{
+  display: flex;
+  align-items: center;
+}
+.query-submit-button{
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+  left: 37%;
+  padding-top: 30px;
+}
+.banner-info-flex{
+  height:40px;
+  width: 100%;
+  position: relative;
+  bottom: 430px;
+  display: flex;
+  left: 20%;
+  padding-right: 40%;
+  align-items: center;
+}
+#query-box-name{
+  height: 40px;
+}
+#query-box-email{
+  height: 40px;
+}
+#query-box-query{
+  height: 40px;
+}
+.query-person-details-flex{
+  position: relative;
+  top: 6%;
+}
+.query-submit-button-flex{
+  position: relative;
+  bottom: 8%;
+}
+#query-email{
+  position: relative;
+  left: 21%;
+}
+#query{
+  position: relative;
+  left: 38%;
+}
+#banner-button-media{
+  width: 200px;
+  height: 40px;
+  display: block;
+}
+.banner-button-flex{
+  bottom: 430px;
+  justify-content: center;
+}
+.page{
+  position: relative;
+  top: 15%;
+}
+.Banner-Eventislive{
+  position: relative;
+  top: 25%;
+  right: 1%;
+}
+}
+

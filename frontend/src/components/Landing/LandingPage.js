@@ -1,6 +1,11 @@
 import React from "react";
+import EventCount from "./countdown/count";
 import "./LandingPage.css";
 import { useEffect } from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faCalendarDays, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import Poster from "../../assets/pics/Landscape.png";
 
 //Components
 import Content from "./Content/Content.js";
@@ -8,6 +13,7 @@ import Fade from "react-reveal/Fade";
 import Particless from "../Common/Particles/Particless";
 import video1 from "./Video/final.mp4";
 import certificate from "../../assets/KDSH2022Certificates/Akash Kundu.png"
+import Header from "./Header/Header";
 
 const LandingPage = () => {
   const eligibleCandidates = [
@@ -190,8 +196,9 @@ const LandingPage = () => {
       </div> */}
 
       {/* Header Section */}
-      <section className="banner">
-        {/* <Header /> */}
+      
+      <section className="banner" color="white">
+        {/* <Header />
         <a
           href="https://unstop.com/hackathon/kharagpur-data-science-hackathon-2022-indian-institute-of-technology-iit-kharagpur-542463"
           target="_blank"
@@ -205,7 +212,66 @@ const LandingPage = () => {
             muted
             loop
           ></video>
-        </a>
+  </a> */}
+          <div className="banner-main">
+                  <div className="banner-image-div">
+                  </div>
+                  <div className="banner-heading-flex">
+                      <div className="banner-heading">
+                        <h3>CampusPulse: Igniting Innovation with Data</h3>
+                      </div>
+                  </div>
+                  <div className="banner-content-flex">
+                      <img className="banner-poster" src={Poster} alt="Poster" height={250} />
+                      <div className="banner-content">
+                            <p>This competition combines innovation, technology, and data science to challenge the brightest minds at IIT Kharagpur. Participants will showcase their innovative ideas and harness the power of Data Analytics to solve real world problems faced by people in the IIT Kharagpur campus. Whether focusing on enhancing Hall Management or academic-related matters, your data driven solutions can elevate everyone's life on campus.</p>
+                      </div>
+                  </div>
+                  <div className="banner-info-flex">
+                      <div className="banner-info">
+                      <FontAwesomeIcon icon={faCalendarDays} className="icon" shake />
+                      <p id="banner-info">10 October 2023</p>
+                      <FontAwesomeIcon icon={faLocationDot} className="icon" flip />
+                      <p id="banner-info">Online</p>
+                      </div>
+                  </div>
+                  <div className="banner-button-flex">
+                        <div className="banner-button"> 
+                            <button class="btn-12"><span><a href = "https://docs.google.com/forms/d/e/1FAIpQLSfCgaxpDJgQopncibVxxtr2TYMTyzQ67n1GwF25GIbTzWpgdg/viewform" target="blank">Register Now</a></span></button>
+                        </div>
+                        <button id="banner-button-media" class="btn-12"><span><a href = "https://docs.google.com/forms/d/e/1FAIpQLSfCgaxpDJgQopncibVxxtr2TYMTyzQ67n1GwF25GIbTzWpgdg/viewform" target="blank">Register Now</a></span></button>
+                  </div>
+          </div>
+        <div className="banner-countdown">
+                <div className="banner-count-flex">
+                         <EventCount/>
+                </div>
+        </div>
+        <div className="banner-queries">
+            <div className="query-heading-flex">
+                  <div className="query-heading">
+                        <h2>Ask Your Queries!</h2>
+                  </div>
+            </div>
+            <div className="query-person-details-flex">
+                    <h5 id="query-name">Name</h5>
+                    <h5 id="query-email">Email</h5>
+                    <h5 id="query">Query</h5>
+            </div>
+            <div className="query-box-flex">
+                    <input type="text" id="query-box-name" />
+                    <input type="text" id="query-box-email"/>
+                    <input type="text" id="query-box-query" />
+            </div>
+            <div className="query-submit-button-flex">
+                  <div className="query-submit-button">
+                        <button class="btn-12"><span>Submit</span></button>
+                  </div>
+            </div>
+        </div>
+
+        {/* <link rel="stylesheet" href="dd" >Register Now</link> */}
+        
       </section>
 
       {/* content section  */}
