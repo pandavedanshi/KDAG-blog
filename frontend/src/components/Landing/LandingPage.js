@@ -1,9 +1,11 @@
 import React from "react";
-import Birthday from "./countdown/count";
+import EventCount from "./countdown/count";
 import "./LandingPage.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faCalendarDays, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import Poster from "../../assets/pics/Landscape.png";
 
 //Components
 import Content from "./Content/Content.js";
@@ -212,37 +214,37 @@ const LandingPage = () => {
           ></video>
   </a> */}
           <div className="banner-main">
-                  <div className="bannner-design">
-                      
-                  </div>
                   <div className="banner-image-div">
                   </div>
                   <div className="banner-heading-flex">
                       <div className="banner-heading">
-                        <h2>Kharagpur Data Science Hackathon</h2>
+                        <h3>CampusPulse: Igniting Innovation with Data</h3>
                       </div>
                   </div>
                   <div className="banner-content-flex">
+                      <img className="banner-poster" src={Poster} alt="Poster" height={250} />
                       <div className="banner-content">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, sapiente. Non libero porro suscipit laudantium qui aliquid repellat eos velit, dolorum fuga vitae numquam voluptas ullam alias animi minima deleniti! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure hic nobis rem laborum expedita, quasi minima odio eum inventore autem debitis dicta omnis ducimus amet culpa quibusdam nesciunt? Porro, assumenda! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum obcaecati voluptate magni sed similique a veniam error, ab porro pariatur omnis illo earum autem consectetur sapiente repellat doloremque quaerat laboriosam?</p>
+                            <p>This competition combines innovation, technology, and data science to challenge the brightest minds at IIT Kharagpur. Participants will showcase their innovative ideas and harness the power of Data Analytics to solve real world problems faced by people in the IIT Kharagpur campus. Whether focusing on enhancing Hall Management or academic-related matters, your data driven solutions can elevate everyone's life on campus.</p>
                       </div>
                   </div>
                   <div className="banner-info-flex">
                       <div className="banner-info">
-                      <FontAwesomeIcon icon="fa-regular fa-calendar-days" />   <p id="banner-info">26 November 2023</p>
-                      <FontAwesomeIcon icon="fa-solid fa-location-dot" /> <p id="banner-info">Netaji Auditorium</p>
+                      <FontAwesomeIcon icon={faCalendarDays} className="icon" shake />
+                      <p id="banner-info">10 October 2023</p>
+                      <FontAwesomeIcon icon={faLocationDot} className="icon" flip />
+                      <p id="banner-info">Online</p>
                       </div>
                   </div>
                   <div className="banner-button-flex">
                         <div className="banner-button"> 
-                            <button class="btn-12"><span>Register Now</span></button>
+                            <button class="btn-12"><span><a href = "https://docs.google.com/forms/d/e/1FAIpQLSfCgaxpDJgQopncibVxxtr2TYMTyzQ67n1GwF25GIbTzWpgdg/viewform" target="blank">Register Now</a></span></button>
                         </div>
-                        <button id="banner-button-media" class="btn-12"><span>Register Now</span></button>
+                        <button id="banner-button-media" class="btn-12"><span><a href = "https://docs.google.com/forms/d/e/1FAIpQLSfCgaxpDJgQopncibVxxtr2TYMTyzQ67n1GwF25GIbTzWpgdg/viewform" target="blank">Register Now</a></span></button>
                   </div>
           </div>
         <div className="banner-countdown">
                 <div className="banner-count-flex">
-                         <Birthday/>
+                         <EventCount/>
                 </div>
         </div>
         <div className="banner-queries">

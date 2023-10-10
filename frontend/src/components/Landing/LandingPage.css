@@ -10,6 +10,7 @@
   width: 90%;
   margin: 2rem auto;
   padding-bottom: 2rem;
+  position: relative;
 }
 
 .heading-about-kdag {
@@ -200,35 +201,32 @@ a {
 }
 
 .banner {
-  height: 810px;
+  height: 140vh;
   margin-bottom: 13%;
   background-color: rgba(0, 0, 0, 0.7);
-  
+  position: relative;
 }
 
 
 .banner-main{ 
-  width: 100%;
-  height: 74%;
-
+  width: 100vw;
+  height: 100vh;
+  position: relative;
 }
 .banner-image-div{
   width: 100%;
-  height: 600px;
-  background-image: url('C:\Users\anees\Documents\KDAG\KDAG-Website\frontend\src\components\Landing\Video\desktop-wallpaper-black-and-red-red-and-black-8k.jpg');
+  height: 100%;
+  background-image: url('./Video/desktop-wallpaper-black-and-red-red-and-black-8k.jpg');
   background-size: cover;
   opacity: 0.5;
   z-index: -2;
 }
 .banner-heading-flex{
-    height: 100px;
-    width: 100%;
     position: relative;
-    bottom: 515px;
     display: flex;
+    bottom: 560px;
     flex-direction: row-reverse;
-    padding-right: 5%;
-    padding-top: 40px;
+    justify-content: center;
 }
 .banner-heading{
   height: fit-content;
@@ -240,11 +238,17 @@ a {
   height: 250px;
   width: 100%;
   position: relative;
-  bottom: 515px;
+  bottom: 470px;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   padding-right: 5.7%;
+  justify-content: space-around;
 }
+
+.banner-poster {
+  box-shadow: 0 0 8px 8px white inset;
+}
+
 .banner-content{
   height:fit-content;
   width:500px;
@@ -254,29 +258,39 @@ a {
   height:40px;
   width: 100%;
   position: relative;
-  bottom: 515px;
+  bottom: 450px;
   display: flex;
   flex-direction: row-reverse;
-  padding-right: 15%;
+  justify-content: center;
 }
 #banner-info{
   display: inline-block;
   margin-right: 25px;
 }
+
+.icon{
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  position: relative;
+  color: white;
+}
+
 .banner-button-flex{
     height: 125px;
     width: 100%;
     position: relative;
-    bottom: 515px;
+    bottom: 450px;
     display: flex;
     flex-direction: row-reverse;
-    padding-right: 19%;
+    justify-content: center;
     padding-bottom: 5%;
 }
 .banner-countdown{
   height: 29%;
   width: 100%;
   background: linear-gradient(red,black);
+  padding-top: 1%;
 }
 .banner-countdown-heading-flex{
   height: 50px;
@@ -360,6 +374,7 @@ a {
     opacity: 0.6;
     position: relative;
     left: 5%;
+    color: black;
   }
   #query-box-email{
     background-color: white;
@@ -368,6 +383,7 @@ a {
     opacity: 0.6;
     position: relative;
     left: 10%;
+    color: black;
   }
   #query-box-query{
     background-color: white;
@@ -376,6 +392,7 @@ a {
     opacity: 0.6;
     position: relative;
     left:14.5%;
+    color: black
   }
 .query-submit-button-flex{
   height: 100px;
@@ -653,6 +670,7 @@ a {
 .Banner-Eventislive{
   width: 100%;
   margin-left: 0;
+  padding-top: 2%;
   padding-left: 0;
   height: 100%;
   color: white;
@@ -664,13 +682,18 @@ a {
   .banner-heading-flex{
     display: flex;
     align-items: center;
-    padding-right: 10%;
+    bottom: 540px;
   }
   .banner-heading{
     text-align: center;
   }
+  .banner-heading > h3{
+    font-size: 30px;
+  }
   .banner-content-flex{
-    align-items: center;
+    justify-content: space-between;
+    bottom: 460px;
+    flex-direction: column-reverse;
   }
   
   .countdown-box{
@@ -707,6 +730,7 @@ a {
   .banner-content{
     text-align: center;
     width: fit-content;
+    margin-bottom: 30px;
   }
   .banner-content-flex{
     align-items: center;
@@ -720,9 +744,14 @@ a {
   }
  
   .banner{
-     margin-bottom: 500px;
-    height:810px;
+    margin-bottom: 250px;
+    height: 90vh;
   }
+
+  .banner-main{
+    height: 70vh;
+  }
+
   .query-heading-flex{
     align-items: center;
   }
@@ -748,14 +777,11 @@ a {
   height:40px;
   width: 100%;
   position: relative;
-  bottom: 515px;
+  bottom: 430px;
   display: flex;
   left: 20%;
   padding-right: 40%;
   align-items: center;
-}
-.banner{
-  margin-bottom: 250px;
 }
 #query-box-name{
   height: 40px;
@@ -782,17 +808,14 @@ a {
   position: relative;
   left: 38%;
 }
-.banner-info-flex{
-  position: relative;
-  bottom: 550px;
-}
 #banner-button-media{
   width: 200px;
   height: 40px;
   display: block;
 }
 .banner-button-flex{
-  padding-right: 24%;
+  bottom: 430px;
+  justify-content: center;
 }
 .page{
   position: relative;

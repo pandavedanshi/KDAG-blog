@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 function calculateTimeRemaining(eventDate) {
   const currentTime = new Date();
   const timeRemaining = eventDate - currentTime;
@@ -8,22 +9,24 @@ function calculateTimeRemaining(eventDate) {
   const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
   return { days, hours, minutes, seconds };
 }
+
 const Countdown = ({ eventDate }) => {
   const [isEventLive, setIsEventLive] = useState(false);
+  const [timeRemaining, setTimeRemaining] = useState(null);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       const currentTime = new Date();
       setIsEventLive(currentTime >= eventDate);
-    }, 1000);
+      setTimeRemaining(calculateTimeRemaining(eventDate));
+    }, 100);
 
     return () => {
       clearInterval(intervalId);
     };
   }, [eventDate]);
 
-  if (!isEventLive) {
-    const timeRemaining = calculateTimeRemaining(eventDate);
+  if (!isEventLive && timeRemaining) {
     return (
       <div>
         <div className="banner-countdown-heading-flex">
@@ -60,7 +63,7 @@ const Countdown = ({ eventDate }) => {
   );
 };
 
-const Birthday = () => {
+const EventCount = () => {
   const [day, setDay] = useState(11);    // set Event date , month and year 
   const [month, setMonth] = useState(10);
   const [year, setYear] = useState(2023);
@@ -75,5 +78,5 @@ const Birthday = () => {
   );
 };
 
-export default Birthday;
+export default EventCount;
 
