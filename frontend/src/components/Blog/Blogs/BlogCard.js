@@ -64,11 +64,11 @@ const BlogCard = ({ blog }) => {
 									</div>
 								);
 							}) || (
-								<>
-									<div class="blog-list-card-tag">K-Means</div>
-									<div class="blog-list-card-tag">Clustering</div>
-								</>
-							)}
+									<>
+										<div class="blog-list-card-tag">K-Means</div>
+										<div class="blog-list-card-tag">Clustering</div>
+									</>
+								)}
 						</div>
 					</div>
 				</div>

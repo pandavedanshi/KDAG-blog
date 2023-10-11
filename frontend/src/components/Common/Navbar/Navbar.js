@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from './Button';
 import "./Navbar.css";
-import logo from "./../../../assets/pics/KDAG_logo.jpeg";
+import logo from "./../../../assets/pics/KDAG-textnew.png";
 import Dropdown from './Dropdown';
 import { Link, NavLink } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const Navbar = ({ color, noborder }) => {
       document.removeEventListener("scroll", navColor);
     };
   }, []);
-  
+
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
@@ -46,18 +46,18 @@ const Navbar = ({ color, noborder }) => {
     }
     console.log(dropdown);
   };
-  
+
 
   return (
     <div className="kdag-nav-container">
       <div className="kdag-nav">
-        <div className={`kdag-nav-contain ${noborder? "" : "kdag-nav-contain-border"}`}>
+        <div className={`kdag-nav-contain ${noborder ? "" : "kdag-nav-contain-border"}`}>
           <div className="kdag-nav-logo">
             <Link to="/">
               <img src={logo} alt="LOGO" />
-              <div className="kdag-navbar-kdag">
+              {/* <div className="kdag-navbar-kdag">
                 KHARAGPUR DATA ANALYTICS GROUP
-              </div>
+              </div> */}
             </Link>
           </div>
           <div className="kdag-nav-items">
@@ -77,14 +77,14 @@ const Navbar = ({ color, noborder }) => {
               </NavLink>
             </div>
             <div className="kdag-nav-item">
-              <NavLink 
-              onClick={closeMobileMenu} 
-              activeStyle={active_style}
-              to="/team">
+              <NavLink
+                onClick={closeMobileMenu}
+                activeStyle={active_style}
+                to="/team">
                 Team
               </NavLink>
               {/* {dropdown && <Dropdown/>} */}
-              
+
             </div>
             {/* <div className="kdag-nav-item">
               <Link to="#">Go Down</Link>
@@ -139,8 +139,8 @@ const Navbar = ({ color, noborder }) => {
                     <NavLink to="/blogs">Blog</NavLink>
                   </li>
                   <li
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}>
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}>
                     <NavLink to="/team">Team</NavLink>
                   </li>
                 </ul>

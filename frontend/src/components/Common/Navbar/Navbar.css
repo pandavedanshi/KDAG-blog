@@ -34,7 +34,8 @@
   align-items: normal;
   color: rgba(255, 255, 255, 0.4);
 }
-.kdag-nav-item:hover{
+
+.kdag-nav-item:hover {
   color: red;
   -webkit-text-stroke: 0px;
   text-shadow: 0 0 12px red;
@@ -45,7 +46,8 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  color: #dc2626; /* TODO: remove later */
+  color: #dc2626;
+  /* TODO: remove later */
   font-size: 2rem;
   height: 100%;
   padding-bottom: 0.5rem;
@@ -53,10 +55,10 @@
 }
 
 .kdag-nav-logo img {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 5%;
-  box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.9);
+  width: 18rem;
+  height: 3.7rem;
+  /* border-radius: 5%; */
+  /* box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.9); */
 }
 
 .kdag-navbar-kdag {
@@ -100,6 +102,7 @@
   /* position: absolute;
   right: 0; */
 }
+
 .kdag-nav-mobile li {
   float: left;
   margin: 0;
@@ -107,6 +110,7 @@
   position: relative;
   width: 100%;
 }
+
 .kdag-nav-mobile a {
   background: #172755;
 
@@ -122,15 +126,19 @@
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
+
 .kdag-nav-mobile .dropdown:after {
   content: " ▶";
 }
+
 .kdag-nav-mobile .dropdown:hover:after {
   content: "\25bc";
 }
+
 .kdag-nav-mobile li:hover a {
   background: #172755;
 }
+
 .kdag-nav-mobile li ul {
   float: right;
   right: 0;
@@ -147,20 +155,24 @@
   width: 20rem;
   box-shadow: 1px 1px 15px 10px rgba(0, 0, 0, 0.5)
 }
+
 .kdag-nav-mobile li:hover ul {
   opacity: 1;
   top: 50px;
   visibility: visible;
 }
+
 .kdag-nav-mobile li ul li {
   float: none;
   width: 100%;
   color: white;
 }
+
 .kdag-nav-mobile li ul a:hover {
   background: #bbb;
   width: 100%;
 }
+
 .nav-links {
   color: white;
   text-decoration: none;
@@ -188,14 +200,17 @@
   width: 40px;
   height: 50px;
 }
+
 .drop {
   display: none;
   text-align: right;
 }
+
 @media (max-width: 740px) {
   .kdag-nav-item {
     display: none;
   }
+
   /* .kdag-nav-logo {
     position: absolute;
     margin-left: 90%;
@@ -203,13 +218,16 @@
   .drop {
     display: block;
   }
+
   .kdag-nav-mobile a {
     padding: 2px;
   }
+
   /* .cf {
     width: 520px;
   } */
 }
+
 @media (max-width: 570px) {
   /* .kdag-nav-logo {
     position: absolute;
@@ -219,6 +237,7 @@
     width: 450px;
   } */
 }
+
 @media (max-width: 440px) {
   /* .kdag-nav-logo {
     position: absolute;
@@ -228,6 +247,7 @@
     width: 350px;
   } */
 }
+
 @media (max-width: 340px) {
   /* .kdag-nav-logo {
     position: absolute;
@@ -237,6 +257,7 @@
     width: 300px;
   } */
 }
+
 @media (max-width: 275px) {
   /* .kdag-nav-logo {
     position: absolute;
