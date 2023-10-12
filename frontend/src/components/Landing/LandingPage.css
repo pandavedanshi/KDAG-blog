@@ -825,17 +825,20 @@ a {
 /* media queries */
 @media only screen and (max-width: 470px) {
 	.banner {
-		height: 180vh;
+		height: 240vh;
 		margin-bottom: 5%;
 		background-color: rgba(0, 0, 0, 0.7);
 		position: relative;
+    top: 250px;
 	}
 	.banner-main {
 		height: 100vh;
+    top: -190px;
+    background-color: rgba(0, 0, 0, 0.7);
 	}
 	.banner-heading-flex-container {
 		margin: 0 10px;
-		bottom: 820px;
+		bottom: 630px;
 	}
 	.banner-heading-flex {
 		display: flex;
@@ -851,13 +854,13 @@ a {
 		-webkit-text-stroke: 0px rgb(255, 255, 255);
 	}
 	.banner-heading > h3 {
-		font-size: 17px !important;
+		font-size: 15px !important;
 		font-weight: 600 !important;
 		text-shadow: 0 0 5px white;
 	}
 	.banner-content-flex {
 		justify-content: space-between;
-		bottom: 790px;
+		bottom: 580px;
 		flex-direction: column-reverse;
 		align-items: center;
 	}
@@ -879,7 +882,7 @@ a {
 		padding: 15px;
 		background: rgba(255, 255, 255, 0.06);
 		border-radius: 20px;
-		font-size: 15px;
+		font-size: 13px;
 		font-weight: 500;
 		transition: all 1s;
 	}
@@ -957,7 +960,7 @@ a {
 	}
 	.banner-info-flex {
 		height: 40px;
-		bottom: 480px;
+		bottom: 350px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -1004,7 +1007,7 @@ a {
 		height: 125px;
 		width: 80%;
 		position: relative;
-		bottom: 460px;
+		bottom: 330px;
 		display: flex;
 		flex-direction: row-reverse;
 		padding-bottom: 5%;
