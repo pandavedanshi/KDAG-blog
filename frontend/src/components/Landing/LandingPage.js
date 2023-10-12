@@ -79,7 +79,7 @@ const LandingPage = () => {
 
 		// Cleanup event listener when component is unmounted
 		return () => {
-			form.removeEventListener("submit");
+			form.removeEventListener("submit", null);
 		};
 	}, []);
 
@@ -354,7 +354,7 @@ const LandingPage = () => {
 							<input type="text" id="query-box-query" name="Query" required />
 							<div className="query-submit-button-flex">
 								<div className="query-submit-button">
-									<button class="btn-12" type="submit" id="btn-12-submit">
+									<button class="btn-12" type="submit" id="btn-12-submit" style={{ cursor: "none" }}>
 										<span>Submit</span>
 									</button>
 								</div>

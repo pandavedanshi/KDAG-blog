@@ -835,7 +835,7 @@ a {
 	}
 	.banner-heading-flex-container {
 		margin: 0 10px;
-		bottom: 860px;
+		bottom: 820px;
 	}
 	.banner-heading-flex {
 		display: flex;
@@ -857,7 +857,7 @@ a {
 	}
 	.banner-content-flex {
 		justify-content: space-between;
-		bottom: 835px;
+		bottom: 790px;
 		flex-direction: column-reverse;
 		align-items: center;
 	}
@@ -866,7 +866,7 @@ a {
 		position: relative;
 		top: -15px;
 		left: 0px;
-		border-radius: 15px;
+		border-radius: 5px;
 		transition: all 0.4s;
 		box-shadow: 0 0 3px white;
 		margin-bottom: 10px;
@@ -957,7 +957,7 @@ a {
 	}
 	.banner-info-flex {
 		height: 40px;
-		bottom: 550px;
+		bottom: 480px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -980,7 +980,7 @@ a {
 	#query-name,
 	#query,
 	#query-email {
-		font-size: 18px;
+		font-size: 15px;
 		font-weight: 600;
 		margin-bottom: 5px;
 		left: 0;
@@ -999,13 +999,12 @@ a {
 		display: block;
 	}
 	.banner-button-flex {
-		bottom: 430px;
 		justify-content: center;
 		left: 10%;
 		height: 125px;
 		width: 80%;
 		position: relative;
-		bottom: 550px;
+		bottom: 460px;
 		display: flex;
 		flex-direction: row-reverse;
 		padding-bottom: 5%;
