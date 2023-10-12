@@ -35,7 +35,7 @@ const Countdown = ({ eventDate }) => {
           </div>
         </div>
         <div className='countdown-wrapper'>
-          <div className='countdown-box'>
+          <div className='countdown-box'> 
             {timeRemaining.days} 
             <span className='legend'>Days</span>
           </div>
