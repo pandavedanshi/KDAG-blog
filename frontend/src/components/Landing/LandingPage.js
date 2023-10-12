@@ -230,7 +230,7 @@ const LandingPage = () => {
                   <div className="banner-info-flex">
                       <div className="banner-info">
                       <FontAwesomeIcon icon={faCalendarDays} className="icon" shake />
-                      <p id="banner-info">10 October 2023</p>
+                      <p id="banner-info">12 October 2023</p>
                       <FontAwesomeIcon icon={faLocationDot} className="icon" flip />
                       <p id="banner-info">Online</p>
                       </div>
