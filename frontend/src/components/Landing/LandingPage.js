@@ -45,37 +45,34 @@ const LandingPage = () => {
 		["Sandeep Mishra", "sandeepmishraismyname@gmail.com"],
 	];
 
-	// const scriptURL = "https://script.google.com/macros/s/AKfycbz6u3adSARFCFEoMu9fiOYA50Sg0R_v7VIYEthH3ETa8mPbO5o3asPiuQ8_Ul_hmDg/exec";
-	// const name = document.querySelector("#query-box-name");
-	// const email = document.querySelector("#query-box-email");
-	// const query = document.querySelector("#query-box-query");
-	// const btn = document.querySelector("#btn-12-submit");
-	const scriptURL =
-		"https://script.google.com/macros/s/AKfycbz6u3adSARFCFEoMu9fiOYA50Sg0R_v7VIYEthH3ETa8mPbO5o3asPiuQ8_Ul_hmDg/exec";
+  useEffect(() => {
+	  const form = document.getElementById("form");
+	  const submitButton = document.getElementById("btn-12-submit");
+	  let scriptURL = "https://script.google.com/macros/s/AKfycbymnbrSfFeJPVH1DYX8AlQdWfUbd3Qb8SvpD-C8pkvCHdKEGNhcVSVLrwYY6zzk4O-gwA/exec";
+
+	  form.addEventListener("submit", (e) => {
+	    submitButton.disabled = true;
+	    e.preventDefault();
+	    let requestBody = new FormData(form);
+	    let name = document.getElementById("query-box-name").value;
+	    let email = document.getElementById("query-box-email").value;
+      let query = document.getElementById("query-box-query").value;
+
+	    fetch(scriptURL, { method: "POST", body: requestBody })
+	      .then((response) => {
+	        alert(
+	          "Thank you for submitting!! Your query has been recorded"
+	        );
+	        submitButton.disabled = false;
+	      })
+	      .catch((error) => {
+	        submitButton.disabled = false;
+	      });
+	  });
+	}, []);
+
 	useEffect(() => {
-		const form = document.querySelector("#form");
-		const btn = document.querySelector("#submit");
-
-		if (form && btn) {
-			form.addEventListener("submit", (e) => {
-				e.preventDefault();
-				btn.disabled = true;
-				btn.innerHTML = "Loading...";
-
-				console.log(form);
-				fetch(scriptURL, { method: "POST", body: new FormData(form) })
-					.then((response) => {
-						btn.disabled = false;
-						btn.innerHTML = "Submit";
-						alert("Success!", response);
-					})
-					.catch((error) => {
-						btn.disabled = false;
-						btn.innerHTML = "Submit";
-						alert("Error!", error.message);
-					});
-			});
-		}
+		const form = document.querySelector("#form")
 
 		// Cleanup event listener when component is unmounted
 		return () => {
