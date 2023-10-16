@@ -8,7 +8,7 @@ const members = [
         linkedin: "https://www.linkedin.com/in/pratik-singh-4026311b9/"
     },
  {
-        image: "https://scontent.fmaa8-1.fna.fbcdn.net/v/t39.30808-6/352212161_2010216715995402_8521977764161486397_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=BLVG5aH0c3QAX9TSJtx&_nc_ht=scontent.fmaa8-1.fna&oh=00_AfCn9ZtiG1zkZ7ktCC9e_b6pf1hO3V7Q8mAIidmJ3GiYxg&oe=64FB7AC9",
+        image: "https://media.licdn.com/dms/image/D5603AQGWN5X7767HMA/profile-displayphoto-shrink_800_800/0/1694866911685?e=1703116800&v=beta&t=xoowIny1Ldr7fXzbxnXhNXidTnH-6LdljD0NrCguCYg",
         name: "Kinjal Sensharma",
         email: "kinsen2764@gmail.com",
         facebook: "https://www.facebook.com/profile.php?id=100010212784429",

@@ -1,3 +1,4 @@
+import img14 from "../../../assets/pics/blogs/google_cloud_credits.png"
 import img13 from "../../../assets/pics/blogs/UnveilingtheCosmos.png"
 import img12 from "../../../assets/pics/blogs/3d_Ken_Burns.gif"
 import img11 from "../../../assets/pics/blogs/artfromalgorithms.png"
@@ -156,6 +157,17 @@ const blogs = [
         tag: ["Data Science", "Machine Learning", "Space", "Exoplanets", "Data Preprocessing"],
         link: "https://kdagiit.medium.com/unveiling-the-cosmos-discovering-exoplanets-with-machine-learning-2b841ed40f85",
         date: "4 Oct,2023"
+    },
+    {
+        index: "14",
+        img: img14,
+        topic: "AI Weekly Series",
+        title: "Unlocking Horizons with Google Cloud Credits",
+        authors: {},
+        description: "This blog will unlock the immense potential of Google Cloud credits, tailored specifically for undergraduate and postgraduate students. We’ll explore how these credits can transform your studies, amplify your machine learning and data analytics endeavours, and open up exciting career prospects. Join us on this cloud-powered academic adventure!",
+        tag: ["Data Science", "Machine Learning", "Google", "Cloud Credits", "Computing Power"],
+        link: "https://kdagiit.medium.com/unlocking-horizons-with-google-cloud-credits-2fd0ed44d5d0",
+        date: "17 Oct,2023"
     }
 
 ];

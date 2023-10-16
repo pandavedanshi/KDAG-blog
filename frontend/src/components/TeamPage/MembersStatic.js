@@ -70,7 +70,7 @@ const members = [
 
     {
         name: "Abhinav Thakur",
-        image: "https://scontent.fmaa8-1.fna.fbcdn.net/v/t39.30808-6/347425291_673316164626493_4974161239040809975_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=4NyBKGC4Wz8AX_CRh13&_nc_ht=scontent.fmaa8-1.fna&oh=00_AfAWDo4mDxThN6F6GZEt5tJ2uKsezHJ3z0AsEIJI3E34kQ&oe=64FBDE2F",
+        image: "https://media.licdn.com/dms/image/D4D03AQFG2Hp7dTcM9g/profile-displayphoto-shrink_800_800/0/1693047269329?e=1703116800&v=beta&t=1zp2uYQhUtGKptwUN3kSznHlLDtrBuW8zXLg0mTXPxI",
         email: "05abhinavthakur@gmail.com",
         facebook: "https://www.facebook.com/profile.php?id=100008590905292",
         twitter: "www.twitter.com",
