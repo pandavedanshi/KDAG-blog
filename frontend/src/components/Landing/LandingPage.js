@@ -279,7 +279,10 @@ const LandingPage = () => {
 								the power of Data Analytics to solve real world problems faced
 								by people in the IIT Kharagpur campus. Whether focusing on
 								enhancing Hall Management or academic-related matters, your data
-								driven solutions can elevate everyone's life on campus.
+								driven solutions can elevate everyone's life on campus. This event
+                is generously sponsored by our esteemed alumnus, <a href="https://sibasmarak.github.io/" id="alumni-link" target="_blank">
+                Siba Smarak Panigrahi</a> , currently pursuing an M.Sc. at McGill University 
+                and Mila, Canada.
 							</p>
 						</div>
 					</div>

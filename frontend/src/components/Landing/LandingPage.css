@@ -179,6 +179,16 @@ a {
 	color: inherit !important;
 }
 
+#alumni-link {
+  color: #dc2626 !important;
+  transition: 0.9s all;
+}
+
+#alumni-link:hover {
+  font-size: 18px;
+  color: #d237ed !important;
+}
+
 @media screen and (max-width: 1200px) {
 	.section-landing-header {
 		height: 22rem;
@@ -960,7 +970,7 @@ a {
 	}
 	.banner-info-flex {
 		height: 40px;
-		bottom: 350px;
+		bottom: 300px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -1007,7 +1017,7 @@ a {
 		height: 125px;
 		width: 80%;
 		position: relative;
-		bottom: 330px;
+		bottom: 280px;
 		display: flex;
 		flex-direction: row-reverse;
 		padding-bottom: 5%;
