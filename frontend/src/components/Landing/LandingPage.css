@@ -361,6 +361,9 @@ a {
 	font-weight: 600;
 	transition: all 1s;
 }
+.banner-content p strong{
+	color: red;
+}
 .banner-heading-flex-container:hover + .banner-content-flex .banner-content {
 	background: white;
 }
@@ -839,7 +842,7 @@ a {
 		margin-bottom: 5%;
 		background-color: rgba(0, 0, 0, 0.7);
 		position: relative;
-    top: 250px;
+    top: 30px;
 	}
 	.banner-main {
 		height: 100vh;

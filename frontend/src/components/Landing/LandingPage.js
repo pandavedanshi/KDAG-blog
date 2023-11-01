@@ -8,7 +8,7 @@ import {
 	faCalendarDays,
 	faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import Poster from "../../assets/pics/Landscape.png";
+import Poster from "../../assets/pics/Landscape1.png";
 
 //Components
 import Content from "./Content/Content.js";
@@ -45,34 +45,33 @@ const LandingPage = () => {
 		["Sandeep Mishra", "sandeepmishraismyname@gmail.com"],
 	];
 
-  useEffect(() => {
-	  const form = document.getElementById("form");
-	  const submitButton = document.getElementById("btn-12-submit");
-	  let scriptURL = "https://script.google.com/macros/s/AKfycbymnbrSfFeJPVH1DYX8AlQdWfUbd3Qb8SvpD-C8pkvCHdKEGNhcVSVLrwYY6zzk4O-gwA/exec";
+	useEffect(() => {
+		const form = document.getElementById("form");
+		const submitButton = document.getElementById("btn-12-submit");
+		let scriptURL =
+			"https://script.google.com/macros/s/AKfycbymnbrSfFeJPVH1DYX8AlQdWfUbd3Qb8SvpD-C8pkvCHdKEGNhcVSVLrwYY6zzk4O-gwA/exec";
 
-	  form.addEventListener("submit", (e) => {
-	    submitButton.disabled = true;
-	    e.preventDefault();
-	    let requestBody = new FormData(form);
-	    let name = document.getElementById("query-box-name").value;
-	    let email = document.getElementById("query-box-email").value;
-      let query = document.getElementById("query-box-query").value;
+		form.addEventListener("submit", (e) => {
+			submitButton.disabled = true;
+			e.preventDefault();
+			let requestBody = new FormData(form);
+			let name = document.getElementById("query-box-name").value;
+			let email = document.getElementById("query-box-email").value;
+			let query = document.getElementById("query-box-query").value;
 
-	    fetch(scriptURL, { method: "POST", body: requestBody })
-	      .then((response) => {
-	        alert(
-	          "Thank you for submitting!! Your query has been recorded"
-	        );
-	        submitButton.disabled = false;
-	      })
-	      .catch((error) => {
-	        submitButton.disabled = false;
-	      });
-	  });
+			fetch(scriptURL, { method: "POST", body: requestBody })
+				.then((response) => {
+					alert("Thank you for submitting!! Your query has been recorded");
+					submitButton.disabled = false;
+				})
+				.catch((error) => {
+					submitButton.disabled = false;
+				});
+		});
 	}, []);
 
 	useEffect(() => {
-		const form = document.querySelector("#form")
+		const form = document.querySelector("#form");
 
 		// Cleanup event listener when component is unmounted
 		return () => {
@@ -259,7 +258,8 @@ const LandingPage = () => {
 						<div className="banner-heading-flex">
 							<div className="banner-heading">
 								<h3 style={{ fontSize: "35px", fontWeight: "600" }}>
-									CampusPulse: Igniting Innovation with Data
+									{/* CampusPulse: Igniting Innovation with Data */}
+									Machine Learning Workshop
 								</h3>
 							</div>
 						</div>
@@ -272,7 +272,7 @@ const LandingPage = () => {
 							// height={250}
 						/>
 						<div className="banner-content">
-							<p>
+							{/* <p>
 								This competition combines innovation, technology, and data
 								science to challenge the brightest minds at IIT Kharagpur.
 								Participants will showcase their innovative ideas and harness
@@ -283,6 +283,24 @@ const LandingPage = () => {
                 is generously sponsored by our esteemed alumnus, <a href="https://sibasmarak.github.io/" id="alumni-link" target="_blank">
                 Siba Smarak Panigrahi</a> , currently pursuing an M.Sc. at McGill University 
                 and Mila, Canada.
+							</p> */}
+							<p>
+								Are you ready to dive into the fascinating world of Machine
+								Learning and unlock it's true potential? Look no further! We are thrilled to invite you to our
+								upcoming Machine Learning Workshop, a transformative 4-session
+								event that will equip you with essential skills and knowledge to
+								harness the potential of artificial intelligence.
+								<br />
+								Workshop Overview:
+								<br />
+								<strong>Session 1:</strong> Regression and Classification
+								<br />
+								<strong>Session 2:</strong> Trees and Ensemble
+								<br />
+								<strong>Session 3:</strong> Deep Learning
+								<br />
+								<strong>Session 4:</strong> Hands-on Session
+								<br />
 							</p>
 						</div>
 					</div>
@@ -292,9 +310,11 @@ const LandingPage = () => {
 					<div className="banner-info-flex">
 						<div className="banner-info">
 							<FontAwesomeIcon icon={faCalendarDays} className="icon" shake />
-							<p id="banner-info">12 October 2023</p>
+							{/* <p id="banner-info">12 October 2023</p> */}
+							<p id="banner-info">4th-5th November 2023</p>
 							<FontAwesomeIcon icon={faLocationDot} className="icon" flip />
-							<p id="banner-info">Online</p>
+							{/* <p id="banner-info">Online</p> */}
+							<p id="banner-info">NC-111</p>
 						</div>
 					</div>
 					{/* banner info ends */}
@@ -354,7 +374,12 @@ const LandingPage = () => {
 							<input type="text" id="query-box-query" name="Query" required />
 							<div className="query-submit-button-flex">
 								<div className="query-submit-button">
-									<button class="btn-12" type="submit" id="btn-12-submit" style={{ cursor: "none" }}>
+									<button
+										class="btn-12"
+										type="submit"
+										id="btn-12-submit"
+										style={{ cursor: "none" }}
+									>
 										<span>Submit</span>
 									</button>
 								</div>
