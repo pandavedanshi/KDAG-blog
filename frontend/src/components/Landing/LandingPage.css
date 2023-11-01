@@ -1,12 +1,12 @@
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
 }
 
 .section-landing-header {
@@ -180,13 +180,13 @@ a {
 }
 
 #alumni-link {
-  color: #dc2626 !important;
-  transition: 0.9s all;
+	color: #dc2626 !important;
+	transition: 0.9s all;
 }
 
 #alumni-link:hover {
-  font-size: 18px;
-  color: #d237ed !important;
+	font-size: 18px;
+	color: #d237ed !important;
 }
 
 @media screen and (max-width: 1200px) {
@@ -361,6 +361,9 @@ a {
 	font-weight: 600;
 	transition: all 1s;
 }
+.banner-content p strong {
+	color: red;
+}
 .banner-heading-flex-container:hover + .banner-content-flex .banner-content {
 	background: white;
 }
@@ -421,7 +424,6 @@ a {
 .banner-countdown {
 	height: 29%;
 	width: 100%;
-	/* background: linear-gradient(red, black); */
 	padding-top: 1%;
 	margin-top: 0px;
 	margin-bottom: 50px;
@@ -433,7 +435,6 @@ a {
 	height: 50px;
 	display: flex;
 	flex-direction: column;
-	/* border: green 20px solid; */
 }
 .banner-countdown-heading {
 	height: fit-content;
@@ -839,12 +840,12 @@ a {
 		margin-bottom: 5%;
 		background-color: rgba(0, 0, 0, 0.7);
 		position: relative;
-    top: 250px;
+		top: 250px;
 	}
 	.banner-main {
 		height: 100vh;
-    top: -190px;
-    background-color: rgba(0, 0, 0, 0.7);
+		top: -190px;
+		background-color: rgba(0, 0, 0, 0.7);
 	}
 	.banner-heading-flex-container {
 		margin: 0 10px;
@@ -962,11 +963,11 @@ a {
 		position: absolute;
 		padding-top: 30px;
 
-	position: relative;
-	left: 30%;
-	top: 47px;
-	padding-top: 30px;
-	transform: scale(1.5);
+		position: relative;
+		left: 30%;
+		top: 47px;
+		padding-top: 30px;
+		transform: scale(1.5);
 	}
 	.banner-info-flex {
 		height: 40px;
