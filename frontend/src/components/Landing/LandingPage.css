@@ -424,7 +424,6 @@ a {
 .banner-countdown {
 	height: 29%;
 	width: 100%;
-	/* background: linear-gradient(red, black); */
 	padding-top: 1%;
 	margin-top: 0px;
 	margin-bottom: 50px;
@@ -436,7 +435,6 @@ a {
 	height: 50px;
 	display: flex;
 	flex-direction: column;
-	/* border: green 20px solid; */
 }
 .banner-countdown-heading {
 	height: fit-content;
