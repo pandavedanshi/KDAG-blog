@@ -337,7 +337,7 @@ const LandingPage = () => {
 						<button id="banner-button-media" class="btn-12">
 							<span>
 								<a
-									href="https://docs.google.com/forms/d/e/1FAIpQLSfCgaxpDJgQopncibVxxtr2TYMTyzQ67n1GwF25GIbTzWpgdg/viewform"
+									href="https://docs.google.com/forms/d/e/1FAIpQLScesbGd90BYDtRVTpAxmcMtwL4XmohK8VUOWPXD9p8SnyY-0Q/viewform?usp=sf_link"
 									target="blank"
 								>
 									Register Now
