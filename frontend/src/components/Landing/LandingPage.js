@@ -8,7 +8,7 @@ import {
 	faCalendarDays,
 	faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import Poster from "../../assets/pics/Landscape1.png";
+import Poster from "../../assets/pics/Landscape.png";
 
 //Components
 import Content from "./Content/Content.js";
@@ -258,8 +258,8 @@ const LandingPage = () => {
 						<div className="banner-heading-flex">
 							<div className="banner-heading">
 								<h3 style={{ fontSize: "35px", fontWeight: "600" }}>
-									{/* CampusPulse: Igniting Innovation with Data */}
-									Machine Learning Workshop
+									CampusPulse: Igniting Innovation with Data
+									{/* Machine Learning Workshop */}
 								</h3>
 							</div>
 						</div>
@@ -272,7 +272,7 @@ const LandingPage = () => {
 							// height={250}
 						/>
 						<div className="banner-content">
-							{/* <p>
+							<p>
 								This competition combines innovation, technology, and data
 								science to challenge the brightest minds at IIT Kharagpur.
 								Participants will showcase their innovative ideas and harness
@@ -283,8 +283,8 @@ const LandingPage = () => {
                 is generously sponsored by our esteemed alumnus, <a href="https://sibasmarak.github.io/" id="alumni-link" target="_blank">
                 Siba Smarak Panigrahi</a> , currently pursuing an M.Sc. at McGill University 
                 and Mila, Canada.
-							</p> */}
-							<p>
+							</p>
+							{/* <p>
 								Are you ready to dive into the fascinating world of Machine
 								Learning and unlock it's true potential? Look no further! We are thrilled to invite you to our
 								upcoming Machine Learning Workshop, a transformative 4-session
@@ -301,7 +301,7 @@ const LandingPage = () => {
 								<br />
 								<strong>Session 4:</strong> Hands-on Session
 								<br />
-							</p>
+							</p> */}
 						</div>
 					</div>
 					{/* banner main ends */}
@@ -310,11 +310,11 @@ const LandingPage = () => {
 					<div className="banner-info-flex">
 						<div className="banner-info">
 							<FontAwesomeIcon icon={faCalendarDays} className="icon" shake />
-							{/* <p id="banner-info">12 October 2023</p> */}
-							<p id="banner-info">4th-5th November 2023</p>
+							<p id="banner-info">12 October 2023</p>
+							{/* <p id="banner-info">4th-5th November 2023</p> */}
 							<FontAwesomeIcon icon={faLocationDot} className="icon" flip />
-							{/* <p id="banner-info">Online</p> */}
-							<p id="banner-info">NC-111</p>
+							<p id="banner-info">Online</p>
+							{/* <p id="banner-info">NC-111</p> */}
 						</div>
 					</div>
 					{/* banner info ends */}
@@ -325,8 +325,8 @@ const LandingPage = () => {
 							<button class="btn-12" style={{ cursor: "none" }}>
 								<span>
 									<a
-										// href="https://docs.google.com/forms/d/e/1FAIpQLSfCgaxpDJgQopncibVxxtr2TYMTyzQ67n1GwF25GIbTzWpgdg/viewform"
-										href = "https://docs.google.com/forms/d/e/1FAIpQLScesbGd90BYDtRVTpAxmcMtwL4XmohK8VUOWPXD9p8SnyY-0Q/viewform?usp=sf_link"
+										href="https://docs.google.com/forms/d/e/1FAIpQLSfCgaxpDJgQopncibVxxtr2TYMTyzQ67n1GwF25GIbTzWpgdg/viewform"
+										// href = "https://docs.google.com/forms/d/e/1FAIpQLScesbGd90BYDtRVTpAxmcMtwL4XmohK8VUOWPXD9p8SnyY-0Q/viewform?usp=sf_link"
 										target="blank"
 									>
 										Register Now

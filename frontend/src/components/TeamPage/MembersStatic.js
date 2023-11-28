@@ -1,6 +1,6 @@
 const members = [
     {
-        image: "https://media.licdn.com/dms/image/D4D03AQFDFZJpYZcq8w/profile-displayphoto-shrink_400_400/0/1689250809467?e=1699488000&v=beta&t=n2Yoj8gubdaoH7ELGya0f_hbpUKX8SmkU_CwhJY2T4Y",
+        image: "http://drive.google.com/uc?export=view&id=1yUFQJBHySPcQdoneHtEUjgYG0_4L1p92",
         name: "Nisarg Bhavsar",
         email: "nisargbhavsar25@gmail.com",
         facebook: "https://www.facebook.com/nisarg.bhavsar.9678",
@@ -8,7 +8,7 @@ const members = [
         linkedin: "https://www.linkedin.com/in/nisarg-bhavsar/"
     },
  {
-        image: "https://media.licdn.com/dms/image/D4D03AQGDUtCJz-VYew/profile-displayphoto-shrink_400_400/0/1692827748808?e=1699488000&v=beta&t=bY8gzPVdnMTYFQ0onwVDC42bvEBUYGz9Hv2NlJ2DzKk",
+        image: "http://drive.google.com/uc?export=view&id=1p-aXO_onX-tqCgKcp1GjzwANcwvIP26X",
         name: "Aritra Chakraborty",
         email: "chakrabortyaritra.2002@gmail.com",
         facebook: "https://www.facebook.com/profile.php?id=100073772598593",
@@ -16,7 +16,7 @@ const members = [
     },
    
     {
-        image: "https://media.licdn.com/dms/image/C5603AQGquLM1rbOpbg/profile-displayphoto-shrink_400_400/0/1646797372240?e=1699488000&v=beta&t=s9i3iTpyZCRB41oSrofIxdLWWIO32Tp2CVFWcuy5Wxw",
+        image: "http://drive.google.com/uc?export=view&id=1YjMHJKtQOjeYGFUKeRnFoeqPnQLsxgjV",
         name: "Aditya Krishna Das",
         email: "aditya.iitkgpakd@gmail.com ",
         facebook: "https://www.facebook.com/adityakrishnadas.das",
@@ -25,7 +25,7 @@ const members = [
     },
 
     {
-        image: "https://media.licdn.com/dms/image/D4D03AQHvRXm1gong8w/profile-displayphoto-shrink_400_400/0/1670088916525?e=1699488000&v=beta&t=fRIo2lQ-A-s56Il3qEib2NUZTg91t8BGJ7rRUiEV2L0",
+        image: "http://drive.google.com/uc?export=view&id=18taDpMmIkMfodB8sZZd5SDdqmb5aetA2",
         name: "Ayushi Gupta",
         email: "ayushi190503@gmail.com",
         facebook: "https://www.facebook.com/profile.php?id=100076155704333",
@@ -35,7 +35,7 @@ const members = [
 
     {
         name: "Aumogh Sengupta",
-        image: "https://media.licdn.com/dms/image/C4E03AQGF0Z2dT9SLKg/profile-displayphoto-shrink_400_400/0/1640601793577?e=1699488000&v=beta&t=fQ8vl5NQOymLtEG72hCDNb-PwtRqAa5tdYtGRxdPymY",
+        image: "http://drive.google.com/uc?export=view&id=1PjBcCsh69BGLNDc8ICp3hxnT52OKZ4Od",
         email: "aumogh24@gmail.com",
         facebook: "https://www.facebook.com/aumogh.sengupta",
         twitter: "www.twitter.com",
@@ -44,7 +44,7 @@ const members = [
 
     {
         name: "Hricheek Mondal",
-        image: "https://media.licdn.com/dms/image/D5603AQHfRMfnY26QwQ/profile-displayphoto-shrink_400_400/0/1674383949620?e=1699488000&v=beta&t=Ejx4rrv7wZgZj7owVuua8S9rmZJUnkxg0unMQQ7VUnc",
+        image: "http://drive.google.com/uc?export=view&id=1ioS_dDgCdv6YeBYkCOaYcDEsX32g9EYa",
         email: "ihricheek.ark@gmail.com",
         facebook: "https://www.facebook.com/profile.php?id=100075622985766",
         twitter: "www.twitter.com",
@@ -53,7 +53,7 @@ const members = [
 
     {
         name: "Bishanka Seal",
-        image: "https://media.licdn.com/dms/image/D5603AQFewW5ZrUPluQ/profile-displayphoto-shrink_400_400/0/1692356851666?e=1699488000&v=beta&t=Qzk0gOsbAiP0gJI2E0W60lOzmK8XegtmVk6MvwxPCy0",
+        image: "http://drive.google.com/uc?export=view&id=1XWJzfJ4qZ4jm0HosYM832Vp4Ve-g3UFi",
         email: "bishankaseal@gmail.com",
         facebook: "https://www.facebook.com/bishanka.seal",
         twitter: "www.twitter.com",
@@ -62,7 +62,7 @@ const members = [
 
     {
         name: "Manas Jha",
-        image: "https://media.licdn.com/dms/image/C4D03AQFh4QxXBHR_JA/profile-displayphoto-shrink_400_400/0/1661454809726?e=1699488000&v=beta&t=wM8cMXRHC5fGwzolgXdCvlZNs-ThkQnLyqKl99KzR3s",
+        image: "http://drive.google.com/uc?export=view&id=1h9emsV-loGYGlDAzBa_MwZ9Iz9R--NqF",
         email: "jhamanas6676@gmail.com",
         facebook: "https://www.facebook.com/profile.php?id=100074617685790",
         linkedin: "https://www.linkedin.com/in/manas-jha-901416225/"
@@ -70,7 +70,7 @@ const members = [
 
     {
         name: "Abhinav Thakur",
-        image: "https://media.licdn.com/dms/image/D4D03AQFG2Hp7dTcM9g/profile-displayphoto-shrink_800_800/0/1693047269329?e=1703116800&v=beta&t=1zp2uYQhUtGKptwUN3kSznHlLDtrBuW8zXLg0mTXPxI",
+        image: "http://drive.google.com/uc?export=view&id=1-33HsjzT7HSRaeEZju0OMJcnBDn5aozQ",
         email: "05abhinavthakur@gmail.com",
         facebook: "https://www.facebook.com/profile.php?id=100008590905292",
         twitter: "www.twitter.com",
@@ -79,7 +79,7 @@ const members = [
 
     {
         name: "Divyanshu Baurai",
-        image: "https://media.licdn.com/dms/image/D4D03AQFS58EDtLnDOg/profile-displayphoto-shrink_400_400/0/1663278716637?e=1699488000&v=beta&t=WVhueqh0GQLAghoAJPQ3FgD19ReYXF6q8jsHaUc_gX4",
+        image: "http://drive.google.com/uc?export=view&id=1L6hfAV6bj6_cEF8qtlui5eNj4-qpu5YH",
         email: "divyanshubaurai@kgpian.iitkgp.ac.in",
         facebook: "https://www.facebook.com/profile.php?id=100011100210750",
         twitter: "www.twitter.com",
