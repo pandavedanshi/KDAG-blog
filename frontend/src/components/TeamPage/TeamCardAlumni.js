@@ -1,8 +1,9 @@
 import React from "react";
+import "./TeamCardSM.css";
 import Flex from "react-reveal/Fade";
 import "./TeamCard.css";
 
-const TeamCard = ({ member }) => {
+const TeamCardAlum = ({ member }) => {
 	return (
 		<div class="member-card-wrapper">
 			<Flex bottom>
@@ -14,8 +15,8 @@ const TeamCard = ({ member }) => {
 						<p>{member?.name || "Name of Member"}</p>
 					</div>
 					{/* <div class="member-email">
-             <p>{member?.email || "email id"}</p>
-           </div> */}
+           <p>{member?.email || "email id"}</p>
+         </div> */}
 					<div class="member-profile-follow">
 						<div class="member-follow-text">
 							<span>Follow on</span>
@@ -31,8 +32,8 @@ const TeamCard = ({ member }) => {
 								</a>
 							</div>
 							{/* <div class="member-social-icon-icon">
-                 <a href={member?.twitter || "#"}><i class="fab fa-twitter"></i></a>
-               </div> */}
+               <a href={member?.twitter || "#"}><i class="fab fa-twitter"></i></a>
+             </div> */}
 							<div class="member-social-icon-icon">
 								<a
 									href={member?.linkedin || "#"}
@@ -50,4 +51,4 @@ const TeamCard = ({ member }) => {
 	);
 };
 
-export default TeamCard;
+export default TeamCardAlum;
