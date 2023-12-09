@@ -55,13 +55,13 @@ const TeamCardSM = ({ member }) => {
 		// 		</div>
 		// 	</Fade>
 		// </div>
-		<div class="member-card-wrapper">
+		<div class="member-card-wrapper-head">
 			<Flex bottom>
-				<div className="member-card">
-					<div class="member-profile-image">
+				<div className="member-card-head">
+					<div class="member-profile-image-head">
 						<img src={member?.image} alt="John" />
 					</div>
-					<div class="member-name">
+					<div class="member-name-head">
 						<p>{member?.name || "Name of Member"}</p>
 					</div>
 					{/* <div class="member-email">

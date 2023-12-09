@@ -1,33 +1,33 @@
-/* .members-head-list {
-    display: flex;
-    width: 90%;
-    max-width: 60rem;
-    margin: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.members-head-list-bottom {
-    margin-bottom: 5rem;
-} */
-
 .members-head-list {
 	display: flex;
-	flex-direction: row;
-	max-width: 65rem;
+	width: 90%;
+	max-width: 60rem;
 	margin: auto;
-	justify-content: left;
-	overflow-x: scroll;
-	height: 450px;
-	padding-left: 40px;
-	padding-right: 20px;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .members-head-list-bottom {
 	margin-bottom: 5rem;
 }
 
-.members-head-list::after {
+/* .members-head-list {
+	display: flex;
+	flex-direction: row;
+	max-width: 65rem;	
+	margin: auto;
+	justify-content: left;
+	overflow-x: scroll;
+	height: 450px;
+	padding-left: 40px;
+	padding-right: 20px;
+} */
+
+/* .members-head-list-bottom {
+	margin-bottom: 5rem;
+} */
+
+/* .members-head-list::after {
 	content: "";
 	position: absolute;
 	top: 610px;
@@ -40,9 +40,9 @@
 		rgba(0, 0, 0, 1)
 	);
 	pointer-events: none;
-}
+} */
 
-.members-head-list::before{
+/* .members-head-list::before{
     content: "";
 	position: absolute;
 	top: 610px;
@@ -56,10 +56,10 @@
 	);
 	pointer-events: none;
     z-index: 300;
-}
+} */
 
-.members-head-list-SM{
-    display: flex;
+.members-head-list-SM {
+	/* display: flex;
 	flex-direction: row;
 	max-width: 65rem;
 	margin: auto;
@@ -67,10 +67,17 @@
 	overflow-x: scroll;
 	height: 450px;
 	padding-left: 40px;
-	padding-right: 20px;
+	padding-right: 20px; */
+
+	display: flex;
+	width: 90%;
+	max-width: 60rem;
+	margin: auto;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.members-head-list-SM::after{
+/* .members-head-list-SM::after{
     content: "";
 	position: absolute;
 	top: 1165px;
@@ -99,7 +106,7 @@
 	);
 	pointer-events: none;
     z-index: 300;
-}
+} */
 
 .members-head-list-Alum {
 	display: flex;
@@ -113,13 +120,17 @@
 	padding-right: 20px;
 }
 
+.members-head-list-Alum::-webkit-scrollbar{
+	width: 0px;
+}
+
 .members-head-list-Alum::after {
 	content: "";
 	position: absolute;
-	top: 1725px;
+	top: 3540px;
 	right: 245px;
-	width: 100px; 
-	height: 52%;
+	width: 100px;
+	height: 60%;
 	background: linear-gradient(
 		to right,
 		rgba(255, 255, 255, 0),
@@ -128,30 +139,26 @@
 	pointer-events: none;
 }
 
-.members-head-list-Alum::before{
-    content: "";
+.members-head-list-Alum::before {
+	content: "";
 	position: absolute;
-	top: 1725px;
+	top: 3540px;
 	left: 245px;
-	width: 100px; 
-	height: 53%;
-	background: linear-gradient(
-		to left,
-		rgba(255, 255, 255, 0),
-        rgb(0, 0, 0)
-	);
+	width: 100px;
+	height: 60%;
+	background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(0, 0, 0));
 	pointer-events: none;
-    z-index: 300;
+	z-index: 300;
 }
 
 @media screen and (max-width: 1000px) {
 	.members-head-list {
 		display: flex;
-		width: 90%;
+		width: 100%;
 		max-width: 60rem;
 		margin: auto;
 		flex-wrap: wrap;
-		height: auto; /********************************************/
+		height: auto; 
 		justify-content: center;
 	}
 
@@ -163,43 +170,53 @@
 		opacity: 0;
 	}
 
-    .members-head-list::before {
+	.members-head-list::before {
 		opacity: 0;
 	}
 
-    .members-head-list-SM::before {
+	.members-head-list-SM::before {
 		opacity: 0;
 	}
 
-    .members-head-list-Alum::before {
-		opacity: 0;
-	}
-
-    .members-head-list-Alum::after {
-		opacity: 0;
-	}
-
-    .members-head-list-SM {
+	.members-head-list-SM {
 		display: flex;
-		width: 90%;
+		width: 100%;
 		max-width: 60rem;
 		margin: auto;
 		flex-wrap: wrap;
-		height: auto; /********************************************/
+		height: auto;
 		justify-content: center;
 	}
 
-    .members-head-list-Alum {
+	.members-head-list-Alum {
 		display: flex;
-		width: 90%;
-		max-width: 60rem;
+		flex-direction: row;
+		max-width: 65rem;
 		margin: auto;
-		flex-wrap: wrap;
-		height: auto; /********************************************/
-		justify-content: center;
+		justify-content: left;
+		overflow-x: scroll;
+		height: 450px;
+		padding-left: 40px;
+		padding-right: 20px;
 	}
 
 	.members-head-list-SM::after {
 		opacity: 0;
+	}
+
+	.members-head-list-Alum::before {
+		opacity: 1;
+		top: 2922px;
+		left: 0px;
+		width: 50px;
+		height: 50%;
+	}
+
+	.members-head-list-Alum::after {
+		opacity: 1;
+		top: 2922px;
+		right: 0px;
+		width: 50px;
+		height: 50%;
 	}
 }

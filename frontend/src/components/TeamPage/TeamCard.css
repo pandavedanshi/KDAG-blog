@@ -1,29 +1,45 @@
-/* .member-card-wrapper {
+.member-card-wrapper-head {
 	width: 50%;
 	max-width: 15rem;
-	margin: 1.5rem;
+	margin: 2rem;
 }
 
-.member-card {
+.member-card-head {
 	padding: 2rem;
-	border-radius: 15px;
-	border-top-right-radius: 20px;
-	border-top-left-radius: 20px;
-	transition: all 0.3s ease;
-	width: 90%;
+	border-radius: 5px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	width: 100%;
 	background: rgba(255, 255, 255, 0.042);
 	backdrop-filter: blur(3px);
-	transition: all 0.7s;
 	font-weight: 500;
-	box-shadow: 0 0 2px rgba(255, 255, 255, 0.35);
+	box-shadow: 
+		0px 0px 0 1px rgb(255, 255, 255),
+		07px -07px 0 -1px black,
+		07px -07px yellow, 
+		14px -14px 0 -1px rgb(0, 0, 0),
+		14px -14px 0 green,
+		21px -21px 0 -1px rgb(0, 0, 0),
+		21px -21px 0 red;
+	transition: all 0.7s, box-shadow 1s, top 1s, left 1s;
 }
 
-.member-card:hover {
-	transform: scale(1.05);
+.member-card-head:hover {
 	background: white;
+	border-radius: 5px;
 	border-top-right-radius: 150px;
-	width: 110%;
-} */
+	border-top-left-radius: 5px;
+	width: 105%;
+	height: auto;
+	box-shadow: 
+		0px 0px 0 1px rgb(255, 255, 255),
+		15px -15px 0 -1px black,
+		15px -15px rgb(255, 255, 255), 
+		-15px 15px 0 -1px rgb(0, 0, 0),
+		-15px 15px 0 rgb(255, 255, 255),
+		0px 0px 0 0px rgb(0, 0, 0),
+		0px 0px 0 rgb(255, 255, 255);
+}
 
 .member-card-wrapper {
 	width: 100%;
@@ -41,15 +57,26 @@
 	margin-right: 50px;
 	background: rgba(255, 255, 255, 0.042);
 	backdrop-filter: blur(3px);
-	transition: all 0.7s;
 	font-weight: 500;
-	box-shadow: 0 0 2px rgba(255, 255, 255, 0.35);
+	box-shadow: 
+		0px 0px 0 1px rgb(255, 255, 255),
+		15px -15px 0 -1px black,
+		15px -15px rgb(255, 255, 255), 
+		-15px 15px 0 -1px rgb(255, 255, 255),
+		-15px 15px 0 rgb(255, 255, 255);
+	transition: all 0.7s, box-shadow 1s, top 1s, left 1s;
 }
 
 .member-card:hover {
 	background: white;
 	border-top-right-radius: 150px;
 	width: 80%;
+	box-shadow: 
+	0px 0px 0 1px rgb(255, 255, 255),
+	20px -20px 0 -1px black,
+	20px -20px rgb(255, 255, 255), 
+	-20px 20px 0 -1px black,
+	-20px 20px 0 rgb(255, 255, 255);
 }
 
 .member-card:hover p {
@@ -58,16 +85,35 @@
 	font-weight: 800;
 }
 
+.member-card-head:hover p {
+	color: black;
+	border-top-right-radius: 50px;
+	font-weight: 800;
+}
+
 .member-profile-image {
 	position: relative;
 	margin: auto;
-	width: 9rem;
-	height: 9rem;
+	width: 10rem;
+	height: 10rem;
 	overflow: hidden;
 	border-radius: 200px;
 	margin-bottom: 1rem;
 	top: 0;
 	left: 0;
+	transition: all 0.8s;
+}
+
+.member-profile-image-head {
+	position: relative;
+	margin: auto;
+	width: 10rem;
+	height: 10rem;
+	overflow: hidden;
+	border-radius: 200px;
+	margin-bottom: 1rem;
+	top: 0px;
+	left: 0px;
 	transition: all 0.8s;
 }
 
@@ -82,7 +128,22 @@
 	box-shadow: 5px 5px 10px rgb(60, 60, 60);
 }
 
+.member-card-head:hover .member-profile-image-head {
+	height: 14rem;
+	width: 14rem;
+	top: 0px;
+	left: -50px;
+	border-radius: 150px;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	box-shadow: 5px 5px 10px rgb(60, 60, 60);
+}
+
 .member-profile-image img {
+	width: 100%;
+}
+
+.member-profile-image-head img {
 	width: 100%;
 }
 
@@ -92,11 +153,25 @@
 	color: #fff;
 	height: 65px;
 	position: relative;
-	bottom: -25px;
+	bottom: -40px;
+	transition: all 0.5s;
+}
+
+.member-name-head {
+	font-size: 1.2rem;
+	text-align: center;
+	color: #fff;
+	height: 65px;
+	position: relative;
+	bottom: 0px;
 	transition: all 0.5s;
 }
 
 .member-card:hover .member-name {
+	bottom: 0;
+}
+
+.member-card-head:hover .member-name {
 	bottom: 0;
 }
 
@@ -124,6 +199,11 @@
 }
 
 .member-card:hover .member-profile-follow {
+	opacity: 1;
+	transform: scale(1.2);
+}
+
+.member-card-head:hover .member-profile-follow {
 	opacity: 1;
 	transform: scale(1.2);
 }
@@ -163,13 +243,13 @@
 	.member-card-wrapper {
 		width: 50%;
 		max-width: 15rem;
-		margin: 1.5rem;
+		margin: 1.4rem;
 	}
 	.member-card {
 		padding: 2rem;
-		border-radius: 10px;
-		border-top-right-radius: 10px;
-		border-top-left-radius: 10px;
+		border-radius: 5px;
+		border-top-right-radius: 5px;
+		border-top-left-radius: 5px;
 		transition: all 0.3s ease;
 		width: 90%;
 		background: rgba(255, 255, 255, 0.042);
@@ -178,17 +258,52 @@
 		font-weight: 500;
 		box-shadow: 0 0 2px rgba(255, 255, 255, 0.35);
 	}
+	.member-card-head {
+		box-shadow: 
+			0px 0px 0 1px rgb(255, 255, 255),
+			07px -07px 0 -1px black,
+			07px -07px yellow, 
+			15px -15px 0 -1px rgb(0, 0, 0),
+			15px -15px 0 red;
+	}
+
 	.member-card:hover {
 		transform: scale(1.05);
 		background: white;
-		border-top-right-radius: 150px;
+		border-top-right-radius: 80px;
 		width: 110%;
+		box-shadow: 
+		0px 0px 0 1px rgb(255, 255, 255),
+		10px -10px 0 -1px black,
+		10px -10px rgb(255, 255, 255), 
+		-10px 10px 0 -1px black,
+		-10px 10px 0 rgb(255, 255, 255);
+	}
+	.member-card-head:hover {
+		transform: scale(1.05);
+		background: white;
+		border-top-right-radius: 100px;
+		width: 100%;
+	}
+	.member-card-head:hover .member-profile-image-head {
+		height: 12rem;
+		width: 12rem;
+		top: 0px;
+		left: -30px;
 	}
 }
 
 @media screen and (max-width: 800px) {
 	.member-profile-follow {
+		color: #777;
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		bottom: -10px;
+		transition: all 0.3s;
 		opacity: 1;
 	}
+	.member-social-icon {
+		padding-right: 0px;
+	}
 }
-
