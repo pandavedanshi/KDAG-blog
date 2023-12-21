@@ -1,57 +1,68 @@
-import React from "react"
-import TeamCard from "./TeamCard"
-import TeamCardSM from  "./TeamCardSM";
+import React from "react";
+import TeamCard from "./TeamCard";
+import TeamCardSM from "./TeamCardSM";
+import TeamCardAlum from "./TeamCardAlumni";
 import TeamPageHeading from "./TeamPageHeading";
-import members from "./MembersStatic"
+import members from "./MembersStatic";
 import seniormembers from "./SeniorMembersStatic";
 import advisors from "./AdvisorsStatic";
+import alumni from "./AlumniMembersStatic"
 import Header from "./Header";
 import Fade from "react-reveal/Fade";
-import Particless from '../Common/Particles/Particless'
+import Particless from "../Common/Particles/Particless";
 // import bullet from "../../assets/svgs/TeamBullet.svg";
-import "./TeamPage.css"
+import "./TeamPage.css";
 
 const TeamPage = () => {
-    return  (
-        <>
-        <Header />
-        <Fade left>
-        <TeamPageHeading text="Heads" />
-        </Fade>
-        <div className="members-head-list">
-            
-        {members?.map((member) => {
-            return <TeamCard key={member.id} member = {member} />;
-          }) 
-        }
-        </div>
+	return (
+		<>
+			<Header />
+			<Fade left>
+				<TeamPageHeading text="Heads" />
+			</Fade>
+			<div className="members-head-list">
+				{members?.map((member) => {
+					return <TeamCard key={member.id} member={member} />;
+				})}
+			</div>
 
-        <Fade left>
-        <TeamPageHeading text="Advisors" />
-        </Fade>
-        <div className="members-head-list">
-            
-        {advisors?.map((member) => {
-            return <TeamCardSM key={member.id} member = {member} />;
-          }) 
-        }
-        </div>
+			<Fade left>
+				<TeamPageHeading text="Advisors" />
+			</Fade>
+			<div className="members-head-list-SM">
+				{advisors?.map((member) => {
+					return <TeamCardSM key={member.id} member={member} />;
+				})}
+			</div>
 
-        <br /><br /><br /><br /><br /><br /><br />
+			<Fade left>
+				<TeamPageHeading text="Alumni" />
+			</Fade>
+			<div className="members-head-list-Alum">
+				{alumni?.map((member) => {
+					return <TeamCardAlum key={member.id} member={member} />;
+				})}
+			</div>
 
-        {/* <Fade left>
+			<br />
+			<br />
+			<br />
+			<br />
+			
+
+			{/* <Fade left>
         <TeamPageHeading text="Senior Members" />
         </Fade> */}
-        {/* <div className="members-head-list members-head-list-bottom">
+			{/* <div className="members-head-list members-head-list-bottom">
             
         {seniormembers?.map((member) => {
             return <TeamCardSM key={member.id} member = {member} />;
           }) 
         }
         </div> */}
-        <Particless />
-        </>
-    )
-}
+			<Particless />
+		</>
+	);
+};
 
 export default TeamPage;
