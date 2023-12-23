@@ -8,7 +8,8 @@ import {
 	faCalendarDays,
 	faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import Poster from "../../assets/pics/Landscape.png";
+// import Poster from "../../assets/pics/Landscape.png";
+import Poster from "../../assets/pics/KDSH2023_Landscape.png";
 
 //Components
 import Content from "./Content/Content.js";
@@ -258,8 +259,8 @@ const LandingPage = () => {
 						<div className="banner-heading-flex">
 							<div className="banner-heading">
 								<h3 style={{ fontSize: "35px", fontWeight: "600" }}>
-									CampusPulse: Igniting Innovation with Data
-									{/* Machine Learning Workshop */}
+									{/* CampusPulse: Igniting Innovation with Data */}
+									Kharagpur Data Science Hackathon 2023
 								</h3>
 							</div>
 						</div>
@@ -269,10 +270,10 @@ const LandingPage = () => {
 							className="banner-poster"
 							src={Poster}
 							alt="Poster"
-							// height={250}
+						// height={250}
 						/>
 						<div className="banner-content">
-							<p>
+							{/* <p>
 								This competition combines innovation, technology, and data
 								science to challenge the brightest minds at IIT Kharagpur.
 								Participants will showcase their innovative ideas and harness
@@ -283,25 +284,41 @@ const LandingPage = () => {
                 is generously sponsored by our esteemed alumnus, <a href="https://sibasmarak.github.io/" id="alumni-link" target="_blank">
                 Siba Smarak Panigrahi</a> , currently pursuing an M.Sc. at McGill University 
                 and Mila, Canada.
-							</p>
-							{/* <p>
-								Are you ready to dive into the fascinating world of Machine
-								Learning and unlock it's true potential? Look no further! We are thrilled to invite you to our
-								upcoming Machine Learning Workshop, a transformative 4-session
-								event that will equip you with essential skills and knowledge to
-								harness the potential of artificial intelligence.
-								<br />
-								Workshop Overview:
-								<br />
-								<strong>Session 1:</strong> Regression and Classification
-								<br />
-								<strong>Session 2:</strong> Trees and Ensemble
-								<br />
-								<strong>Session 3:</strong> Deep Learning
-								<br />
-								<strong>Session 4:</strong> Hands-on Session
-								<br />
 							</p> */}
+							<p>
+								Are you ready to harness the limitless potential of data? Seize the opportunity to solve real-life problems from any corner of the nation in the most anticipated event of the year!
+								<br />
+								<ul className="banner-list">
+									<li>
+										Engage in challenging real-life problem-solving scenarios
+									</li>
+									<li>
+										Showcase your analytical skills and creativity
+									</li>
+									<li>
+										Collaborate with like-minded individuals from across the nation
+									</li>
+									<li>
+										Compete for exciting prizes and recognition
+									</li>
+								</ul>
+								Get your teams prepared, choose a cool team name and register for the biggest data science hackathon brought to you by Kharagpur Data Analytics Group, IIT Kharagpur, in collaboration with Kshitij, IIT Kharagpur. We proudly announce our,
+								<br />
+								<ol className="banner-list">
+									<li>
+										Title Sponsor: <strong><a href="https://www.zeltatech.com/" target="_blank">ZeltaTech</a></strong>
+									</li>
+									<li>
+										Associate Sponsor: <strong><a href="https://fanstore.bobble.ai/" target="_blank">Bobble AI</a></strong>
+									</li>
+									<li>
+										Travel Partner: <strong><a href="https://www.easemytrip.com/" target="_blank">EaseMyTrip</a></strong>
+									</li>
+									<li>
+										Media Partner: <strong><a href="https://www.theglobalhues.com/" target="_blank">The Global Hues</a></strong>
+									</li>
+								</ol>
+							</p>
 						</div>
 					</div>
 					{/* banner main ends */}
@@ -310,10 +327,10 @@ const LandingPage = () => {
 					<div className="banner-info-flex">
 						<div className="banner-info">
 							<FontAwesomeIcon icon={faCalendarDays} className="icon" shake />
-							<p id="banner-info">12 October 2023</p>
+							<p id="banner-info">30 December 2023</p>
 							{/* <p id="banner-info">4th-5th November 2023</p> */}
 							<FontAwesomeIcon icon={faLocationDot} className="icon" flip />
-							<p id="banner-info">Online</p>
+							<p id="banner-info">IIT Kharagpur</p>
 							{/* <p id="banner-info">NC-111</p> */}
 						</div>
 					</div>
@@ -321,29 +338,30 @@ const LandingPage = () => {
 
 					{/* banner button starts */}
 					<div className="banner-button-flex">
-						<div className="banner-button">
-							<button class="btn-12" style={{ cursor: "none" }}>
-								<span>
-									<a
-										href="https://docs.google.com/forms/d/e/1FAIpQLSfCgaxpDJgQopncibVxxtr2TYMTyzQ67n1GwF25GIbTzWpgdg/viewform"
-										// href = "https://docs.google.com/forms/d/e/1FAIpQLScesbGd90BYDtRVTpAxmcMtwL4XmohK8VUOWPXD9p8SnyY-0Q/viewform?usp=sf_link"
-										target="blank"
-									>
+						<a
+							href="https://unstop.com/o/3zC06FR?lb=DlVrQAs"
+							// href = "https://docs.google.com/forms/d/e/1FAIpQLScesbGd90BYDtRVTpAxmcMtwL4XmohK8VUOWPXD9p8SnyY-0Q/viewform?usp=sf_link"
+							target="blank"
+						>
+							<div className="banner-button">
+								<button class="btn-12" style={{ cursor: "none" }}>
+									<span>
+
 										Register Now
-									</a>
+									</span>
+								</button>
+							</div>
+						</a>
+						<a
+							href="https://unstop.com/o/3zC06FR?lb=DlVrQAs"
+							target="blank"
+						>
+							<button id="banner-button-media" class="btn-12">
+								<span>
+									Register Now
 								</span>
 							</button>
-						</div>
-						<button id="banner-button-media" class="btn-12">
-							<span>
-								<a
-									href="https://docs.google.com/forms/d/e/1FAIpQLScesbGd90BYDtRVTpAxmcMtwL4XmohK8VUOWPXD9p8SnyY-0Q/viewform?usp=sf_link"
-									target="blank"
-								>
-									Register Now
-								</a>
-							</span>
-						</button>
+						</a>
 					</div>
 				</div>
 				{/* banner button ends */}
