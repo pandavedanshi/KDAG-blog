@@ -1,28 +1,29 @@
 import React from "react";
-import "./TeamCardSM.css";
 import Flex from "react-reveal/Fade";
-import "./TeamCard.css";
+import "./TeamCardAlumni.css";
 
 const TeamCardAlum = ({ member }) => {
 	return (
-		<div class="member-card-wrapper">
+		<div class="alumni-member-card-wrapper">
 			<Flex bottom>
-				<div className="member-card">
-					<div class="member-profile-image">
+				<div className="alumni-member-card">
+					<div class="alumni-member-profile-image">
 						<img src={member?.image} alt="John" />
 					</div>
-					<div class="member-name">
+					<div class="alumni-member-name">
 						<p>{member?.name || "Name of Member"}</p>
 					</div>
-					{/* <div class="member-email">
-           <p>{member?.email || "email id"}</p>
-         </div> */}
-					<div class="member-profile-follow">
-						<div class="member-follow-text">
+
+					<div class="alumni-member-company">
+						<p>{member?.workplace || ""}</p>
+					</div>
+
+					<div class="alumni-member-profile-follow">
+						<div class="alumni-member-follow-text">
 							<span>Follow on</span>
 						</div>
-						<div class="member-social-icon">
-							<div class="member-social-icon-icon">
+						<div class="alumni-member-social-icon">
+							<div class="alumni-member-social-icon-icon">
 								<a
 									href={member?.facebook || "#"}
 									target="_blank"
@@ -31,10 +32,8 @@ const TeamCardAlum = ({ member }) => {
 									<i class="fab fa-facebook"></i>
 								</a>
 							</div>
-							{/* <div class="member-social-icon-icon">
-               <a href={member?.twitter || "#"}><i class="fab fa-twitter"></i></a>
-             </div> */}
-							<div class="member-social-icon-icon">
+
+							<div class="alumni-member-social-icon-icon">
 								<a
 									href={member?.linkedin || "#"}
 									target="_blank"

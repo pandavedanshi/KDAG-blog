@@ -1,18 +1,18 @@
 .team-page-heading {
-    width: 90%;
-    max-width: 80rem;
-    margin: 2rem auto auto;
-    display: flex;
-    align-items: center;
+	width: 90%;
+	max-width: 80rem;
+	margin: 2rem auto auto;
+	display: flex;
+	align-items: center;
 }
 
 .team-page-bullet {
-    display: flex;
-    justify-content: right;
+	display: flex;
+	justify-content: right;
 }
 
 .team-page-bullet svg {
-    width: 80%;
+	width: 80%;
 }
 
 .team-page-heading-text {
