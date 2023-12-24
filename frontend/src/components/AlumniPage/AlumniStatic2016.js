@@ -69,7 +69,7 @@ const members_2016 = [
 	},
 	{
 		name: "Rakesh Reddy",
-		image: "",
+		image:"http://drive.google.com/uc?export=view&id=12ZsWl2YY6QD3k-A0HP0S4pIZ-qsAd3Bo",
 		linkedin: "https://www.linkedin.com/in/rakeshreddygunukula/",
 		degree: "Electrical Engineering",
 		year: 2016,
@@ -79,7 +79,7 @@ const members_2016 = [
 	},
 	{
 		name: "Mayank Manish",
-		image: "",
+		image:"http://drive.google.com/uc?export=view&id=12ZsWl2YY6QD3k-A0HP0S4pIZ-qsAd3Bo",
 		linkedin: "https://www.linkedin.com/in/mayank-manish-3960a060/",
 		degree: "Computer Science Engineering",
 		year: 2016,

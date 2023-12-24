@@ -135,7 +135,7 @@ const members_2019 = [
 		linkedin: "https://www.linkedin.com/in/abhinav-arun-432341117/",
 		degree: "Mechanical Engineering",
 		graduation_year: 2019,
-		workplace: "Graduate Teaching Assistant, Georgia Institute of Technology",
+		workplace: "Georgia Institute of Technology",
 		designation: "Innovaccer",
 		additional_info: "Georgia Institute of Technology",
 	},

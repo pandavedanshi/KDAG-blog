@@ -8,7 +8,6 @@ import advisors from "./AdvisorsStatic";
 import Header from "./Header";
 import Fade from "react-reveal/Fade";
 import Particless from "../Common/Particles/Particless";
-// import bullet from "../../assets/svgs/TeamBullet.svg";
 import "./TeamPage.css";
 
 const TeamPage = () => {

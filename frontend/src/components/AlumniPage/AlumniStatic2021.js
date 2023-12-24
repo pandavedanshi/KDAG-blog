@@ -51,7 +51,7 @@ const members_2021 = [
 	},
 	{
 		name: "Kankana Haldar",
-		image:"http://drive.google.com/uc?export=view&id=11yTtHoBRDcg1wuTN9WEHqJubszGlxuyS/view?usp=sharing",
+		image:"http://drive.google.com/uc?export=view&id=11yTtHoBRDcg1wuTN9WEHqJubszGlxuyS",
 		linkedin: "https://www.linkedin.com/in/kankana-haldar-3313a6147/",
 		degree: "Electrical Engineering",
 		graduation_year: 2021,

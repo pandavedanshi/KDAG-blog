@@ -172,7 +172,7 @@ const members_2020 = [
 	},
 	{
 		name: "Anjali Jha",
-		image:"",
+		image:"http://drive.google.com/uc?export=view&id=1UC8gU9ajOzHs4x_GKjyjTvCRhfu-fPzp",
 		linkedin: "https://www.linkedin.com/in/anjalijha167/",
 		degree: "Industrial and Systems Engineering",
 		graduation_year: 2020,
@@ -182,7 +182,7 @@ const members_2020 = [
 	},
 	{
 		name: "Chinmay Sawkar",
-		image:"",
+		image:"http://drive.google.com/uc?export=view&id=1RzKCmK4sYoc8rL4mqFvRHRavYppBgQPi",
 		linkedin: "https://www.linkedin.com/in/chinmay997/",
 		degree: "Manufacturing",
 		graduation_year: 2020,

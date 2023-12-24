@@ -133,7 +133,7 @@ const members_2023 = [
 	
 	{
 		name: "Arnab Bala",
-		image:"",
+		image:"http://drive.google.com/uc?export=view&id=12ZsWl2YY6QD3k-A0HP0S4pIZ-qsAd3Bo",
 		linkedin: "https://www.linkedin.com/in/arnab-bala-20424016b/",
 		degree: "Financial Engineering",
 		graduation_year: 2023,
@@ -193,7 +193,7 @@ const members_2023 = [
 	},
 	{
 		name: "Arun Kumar Nayak",
-		image:"",
+		image:"http://drive.google.com/uc?export=view&id=1fsnWBBaGppHNBfdDpWWiGK2wxu04tZ84",
 		linkedin: "https://www.linkedin.com/in/arun-nayak-7104a51aa/",
 		degree: "Metallurgical Engineering",
 		graduation_year: 2023,

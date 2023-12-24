@@ -101,7 +101,7 @@ const members_2022 = [
 	},
 	{
 		name: "Arghyadeep Bandopadhyay",
-		image:"",
+		image:"http://drive.google.com/uc?export=view&id=12ZsWl2YY6QD3k-A0HP0S4pIZ-qsAd3Bo",
 		linkedin: "https://www.linkedin.com/in/arghyadeep-bandyopadhyay-672b881a9/",
 		degree: "Electrical Engineering",
 		graduation_year: 2022,

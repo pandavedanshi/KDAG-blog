@@ -19,50 +19,10 @@ const AlumniPage = () => {
 		<>
 			<Header />
 			<Fade left>
-				<AlumniPageHeading text="Graduating Batch Of 2016" />
+				<AlumniPageHeading text="Graduating Batch Of 2023" />
 			</Fade>{" "}
 			<div className="alumni-members-list">
-				{members_2016?.map((member) => {
-					return <TeamCardAlum key={member.id} member={member} />;
-				})}
-			</div>
-			<Fade left>
-				<AlumniPageHeading text="Graduating Batch Of 2017" />
-			</Fade>{" "}
-			<div className="alumni-members-list">
-				{members_2017?.map((member) => {
-					return <TeamCardAlum key={member.id} member={member} />;
-				})}
-			</div>
-			<Fade left>
-				<AlumniPageHeading text="Graduating Batch Of 2018" />
-			</Fade>{" "}
-			<div className="alumni-members-list">
-				{members_2018?.map((member) => {
-					return <TeamCardAlum key={member.id} member={member} />;
-				})}
-			</div>
-			<Fade left>
-				<AlumniPageHeading text="Graduating Batch Of 2019" />
-			</Fade>{" "}
-			<div className="alumni-members-list">
-				{members_2019?.map((member) => {
-					return <TeamCardAlum key={member.id} member={member} />;
-				})}
-			</div>
-			<Fade left>
-				<AlumniPageHeading text="Graduating Batch Of 2020" />
-			</Fade>{" "}
-			<div className="alumni-members-list">
-				{members_2020?.map((member) => {
-					return <TeamCardAlum key={member.id} member={member} />;
-				})}
-			</div>
-			<Fade left>
-				<AlumniPageHeading text="Graduating Batch Of 2021" />
-			</Fade>{" "}
-			<div className="alumni-members-list">
-				{members_2021?.map((member) => {
+				{members_2023?.map((member) => {
 					return <TeamCardAlum key={member.id} member={member} />;
 				})}
 			</div>
@@ -75,10 +35,50 @@ const AlumniPage = () => {
 				})}
 			</div>
 			<Fade left>
-				<AlumniPageHeading text="Graduating Batch Of 2023" />
+				<AlumniPageHeading text="Graduating Batch Of 2021" />
 			</Fade>{" "}
 			<div className="alumni-members-list">
-				{members_2023?.map((member) => {
+				{members_2021?.map((member) => {
+					return <TeamCardAlum key={member.id} member={member} />;
+				})}
+			</div>
+			<Fade left>
+				<AlumniPageHeading text="Graduating Batch Of 2020" />
+			</Fade>{" "}
+			<div className="alumni-members-list">
+				{members_2020?.map((member) => {
+					return <TeamCardAlum key={member.id} member={member} />;
+				})}
+			</div>
+			<Fade left>
+				<AlumniPageHeading text="Graduating Batch Of 2019" />
+			</Fade>{" "}
+			<div className="alumni-members-list">
+				{members_2019?.map((member) => {
+					return <TeamCardAlum key={member.id} member={member} />;
+				})}
+			</div>
+			<Fade left>
+				<AlumniPageHeading text="Graduating Batch Of 2018" />
+			</Fade>{" "}
+			<div className="alumni-members-list">
+				{members_2018?.map((member) => {
+					return <TeamCardAlum key={member.id} member={member} />;
+				})}
+			</div>
+			<Fade left>
+				<AlumniPageHeading text="Graduating Batch Of 2017" />
+			</Fade>{" "}
+			<div className="alumni-members-list">
+				{members_2017?.map((member) => {
+					return <TeamCardAlum key={member.id} member={member} />;
+				})}
+			</div>
+			<Fade left>
+				<AlumniPageHeading text="Graduating Batch Of 2016" />
+			</Fade>{" "}
+			<div className="alumni-members-list">
+				{members_2016?.map((member) => {
 					return <TeamCardAlum key={member.id} member={member} />;
 				})}
 			</div>
