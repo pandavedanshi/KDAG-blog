@@ -357,13 +357,22 @@ a {
 	background: rgba(255, 255, 255, 0.06);
 	backdrop-filter: blur(10px);
 	border-radius: 20px;
-	font-size: 17px;
+	font-size: 12px;
 	font-weight: 600;
 	transition: all 1s;
+}
+.banner-list {
+	margin-left: 20px;
 }
 .banner-content p strong {
 	color: red;
 }
+
+.banner-content p strong:hover {
+	color : blue;
+	transition: all 0.6s;
+}
+
 .banner-heading-flex-container:hover + .banner-content-flex .banner-content {
 	background: white;
 }
@@ -893,9 +902,12 @@ a {
 		padding: 15px;
 		background: rgba(255, 255, 255, 0.06);
 		border-radius: 20px;
-		font-size: 13px;
+		font-size: 10px;
 		font-weight: 500;
 		transition: all 1s;
+	}
+	.banner-list {
+		margin-left: 20px;
 	}
 	.countdown-box {
 		height: 60px;
@@ -970,7 +982,7 @@ a {
 	}
 	.banner-info-flex {
 		height: 40px;
-		bottom: 300px;
+		bottom: 290px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
