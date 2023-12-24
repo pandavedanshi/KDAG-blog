@@ -9,6 +9,7 @@ import BlogPage from "../components/Blog/BlogPage";
 import ResourcesPage from "../components/Resources/ResourcesPage";
 import EventsPage from "../components/Events/EventsPage";
 import TeamPage from "../components/TeamPage/TeamPage";
+import AlumniPage from "../components/AlumniPage/AlumniPage";
 import ScrollToTop from "../components/Common/ScrollToTop/ScrollToTop.js";
 import Footer from "../components/Common/Footer/Footer";
 import WinterWorkshop from "../components/WinterWorkshop/WinterWorkshop";
@@ -39,6 +40,9 @@ const AppRouter = () => {
           </Route>
           <Route path="/team">
             <TeamPage />
+          </Route>
+          <Route path="/alumni">
+            <AlumniPage />
           </Route>
           <Route path="/winter-workshop">
             <WinterWorkshop />

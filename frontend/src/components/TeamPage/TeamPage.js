@@ -1,16 +1,13 @@
 import React from "react";
 import TeamCard from "./TeamCard";
 import TeamCardSM from "./TeamCardSM";
-import TeamCardAlum from "./TeamCardAlumni";
 import TeamPageHeading from "./TeamPageHeading";
 import members from "./MembersStatic";
 import seniormembers from "./SeniorMembersStatic";
 import advisors from "./AdvisorsStatic";
-import alumni from "./AlumniMembersStatic"
 import Header from "./Header";
 import Fade from "react-reveal/Fade";
 import Particless from "../Common/Particles/Particless";
-// import bullet from "../../assets/svgs/TeamBullet.svg";
 import "./TeamPage.css";
 
 const TeamPage = () => {
@@ -35,20 +32,10 @@ const TeamPage = () => {
 				})}
 			</div>
 
-			<Fade left>
-				<TeamPageHeading text="Alumni" />
-			</Fade>
-			<div className="members-head-list-Alum">
-				{alumni?.map((member) => {
-					return <TeamCardAlum key={member.id} member={member} />;
-				})}
-			</div>
-
 			<br />
 			<br />
 			<br />
 			<br />
-			
 
 			{/* <Fade left>
         <TeamPageHeading text="Senior Members" />
