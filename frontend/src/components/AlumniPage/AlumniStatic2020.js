@@ -1,7 +1,7 @@
 const members_2020 = [
 	{
 		name: "Siddharth Singh",
-		image:"http://drive.google.com/uc?export=view&id=1cqJCGQPWPlHlYkB0cYxHjPwErLhtuQ6E",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Siddharth Singh.jpeg",
 		linkedin: "https://www.linkedin.com/in/siddharth-singh-a7232a114/",
 		degree: "Computer Science Engineering",
 		graduation_year: 2020,
@@ -11,7 +11,7 @@ const members_2020 = [
 	},
 	{
 		name: "Saumo Pal",
-		image:"http://drive.google.com/uc?export=view&id=1WLx7GvZdMZbjjiTpt3q3XHl-IRZPpKhx",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Saumo Pal.jpeg",
 		linkedin: "https://www.linkedin.com/in/saumo-pal/",
 		degree: "ECE",
 		graduation_year: 2020,
@@ -22,7 +22,7 @@ const members_2020 = [
 
 	{
 		name: "Dhiraj Kumar",
-		image:"http://drive.google.com/uc?export=view&id=1vpUgVKX640PiM9FHGz3lYficMUxB0znj",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Dhiraj Kumar.jpeg",
 		linkedin: "https://www.linkedin.com/in/dhiraj-kumar-b18712119/",
 		degree: "Industrial and Systems Engineering",
 		graduation_year: 2020,
@@ -32,7 +32,7 @@ const members_2020 = [
 	},
 	{
 		name: "Amirneni Satakarni",
-		image:"http://drive.google.com/uc?export=view&id=1qY5Og_lRDtn1ktRODUuJkodrxIhuyO-G",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Satakarni Amirneni.jpeg",
 		linkedin: "https://www.linkedin.com/in/satakarni-amirneni/",
 		degree: "Electronics and Electrical Communication Engineering",
 		graduation_year: 2020,
@@ -42,7 +42,7 @@ const members_2020 = [
 	},
 	{
 		name: "Talluri Surya Teja",
-		image:"http://drive.google.com/uc?export=view&id=1ksghX-MCf6oh94cXKou51vtMse16j59x",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Surya Teja Talluri.jpeg",
 		linkedin: "https://www.linkedin.com/in/surya-teja-talluri-383532103/",
 		degree: "Electrical Engineering",
 		graduation_year: 2020,
@@ -52,7 +52,7 @@ const members_2020 = [
 	},
 	{
 		name: "Shubham Kumar Dubey",
-		image:"http://drive.google.com/uc?export=view&id=1Txs1Kc1deV08nnu4w0IIkCawLDr5dw3T",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Shubham Dubey.jpeg",
 		linkedin: "https://www.linkedin.com/in/shubham-dubey-20b828115/",
 		degree: "Industrial and Systems Engineering",
 		graduation_year: 2020,
@@ -62,7 +62,7 @@ const members_2020 = [
 	},
 	{
 		name: "Rahul Das",
-		image:"http://drive.google.com/uc?export=view&id=1zgjCU7DcEpWCXAVXrZuh8z9bRW6ZAH87",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Rahul Das.jpeg",
 		linkedin: "https://www.linkedin.com/in/rahuldas55/",
 		degree: "Mathematics",
 		graduation_year: 2020,
@@ -72,7 +72,7 @@ const members_2020 = [
 	},
 	{
 		name: "Ankit Agarwal",
-		image:"http://drive.google.com/uc?export=view&id=1gR7Ut8-wffOrEbWdKSYIc_gWsUVaCCju",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Ankit Agarwal.jpeg",
 		linkedin: "https://www.linkedin.com/in/ankit-agarwal-profile/",
 		degree: "Humanities and Social Sciences",
 		graduation_year: 2020,
@@ -82,7 +82,7 @@ const members_2020 = [
 	},
 	{
 		name: "Ojas Agarwal",
-		image:"http://drive.google.com/uc?export=view&id=1WEC6h3hvMgeRUgDfBbDlbHWVTwZNtwhH",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Ojas Agarwal.jpeg",
 		linkedin: "https://www.linkedin.com/in/ojasagarwal97/",
 		degree: "Ocean Engineering and Naval Architecture",
 		graduation_year: 2020,
@@ -92,7 +92,7 @@ const members_2020 = [
 	},
 	{
 		name: "Sushovan Haldar",
-		image:"http://drive.google.com/uc?export=view&id=1F-ylZSFniyYoMgo2J4_lZA2faFX9hMu2",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Sushovan Haldar.jpeg",
 		linkedin: "https://www.linkedin.com/in/sushovan-haldar-23a534113/",
 		degree: "Mathematics",
 		graduation_year: 2020,
@@ -102,7 +102,7 @@ const members_2020 = [
 	},
 	{
 		name: "Ruchita Das",
-		image:"http://drive.google.com/uc?export=view&id=1f9hreR1CcECkj4IChAiM-fCursvpiGqg",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Ruchita Das.jpeg",
 		linkedin: "https://www.linkedin.com/in/ruchitadas3938/",
 		degree: "Mathematics",
 		graduation_year: 2020,
@@ -112,7 +112,7 @@ const members_2020 = [
 	},
 	{
 		name: "Bharghav D",
-		image:"http://drive.google.com/uc?export=view&id=1csUzINI-lHBM_W5B9RKhnR0QNjPMJ4DA",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Bhargav Dindukurthi.jpeg",
 		linkedin: "https://www.linkedin.com/in/bhargav-dindukurthi/",
 		degree: "Industrial and Systems Engineering",
 		graduation_year: 2020,
@@ -122,7 +122,7 @@ const members_2020 = [
 	},
 	{
 		name: "Rishav Sharma",
-		image:"http://drive.google.com/uc?export=view&id=1BlQ7aurdTcw8xWzQHlTzb-03schhw8M5",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Rishav Sharma.jpeg",
 		linkedin: "https://www.linkedin.com/in/rishav-sharma-9762a6131/",
 		degree: "Civil Engineering",
 		graduation_year: 2020,
@@ -132,7 +132,7 @@ const members_2020 = [
 	},
 	{
 		name: "G Vishal",
-		image:"http://drive.google.com/uc?export=view&id=1i8TblXAn3b9D5z8uPh4BHjiwj890vezW",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Vishal Garimella.jpeg",
 		linkedin: "https://www.linkedin.com/in/vishal-garimella-674b56125/",
 		degree: "Computer Science and Engineering",
 		graduation_year: 2020,
@@ -142,7 +142,7 @@ const members_2020 = [
 	},
 	{
 		name: "Soumava Paul",
-		image:"http://drive.google.com/uc?export=view&id=1sD6FltNl13WAFPyLlTxJdSgheLyx9mZV",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Soumava Paul.jpeg",
 		linkedin: "https://www.linkedin.com/in/mvp18/",
 		degree: "Electrical Engineering",
 		graduation_year: 2020,
@@ -152,7 +152,7 @@ const members_2020 = [
 	},
 	{
 		name: "Sanskar Agarwal",
-		image:"http://drive.google.com/uc?export=view&id=1nkadSHOPsr-detdneGYENj_NT7eDtrTn",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Sanskar A.jpeg",
 		linkedin: "https://www.linkedin.com/in/sanskar97/",
 		degree: "Electrical Engineering",
 		graduation_year: 2020,
@@ -162,7 +162,7 @@ const members_2020 = [
 	},
 	{
 		name: "L Pavan Kumar",
-		image:"http://drive.google.com/uc?export=view&id=1DBcn_356lgtACNRlgHenW3xKkPZj7jDm",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Lanke Pavan Kumar.jpeg",
 		linkedin: "https://www.linkedin.com/in/lanke-pavan-kumar-535a23148/",
 		degree: "Electronics and Electrical Communication Engineering",
 		graduation_year: 2020,
@@ -172,7 +172,7 @@ const members_2020 = [
 	},
 	{
 		name: "Anjali Jha",
-		image:"http://drive.google.com/uc?export=view&id=1UC8gU9ajOzHs4x_GKjyjTvCRhfu-fPzp",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Anjali Jha.jpeg",
 		linkedin: "https://www.linkedin.com/in/anjalijha167/",
 		degree: "Industrial and Systems Engineering",
 		graduation_year: 2020,
@@ -182,7 +182,7 @@ const members_2020 = [
 	},
 	{
 		name: "Chinmay Sawkar",
-		image:"http://drive.google.com/uc?export=view&id=1RzKCmK4sYoc8rL4mqFvRHRavYppBgQPi",
+		image:"images/Alumni_All_Images/Graduating Batch of 2020/Chinmay Sawkar.jpeg",
 		linkedin: "https://www.linkedin.com/in/chinmay997/",
 		degree: "Manufacturing",
 		graduation_year: 2020,

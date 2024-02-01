@@ -1,7 +1,7 @@
 const members_2021 = [
 	{
 		name: "Rushikesh Wayal",
-		image:"http://drive.google.com/uc?export=view&id=1fJKnvxYUOsbms81mRpn7g3Ovg4tq8Ubn",
+		image:"images/Alumni_All_Images/Graduating Batch of 2021/Rushikesh Wayal.jpeg",
 		linkedin: "https://www.linkedin.com/in/rushikesh-wayal/",
 		degree: "Electronics and Electrical Communication Engineering",
 		graduation_year: 2021,
@@ -11,7 +11,7 @@ const members_2021 = [
 	},
 	{
 		name: "Dibya Prakash Das",
-		image:"http://drive.google.com/uc?export=view&id=14VeMFA1qHIAFlBADo4L_V5Oc3xn-fyoM",
+		image:"images/Alumni_All_Images/Graduating Batch of 2021/Dibya Prakash Das.jpeg",
 		linkedin: "https://www.linkedin.com/in/dibya-prakash-das/",
 		degree: "Mathematics",
 		graduation_year: 2021,
@@ -21,7 +21,7 @@ const members_2021 = [
 	},
 	{
 		name: "Supriya Gupta",
-		image:"http://drive.google.com/uc?export=view&id=1kcSjrarOGfR_zgK9_zoFE9Hpmqmp-9VA",
+		image:"images/Alumni_All_Images/Graduating Batch of 2021/Supriya Gupta.jpeg",
 		linkedin: "https://www.linkedin.com/in/supr1ya-gupta/",
 		degree: "Industrial and Systems Engineering",
 		graduation_year: 2021,
@@ -31,7 +31,7 @@ const members_2021 = [
 	},
 	{
 		name: "Anju Joon",
-		image:"http://drive.google.com/uc?export=view&id=1cuvFzPW-bdIf9YoTPcfO-gWQHoTcmrda",
+		image:"images/Alumni_All_Images/Graduating Batch of 2021/Anju Joon.jpeg",
 		linkedin: "https://www.linkedin.com/in/anju-joon-27099a128/",
 		degree: "Humanities and Social Sciences",
 		graduation_year: 2021,
@@ -41,7 +41,7 @@ const members_2021 = [
 	},
 	{
 		name: "Sounak Saha",
-		image:"http://drive.google.com/uc?export=view&id=1wbWUcYQ3f9Z3prrDxDepMq8DGZrzvUwL",
+		image:"images/Alumni_All_Images/Graduating Batch of 2021/Sounak Saha.jpeg",
 		linkedin: "https://www.linkedin.com/in/sounak-saha-a8840ab8/",
 		degree: "Biotechnology",
 		graduation_year: 2021,
@@ -51,7 +51,7 @@ const members_2021 = [
 	},
 	{
 		name: "Kankana Haldar",
-		image:"http://drive.google.com/uc?export=view&id=11yTtHoBRDcg1wuTN9WEHqJubszGlxuyS",
+		image:"images/Alumni_All_Images/Graduating Batch of 2021/Kankana Haldar.jpeg",
 		linkedin: "https://www.linkedin.com/in/kankana-haldar-3313a6147/",
 		degree: "Electrical Engineering",
 		graduation_year: 2021,

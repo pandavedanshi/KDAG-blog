@@ -1,7 +1,8 @@
 const members_2018 = [
 	{
 		name: "Ankush Chatterjee",
-		image:"http://drive.google.com/uc?export=view&id=1SJvjEzZbu2kLK53TdQXtGMA39lKn3u6P",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Ankush Chatterjee.jpeg",
 		linkedin: "https://www.linkedin.com/in/ankushchatterjee/",
 		degree: "Mathematics",
 		graduation_year: 2018,
@@ -10,7 +11,8 @@ const members_2018 = [
 	},
 	{
 		name: "Utkarsh C Doshi",
-		image:"http://drive.google.com/uc?export=view&id=1plrkmcfSYfqCHcujAgM1UIHhosUBxm2t",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Utkarsh C Doshi.jpeg",
 		linkedin: "https://www.linkedin.com/in/utkarshcdoshi/",
 		degree: "Metallurgical and Materials Engineering",
 		graduation_year: 2018,
@@ -19,7 +21,8 @@ const members_2018 = [
 	},
 	{
 		name: "Aakanksha Sangwan",
-		image:"http://drive.google.com/uc?export=view&id=1c4UC1mf7SF-f3wEwAfKRScVQ7sBH2AQI",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Aakanksha Sangwan.jpeg",
 		linkedin: "https://www.linkedin.com/in/sangwanaakanksha/",
 		degree: "Physics",
 		graduation_year: 2018,
@@ -30,7 +33,8 @@ const members_2018 = [
 	},
 	{
 		name: "Vyom Shrivastav",
-		image:"http://drive.google.com/uc?export=view&id=1pStgx02xmHh1CDzuMjjLT9Sg3mwdTd3S",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Vyom Shrivastava.jpeg",
 		linkedin: "https://www.linkedin.com/in/vyomshrivastava/",
 		degree: "Mechanical Engieering",
 		graduation_year: 2018,
@@ -40,7 +44,8 @@ const members_2018 = [
 	},
 	{
 		name: "Kartikeya Singh",
-		image:"http://drive.google.com/uc?export=view&id=1X5bIbOGXB4sbRjcmE2nigmw-Ux4xjtiC",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Kartikeya Singh.jpeg",
 		linkedin: "https://www.linkedin.com/in/kartikeya212/",
 		degree: "Economics",
 		graduation_year: 2018,
@@ -49,7 +54,8 @@ const members_2018 = [
 	},
 	{
 		name: "Adarsh Upadhayay",
-		image:"http://drive.google.com/uc?export=view&id=1ZaG7S6zHGBqME4xnaa9i-eUWUMdyLBPi",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Adarsh Upadhyay.jpeg",
 		linkedin: "https://www.linkedin.com/in/adarshupadhyay43/",
 		degree: "Economics",
 		graduation_year: 2018,
@@ -58,7 +64,8 @@ const members_2018 = [
 	},
 	{
 		name: "Neeraj Bhukania",
-		image:"http://drive.google.com/uc?export=view&id=1U3DYcGuEBB6WaoDQdrd07Uowj-Jy9w5s",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Neeraj Bhukania.jpeg",
 		linkedin: "https://www.linkedin.com/in/neeraj-bhukania/",
 		degree: "Mathematics",
 		graduation_year: 2018,
@@ -67,7 +74,8 @@ const members_2018 = [
 	},
 	{
 		name: "Kaustubh Mani",
-		image:"http://drive.google.com/uc?export=view&id=1G-G86IlWFd7mtKO0C7elRc54J-jaeaGt",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Kaustubh Mani.jpeg",
 		linkedin: "https://www.linkedin.com/in/kaustubh-mani/",
 		degree: "Geology and Geophysics",
 		graduation_year: 2018,
@@ -76,7 +84,8 @@ const members_2018 = [
 	},
 	{
 		name: "Challaram Vikas Reddy",
-		image:"http://drive.google.com/uc?export=view&id=1nmL2vsAK75z37BRKNOuEeFtynLI9161c",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Vikas Reddy.jpeg",
 		linkedin: "https://www.linkedin.com/in/vikasreddyc/",
 		degree: "",
 		graduation_year: 2018,
@@ -85,7 +94,8 @@ const members_2018 = [
 	},
 	{
 		name: "Ayush Bhargava",
-		image:"http://drive.google.com/uc?export=view&id=12on65Rn-Y17xL08A1TOQpKVKke7NAKOS",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Ayush Bhargava.jpeg",
 		linkedin: "https://www.linkedin.com/in/ayush-bhargava-428a4a97/",
 		degree: "Mathematics",
 		graduation_year: 2018,
@@ -95,7 +105,8 @@ const members_2018 = [
 	},
 	{
 		name: "Rahul Agarwal",
-		image:"http://drive.google.com/uc?export=view&id=1cADAB4YyvGiheuq_VHV6XA3DzD5BKFjH",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Rahul Agarwal.jpeg",
 		linkedin: "https://www.linkedin.com/in/rahul-agarwal-8937967b/",
 		degree: "",
 		graduation_year: 2018,
@@ -104,7 +115,8 @@ const members_2018 = [
 	},
 	{
 		name: "Abhinav Agarwalla",
-		image:"http://drive.google.com/uc?export=view&id=19wdHKw-k9Lqb1y5TtA5gKCwl6pmTdEFj",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Abhinav Agarwalla.jpeg",
 		linkedin: "https://www.linkedin.com/in/abhinavagarwalla/",
 		degree: "Mathematics",
 		graduation_year: 2018,
@@ -114,7 +126,8 @@ const members_2018 = [
 	},
 	{
 		name: "Divya Shrivastava",
-		image:"http://drive.google.com/uc?export=view&id=1mJU35jeQrhNxkN82WBdo2bRBH_Q3BtwM",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Divya Shrivastava.jpeg",
 		linkedin: "https://www.linkedin.com/in/divyashrivastava2203/",
 		degree: "Chemical Engineering",
 		graduation_year: 2018,
@@ -124,7 +137,7 @@ const members_2018 = [
 	},
 	{
 		name: "Atul Patel",
-		image:"http://drive.google.com/uc?export=view&id=1oWoOFq4KPSndYDHVGw3UWBzP2L0lHJgW",
+		image: "images/Alumni_All_Images/Graduating Batch of 2018/Atul Patel.jpeg",
 		linkedin: "https://www.linkedin.com/in/atul-patel-1146b6b5/",
 		degree: "Electrical Engineer",
 		graduation_year: 2018,
@@ -133,7 +146,8 @@ const members_2018 = [
 	},
 	{
 		name: "Chinmoy Samant",
-		image:"http://drive.google.com/uc?export=view&id=1qPKMoIzl5nrThL9ypyKiY6ak7ur7BnUo",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Chinmoy Samant.jpeg",
 		linkedin: "https://www.linkedin.com/in/chinmoy7/",
 		degree: "Electrical Engineer",
 		graduation_year: 2018,
@@ -143,7 +157,8 @@ const members_2018 = [
 	},
 	{
 		name: "Amit Kumar Pandey",
-		image:"http://drive.google.com/uc?export=view&id=12MGV_7jynstCmiG_PXntYpSAWyB3kufe",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Amit Pandey.jpeg",
 		linkedin: "https://www.linkedin.com/in/amit-pandey-677b26103/",
 		degree: "Mechanical Engineering",
 		graduation_year: 2018,
@@ -152,7 +167,8 @@ const members_2018 = [
 	},
 	{
 		name: "Shubham Dhal",
-		image:"http://drive.google.com/uc?export=view&id=1NCTBk9GPq6RJb6LaioBuFFSG4RmfQqd-",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Shubham Dhal.jpeg",
 		linkedin: "https://www.linkedin.com/in/shubham-dhal-349626ba/",
 		degree: "Mechanical Engineering",
 		graduation_year: 2018,
@@ -161,7 +177,8 @@ const members_2018 = [
 	},
 	{
 		name: "Anukul Kumar",
-		image:"http://drive.google.com/uc?export=view&id=1sgHUAyF_TiZb81h49hyGIMl3odmVPKVl",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Anukul Kumar.jpeg",
 		linkedin: "https://www.linkedin.com/in/anukul-kumar/",
 		degree: "Civil Engineering",
 		graduation_year: 2018,
@@ -170,7 +187,7 @@ const members_2018 = [
 	},
 	{
 		name: "Sarath",
-		image:"http://drive.google.com/uc?export=view&id=1IO8EhKUh9UMZZMXdbw4DfL1jRPC3epjU",
+		image: "images/Alumni_All_Images/Graduating Batch of 2018/Sarath Nookala.jpeg",
 		linkedin: "https://www.linkedin.com/in/sarath-nookala/",
 		degree: "Mechanical",
 		graduation_year: 2018,
@@ -179,7 +196,8 @@ const members_2018 = [
 	},
 	{
 		name: "Shubham Chandak",
-		image:"http://drive.google.com/uc?export=view&id=1UWL4v1NCPuu_jakltK0V04O6Sjdv_mA6",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Shubham Chandak.jpeg",
 		linkedin: "https://www.linkedin.com/in/shubham-chandak/",
 		degree: "Mining",
 		graduation_year: 2018,
@@ -188,7 +206,8 @@ const members_2018 = [
 	},
 	{
 		name: "Sourav Choudhary",
-		image:"http://drive.google.com/uc?export=view&id=1iAbXYgf24_i8RhUGWMDwvcCIsN9B1hDt",
+		image:
+			"images/Alumni_All_Images/Graduating Batch of 2018/Sourav Choudhary.jpeg",
 		linkedin: "https://www.linkedin.com/in/sourav-choudhary-ab1464a0/",
 		degree: "Mechanical",
 		graduation_year: 2018,
@@ -197,7 +216,7 @@ const members_2018 = [
 	},
 	{
 		name: "Rajat Garg",
-		image:"http://drive.google.com/uc?export=view&id=1418lCMR1dxX_Zuu5UGY8wVdJckqGKBm-",
+		image: "images/Alumni_All_Images/Graduating Batch of 2018/Rajat Garg.jpeg",
 		linkedin: "https://www.linkedin.com/in/rajatgarg-iitkgp/",
 		degree: "Computer Science Engineering",
 		graduation_year: 2018,

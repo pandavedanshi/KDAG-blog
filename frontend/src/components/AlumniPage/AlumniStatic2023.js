@@ -1,7 +1,7 @@
 const members_2023 = [
 	{
 		name: "Tushar Gupta",
-		image:"http://drive.google.com/uc?export=view&id=1N-cb7CeIErUEZ5KkrMsUOTiO4IATlgaf",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Tushar Gupta.jpeg",
 		linkedin: "https://www.linkedin.com/in/tushar-gupta14/",
 		degree: "Computer Science Engineering",
 		graduation_year: 2023,
@@ -11,7 +11,7 @@ const members_2023 = [
 	},
 	{
 		name: "Shivansh Sethi",
-		image:"http://drive.google.com/uc?export=view&id=1c7oYpkZOVUDo7AKHXwGS0A815gdBMVhh",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Shivansh Sethi.jpeg",
 		linkedin: "https://www.linkedin.com/in/shivansh-sethi-a53670191/",
 		degree: "Mathematics",
 		graduation_year: 2023,
@@ -22,7 +22,7 @@ const members_2023 = [
 	
 	{
 		name: "Ekansh Jain",
-		image:"http://drive.google.com/uc?export=view&id=1KIp8uNT11TtSLRVQp6gMRPUprAz67P0L",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Ekansh Jain.jpeg",
 		linkedin: "https://www.linkedin.com/in/ekansh-jain-982452177/",
 		degree: "Architecture and Regional Planning",
 		graduation_year: 2023,
@@ -32,7 +32,7 @@ const members_2023 = [
 	},
 	{
 		name: "Sayantan Kirtaniya",
-		image:"http://drive.google.com/uc?export=view&id=1kP5Dyb-Ovb1WYxJO2JK1ZVe9ydYVgSDw",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Sayantan Kirtania.jpeg",
 		linkedin: "https://www.linkedin.com/in/sayantan-kirtaniya/",
 		degree: "Electronics and Electrical Communication Engineering",
 		graduation_year: 2023,
@@ -42,7 +42,7 @@ const members_2023 = [
 	},
 	{
 		name: "Abhinav Jha",
-		image:"http://drive.google.com/uc?export=view&id=1d2qK8JtvJurEVJw4ND7ml_VyeAJDfsnv",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Abhinav Jha.jpeg",
 		linkedin: "https://www.linkedin.com/in/abhinav-jha-431a901a0/",
 		degree: "Agriculture and Food Engineering",
 		graduation_year: 2023,
@@ -52,7 +52,7 @@ const members_2023 = [
 	},
 	{
 		name: "Manasi Bandhaokar",
-		image:"http://drive.google.com/uc?export=view&id=1nKJtHAjYXFWa1qsbOzKKk6Vtp4VpE9CX",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Manasi Bandhaokar.jpeg",
 		linkedin: "https://www.linkedin.com/in/manasi-bandhaokar-b3715a16b/",
 		degree: "Civil Engineering",
 		graduation_year: 2023,
@@ -62,7 +62,7 @@ const members_2023 = [
 	},
 	{
 		name: "Umang Aditya",
-		image:"http://drive.google.com/uc?export=view&id=1C3gZ7SaWwxBMLjMWjhM-jk40N1lY3BXQ",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Umang Aditya.jpeg",
 		linkedin: "https://www.linkedin.com/in/umang-aditya/",
 		degree: "Mining Engineering",
 		graduation_year: 2023,
@@ -72,7 +72,7 @@ const members_2023 = [
 	},
 	{
 		name: "Tanishq Bansal",
-		image:"http://drive.google.com/uc?export=view&id=1AVABl_WER2TYpQvgKKIeGpwZNuQwkeF1",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Tanishq Bansal.jpeg",
 		linkedin: "https://www.linkedin.com/in/tanishq-bansal-2104/",
 		degree: "Architecture and Regional Planning",
 		graduation_year: 2023,
@@ -82,7 +82,7 @@ const members_2023 = [
 	},
 	{
 		name: "Sai Chandan",
-		image:"http://drive.google.com/uc?export=view&id=1Euf6oVCq8DYiVNJmcP7IsHBahEfiAKt4",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Sai Chandan Kadarla.jpeg",
 		linkedin: "https://www.linkedin.com/in/saichandankadarla/",
 		degree: "",
 		graduation_year: 2023,
@@ -92,7 +92,7 @@ const members_2023 = [
 	},
 	{
 		name: "Archit Rungta",
-		image:"http://drive.google.com/uc?export=view&id=1PFhfsKa9QCZwrdOY_1A3GMUI5BnVBjSw",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Archit Rungta.jpeg",
 		linkedin: "https://www.linkedin.com/in/archit-rungta-6675a288/",
 		degree: "Mathematics",
 		graduation_year: 2023,
@@ -102,7 +102,7 @@ const members_2023 = [
 	},
 	{
 		name: "Ikshu Kumbhar",
-		image:"http://drive.google.com/uc?export=view&id=1Zin0XN98rnF3pgd41_gSIycj95rrNxEE",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Ikshu Manjan Kumbhar.jpeg",
 		linkedin: "https://www.linkedin.com/in/ikshu-manjan-kumbhar-193b291a1/",
 		degree: "Industrial and Systems Engineering",
 		graduation_year: 2023,
@@ -112,7 +112,7 @@ const members_2023 = [
 	},
 	{
 		name: "Safeer Subhan",
-		image:"http://drive.google.com/uc?export=view&id=1bFyoP3kXgIacoWp6q2tXT8ZwUTmakBZe",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Safeer Subhan.jpeg",
 		linkedin: "",
 		degree: "",
 		graduation_year: 2023,
@@ -122,7 +122,7 @@ const members_2023 = [
 	},
 	{
 		name: "Soumyadeep Saha",
-		image:"http://drive.google.com/uc?export=view&id=1CYNHcb1-GI9_p9AUcSZ4Dj4hpxamZk5N",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Soumyadeep Saha.jpeg",
 		linkedin: "https://www.linkedin.com/in/soumyadeep-saha-711a23183/",
 		degree: "Mechanical Engineering",
 		graduation_year: 2023,
@@ -133,7 +133,7 @@ const members_2023 = [
 	
 	{
 		name: "Arnab Bala",
-		image:"http://drive.google.com/uc?export=view&id=12ZsWl2YY6QD3k-A0HP0S4pIZ-qsAd3Bo",
+		image:"images/Alumni_All_Images/generic profile avatar.png",
 		linkedin: "https://www.linkedin.com/in/arnab-bala-20424016b/",
 		degree: "Financial Engineering",
 		graduation_year: 2023,
@@ -143,7 +143,7 @@ const members_2023 = [
 	},
 	{
 		name: "Onkar Sabnis",
-		image:"http://drive.google.com/uc?export=view&id=1sAP5WPzx0Q5yuNrkqvkPiTMcc9tzsh6H",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Onkar Sabnis.jpeg",
 		linkedin: "https://www.linkedin.com/in/onkar-sabnis-883094170/",
 		degree: "Chemical Engineering",
 		graduation_year: 2023,
@@ -153,7 +153,7 @@ const members_2023 = [
 	},
 	{
 		name: "Shailesh Nanisetty",
-		image:"http://drive.google.com/uc?export=view&id=1UlDZbZtvAa50gON-5OWsYlwBZiv3daBU",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Shailesh Nanisety.jpeg",
 		linkedin: "https://www.linkedin.com/in/shaileshnanisetty007/",
 		degree: "Industrial and Systems Engineering",
 		graduation_year: 2023,
@@ -163,7 +163,7 @@ const members_2023 = [
 	},
 	{
 		name: "Shivansh Junwal",
-		image:"http://drive.google.com/uc?export=view&id=1IP2C8VV0D5vWXu6YW8equrKId0BDZDpd",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Shivansh Junwal.jpeg",
 		linkedin: "https://www.linkedin.com/in/shivansh-junwal-8b3b28148/",
 		degree: "Economics",
 		graduation_year: 2023,
@@ -173,7 +173,7 @@ const members_2023 = [
 	},
 	{
 		name: "Abhilash Sinha",
-		image:"http://drive.google.com/uc?export=view&id=1xXDtIoKnCS5PbTXfQAtlwKKHBU_kpdRt",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Abhilash Sinha.jpeg",
 		linkedin: "https://www.linkedin.com/in/abhilash-sinha-1216a11b3/",
 		degree: "Chemical Engineering",
 		graduation_year: 2023,
@@ -183,7 +183,7 @@ const members_2023 = [
 	},
 	{
 		name: "Abhranil Chandra",
-		image:"http://drive.google.com/uc?export=view&id=10nvK_iAqbjxFj68WYsTo2-Gy9sW1qVmN",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Abhranil Chandra.jpeg",
 		linkedin: "https://www.linkedin.com/in/abhranil-chandra-462332136/",
 		degree: "Mechanical Engineering",
 		graduation_year: 2023,
@@ -193,7 +193,7 @@ const members_2023 = [
 	},
 	{
 		name: "Arun Kumar Nayak",
-		image:"http://drive.google.com/uc?export=view&id=1fsnWBBaGppHNBfdDpWWiGK2wxu04tZ84",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Arun Kumar Nayak.jpeg",
 		linkedin: "https://www.linkedin.com/in/arun-nayak-7104a51aa/",
 		degree: "Metallurgical Engineering",
 		graduation_year: 2023,
@@ -203,7 +203,7 @@ const members_2023 = [
 	},
 	{
 		name: "Ayush Surana",
-		image:"http://drive.google.com/uc?export=view&id=1c_oxQ5nhg1gL3GcISP-SNT7C4LRmUfke",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Ayush Surana.jpeg",
 		linkedin: "https://www.linkedin.com/in/ayushsurana1/",
 		degree: "Chemical Engineering",
 		graduation_year: 2023,
@@ -213,7 +213,7 @@ const members_2023 = [
 	},
 	{
 		name: "Chinmay Jain",
-		image:"http://drive.google.com/uc?export=view&id=13bEnvMJHeqslrqIFJ7D_iTnyJCdcSrfm",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Chinmay Jain.jpeg",
 		linkedin: "https://www.linkedin.com/in/chinmay-jain-a833aa193/",
 		degree: "Chemical Engineering",
 		graduation_year: 2023,
@@ -223,7 +223,7 @@ const members_2023 = [
 	},
 	{
 		name: "Divyangna Sharma",
-		image:"http://drive.google.com/uc?export=view&id=14YCj3oFl6L7BHkcuNDK8_0anujbMFIH5",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Divyangna Sharma.jpeg",
 		linkedin: "https://www.linkedin.com/in/divyangna-sharma-5354291b5/",
 		degree: "Chemistry",
 		graduation_year: 2023,
@@ -233,7 +233,7 @@ const members_2023 = [
 	},
 	{
 		name: "Rahul Mandal",
-		image:"http://drive.google.com/uc?export=view&id=1mrZTanxu2FrDbVMhZYAw0YA-nzE2hjF6",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Rahul Mandal.jpeg",
 		linkedin: "https://www.linkedin.com/in/tesla132/",
 		degree: "Mechanical Engineering",
 		graduation_year: 2023,
@@ -243,7 +243,7 @@ const members_2023 = [
 	},
 	{
 		name: "Ratnesh Bhosale",
-		image:"http://drive.google.com/uc?export=view&id=11hvpanGr65Wbp5yHNjYBDav-ysbb1pez",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Ratnesh Bhosale.jpeg",
 		linkedin: "https://www.linkedin.com/in/ratneshbhosale999/",
 		degree: "Mechanical Engineering",
 		graduation_year: 2023,
@@ -253,7 +253,7 @@ const members_2023 = [
 	},
 	{
 		name: "Roshni Kar",
-		image:"http://drive.google.com/uc?export=view&id=1etk2cvAfxO_P7LrUer1mMy1wkPYmkHCU",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Roshni Kar.jpeg",
 		linkedin: "https://www.linkedin.com/in/roshni-kar/",
 		degree: "Chemical Engineering",
 		graduation_year: 2023,
@@ -263,7 +263,7 @@ const members_2023 = [
 	},
 	{
 		name: "Shalini Bansal",
-		image:"http://drive.google.com/uc?export=view&id=1x7xfMeOz4Hf2x1JL6vWCWrP8Ui5QiP3Q",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Shalini Bansal.jpeg",
 		linkedin: "https://www.linkedin.com/in/shalini-bansal-9314431b4/",
 		degree: "Chemical Engineering",
 		graduation_year: 2023,
@@ -273,7 +273,7 @@ const members_2023 = [
 	},
 	{
 		name: "Murali Manohar",
-		image:"http://drive.google.com/uc?export=view&id=1sEOMNNX5p78YtvEEIW7BBkBbvyMoGGno",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Murali Manohar.jpeg",
 		linkedin: "https://www.linkedin.com/in/murali-manohar-bb848a1a7/",
 		degree: "Mechanical Engineering",
 		graduation_year: 2023,
@@ -283,7 +283,7 @@ const members_2023 = [
 	},
 	{
 		name: "Ronak Agarwal",
-		image:"http://drive.google.com/uc?export=view&id=15IqU42qTeNlAb4bF577Y_LQB2_56Mftq",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Ronak Agarwal.jpeg",
 		linkedin: "https://www.linkedin.com/in/ronakagarwal3434/",
 		degree: "Chemical Engineering",
 		graduation_year: 2023,
@@ -293,7 +293,7 @@ const members_2023 = [
 	},
 	{
 		name: "Yash Agrawal",
-		image:"http://drive.google.com/uc?export=view&id=1WMQ4qdp9WSaUpSn644jNZf6ziDSczGzm",
+		image:"images/Alumni_All_Images/Graduating Batch of 2023/Yash Agrawal.jpeg",
 		linkedin: "https://www.linkedin.com/in/yash-agrawal-6b4253194/",
 		degree: "Electronics and Electrical Communication Engineering",
 		graduation_year: 2023,
