@@ -9,7 +9,7 @@ import {
 	faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 // import Poster from "../../assets/pics/Landscape.png";
-import Poster from "../../assets/pics/KDSH2023_Landscape.png";
+import Poster from "../../assets/pics/events/Spring_of_Realtime_LLMs.png";
 
 //Components
 import Content from "./Content/Content.js";
@@ -260,7 +260,7 @@ const LandingPage = () => {
 							<div className="banner-heading">
 								<h3 style={{ fontSize: "35px", fontWeight: "600" }}>
 									{/* CampusPulse: Igniting Innovation with Data */}
-									Kharagpur Data Science Hackathon 2024
+									Spring of Realtime LLMs Bootcamp
 								</h3>
 							</div>
 						</div>
@@ -270,7 +270,7 @@ const LandingPage = () => {
 							className="banner-poster"
 							src={Poster}
 							alt="Poster"
-						// height={250}
+							// height={250}
 						/>
 						<div className="banner-content">
 							{/* <p>
@@ -286,38 +286,30 @@ const LandingPage = () => {
                 and Mila, Canada.
 							</p> */}
 							<p>
-								Are you ready to harness the limitless potential of data? Seize the opportunity to solve real-life problems from any corner of the nation in the most anticipated event of the year!
+								Already registered for the "Spring of Realtime LLMs Bootcamp"?
+								If not, then you're missing out on some fantastic prizes and
+								invaluable learning opportunities!
 								<br />
-								<ul className="banner-list">
-									<li>
-										Engage in challenging real-life problem-solving scenarios
-									</li>
-									<li>
-										Showcase your analytical skills and creativity
-									</li>
-									<li>
-										Collaborate with like-minded individuals from across the nation
-									</li>
-									<li>
-										Compete for exciting prizes and recognition
-									</li>
-								</ul>
-								Get your teams prepared, choose a cool team name and register for the biggest data science hackathon brought to you by Kharagpur Data Analytics Group, IIT Kharagpur, in collaboration with Kshitij, IIT Kharagpur. We proudly announce our,
 								<br />
-								<ol className="banner-list">
-									<li>
-										Title Sponsor: <strong><a href="https://www.zeltatech.com/" target="_blank">ZeltaTech</a></strong>
-									</li>
-									<li>
-										Associate Sponsor: <strong><a href="https://fanstore.bobble.ai/" target="_blank">Bobble AI</a></strong>
-									</li>
-									<li>
-										Travel Partner: <strong><a href="https://www.easemytrip.com/" target="_blank">EaseMyTrip</a></strong>
-									</li>
-									<li>
-										Media Partner: <strong><a href="https://www.theglobalhues.com/" target="_blank">The Global Hues</a></strong>
-									</li>
-								</ol>
+								🏆Prizes Await!
+								<br />
+								<br />
+								Top 3 Participants: Win 3 XBOX Controllers each to elevate your
+								gaming experience! Participants Ranked 3 to 6: Take home JBL
+								Speakers for immersive sound quality. Participants Ranked 7 to
+								9: Enhance your photography skills with Phone Camera Lenses! 👕
+								Plus, there's a T-shirt and certificate for everyone who
+								completes the bootcamp.
+								<br />
+								<br />
+								📅 Mark Your Calendars:
+								<br />
+								Bootcamp Commencement: Starting on Monday, March 4th, 2024, join
+								us for three weeks of intensive learning.
+								<br />
+								Secure your spot and seize the opportunity to master realtime
+								LLMs with industry experts! Don't miss out on this chance to
+								level up your skills and win exciting prizes!
 							</p>
 						</div>
 					</div>
@@ -327,11 +319,9 @@ const LandingPage = () => {
 					<div className="banner-info-flex">
 						<div className="banner-info">
 							<FontAwesomeIcon icon={faCalendarDays} className="icon" shake />
-							<p id="banner-info">30 December 2023</p>
-							{/* <p id="banner-info">4th-5th November 2023</p> */}
+							<p id="banner-info">Starting on 4th March 2024</p>
 							<FontAwesomeIcon icon={faLocationDot} className="icon" flip />
-							<p id="banner-info">IIT Kharagpur</p>
-							{/* <p id="banner-info">NC-111</p> */}
+							<p id="banner-info">Online</p>
 						</div>
 					</div>
 					{/* banner info ends */}
@@ -345,21 +335,13 @@ const LandingPage = () => {
 						>
 							<div className="banner-button">
 								<button class="btn-12" style={{ cursor: "none" }}>
-									<span>
-
-										Register Now
-									</span>
+									<span>Register Now</span>
 								</button>
 							</div>
 						</a>
-						<a
-							href="https://unstop.com/o/3zC06FR?lb=DlVrQAs"
-							target="blank"
-						>
+						<a href="https://unstop.com/o/3zC06FR?lb=DlVrQAs" target="blank">
 							<button id="banner-button-media" class="btn-12">
-								<span>
-									Register Now
-								</span>
+								<span>Register Now</span>
 							</button>
 						</a>
 					</div>
