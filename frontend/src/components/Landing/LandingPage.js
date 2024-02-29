@@ -91,7 +91,6 @@ const LandingPage = () => {
 	// const images = importAll(
 	//   require.context("../../assets/KDSH2022Certificates", false, /.png/)
 	// );
-
 	// const downloadCertificate = () => {
 	//   // let names = Object.keys(images);
 	//   let name = document.getElementById("name").value;
@@ -329,7 +328,7 @@ const LandingPage = () => {
 					{/* banner button starts */}
 					<div className="banner-button-flex">
 						<a
-							href="https://unstop.com/o/3zC06FR?lb=DlVrQAs"
+							href="https://docs.google.com/forms/d/e/1FAIpQLSeEyLD3U5-ZY47Hq1SN7sa354tAnCHeYUZzVTwMT7WQY6TGyw/viewform"
 							// href = "https://docs.google.com/forms/d/e/1FAIpQLScesbGd90BYDtRVTpAxmcMtwL4XmohK8VUOWPXD9p8SnyY-0Q/viewform?usp=sf_link"
 							target="blank"
 						>
@@ -339,7 +338,7 @@ const LandingPage = () => {
 								</button>
 							</div>
 						</a>
-						<a href="https://unstop.com/o/3zC06FR?lb=DlVrQAs" target="blank">
+						<a href="https://docs.google.com/forms/d/e/1FAIpQLSeEyLD3U5-ZY47Hq1SN7sa354tAnCHeYUZzVTwMT7WQY6TGyw/viewform" target="blank">
 							<button id="banner-button-media" class="btn-12">
 								<span>Register Now</span>
 							</button>
