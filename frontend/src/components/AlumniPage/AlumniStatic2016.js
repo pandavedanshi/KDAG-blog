@@ -1,8 +1,7 @@
 const members_2016 = [
 	{
 		name: "Sirin Sanchay",
-		image:
-			"http://drive.google.com/uc?export=view&id=1lCLjzVZ-EiSsulZ3WuUkX3dciBPZUQ-2",
+		image: "images/Alumni_All_Images/Graduating Batch of 2016/Sirin.jpeg",
 		linkedin: "https://www.linkedin.com/in/sirin-sanchay-8b7a37256/",
 		degree: "Electrical and Electronics Engineering",
 		year: 2016,
@@ -12,8 +11,7 @@ const members_2016 = [
 	},
 	{
 		name: "Pradeepta Das",
-		image:
-			"http://drive.google.com/uc?export=view&id=1lTm2ruJtq1T26MDj2r74kM35ltkEgfkJ",
+		image: "images/Alumni_All_Images/Graduating Batch of 2016/Pradeepta.jpeg",
 		linkedin: "https://www.linkedin.com/in/daprad/",
 		degree: "Electrical Engineering",
 		year: 2016,
@@ -23,8 +21,7 @@ const members_2016 = [
 	},
 	{
 		name: "Apurva Swarnakar",
-		image:
-			"http://drive.google.com/uc?export=view&id=1YxW-_7qkwud8XRNAx4VBter3XP6tzCR_",
+		image: "images/Alumni_All_Images/Graduating Batch of 2016/Apurva.jpeg",
 		linkedin: "https://www.linkedin.com/in/apurva-swarnakar/",
 		degree: "Electronics and Electrical Communication Engineering",
 		year: 2016,
@@ -35,8 +32,7 @@ const members_2016 = [
 
 	{
 		name: "D Venkata Sainath",
-		image:
-			"http://drive.google.com/uc?export=view&id=10HmHIDFL0FvGsd4aXHR3zo3dpCQ0B8L8",
+		image: "images/Alumni_All_Images/Graduating Batch of 2016/Venkata.jpeg",
 		linkedin: "https://www.linkedin.com/in/venkatasainath/",
 		degree: "Electical Engineering",
 		year: 2016,
@@ -46,8 +42,7 @@ const members_2016 = [
 	},
 	{
 		name: "SPLV Pavan",
-		image:
-			"http://drive.google.com/uc?export=view&id=1-7FVxge4C6k2PD0X8woTLYbWhYkjkaVq",
+		image: "images/Alumni_All_Images/Graduating Batch of 2016/Pawan.jpeg",
 		linkedin: "https://www.linkedin.com/in/pawan-splv-b2a4537a/",
 		degree: "Mechanical Engineering",
 		year: 2016,
@@ -58,8 +53,7 @@ const members_2016 = [
 
 	{
 		name: "Ayush Kumar Singh",
-		image:
-			"http://drive.google.com/uc?export=view&id=1NKmzn9Q46d2lSSgJURiQ27ojRnn-G0ln",
+		image: "images/Alumni_All_Images/Graduating Batch of 2016/Ayush.jpeg",
 		linkedin: "https://www.linkedin.com/in/ayush-singh-0145137b/",
 		degree: "Mechanical Engineering",
 		year: 2016,
@@ -69,7 +63,7 @@ const members_2016 = [
 	},
 	{
 		name: "Rakesh Reddy",
-		image:"http://drive.google.com/uc?export=view&id=12ZsWl2YY6QD3k-A0HP0S4pIZ-qsAd3Bo",
+		image: "images/Alumni_All_Images/generic profile avatar.png",
 		linkedin: "https://www.linkedin.com/in/rakeshreddygunukula/",
 		degree: "Electrical Engineering",
 		year: 2016,
@@ -79,7 +73,7 @@ const members_2016 = [
 	},
 	{
 		name: "Mayank Manish",
-		image:"http://drive.google.com/uc?export=view&id=12ZsWl2YY6QD3k-A0HP0S4pIZ-qsAd3Bo",
+		image: "images/Alumni_All_Images/generic profile avatar.png",
 		linkedin: "https://www.linkedin.com/in/mayank-manish-3960a060/",
 		degree: "Computer Science Engineering",
 		year: 2016,

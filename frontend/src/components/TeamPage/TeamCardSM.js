@@ -11,7 +11,7 @@ const TeamCardSM = ({ member }) => {
 		// 		<div className="member-card-SM">
 		// 			<div class="member-card-section-0-SM">
 		// 				<div class="member-profile-image-SM">
-		// 					<img src={member?.image} alt="John" />
+		// 					<img src={member?.image} alt="Images" />
 		// 				</div>
 		// 			</div>
 		// 			<div class="member-card-section-1-SM">
@@ -59,7 +59,7 @@ const TeamCardSM = ({ member }) => {
 			<Flex bottom>
 				<div className="member-card-head">
 					<div class="member-profile-image-head">
-						<img src={member?.image} alt="John" />
+						<img src={member?.image} alt="Image" />
 					</div>
 					<div class="member-name-head">
 						<p>{member?.name || "Name of Member"}</p>

@@ -1,8 +1,6 @@
 const members = [
 	{
-		image:"http://drive.google.com/uc?export=view&id=1kQX55N3jObDdC2L2lJov8BlT7oEnTeNf",
-		// image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWVufGVufDB8fDB8fHww",
-		
+		image: "images/Advisors_2023_Photos/Pratik.jpeg",
 		name: "Pratik Singh",
 		email: "pratik.singh.801.ps@gmail.com",
 		facebook: "https://www.facebook.com/duhita.wani",
@@ -10,9 +8,7 @@ const members = [
 		linkedin: "https://www.linkedin.com/in/pratik-singh-4026311b9/",
 	},
 	{
-		image:"http://drive.google.com/uc?export=view&id=19gQJM72q-EzVt5P3n-o7_V03tfwBXZL3",
-		
-		
+		image: "images/Advisors_2023_Photos/Kinjal.jpeg",
 		name: "Kinjal Sensharma",
 		email: "kinsen2764@gmail.com",
 		facebook: "https://www.facebook.com/profile.php?id=100010212784429",
@@ -20,9 +16,7 @@ const members = [
 	},
 
 	{
-		image: "https://drive.google.com/uc?id=1B6OIeRFbvYuT9Ox3JDeU8F8_A2wF15cD",
-		
-		
+		image: "images/Advisors_2023_Photos/Anushka.jpeg",
 		name: "Anushka Chatterjee",
 		email: "yash@gmail.com",
 		facebook: "https://www.facebook.com/anushka.chatterjee.127201",
@@ -31,9 +25,7 @@ const members = [
 	},
 
 	{
-		image: "https://drive.google.com/uc?id=1B7A31Gi0AfzGWQl-gAXWTAjZ2F3FATOY",
-		
-		
+		image: "images/Advisors_2023_Photos/Sneha.jpeg",
 		name: "Sneha Majumder",
 		email: "yash@gmail.com",
 		facebook: "",
@@ -43,9 +35,7 @@ const members = [
 
 	{
 		name: "Shaswat Shrivastav",
-		image: "https://drive.google.com/uc?id=1B65F5RrGfw18p1NLgIHxAzw6udhY8E_7",
-		
-		
+		image: "images/Advisors_2023_Photos/Shaswat.jpeg",
 		email: "yash@gmail.com",
 		facebook: "https://www.facebook.com/shaswat.shrivastava.75",
 		twitter: "www.twitter.com",
@@ -54,9 +44,7 @@ const members = [
 
 	{
 		name: "Shashwat Naidu",
-		image: "https://drive.google.com/uc?id=1ygiEVPRzlKeX1n2IAHOJuAiQo-S_75HA",
-		
-		
+		image: "images/Advisors_2023_Photos/Shashwat_Naidu.jpeg",
 		email: "yash@gmail.com",
 		facebook: "https://www.facebook.com/shashwat.naidu.7?mibextid=ZbWKwL",
 		twitter: "www.twitter.com",
@@ -65,9 +53,7 @@ const members = [
 
 	{
 		name: "Omee Katrodiya",
-		image: "https://drive.google.com/uc?id=1AimOCNhCYEdxkVRtMPxjW84taE1NZLzO",
-		
-		
+		image: "images/Advisors_2023_Photos/Omee.jpeg",
 		email: "yash@gmail.com",
 		facebook:
 			"https://www.facebook.com/profile.php?id=100009741094806&mibextid=ZbWKwL",
@@ -76,9 +62,7 @@ const members = [
 
 	{
 		name: "Ayush Aryan",
-		image: "https://drive.google.com/uc?id=1AzgrYNiqb-0vxyAfA68AQArPBi27ZpK9",
-		
-		
+		image: "images/Advisors_2023_Photos/Ayush.jpeg",
 		email: "yash@gmail.com",
 		facebook: "https://www.facebook.com/ayush.aryan.71?mibextid=ZbWKwL",
 		twitter: "www.twitter.com",

@@ -22,8 +22,8 @@ const TeamCardAlum = ({ member }) => {
 						<div class="alumni-member-follow-text">
 							<span>Follow on</span>
 						</div>
-						<div class="alumni-member-social-icon">
-							<div class="alumni-member-social-icon-icon">
+						<div class="alumni-member-social-icon"> 
+							{/* <div class="alumni-member-social-icon-icon">
 								<a
 									href={member?.facebook || "#"}
 									target="_blank"
@@ -31,7 +31,7 @@ const TeamCardAlum = ({ member }) => {
 								>
 									<i class="fab fa-facebook"></i>
 								</a>
-							</div>
+							</div> */}
 
 							<div class="alumni-member-social-icon-icon">
 								<a
