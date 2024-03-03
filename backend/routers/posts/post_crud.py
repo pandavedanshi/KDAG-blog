@@ -10,6 +10,9 @@ post_crud = Blueprint('post_crud', __name__)
 def add_post(sid):
     try:
         from app import mongo
+        users = mongo.db.users
+        if not users.find_one(ObjectId(sid)):
+            return jsonify({"message": "Invalid student id"}), 401
         data = request.get_json()
         post_data = {}
         post_data['message'] = data['message']
