@@ -37,7 +37,7 @@ def get_posts():
                 'message': post['message'],
                 'author_name': users.find_one(ObjectId(post['author_id']))['f_name'] + " " + users.find_one(ObjectId(post['author_id']))['l_name'],
                 'author_id': post['author_id'],
-                'replies': post['replies']
+                'post_id': str(post['_id'])
             })
         return jsonify(
             {"message": "All posts fetched"},

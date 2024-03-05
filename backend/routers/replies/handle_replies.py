@@ -60,13 +60,19 @@ def get_replies(pid):
         if not 'level' in data:
             return jsonify({"message": "Level field absent"}), 400
         level_str = data['level']
-        org_post = post
         level_str = level_str.split('/')
         for level in level_str:
             post = post['replies'][int(level)-1]
+        imm_replies = []
+        for reply in post['replies']:
+            imm_replies.append({
+                'message': reply['message'],
+                'author_id': reply['author_id'],
+                'show': reply['show'],
+            })
         return jsonify({
             "message": "Success",
-            "replies": post['replies']
+            "replies": imm_replies
             }), 200
     except Exception as error:
         print(error)
