@@ -14,6 +14,8 @@ import ScrollToTop from "../components/Common/ScrollToTop/ScrollToTop.js";
 import Footer from "../components/Common/Footer/Footer";
 import WinterWorkshop from "../components/WinterWorkshop/WinterWorkshop";
 import CertificateGeneration from "../components/CertificateGeneration/CertificateGeneration";
+import ForumPage from "../components/DiscussionForum/ForumPage.js";
+import DiscussionPage from "../components/DiscussionForum/DiscussionPage.js";
 
 const AppRouter = () => {
   return (
@@ -43,6 +45,12 @@ const AppRouter = () => {
           </Route>
           <Route path="/alumni">
             <AlumniPage />
+          </Route>
+          <Route path="/forum">
+            <ForumPage />
+          </Route>
+          <Route path="/discussion_page_id">
+            <DiscussionPage />
           </Route>
           <Route path="/winter-workshop">
             <WinterWorkshop />

@@ -1,0 +1,106 @@
+.discussion-comment-container {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+.discussion-comment {
+	width: 65%;
+	min-height: 125px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px;
+	border-radius: 10px;
+	transition: all 0.5s;
+	background: rgba(255, 255, 255, 0.05);
+	backdrop-filter: blur(3px);
+	border-top-left-radius: 60px;
+	border-bottom-left-radius: 60px;
+}
+
+.discussion-comment-image-container {
+	height: 100%;
+	padding-left: 8px;
+	padding-right: 8px;
+	border-radius: 6px;
+	transition: all 0.5s;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	margin-right: 5px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.discussion-comment-image-container img {
+	height: 100px;
+	border-radius: 50%;
+}
+.discussion-comment-description {
+	min-height: 110px;
+	padding: 12px;
+	width: 90%;
+	background: rgba(255, 255, 255, 0.06);
+	backdrop-filter: blur(8px);
+	border-radius: 6px;
+	font-style: italic;
+	transition: all 0.5s;
+}
+.discussion-comment-description-details {
+	font-weight: 500;
+	color: rgb(197, 197, 197);
+	text-align: justify;
+}
+.discussion-comment-bottom {
+	display: flex;
+	justify-content: space-between;
+}
+.discussion-comment-actions {
+	color: rgb(197, 197, 197);
+	line-height: 30px;
+	font-style: italic;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-left: 5px;
+	margin-right: 25px;
+}
+.discussion-comment-actions img {
+	height: 20px;
+	position: relative;
+	top: -2px;
+	margin-right: 10px;
+	filter: invert(78%) sepia(22%) saturate(6951%) hue-rotate(339deg)
+		brightness(100%) contrast(103%);
+}
+.discussion-comment-last-comment {
+	height: 110px;
+	width: 200px;
+	background: rgba(255, 255, 255, 0.06);
+	backdrop-filter: blur(8px);
+	border-radius: 6px;
+	color: rgb(197, 197, 197);
+	font-style: italic;
+	white-space: nowrap;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-weight: 500;
+	transition: all 0.5s;
+}
+.discussion-comment-last-comment-user span {
+	font-weight: 600;
+	color: white;
+	transition: all 0.5s;
+}
+.discussion-comment-last-comment-date {
+	margin-top: 10px;
+	color: rgb(114, 114, 114);
+	font-size: 13px;
+}
+.discussion-comment-last-comment-date span {
+	font-weight: 600;
+	color: rgb(255, 150, 38);
+}
