@@ -1,6 +1,6 @@
 from flask import request, jsonify
 import bcrypt
-from flask_jwt_extended import create_access_token, jwt_required, get_jwt_header
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_header,get_jwt_identity
 from flask import Blueprint
 from bson import ObjectId
 
@@ -45,6 +45,27 @@ def user_login():
         print(error)
         return jsonify({"message": "Error in logging in"}), 500
     
+@user_auth.route('/auth_profile/<string:uid>' , methods=['POST'])
+@jwt_required()
+def auth_profile(uid):
+    try:
+        from app import mongo
+        users = mongo.db.users
+        user = users.find_one(ObjectId(uid))
+        current_user=get_jwt_identity()
+        if current_user!=user['username']:
+            return jsonify({"message": "User is not authenticated"}), 402
+        if not user:
+            return jsonify({"message": "No such user exists"}), 401
+        user_info = {key : value for key, value in user.items()}
+        user_info['_id'] = str(user_info['_id'])
+
+        return jsonify(user_info), 200
+    except Exception as error:
+        print(error)
+        return jsonify({"message": "Error in fetching profile"}), 500
+    
+    
 @user_auth.route('/profile/<string:uid>', methods=['POST'])
 def profile(uid):
     try:
@@ -53,8 +74,8 @@ def profile(uid):
         user = users.find_one(ObjectId(uid))
         if not user:
             return jsonify({"message": "No such user exists"}), 401
-        user_info = {key : value for key, value in user.items() if key!='_id' and key!='password'}
-        return jsonify({user_info}), 200
+        user_info = {key : value for key, value in user.items() if key!='_id' and key!='password' and key!='phone'}
+        return jsonify(user_info), 200
     except Exception as error:
         print(error)
         return jsonify({"message": "Error in fetching profile"}), 500
