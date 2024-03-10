@@ -62,7 +62,8 @@ def auth_profile(uid):
 
         return jsonify(user_info), 200
     except Exception as error:
-        print(error)
+        print(error) 
+        
         return jsonify({"message": "Error in fetching profile"}), 500
     
     
