@@ -59,9 +59,6 @@ const Navbar = ({ color, noborder }) => {
 					<div className="kdag-nav-logo">
 						<Link to="/">
 							<img src={logo} alt="LOGO" />
-							{/* <div className="kdag-navbar-kdag">
-                KHARAGPUR DATA ANALYTICS GROUP
-              </div> */}
 						</Link>
 					</div>
 					<div className="kdag-nav-items">
@@ -88,7 +85,6 @@ const Navbar = ({ color, noborder }) => {
 							>
 								Team
 							</NavLink>
-							{/* {dropdown && <Dropdown/>} */}
 						</div>
 						<div className="kdag-nav-item">
 							<NavLink
@@ -98,7 +94,16 @@ const Navbar = ({ color, noborder }) => {
 							>
 								Alumni
 							</NavLink>
-							{/* {dropdown && <Dropdown/>} */}
+						</div>
+						<div className="kdag-nav-item">
+							<NavLink activeStyle={active_style} to="/forum">
+								Forum
+							</NavLink>
+						</div>
+						<div className="kdag-nav-item">
+							<NavLink activeStyle={active_style} to="/auth">
+								Register
+							</NavLink>
 						</div>
 						{/* <div className="kdag-nav-item">
               <Link to="#">Go Down</Link>
@@ -157,6 +162,12 @@ const Navbar = ({ color, noborder }) => {
 									</li>
 									<li onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
 										<NavLink to="/alumni">Alumni</NavLink>
+									</li>
+									<li>
+										<NavLink to="/forum">Forum</NavLink>
+									</li>
+									<li>
+										<NavLink to="/auth">Register</NavLink>
 									</li>
 								</ul>
 							</li>

@@ -3,66 +3,56 @@ import Particless from "../Common/Particles/Particless";
 import "./AuthPage.css";
 
 const AuthPage = () => {
-	const [signIn, toggle] = useState(true);
+	const [isSignUpActive, setIsSignUpActive] = useState(false);
+
+	const toggleForm = () => {
+		setIsSignUpActive((prev) => !prev);
+	};
 
 	return (
 		<>
 			<div className="auth-outer-container">
-				<div className="auth-container">
-					<div className={`auth-signUpContainer ${!signIn ? "active" : ""}`}>
+				<div className={`auth-container ${isSignUpActive ? "active" : ""}`}>
+					<div className="form-container sign-up">
 						<form>
-							<div className="form-title">Create Account</div>
-							<label>First Name</label>
-							<input type="text" />
-							<label>Last Name</label>
-							<input type="text" />
-							<label>Username</label>
-							<input type="text" />
-							<label>College</label>
-							<input type="text" />
-							<label>Email</label>
-							<input type="email" />
-							<label>Password</label>
-							<input type="password" />
-							<label>Retype your Password</label>
-							<input type="password" />
-							<button type="submit">Register</button>
+							<h1>Create Account</h1>
+							<input type="text" placeholder="First Name" />
+							<input type="text" placeholder="Last Name" />
+							<input type="text" placeholder="Username" />
+							<input type="text" placeholder="College" />
+							<input type="email" placeholder="Email" />
+							<input type="password" placeholder="Password" />
+							<input type="password" placeholder="Retype Password" />
+							<button type="submit">Sign Up</button>
 						</form>
 					</div>
-
-					<div className={`auth-signInContainer ${!signIn ? "active1" : ""}`}>
+					<div className="form-container sign-in">
 						<form>
-							<div className="form-title">SIGN IN</div>
-							<label>Email</label>
-							<input type="email" />
-							<label>Password</label>
-							<input type="password" />
+							<h1>Sign In</h1>
+							<input type="email" placeholder="Email" />
+							<input type="password" placeholder="Password" />
 							<button type="submit">Sign In</button>
 						</form>
 					</div>
-
-					<div className={`auth-overlayContainer ${!signIn ? "active2" : ""}`}>
-						<div className={`auth-overlay ${!signIn ? "active3" : ""}`}>
-							<div
-								className={`auth-leftOverlayPanel ${!signIn ? "active4" : ""}`}
-							>
-								<div className="auth-overlay-title">Welcome Back!</div>
-								<div className="auth-overlay-paragraph">
-									To stay connected with us login with your Personal info.
-								</div>
-								<button className="GhostButton" onclick={() => toggle(true)}>
+					<div className="toggle-container">
+						<div className={`toggle ${isSignUpActive ? "active" : ""}`}>
+							<div className="toggle-panel toggle-left">
+								<h1>Welcome Back!</h1>
+								<p>
+									Sign in to unlock access to your account and explore all the
+									features our website has to offer.
+								</p>
+								<button className="hidden" onClick={toggleForm}>
 									Sign In
 								</button>
 							</div>
-
-							<div
-								className={`auth-rightOverlayPanel ${!signIn ? "active5" : ""}`}
-							>
-								<div className="auth-overlay-title">Hello, Friend!</div>
-								<div className="auth-overlay-paragraph">
-									Enter your personal details and start your journey with us!
-								</div>
-								<button className="GhostButton" onclick={() => toggle(true)}>
+							<div className="toggle-panel toggle-right">
+								<h1>Hello, Friend!</h1>
+								<p>
+									It looks like you haven't registered yet. Register now to
+									unlock access to all of the site's features.
+								</p>
+								<button className="hidden" onClick={toggleForm}>
 									Sign Up
 								</button>
 							</div>
