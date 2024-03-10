@@ -2,6 +2,7 @@ from flask import request, jsonify
 from flask_jwt_extended import jwt_required
 from flask import Blueprint
 from bson import ObjectId
+import base64
 
 post_crud = Blueprint('post_crud', __name__)
 
@@ -13,11 +14,19 @@ def add_post(sid):
         users = mongo.db.users
         if not users.find_one(ObjectId(sid)):
             return jsonify({"message": "Invalid student id"}), 401
-        data = request.get_json()
+        # data = request.form.get()
         post_data = {}
-        post_data['message'] = data['message']
+        # post_data['message'] = data['message']
+        post_data['message'] = request.form['message']
         post_data['replies'] = []
         post_data['author_id'] = sid
+        img_file=request.files.get('img')
+
+        if not img_file:
+            post_data['image']="No image attached"
+        else:
+            img_data=img_file.read()
+            post_data['image']=img_data
         posts = mongo.db.posts
         posts.insert_one(post_data)
         return jsonify({"message": "Post Created"}), 200
@@ -36,6 +45,7 @@ def get_posts():
             all_posts_list.append({
                 'message': post['message'],
                 'author_name': users.find_one(ObjectId(post['author_id']))['f_name'] + " " + users.find_one(ObjectId(post['author_id']))['l_name'],
+                'image':base64.b64encode(post['image']).decode('utf-8') if 'image' in post else None,
                 'author_id': post['author_id'],
                 'post_id': str(post['_id'])
             })
@@ -60,6 +70,7 @@ def get_post(pid):
             'message': post['message'],
             'author_name': users.find_one(ObjectId(post['author_id']))['f_name'] + " " + users.find_one(ObjectId(post['author_id']))['l_name'],
             'author_id': post['author_id'],
+            'image':base64.b64encode(post['image']).decode('utf-8') if 'image' in post else None,
             'replies': post['replies']
         }
         return jsonify(
