@@ -17,14 +17,14 @@
 
 .auth-container {
 	background-color: rgba(255, 255, 255, 0.04);
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(12px);
 	border-radius: 15px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 	position: relative;
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
-	min-height: 500px;
+	min-height: 520px;
 	padding: 20px;
 }
 
@@ -57,22 +57,16 @@
 }
 
 .auth-container button[type="submit"] {
-	color: #000000;
+	color: #ffffff;
 	font-size: 15px;
 	padding: 7px 45px;
 	border: 1px solid transparent;
 	border-radius: 500px;
-	font-weight: 1000;
+	font-weight: 600;
 	letter-spacing: 0.5px;
 	margin-top: 10px;
 	cursor: pointer;
-	font-style: italic;
-	background-image: linear-gradient(
-		to right,
-		rgb(255, 145, 0),
-		#ffdaaa,
-		#00ff3c
-	);
+	background-image: linear-gradient(to right, #4E3EFF, #40dfe4, #30dd8a, #269660);
 	background-size: 300% 100%;
 	transition: all 0.3s;
 	width: 300px;
@@ -108,7 +102,7 @@
 	background-color: rgb(255, 255, 255, 0.04);
 	border: none;
 	border-radius: 500px;
-	margin: 8px 0;
+	margin: 6px 0;
 	padding: 10px 15px;
 	font-size: 14px;
 	font-weight: 600;
@@ -140,6 +134,7 @@
 }
 
 .form-container input[type="email"]:focus,
+.form-container input[type="tel"]:focus,
 .form-container input[type="text"]:focus,
 .form-container input[type="password"]:focus {
 	box-shadow: 0 0 5px rgba(255, 255, 255, 0.76);
@@ -203,7 +198,7 @@
 
 .toggle {
 	height: 100%;
-	background: linear-gradient(to right, rgb(255, 153, 0), #ff0000);
+	background: linear-gradient(to right, #ad2d2d, #b16508);
 	color: #fff;
 	position: relative;
 	left: -100%;
@@ -280,8 +275,11 @@
 	.auth-container.active .toggle-container {
 		border-radius: 0 20px 20px 0;
 	}
+	.auth-container input {
+		margin: 6px 0;
+	}
 	.form-container input {
-		height: 30px;
+		height: 28px;
 	}
 	.auth-outer-container {
 		padding-top: 100px;
@@ -290,6 +288,9 @@
 	.toggle-panel h1 {
 		font-size: 20px;
 		font-weight: 900;
+	}
+	.form-container form h1 {
+		font-size: 20px;
 	}
 	.auth-container {
 		width: 350px;
@@ -301,7 +302,7 @@
 		padding: 8px 45px;
 		text-wrap: nowrap;
 	}
-	
+
 	.auth-container button[type="submit"] {
 		color: #000000;
 		font-size: 14px;
@@ -310,11 +311,11 @@
 		font-style: normal;
 		width: 160px;
 	}
-	
+
 	.auth-container form {
 		padding: 0 10px;
 	}
-	
+
 	.auth-container input {
 		font-size: 12px;
 		font-weight: 600;
