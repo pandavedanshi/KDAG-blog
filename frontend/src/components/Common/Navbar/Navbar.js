@@ -4,6 +4,8 @@ import "./Navbar.css";
 import logo from "./../../../assets/pics/KDAG-textnew.png";
 import Dropdown from "./Dropdown";
 import { Link, NavLink } from "react-router-dom";
+import forum_img from "../../../assets/pics/forum.png";
+import register_img from "../../../assets/pics/register.png";
 
 const active_style = {
 	borderBottom: "2px solid rgba(255, 255, 255, 0.8)",
@@ -97,12 +99,12 @@ const Navbar = ({ color, noborder }) => {
 						</div>
 						<div className="kdag-nav-item">
 							<NavLink activeStyle={active_style} to="/forum">
-								Forum
+								<img src={forum_img} alt="" />
 							</NavLink>
 						</div>
 						<div className="kdag-nav-item">
 							<NavLink activeStyle={active_style} to="/auth">
-								Register
+								<img src={register_img} alt="" />
 							</NavLink>
 						</div>
 						{/* <div className="kdag-nav-item">
@@ -164,10 +166,16 @@ const Navbar = ({ color, noborder }) => {
 										<NavLink to="/alumni">Alumni</NavLink>
 									</li>
 									<li>
-										<NavLink to="/forum">Forum</NavLink>
+										<NavLink to="/forum">
+											{" "}
+											<img src={forum_img} alt="" />
+										</NavLink>
 									</li>
 									<li>
-										<NavLink to="/auth">Register</NavLink>
+										<NavLink to="/auth">
+											{" "}
+											<img src={register_img} alt="" />
+										</NavLink>
 									</li>
 								</ul>
 							</li>

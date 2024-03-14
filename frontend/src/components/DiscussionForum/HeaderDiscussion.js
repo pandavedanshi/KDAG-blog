@@ -2,7 +2,7 @@ import React from "react";
 import "./DiscussionCard.css";
 import profileImage from "./profile.jpeg";
 import icon_viewed from "./asset_viewed.png";
-import icon_commented from "./asset_comment.png";
+import icon_commented from "./asset_comment.png"; 
 
 const HeaderDiscussion = () => {
 	return (

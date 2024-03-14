@@ -17,6 +17,10 @@ import CertificateGeneration from "../components/CertificateGeneration/Certifica
 import ForumPage from "../components/DiscussionForum/ForumPage.js";
 import DiscussionPage from "../components/DiscussionForum/DiscussionPage.js";
 import AuthPage from "../components/AuthenticationPages/AuthPage.js";
+import CreateDiscussion from "../components/DiscussionForum/CreateDiscussion.js";
+import UserProfileSelf from "../components/UserPages/UserProfileSelf.js";
+import UserProfilePublic from "../components/UserPages/UserProfilePublic.js";
+import EditProfile from "../components/UserPages/EditProfile.js";
 
 const AppRouter = () => {
   return (
@@ -52,6 +56,18 @@ const AppRouter = () => {
           </Route>
           <Route path="/forum">
             <ForumPage />
+          </Route>
+          <Route path="/edit_profile">
+            <EditProfile />
+          </Route>
+          <Route path="/create_discussion">
+            <CreateDiscussion />
+          </Route>
+          <Route path="/user_profile_self">
+            <UserProfileSelf />
+          </Route>
+          <Route path="/user_profile_public">
+            <UserProfilePublic />
           </Route>
           <Route path="/discussion_page_id">
             <DiscussionPage />

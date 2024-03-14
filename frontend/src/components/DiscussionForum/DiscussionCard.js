@@ -9,19 +9,22 @@ const DiscussionCard = () => {
 	return (
 		<Link to="/discussion_page_id" className="discussion-card-container">
 			<div className="discussion-card">
-				<div className="discussion-card-image-container">
+				{/* <div className="discussion-card-image-container">
 					<img src={profileImage} />
-				</div>
-				<div className="discussion-card-description">
+				</div> */}
+				<div className="discussion-card-description item">
 					<div className="discussion-card-description-heading">
 						Description Title
+					</div>
+					<div className="discussion-card-description-user">
+						username
 					</div>
 					<div className="discussion-card-description-details">
 						This is a sample text that represents what will be written here,
 						lorem ipsum blah blah blah blah lorem ipsum blah blah blah blah
 					</div>
 				</div>
-				<div className="discussion-card-actions">
+				<div className="discussion-card-actions item item-fixed">
 					<div className="discussion-card-actions-viewed">
 						<img src={icon_viewed} />
 						53
@@ -31,7 +34,7 @@ const DiscussionCard = () => {
 						17
 					</div>
 				</div>
-				<div className="discussion-card-last-comment">
+				<div className="discussion-card-last-comment item item-fixed">
 					<div className="discussion-card-last-comment-user">
 						<strong>Last post</strong> by <span>Andrew</span>
 					</div>

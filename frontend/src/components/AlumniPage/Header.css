@@ -1,7 +1,6 @@
 .resources-list-header {
     opacity: 0;
     transition: opacity 1s;
-    border: red solid 3px;
   }
   
   .resources-list-header.show {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Fade from "react-reveal/Fade";
 import Particless from "../Common/Particles/Particless";
 import "./AuthPage.css";
 
@@ -57,7 +58,7 @@ const AuthPage = () => {
 		e.preventDefault();
 		const user_data = {
 			username: login_username,
-			password: login_password
+			password: login_password,
 		};
 		await fetch(`http://10.145.122.107:8090/user/login`, {
 			method: "POST",
@@ -75,114 +76,116 @@ const AuthPage = () => {
 			}
 			//   setLoading(false);
 			else {
-				console.log("login successful")
+				console.log("login successful");
 				localStorage.setItem("access_token", jsonData.access_token);
-			};
+			}
 		});
 	};
 
 	return (
 		<>
-			<div className="auth-outer-container">
-				<div className={`auth-container ${isSignUpActive ? "active" : ""}`}>
-					<div className="form-container sign-up">
-						<form onSubmit={submitRegister}>
-							<h1>Create Account</h1>
-							<input
-								type="text"
-								placeholder="First Name"
-								required
-								onChange={(e) => setRegister_firstName(e.target.value)}
-							/>
-							<input
-								type="text"
-								placeholder="Last Name"
-								onChange={(e) => setRegister_lastName(e.target.value)}
-							/>
-							<input
-								type="text"
-								placeholder="Username"
-								required
-								onChange={(e) => setRegister_userName(e.target.value)}
-							/>
-							<input
-								type="text"
-								placeholder="College"
-								required
-								onChange={(e) => setRegister_college(e.target.value)}
-							/>
-							<input
-								type="tel"
-								placeholder="Phone"
-								required
-								onChange={(e) => setRegister_phone(e.target.value)}
-							/>
-							<input
-								type="email"
-								placeholder="Email"
-								required
-								onChange={(e) => setRegister_email(e.target.value)}
-							/>
-							<input
-								type="password"
-								placeholder="Password"
-								required
-								onChange={(e) => setRegister_password(e.target.value)}
-							/>
-							<input
-								type="password"
-								placeholder="Retype Password"
-								required
-								onChange={(e) => setRegister_retypePassword(e.target.value)}
-							/>
-							<button type="submit">Sign Up</button>
-						</form>
-					</div>
-					<div className="form-container sign-in">
-						<form onSubmit={submitLogin}>
-							<h1>Sign In</h1>
-							<input
-								type="text"
-								placeholder="Username"
-								required
-								onChange={(e) => setLogin_username(e.target.value)}
-							/>
-							<input
-								type="password"
-								placeholder="Password"
-								required
-								onChange={(e) => setLogin_password(e.target.value)}
-							/>
-							<button type="submit">Sign In</button>
-						</form>
-					</div>
-					<div className="toggle-container">
-						<div className={`toggle ${isSignUpActive ? "active" : ""}`}>
-							<div className="toggle-panel toggle-left">
-								<h1>Welcome Back!</h1>
-								<p>
-									Sign in to unlock access to your account and explore all the
-									features our website has to offer.
-								</p>
-								<button className="hidden" onClick={toggleForm}>
-									Sign In
-								</button>
-							</div>
-							<div className="toggle-panel toggle-right">
-								<h1>Hello, Friend!</h1>
-								<p>
-									It looks like you haven't registered yet. Register now to
-									unlock access to all of the site's features.
-								</p>
-								<button className="hidden" onClick={toggleForm}>
-									Sign Up
-								</button>
+			<Fade left>
+				<div className="auth-outer-container">
+					<div className={`auth-container ${isSignUpActive ? "active" : ""}`}>
+						<div className="form-container sign-up">
+							<form onSubmit={submitRegister}>
+								<h1>Create Account</h1>
+								<input
+									type="text"
+									placeholder="First Name"
+									required
+									onChange={(e) => setRegister_firstName(e.target.value)}
+								/>
+								<input
+									type="text"
+									placeholder="Last Name"
+									onChange={(e) => setRegister_lastName(e.target.value)}
+								/>
+								<input
+									type="text"
+									placeholder="Username"
+									required
+									onChange={(e) => setRegister_userName(e.target.value)}
+								/>
+								<input
+									type="text"
+									placeholder="College"
+									required
+									onChange={(e) => setRegister_college(e.target.value)}
+								/>
+								<input
+									type="tel"
+									placeholder="Phone"
+									required
+									onChange={(e) => setRegister_phone(e.target.value)}
+								/>
+								<input
+									type="email"
+									placeholder="Email"
+									required
+									onChange={(e) => setRegister_email(e.target.value)}
+								/>
+								<input
+									type="password"
+									placeholder="Password"
+									required
+									onChange={(e) => setRegister_password(e.target.value)}
+								/>
+								<input
+									type="password"
+									placeholder="Retype Password"
+									required
+									onChange={(e) => setRegister_retypePassword(e.target.value)}
+								/>
+								<button type="submit">Sign Up</button>
+							</form>
+						</div>
+						<div className="form-container sign-in">
+							<form onSubmit={submitLogin}>
+								<h1>Sign In</h1>
+								<input
+									type="text"
+									placeholder="Username"
+									required
+									onChange={(e) => setLogin_username(e.target.value)}
+								/>
+								<input
+									type="password"
+									placeholder="Password"
+									required
+									onChange={(e) => setLogin_password(e.target.value)}
+								/>
+								<button type="submit">Sign In</button>
+							</form>
+						</div>
+						<div className="toggle-container">
+							<div className={`toggle ${isSignUpActive ? "active" : ""}`}>
+								<div className="toggle-panel toggle-left">
+									<h1>Welcome Back!</h1>
+									<p>
+										Sign in to unlock access to your account and explore all the
+										features our website has to offer.
+									</p>
+									<button className="hidden" onClick={toggleForm}>
+										Sign In
+									</button>
+								</div>
+								<div className="toggle-panel toggle-right">
+									<h1>Hello, Friend!</h1>
+									<p>
+										It looks like you haven't registered yet. Register now to
+										unlock access to all of the site's features.
+									</p>
+									<button className="hidden" onClick={toggleForm}>
+										Sign Up
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<Particless />
-			</div>
+			</Fade>
+			<Particless />
 		</>
 	);
 };
