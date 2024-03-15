@@ -9,7 +9,6 @@ const CreateDiscussion = () => {
 			{/* <Fade left> */}
 				<div className="create-discussion-container">
 					<div className="discussion-circle">
-						{/* <div className="discussion-ball"></div> */}
 					</div>
 					<Fade right>
 						<div className="create-discussion-form-container">

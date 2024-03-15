@@ -39,8 +39,8 @@
 }
 .profile_container {
 	position: relative;
-	width: 540px;
-	height: 540px;
+	width: 500px;
+	height: 500px;
 	border: 2px solid rgba(255, 255, 255);
 	border-radius: 50%;
 	backdrop-filter: blur(10px);
@@ -64,7 +64,7 @@
 	border-radius: 50%;
 	transition: 0.5s;
 	transform: rotate(calc(360deg / 5 * var(--i)));
-	transform-origin: 328px;
+	transform-origin: 308px;
 	z-index: 100;
 	overflow: hidden;
 	display: flex;
@@ -73,6 +73,7 @@
 }
 .profile_container .profile_icon .profile_img_box.profile_active {
 	box-shadow: inset 0 0 3px #ffffff, 0 0 4px #ffffff, 0 0 14px aqua;
+	background:white;
 }
 
 .profile_container .profile_icon .profile_img_box img {
