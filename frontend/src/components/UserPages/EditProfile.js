@@ -39,7 +39,13 @@ const EditProfile = () => {
 		<div>
 			<div className="edit_profile_outer_container">
 				<div className="edit_profile_container">
-					<div className="edit_profile_heading">EDIT YOUR DETAILS</div>
+					<div className="edit_profile_heading">
+						<p>
+							E<br />D<br />I<br />T<br />
+							<br />Y<br />O<br />U<br />R<br />
+							<br />P<br />R<br />O<br />F<br />I<br />L<br />E
+						</p>
+					</div>
 					<form onSubmit={handleSubmit}>
 						<div className="edit_profile_username">
 							<label>Username</label>
@@ -116,7 +122,7 @@ const EditProfile = () => {
 								)}
 							</button>
 						</div>
-						<input type="submit" value="Update"/>
+						<input type="submit" value="Update" />
 					</form>
 				</div>
 			</div>

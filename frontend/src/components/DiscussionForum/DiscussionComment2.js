@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import Fade from "react-reveal/Fade";
 import "./DiscussionComment.css";
-import DiscussionComment2 from "./DiscussionComment2";
+import DiscussionComment from "./DiscussionComment";
 import icon_commented from "./asset_comment.png";
-import profileImage from "./profile.jpeg";
-import icon_heart from "./asset_heart.png";
 
-const DiscussionComment = () => {
+const DiscussionComment2 = () => {
 	const [showReplies, setShowReplies] = useState(false);
 
 	const toggleReplies = () => {
@@ -15,21 +13,18 @@ const DiscussionComment = () => {
 
 	const replies = [
 		<Fade bottom key={1}>
-			<DiscussionComment2 />
+			<DiscussionComment />
 		</Fade>,
 		<Fade bottom key={2}>
-			<DiscussionComment2 />
+			<DiscussionComment />
 		</Fade>,
 		<Fade bottom key={2}>
-			<DiscussionComment2 />
+			<DiscussionComment />
 		</Fade>,
 	];
 	return (
 		<div className="discussion-comment-container">
 			<div className="discussion-comment">
-				{/* <div className="discussion-comment-image-container">
-					<img src={profileImage} />
-				</div> */}
 				<div className="discussion-comment-description">
 					<div className="discussion-comment-description-details">
 						This is a sample text that represents what will be written here,
@@ -51,15 +46,9 @@ const DiscussionComment = () => {
 								17
 							</button>
 						</div>
-						<div className="header-discussion-card-actions-delete">
+                        <div className="header-discussion-card-actions-delete">
 							<button>Delete post</button>
 						</div>
-						{/* <div className="discussion-comment-actions">
-							<div className="discussion-comment-actions-liked">
-								<img src={icon_heart} />
-								53
-							</div>
-						</div> */}
 					</div>
 				</div>
 			</div>
@@ -68,4 +57,4 @@ const DiscussionComment = () => {
 	);
 };
 
-export default DiscussionComment;
+export default DiscussionComment2;

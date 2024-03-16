@@ -1,10 +1,12 @@
 .discussion-comment-container {
 	display: flex;
-	justify-content: center;
-	margin-bottom: 20px;
+	flex-direction: column;
+	margin-top: 12px;
+	width: 100%;
+	padding: 0 0% 0 25%;
 }
 .discussion-comment {
-	width: 65%;
+	width: 100%;
 	min-height: 125px;
 	display: flex;
 	flex-direction: row;
@@ -15,11 +17,9 @@
 	transition: all 0.5s;
 	background: rgba(255, 255, 255, 0.05);
 	backdrop-filter: blur(3px);
-	border-top-left-radius: 60px;
-	border-bottom-left-radius: 60px;
 }
 
-.discussion-comment-image-container {
+/* .discussion-comment-image-container {
 	height: 100%;
 	padding-left: 8px;
 	padding-right: 8px;
@@ -35,11 +35,11 @@
 .discussion-comment-image-container img {
 	height: 100px;
 	border-radius: 50%;
-}
+} */
 .discussion-comment-description {
 	min-height: 110px;
 	padding: 12px;
-	width: 90%;
+	width: 100%;
 	background: rgba(255, 255, 255, 0.06);
 	backdrop-filter: blur(8px);
 	border-radius: 6px;
@@ -47,15 +47,15 @@
 	transition: all 0.5s;
 }
 .discussion-comment-description-details {
-	font-weight: 500;
-	color: rgb(197, 197, 197);
+	font-size: 15px;
+	color: rgb(137, 137, 137);
 	text-align: justify;
 }
 .discussion-comment-bottom {
 	display: flex;
 	justify-content: space-between;
 }
-.discussion-comment-actions {
+/* .discussion-comment-actions {
 	color: rgb(197, 197, 197);
 	line-height: 30px;
 	font-style: italic;
@@ -65,14 +65,19 @@
 	justify-content: center;
 	margin-left: 5px;
 	margin-right: 25px;
-}
-.discussion-comment-actions img {
+} */
+/* .discussion-comment-actions img {
 	height: 20px;
 	position: relative;
 	top: -2px;
 	margin-right: 10px;
 	filter: invert(78%) sepia(22%) saturate(6951%) hue-rotate(339deg)
 		brightness(100%) contrast(103%);
+} */
+.discussion-comment-posted-by {
+	color: cyan;
+	display: flex;
+	align-items: flex-end;
 }
 .discussion-comment-last-comment {
 	height: 110px;
@@ -103,4 +108,41 @@
 .discussion-comment-last-comment-date span {
 	font-weight: 600;
 	color: rgb(255, 150, 38);
+}
+.discussion-comment-bottom .discussion-comment-actions-commented {
+	margin-right: 25px;
+}
+.discussion-comment-bottom .discussion-comment-actions-commented button {
+	background: transparent;
+	border: none;
+	color: rgb(197, 197, 197);
+	border-radius: 50px;
+	padding: 5px;
+}
+.discussion-comment-bottom .discussion-comment-actions-commented button:hover {
+	box-shadow: 0px 0px 3px rgb(255, 150, 38);
+}
+.discussion-comment-bottom .discussion-comment-actions-commented img {
+	height: 20px;
+	filter: invert(78%) sepia(22%) saturate(6951%) hue-rotate(339deg)
+		brightness(100%) contrast(103%);
+	height: 20px;
+	position: relative;
+	top: -2px;
+	margin-right: 5px;
+}
+.discussion-comment-bottom .header-discussion-card-actions-delete button {
+	background: transparent;
+	color: rgb(255, 150, 38);
+	border: none;
+	font-size: 14px;
+	font-weight: 700;
+	font-style: italic;
+	transition: 0.3s all;
+	padding: 4px;
+	border-radius: 35px;
+}
+.discussion-comment-bottom .header-discussion-card-actions-delete button:hover {
+	background: rgb(255, 150, 38);
+	color: black;
 }

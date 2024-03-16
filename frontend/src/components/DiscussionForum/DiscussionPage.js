@@ -15,7 +15,7 @@ const DiscussionPage = () => {
 			<Fade left>
 				<HeaderDiscussion />
 			</Fade>
-			<Fade bottom>
+			{/* <Fade bottom>
 				<DiscussionComment />
 			</Fade>
 			<Fade bottom>
@@ -30,7 +30,7 @@ const DiscussionPage = () => {
 
 			<Fade bottom>
 				<DiscussionComment />
-			</Fade>
+			</Fade> */}
 			<Particless />
 		</>
 	);
