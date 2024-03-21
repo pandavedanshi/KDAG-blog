@@ -1,45 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./HeaderDiscussion.css";
 import profileImage from "./profile.jpeg";
 import icon_viewed from "./asset_viewed.png";
 import icon_commented from "./asset_comment.png";
 import { Link } from "react-router-dom";
 
-const DiscussionCard = () => {
+const DiscussionCard = ({ post }) => {
+
 	return (
-		<Link to="/discussion_page_id" className="discussion-card-container">
+		<Link
+			to={`/discussion_page/${post.post_id}`}
+			className="discussion-card-container"
+		>
 			<div className="discussion-card">
 				{/* <div className="discussion-card-image-container">
-					<img src={profileImage} />
-				</div> */}
+          <img src={profileImage} alt="Profile" />
+        </div> */}
 				<div className="discussion-card-description item">
-					<div className="discussion-card-description-heading">
-						Description Title
-					</div>
+					{/* <div className="discussion-card-description-heading">
+						{post.message}
+					</div> */}
 					<div className="discussion-card-description-user">
-						username
+						{post.author_name}
 					</div>
 					<div className="discussion-card-description-details">
-						This is a sample text that represents what will be written here,
-						lorem ipsum blah blah blah blah lorem ipsum blah blah blah blah
+						{post.message}
 					</div>
 				</div>
 				<div className="discussion-card-actions item item-fixed">
 					<div className="discussion-card-actions-viewed">
-						<img src={icon_viewed} />
-						53
+						<img src={icon_viewed} alt="Viewed" />
+						{post.views}
 					</div>
 					<div className="discussion-card-actions-commented">
-						<img src={icon_commented} />
-						17
+						<img src={icon_commented} alt="Commented" />
+						{post.comments}
+						
 					</div>
 				</div>
 				<div className="discussion-card-last-comment item item-fixed">
 					<div className="discussion-card-last-comment-user">
-						<strong>Last post</strong> by <span>Andrew</span>
+						<strong>Last post</strong> by <span>{post.last_commenter}</span>
 					</div>
 					<div className="discussion-card-last-comment-date">
-						at <span>13:35 22 Dec 2023</span>
+						at <span>{post.last_comment_date}</span>
 					</div>
 				</div>
 			</div>

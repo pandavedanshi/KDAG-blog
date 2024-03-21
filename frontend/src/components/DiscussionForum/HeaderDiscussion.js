@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Fade from "react-reveal/Fade";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./DiscussionCard.css";
 import profileImage from "./profile.jpeg";
 import icon_viewed from "./asset_viewed.png";
@@ -43,11 +44,11 @@ const HeaderDiscussion = () => {
 						/>
 					</div>
 
-					<div className="header-discussion-card-description-heading">
+					{/* <div className="header-discussion-card-description-heading">
 						Description Title Description Title Description Title
-					</div>
+					</div> */}
 					<div className="header-discussion-card-posted-by">
-						_username.abc123
+						<Link to="/user_profile_public">_username.abc123</Link>
 					</div>
 					<div className="header-discussion-card-last-comment-date">
 						posted <span>13:35 22 Dec 2023</span>
@@ -117,6 +118,9 @@ const HeaderDiscussion = () => {
 								<img src={icon_commented} />
 								17
 							</button>
+						</div>
+						<div className="header-discussion-card-actions-delete">
+							<Link to="/create_comment">Comment</Link>
 						</div>
 						<div className="header-discussion-card-actions-delete">
 							<button>Delete post</button>

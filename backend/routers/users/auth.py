@@ -9,7 +9,7 @@ user_auth = Blueprint('user_auth', __name__)
 @user_auth.route('/signup', methods=['POST'])
 def user_signup():
     try:
-        from app import mongo
+        from app import mongo 
         data = request.get_json()
         user_data = {}
         reqd_fields = ['username', 'f_name', 'l_name', 'email', 'phone' ,'college']
@@ -34,7 +34,11 @@ def user_login():
         users = mongo.db.users
         user = users.find_one({"username": data["username"]})
         if user and bcrypt.checkpw(data['password'].encode('utf-8'), user['password'].encode('utf-8')):
-            access_token = create_access_token(identity=data['username'], expires_delta=False)
+            # access_token = create_access_token(identity=data['username'], expires_delta=False)
+            access_token = create_access_token(identity={
+                "username": data['username'],
+                "user_id": str(user['_id']) if user['_id'] else None
+            }, expires_delta=False)
             return jsonify({
                 "message": "Logged in successfully",
                 "access_token": access_token

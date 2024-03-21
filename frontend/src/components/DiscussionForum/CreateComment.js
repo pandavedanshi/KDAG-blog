@@ -2,30 +2,13 @@ import Particless from "../Common/Particles/Particless";
 import Fade from "react-reveal/Fade";
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { jwtDecode } from "jwt-decode";
 
 import "./CreateDiscussion.css";
 
-const CreateDiscussion = (props) => {
-	const [userId, setUserId] = useState("empty");
-	const token = localStorage.getItem("access_token");
-
-	useEffect(() => {
-		if (token) {
-			try {
-				const decodedToken = jwtDecode(token);
-				if (decodedToken && decodedToken.sub && decodedToken.sub.user_id) {
-					setUserId(decodedToken.sub.user_id);
-				}
-			} catch (error) {
-				console.error("Error decoding token:", error);
-			}
-		}
-	}, [token]);
-
+const CreateComment = (props) => {
 	const { showLogout } = props;
 	const history = useHistory();
-	const [discussionContent, setDiscussionContent] = useState("");
+	const [commentMessage, setCommentMessage] = useState("");
 
 	useEffect(() => {
 		if (!showLogout) {
@@ -36,14 +19,12 @@ const CreateDiscussion = (props) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			console.log(process.env.REACT_APP_FETCH_URL);
 			const formData = {
-				message: discussionContent,
+				message: commentMessage,
 			};
 
 			const response = await fetch(
-				// `${process.env.REACT_APP_FETCH_URL}/create_post/${userId}`,
-				`http://127.0.0.1:8080/create_post/${userId}`,
+				`http://127.0.0.1:8080/reply//create_reply/<string:pid>`,
 				{
 					method: "POST",
 					headers: {
@@ -52,19 +33,18 @@ const CreateDiscussion = (props) => {
 					body: JSON.stringify({
 						...formData,
 					}),
-					credentials: "include",
 				}
 			);
 
 			if (!response.ok) {
 				const jsonData = await response.json();
-				console.log("Error creating discussion(response):", jsonData.message);
+				console.log("Error creating comment:", jsonData.message);
 			} else {
 				const jsonData = await response.json();
-				console.log("Discussion created successfully:", jsonData.message);
+				console.log("comment posted successfully:", jsonData.message);
 			}
 		} catch (error) {
-			console.error("Error creating discussion(catch):", error);
+			console.error("Error posting comment:", error);
 		}
 	};
 
@@ -76,16 +56,15 @@ const CreateDiscussion = (props) => {
 					<Fade right>
 						<div className="create-discussion-form-container">
 							<form onSubmit={handleSubmit}>
-								<h1>Create Discussion</h1>
+								<h1>Post Comment</h1>
 								{/* <input type="text" placeholder="Title" required /> */}
 								<textarea
 									type="text"
-									placeholder="Discussion content"
+									placeholder="Type your message here"
 									required
-									value={discussionContent}
-									onChange={(e) => setDiscussionContent(e.target.value)}
+									onChange={(e) => setCommentMessage(e.target.value)}
 								/>
-								<button type="submit">Post</button>
+								<button type="submit">Comment</button>
 							</form>
 						</div>
 					</Fade>
@@ -96,4 +75,4 @@ const CreateDiscussion = (props) => {
 	);
 };
 
-export default CreateDiscussion;
+export default CreateComment;

@@ -74,10 +74,11 @@
 }
 .header-discussion-card-posted-by {
 	position: relative;
-	top: -5px;
+	top: 0px;
 	color: cyan;
 	font-size: 18px;
 	font-weight: 600;
+	margin-bottom : 4px;
 }
 .header-discussion-card-last-comment-date {
 	position: relative;

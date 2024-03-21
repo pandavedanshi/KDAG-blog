@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import KDSH2022 from "../components/Events/Individual_Events/KDSH2022_bundle/KDSH2022";
@@ -21,69 +21,81 @@ import CreateDiscussion from "../components/DiscussionForum/CreateDiscussion.js"
 import UserProfileSelf from "../components/UserPages/UserProfileSelf.js";
 import UserProfilePublic from "../components/UserPages/UserProfilePublic.js";
 import EditProfile from "../components/UserPages/EditProfile.js";
+import Logout from "../components/Common/Logout/Logout.js";
+import CreateComment from "../components/DiscussionForum/CreateComment.js";
 
 const AppRouter = () => {
-  return (
-    <React.StrictMode>
-      <Router>
-        <MousePointer/>
-        <Navbar />
-        <ScrollToTop>
-        <Switch>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
-          <Route path="/KDSH2022">
-            <KDSH2022 />
-          </Route>
-          <Route path="/blogs">
-            <BlogPage />
-          </Route>
-          <Route path="/resources">
-            <ResourcesPage />
-          </Route>
-          <Route path="/events">
-            <EventsPage />
-          </Route>
-          <Route path="/team">
-            <TeamPage />
-          </Route>
-          <Route path="/auth">
-            <AuthPage />
-          </Route>
-          <Route path="/alumni">
-            <AlumniPage />
-          </Route>
-          <Route path="/forum">
-            <ForumPage />
-          </Route>
-          <Route path="/edit_profile">
-            <EditProfile />
-          </Route>
-          <Route path="/create_discussion">
-            <CreateDiscussion />
-          </Route>
-          <Route path="/user_profile_self">
-            <UserProfileSelf />
-          </Route>
-          <Route path="/user_profile_public">
-            <UserProfilePublic />
-          </Route>
-          <Route path="/discussion_page_id">
-            <DiscussionPage />
-          </Route>
-          <Route path="/winter-workshop">
-            <WinterWorkshop />
-          </Route>
-          <Route path="/certificate-generation">
-            <CertificateGeneration />
-          </Route>
-        </Switch>
-        </ScrollToTop>
-        <Footer />
-      </Router>
-    </React.StrictMode>
-  );
+	const [showLogout, setShowLogout] = useState(true);
+
+	return (
+		<React.StrictMode>
+			<Router>
+				<MousePointer />
+				<Navbar showLogout={showLogout} />
+				<Logout showLogout={showLogout} setShowLogout={setShowLogout} />
+				<ScrollToTop>
+					<Switch>
+						<Route exact path="/">
+							<LandingPage />
+						</Route>
+						<Route path="/KDSH2022">
+							<KDSH2022 />
+						</Route>
+						<Route path="/blogs">
+							<BlogPage />
+						</Route>
+						<Route path="/resources">
+							<ResourcesPage />
+						</Route>
+						<Route path="/events">
+							<EventsPage />
+						</Route>
+						<Route path="/team">
+							<TeamPage />
+						</Route>
+						<Route path="/auth">
+							<AuthPage showLogout={showLogout} setShowLogout={setShowLogout} />
+						</Route>
+						<Route path="/alumni">
+							<AlumniPage />
+						</Route>
+						<Route path="/forum">
+							<ForumPage />
+						</Route>
+						<Route path="/edit_profile">
+							<EditProfile showLogout={showLogout} />
+						</Route>
+						<Route path="/create_discussion">
+							<CreateDiscussion showLogout={showLogout} />
+						</Route>
+						<Route path="/create_comment">
+							<CreateComment showLogout={showLogout} />
+						</Route>
+						<Route path="/user_profile_self">
+							<UserProfileSelf showLogout={showLogout} />
+						</Route>
+						<Route path="/user_profile_public">
+							<UserProfilePublic showLogout={showLogout} />
+						</Route>
+						{/* <Route path="/discussion_page_id">
+							<DiscussionPage />
+						</Route> */}
+						<Route path="/discussion_page/:post_id">
+							<DiscussionPage />
+						</Route>
+
+						<Route path="/winter-workshop">
+							<WinterWorkshop />
+						</Route>
+						<Route path="/certificate-generation">
+							<CertificateGeneration />
+						</Route>
+					</Switch>
+				</ScrollToTop>
+				<Footer />
+			</Router>
+		</React.StrictMode>
+	);
 };
 
 export default AppRouter;

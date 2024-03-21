@@ -13,7 +13,7 @@ const active_style = {
 	color: "rgba(255, 255, 255, 0.8)",
 };
 
-const Navbar = ({ color, noborder }) => {
+const Navbar = ({ color, noborder, showLogout }) => {
 	useEffect(() => {
 		const navColor = (e) => {
 			let nav = document.getElementsByClassName("kdag-nav")[0];
@@ -102,11 +102,13 @@ const Navbar = ({ color, noborder }) => {
 								<img src={forum_img} alt="" />
 							</NavLink>
 						</div>
-						<div className="kdag-nav-item">
-							<NavLink activeStyle={active_style} to="/auth">
-								<img src={register_img} alt="" />
-							</NavLink>
-						</div>
+						{!showLogout && (
+							<div className="kdag-nav-item">
+								<NavLink activeStyle={active_style} to="/auth">
+									<img src={register_img} alt="" />
+								</NavLink>
+							</div>
+						)}
 						{/* <div className="kdag-nav-item">
               <Link to="#">Go Down</Link>
             </div> */}
@@ -171,12 +173,14 @@ const Navbar = ({ color, noborder }) => {
 											<img src={forum_img} alt="" />
 										</NavLink>
 									</li>
-									<li>
-										<NavLink to="/auth">
-											{" "}
-											<img src={register_img} alt="" />
-										</NavLink>
-									</li>
+									{!showLogout && (
+										<li>
+											<NavLink to="/auth">
+												{" "}
+												<img src={register_img} alt="" />
+											</NavLink>
+										</li>
+									)}
 								</ul>
 							</li>
 						</ul>
