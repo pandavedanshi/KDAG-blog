@@ -45,14 +45,29 @@ def user_login():
         print(error)
         return jsonify({"message": "Error in logging in"}), 500
     
-@user_auth.route('/auth_profile/<string:uid>' , methods=['POST'])
-@jwt_required()
-def auth_profile(uid):
+@user_auth.route('/profile/<string:uid>', methods=['POST'])
+def profile(uid):
     try:
         from app import mongo
         users = mongo.db.users
         user = users.find_one(ObjectId(uid))
+        if not user:
+            return jsonify({"message": "No such user exists"}), 401
+        user_info = {key : value for key, value in user.items() if key!='_id' and key!='password' and key!='phone'}
+        return jsonify(user_info), 200
+    except Exception as error:
+        print(error)
+        return jsonify({"message": "Error in fetching profile"}), 500
+    
+
+@user_auth.route('/auth_profile' , methods=['POST'])
+@jwt_required()
+def auth_profile():
+    try:
+        from app import mongo
+        users = mongo.db.users
         current_user=get_jwt_identity()
+        user = users.find_one({'username': current_user})
         if current_user!=user['username']:
             return jsonify({"message": "User is not authenticated"}), 402
         if not user:
@@ -67,16 +82,32 @@ def auth_profile(uid):
         return jsonify({"message": "Error in fetching profile"}), 500
     
     
-@user_auth.route('/profile/<string:uid>', methods=['POST'])
-def profile(uid):
+@user_auth.route('/edit_profile', methods=['PUT'])
+@jwt_required()
+def edit_profile():
     try:
         from app import mongo
         users = mongo.db.users
-        user = users.find_one(ObjectId(uid))
+        data = request.get_json()
+        current_user = get_jwt_identity()
+        user = users.find_one({'username': current_user})
         if not user:
             return jsonify({"message": "No such user exists"}), 401
-        user_info = {key : value for key, value in user.items() if key!='_id' and key!='password' and key!='phone'}
-        return jsonify(user_info), 200
+        reqd_fields = ['f_name', 'l_name', 'email', 'phone', 'college']
+        
+        updated_data = {key: value for key, value in user.items() if key != '_id'}
+        for key in reqd_fields:
+            if data.get(key) is not None:
+                updated_data[key] = data[key]
+
+        users.update_one({'username': current_user}, {'$set': updated_data})
+        updated_user = users.find_one({'username': current_user})
+
+        updated_user['_id'] = str(updated_user['_id']) #convert the obejct ID to str to make it serialisable
+
+        return jsonify({
+            "message": "Profile edited successfully"
+        }), 200
     except Exception as error:
         print(error)
-        return jsonify({"message": "Error in fetching profile"}), 500
+        return jsonify({"message": "Error in profile editing"}), 500

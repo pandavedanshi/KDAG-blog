@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from flask_jwt_extended import jwt_required
+from flask_jwt_extended import jwt_required,get_jwt_identity
 from flask import Blueprint
 from bson import ObjectId
 import base64
@@ -23,7 +23,7 @@ def add_post(sid):
         img_file=request.files.get('img')
 
         if not img_file:
-            post_data['image']="No image attached"
+            post_data['image']=None
         else:
             img_data=img_file.read()
             post_data['image']=img_data
@@ -45,7 +45,7 @@ def get_posts():
             all_posts_list.append({
                 'message': post['message'],
                 'author_name': users.find_one(ObjectId(post['author_id']))['f_name'] + " " + users.find_one(ObjectId(post['author_id']))['l_name'],
-                'image':base64.b64encode(post['image']).decode('utf-8') if 'image' in post else None,
+                'image':base64.b64encode(post['image']).decode('utf-8') if post['image']!=None  else None,
                 'author_id': post['author_id'],
                 'post_id': str(post['_id'])
             })
@@ -70,7 +70,7 @@ def get_post(pid):
             'message': post['message'],
             'author_name': users.find_one(ObjectId(post['author_id']))['f_name'] + " " + users.find_one(ObjectId(post['author_id']))['l_name'],
             'author_id': post['author_id'],
-            'image':base64.b64encode(post['image']).decode('utf-8') if 'image' in post else None,
+            'image':base64.b64encode(post['image']).decode('utf-8') if post['image']!=None  else None,
             'replies': post['replies']
         }
         return jsonify(
@@ -80,3 +80,31 @@ def get_post(pid):
     except Exception as error:
         print(error)
         return jsonify({"message": "Error in fetching posts"}), 500
+    
+@post_crud.route('/delete_post/<string:pid>', methods=['DELETE'])
+@jwt_required()
+def delete_post(pid):
+    try:
+        from app import mongo
+        posts = mongo.db.posts
+        users = mongo.db.users
+        post = posts.find_one(ObjectId(pid))
+        if not post:
+            return jsonify({"message": "Invalid post id"})
+        post_user=users.find_one(ObjectId(post['author_id']))['username']
+        current_user=get_jwt_identity()
+        if post_user!=current_user:
+            return jsonify({"message": "User is not authenticated"}), 402
+        
+        reqd_post = {
+            'message': post['message'],
+            'author_name': users.find_one(ObjectId(post['author_id']))['f_name'] + " " + users.find_one(ObjectId(post['author_id']))['l_name'],
+            'author_id': post['author_id'],
+            'image':base64.b64encode(post['image']).decode('utf-8') if post['image']!=None  else None,
+            'replies': post['replies']
+        }
+        posts.delete_one({'_id': ObjectId(pid)})
+        return jsonify({'message': 'Post deleted successfully'}), 200
+    except Exception as error:
+        print(error)
+        return jsonify({"message": "Error in deleting posts"}), 500
