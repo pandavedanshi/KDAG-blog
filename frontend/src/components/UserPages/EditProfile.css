@@ -67,7 +67,6 @@
 }
 .edit_profile_container form button img {
 	height: 25px;
-
 }
 
 .edit_profile_container .edit_profile_password label {
@@ -100,6 +99,7 @@
 	);
 	background-size: 300% 100%;
 	transition: all 0.3s;
+	margin-top: 5px;
 }
 
 .edit_profile_container input[type="submit"]:hover {
@@ -126,7 +126,7 @@
 		top: 20%;
 	}
 
-	.edit_profile_heading .edit_profile_heading_hidden{
+	.edit_profile_heading .edit_profile_heading_hidden {
 		opacity: 0;
 	}
 
@@ -137,13 +137,13 @@
 		width: 60%;
 		border-top-right-radius: 15px;
 	}
-	
+
 	.edit_profile_container form label {
 		margin-left: 0px;
 		margin-top: 10px;
 		font-weight: 900;
 	}
-	
+
 	.edit_profile_container form input {
 		color: aliceblue;
 		font-size: 14px;
@@ -161,18 +161,18 @@
 		height: 25px;
 		margin-left: 15px;
 	}
-	
+
 	.edit_profile_container .edit_profile_password label {
 		margin-left: 0px;
 	}
-	
+
 	.edit_profile_container .edit_profile_password input {
 		margin-bottom: 25px;
 		border: none;
 		margin-left: 0px;
 		width: 80%;
 	}
-	
+
 	.edit_profile_container .edit_profile_password button {
 		position: relative;
 		top: 0;

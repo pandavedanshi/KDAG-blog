@@ -128,8 +128,8 @@ def get_posts():
 #     except Exception as error:
 #         print(error)
 #         return jsonify({"message": "Error in fetching posts"}), 500
-    
-    
+
+
 @post_crud.route("/get_post/<string:pid>", methods=["GET"])
 def get_post(pid):
     try:
@@ -161,4 +161,3 @@ def get_post(pid):
     except Exception as error:
         print("Error fetching post:", error)
         return jsonify({"message": "Error in fetching post"}), 500
-

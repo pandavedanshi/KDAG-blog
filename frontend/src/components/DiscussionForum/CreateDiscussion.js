@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 
 import "./CreateDiscussion.css";
-
+ 
 const CreateDiscussion = (props) => {
 	const [userId, setUserId] = useState("empty");
 	const token = localStorage.getItem("access_token");
@@ -52,7 +52,7 @@ const CreateDiscussion = (props) => {
 					body: JSON.stringify({
 						...formData,
 					}),
-					credentials: "include",
+					// credentials: "include",
 				}
 			);
 

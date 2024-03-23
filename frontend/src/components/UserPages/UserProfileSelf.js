@@ -18,10 +18,42 @@ import user_profile_img from "../../assets/pics/user_profile.png";
 import edit_icon_img from "../../assets/pics/edit.png";
 import password_show_img from "../../assets/pics/password_show.png";
 import password_hidden_img from "../../assets/pics/password_hidden.png";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import Fade from "react-reveal/Fade";
 import "./UserProfileSelf.css";
 
 const UserProfileSelf = (props) => {
+	const { user_id } = useParams();
+	const [userData, setUserData] = useState([]);
+	useEffect(() => {
+		const fetchUserInfo = async () => {
+			try {
+				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/user/profile/${user_id}`, {
+				const response = await fetch(
+					`http://127.0.0.1:8080/user/profile/${user_id}`,
+					{
+						method: "GET",
+					}
+				);
+				if (!response.ok) {
+					const jsonData = await response.json();
+					// toast.error(jsonData.message);
+					console.log(jsonData);
+				} else {
+					const jsonData = await response.json();
+					console.log("User Info fetched successfully:", jsonData.message);
+					setUserData(jsonData);
+					console.log(jsonData);
+				}
+			} catch (error) {
+				console.error("Error fetching User Info:", error);
+				// toast.error("Error fetching posts. Please try again later.");
+			}
+		};
+
+		fetchUserInfo();
+	}, []);
+
 	const { showLogout } = props;
 	const history = useHistory();
 	useEffect(() => {
@@ -32,15 +64,6 @@ const UserProfileSelf = (props) => {
 	const [activeContent, setActiveContent] = useState("content6");
 	const [toggle, setToggle] = useState(false);
 	const password_hashed = "***************  ";
-
-	const [username, setUsername] = useState("_username_123.abc");
-	const [firstName, setFirstName] = useState("FirstName");
-	const [lastName, setLastName] = useState("LastName");
-	const [college, setCollege] = useState(
-		"Indian Institute of Technology,Kharagpur"
-	);
-	const [email, setEmail] = useState("email.abc@email.com");
-	const [phone, setPhone] = useState("1234567890");
 	const [currPassword, setCurrPassword] = useState("password123  ");
 
 	const password_toggle = () => {
@@ -56,7 +79,7 @@ const UserProfileSelf = (props) => {
 			{showLogout && (
 				<div className="outer_profile_self_container">
 					<div className="edit_profile_button">
-						<Link to="/edit_profile">
+						<Link to={`/edit_profile/${user_id}`}>
 							<img src={edit_icon_img} />
 						</Link>
 					</div>
@@ -159,7 +182,7 @@ const UserProfileSelf = (props) => {
 										</div>
 										<div className="profile_self_text_box">
 											<h2>
-												{username} <br />
+												{userData.username} <br />
 												<span>Username</span>
 											</h2>
 										</div>
@@ -178,7 +201,7 @@ const UserProfileSelf = (props) => {
 										</div>
 										<div className="profile_self_text_box">
 											<h2>
-												{firstName} {lastName} <br />
+												{userData.f_name} {userData.l_name} <br />
 												<span>Name</span>
 											</h2>
 										</div>
@@ -197,7 +220,7 @@ const UserProfileSelf = (props) => {
 										</div>
 										<div className="profile_self_text_box">
 											<h2>
-												{college} <br />
+												{userData.college} <br />
 												<span>College</span>
 											</h2>
 										</div>
@@ -216,7 +239,7 @@ const UserProfileSelf = (props) => {
 										</div>
 										<div className="profile_self_text_box">
 											<h2>
-												{email} <br />
+												{userData.email} <br />
 												<span>Email</span>
 											</h2>
 										</div>
@@ -235,7 +258,7 @@ const UserProfileSelf = (props) => {
 										</div>
 										<div className="profile_self_text_box">
 											<h2>
-												{phone} <br />
+												{userData.phone} <br />
 												<span>Phone</span>
 											</h2>
 										</div>

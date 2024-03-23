@@ -62,7 +62,7 @@ const AppRouter = () => {
 						<Route path="/forum">
 							<ForumPage />
 						</Route>
-						<Route path="/edit_profile">
+						<Route path="/edit_profile/:user_id">
 							<EditProfile showLogout={showLogout} />
 						</Route>
 						<Route path="/create_discussion">
@@ -71,10 +71,10 @@ const AppRouter = () => {
 						<Route path="/create_comment">
 							<CreateComment showLogout={showLogout} />
 						</Route>
-						<Route path="/user_profile_self">
+						<Route path="/user_profile_self/:user_id">
 							<UserProfileSelf showLogout={showLogout} />
 						</Route>
-						<Route path="/user_profile_public">
+						<Route path="/user_profile_public/:user_id">
 							<UserProfilePublic showLogout={showLogout} />
 						</Route>
 						{/* <Route path="/discussion_page_id">

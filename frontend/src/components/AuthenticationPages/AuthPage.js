@@ -32,7 +32,6 @@ const AuthPage = (props) => {
 
 	const submitRegister = async (e) => {
 		e.preventDefault();
-		console.log("The passwords you have typed do not match sdfs");
 
 		if (register_retypePassword !== register_password) {
 			console.log("The passwords you have typed do not match");

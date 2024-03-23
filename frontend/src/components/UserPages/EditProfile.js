@@ -1,11 +1,43 @@
 import Particless from "../Common/Particles/Particless";
 import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import password_show_img from "../../assets/pics/password_show.png";
 import password_hidden_img from "../../assets/pics/password_hidden.png";
 import "./EditProfile.css";
 
 const EditProfile = (props) => {
+	const { user_id } = useParams();
+	const [userData, setUserData] = useState([]);
+	useEffect(() => {
+		const fetchUserInfo = async () => {
+			try {
+				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/user/profile/${user_id}`, {
+				const response = await fetch(
+					`http://127.0.0.1:8080/user/profile/${user_id}`,
+					{
+						method: "GET",
+					}
+				);
+				if (!response.ok) {
+					const jsonData = await response.json();
+					// toast.error(jsonData.message);
+					console.log(jsonData);
+				} else {
+					const jsonData = await response.json();
+					console.log("User Info fetched successfully:", jsonData.message);
+					setUserData(jsonData);
+					console.log(jsonData);
+				}
+			} catch (error) {
+				console.error("Error fetching User Info:", error);
+				// toast.error("Error fetching posts. Please try again later.");
+			}
+		};
+
+		fetchUserInfo();
+	}, []);
+
 	const { showLogout } = props;
 	const history = useHistory();
 	const [toggle, setToggle] = useState(false);
@@ -62,7 +94,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="text"
-									value={username}
+									value={userData.username}
 									onChange={(e) => setUsername(e.target.value)}
 								/>
 							</div>
@@ -71,7 +103,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="text"
-									value={firstName}
+									value={userData.f_name}
 									onChange={(e) => setFirstName(e.target.value)}
 								/>
 							</div>
@@ -81,7 +113,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="text"
-									value={lastName}
+									value={userData.l_name}
 									onChange={(e) => setLastName(e.target.value)}
 								/>
 							</div>
@@ -91,7 +123,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="text"
-									value={college}
+									value={userData.college}
 									onChange={(e) => setCollege(e.target.value)}
 								/>
 							</div>
@@ -101,7 +133,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="email"
-									value={email}
+									value={userData.email}
 									onChange={(e) => setEmail(e.target.value)}
 								/>
 							</div>
@@ -111,7 +143,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="tel"
-									value={phone}
+									value={userData.phone}
 									onChange={(e) => setPhone(e.target.value)}
 								/>
 							</div>
@@ -121,7 +153,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="password"
-									value={currPassword}
+									value={userData.password}
 									onChange={(e) => setCurrPassword(e.target.value)}
 								/>
 								<button onClick={password_toggle}>

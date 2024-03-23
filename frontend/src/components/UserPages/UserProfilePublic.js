@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Particless from "../Common/Particles/Particless";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import username from "../../assets/pics/username.png";
 import name from "../../assets/pics/name.png";
 import email from "../../assets/pics/email.png";
@@ -14,6 +15,37 @@ import Fade from "react-reveal/Fade";
 import "./UserProfilePublic.css";
 
 const UserProfilePublic = (props) => {
+	const { user_id } = useParams();
+	const [userData, setUserData] = useState([]);
+	useEffect(() => {
+		const fetchUserInfo = async () => {
+			try {
+				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/user/profile/${user_id}`, {
+				const response = await fetch(
+					`http://127.0.0.1:8080/user/profile/${user_id}`,
+					{
+						method: "GET",
+					}
+				);
+				if (!response.ok) {
+					const jsonData = await response.json();
+					// toast.error(jsonData.message);
+					console.log(jsonData);
+				} else {
+					const jsonData = await response.json();
+					console.log("User Info fetched successfully:", jsonData.message);
+					setUserData(jsonData);
+					console.log(jsonData);
+				}
+			} catch (error) {
+				console.error("Error fetching User Info:", error);
+				// toast.error("Error fetching posts. Please try again later.");
+			}
+		};
+
+		fetchUserInfo();
+	}, []);
+	
 	const { showLogout } = props;
 	const history = useHistory();
 	useEffect(() => {
@@ -115,7 +147,7 @@ const UserProfilePublic = (props) => {
 										</div>
 										<div className="profile_text_box">
 											<h2>
-												__user__profile123 <br />
+												{userData.username} <br />
 												<span>Username</span>
 											</h2>
 										</div>
@@ -134,7 +166,7 @@ const UserProfilePublic = (props) => {
 										</div>
 										<div className="profile_text_box">
 											<h2>
-												FirstName lastname <br />
+											{userData.f_name}&nbsp;{userData.l_name} <br />
 												<span>Name</span>
 											</h2>
 										</div>
@@ -153,7 +185,7 @@ const UserProfilePublic = (props) => {
 										</div>
 										<div className="profile_text_box">
 											<h2>
-												Indian Institute of Technology, Kharagpur <br />
+											{userData.college} <br />
 												<span>College</span>
 											</h2>
 										</div>
@@ -172,7 +204,7 @@ const UserProfilePublic = (props) => {
 										</div>
 										<div className="profile_text_box">
 											<h2>
-												email.abc123@email.com <br />
+											{userData.email}  <br />
 												<span>Email</span>
 											</h2>
 										</div>
