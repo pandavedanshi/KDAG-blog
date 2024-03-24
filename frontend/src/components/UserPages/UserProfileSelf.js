@@ -25,14 +25,19 @@ import "./UserProfileSelf.css";
 const UserProfileSelf = (props) => {
 	const { user_id } = useParams();
 	const [userData, setUserData] = useState([]);
+	const token = localStorage.getItem("access_token");
 	useEffect(() => {
 		const fetchUserInfo = async () => {
 			try {
 				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/user/profile/${user_id}`, {
 				const response = await fetch(
-					`http://127.0.0.1:8080/user/profile/${user_id}`,
+					`http://127.0.0.1:8080/user/profile_self/${user_id}`,
 					{
 						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+							Authorization: `Bearer ${token}`,
+						},
 					}
 				);
 				if (!response.ok) {
@@ -64,7 +69,6 @@ const UserProfileSelf = (props) => {
 	const [activeContent, setActiveContent] = useState("content6");
 	const [toggle, setToggle] = useState(false);
 	const password_hashed = "***************  ";
-	const [currPassword, setCurrPassword] = useState("password123  ");
 
 	const password_toggle = () => {
 		setToggle(!toggle);
@@ -276,7 +280,8 @@ const UserProfileSelf = (props) => {
 										</div>
 										<div className="profile_self_text_box">
 											<h2 className="profile_self_password_view">
-												{toggle ? currPassword : password_hashed}
+												{/* {toggle ? userData.password : password_hashed} */}
+												{toggle ? "userData.password" : password_hashed}
 												<button onClick={password_toggle}>
 													{toggle ? (
 														<img src={password_hidden_img} />

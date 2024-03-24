@@ -4,9 +4,11 @@ import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 
+
 import "./CreateDiscussion.css";
- 
+
 const CreateDiscussion = (props) => {
+	const [rDirect, setRDirect] = useState(false);
 	const [userId, setUserId] = useState("empty");
 	const token = localStorage.getItem("access_token");
 
@@ -36,6 +38,7 @@ const CreateDiscussion = (props) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
+			
 			console.log(process.env.REACT_APP_FETCH_URL);
 			const formData = {
 				message: discussionContent,
@@ -48,11 +51,11 @@ const CreateDiscussion = (props) => {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
 					},
 					body: JSON.stringify({
 						...formData,
 					}),
-					// credentials: "include",
 				}
 			);
 
@@ -62,11 +65,16 @@ const CreateDiscussion = (props) => {
 			} else {
 				const jsonData = await response.json();
 				console.log("Discussion created successfully:", jsonData.message);
+				setRDirect(true);
 			}
 		} catch (error) {
 			console.error("Error creating discussion(catch):", error);
 		}
 	};
+
+	if (rDirect) {
+		history.push("/forum");
+	}
 
 	return (
 		<div>

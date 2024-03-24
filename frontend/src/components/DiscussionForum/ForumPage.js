@@ -18,12 +18,11 @@ const ForumPage = () => {
 				if (!response.ok) {
 					const jsonData = await response.json();
 					// toast.error(jsonData.message);
-					console.log(jsonData);
+					console.log(jsonData.message);
 				} else {
 					const jsonData = await response.json();
 					console.log("Posts fetched successfully:", jsonData.message);
 					setPosts(jsonData.posts);
-					console.log(jsonData);
 				}
 			} catch (error) {
 				console.error("Error fetching posts:", error);
@@ -51,14 +50,9 @@ const ForumPage = () => {
 							</button>
 						</div>
 					</div>
-					{/* {posts.map((post) => (
-						<Fade bottom key={index}>
-							<DiscussionCard post={post} />
-						</Fade>
-					))} */}
 					{posts.map((post) => (
 						<Fade bottom key={post.post_id}>
-							<DiscussionCard post={post} />
+							<DiscussionCard post={post} numReplies={post.replies} />
 						</Fade>
 					))}
 				</div>

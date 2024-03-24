@@ -15,22 +15,6 @@ const DiscussionPage = () => {
 			<Fade left>
 				<HeaderDiscussion />
 			</Fade>
-			{/* <Fade bottom>
-				<DiscussionComment />
-			</Fade>
-			<Fade bottom>
-				<DiscussionComment />
-			</Fade>
-			<Fade bottom>
-				<DiscussionComment />
-			</Fade>
-			<Fade bottom>
-				<DiscussionComment />
-			</Fade>
-
-			<Fade bottom>
-				<DiscussionComment />
-			</Fade> */}
 			<Particless />
 		</>
 	);

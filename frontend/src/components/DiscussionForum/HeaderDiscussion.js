@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import Fade from "react-reveal/Fade";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./DiscussionCard.css";
 import profileImage from "./profile.jpeg";
@@ -10,10 +11,22 @@ import DiscussionComment from "./DiscussionComment";
 import { jwtDecode } from "jwt-decode";
 
 const HeaderDiscussion = () => {
-	const { post_id } = useParams();
+	const { post_id, numReplies } = useParams();
 	const [post, setPost] = useState([]);
+	const history = useHistory();
+	const [deleted, setDeleted] = useState(false);
+	const [jsonData, setJsonData] = useState([]);
 	const [userId, setUserId] = useState("empty");
 	const token = localStorage.getItem("access_token");
+	const [showDelete, setShowDelete] = useState(false);
+	useEffect(() => {
+		if (userId === post.author_id) {
+			setShowDelete(true);
+		} else {
+			setShowDelete(false);
+		}
+	}, [post.author_id]);
+
 	useEffect(() => {
 		if (token) {
 			try {
@@ -45,12 +58,12 @@ const HeaderDiscussion = () => {
 				if (!response.ok) {
 					const jsonData = await response.json();
 					// toast.error(jsonData.message);
-					console.log(jsonData);
+					console.log("Error", jsonData);
 				} else {
 					const jsonData = await response.json();
 					console.log("Post fetched successfully:", jsonData.message);
 					setPost(jsonData.post);
-					console.log(jsonData);
+					setJsonData(jsonData);
 				}
 			} catch (error) {
 				console.error("Error fetching posts:", error);
@@ -59,7 +72,7 @@ const HeaderDiscussion = () => {
 		};
 
 		fetchPosts();
-	}, []);
+	}, [post_id]);
 
 	const [showReplies, setShowReplies] = useState(false);
 
@@ -67,20 +80,52 @@ const HeaderDiscussion = () => {
 		setShowReplies(!showReplies);
 	};
 
-	const replies = [
-		<Fade bottom key={1}>
-			<DiscussionComment />
-		</Fade>,
-		<Fade bottom key={2}>
-			<DiscussionComment />
-		</Fade>,
-		<Fade bottom key={3}>
-			<DiscussionComment />
-		</Fade>,
-		<Fade bottom key={4}>
-			<DiscussionComment />
-		</Fade>,
-	];
+	const handleDelete = async () => {
+		try {
+			console.log(post_id, "////////////", userId);
+			// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/get_posts`, {
+			const response = await fetch(
+				`http://127.0.0.1:8080/delete_post/${post_id}/${userId}`,
+				{
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+			if (!response.ok) {
+				const jsonData = await response.json();
+				// toast.error(jsonData.message);
+				console.log("Error", jsonData);
+			} else {
+				const jsonData = await response.json();
+				console.log("Post fetched successfully:", jsonData.message);
+				setDeleted(true);
+			}
+		} catch (error) {
+			console.error("Error fetching posts:", error);
+			// toast.error("Error fetching posts. Please try again later.");
+		}
+	};
+
+	useEffect(() => {
+		if (deleted) {
+			history.push("/forum");
+		}
+	}, [deleted]);
+
+	const replies = jsonData.post
+		? jsonData.post.replies.map((reply, index) => (
+				<Fade bottom key={index + 1}>
+					<DiscussionComment
+						post_id={post_id}
+						level={(index + 1).toString()}
+						reply={reply}
+					/>
+				</Fade>
+		  ))
+		: [];
 
 	return (
 		<div className="header-discussion-card-container">
@@ -117,15 +162,21 @@ const HeaderDiscussion = () => {
 						<div className="header-discussion-card-actions-commented">
 							<button onClick={toggleReplies}>
 								<img src={icon_commented} />
-								17
+								{numReplies}
 							</button>
 						</div>
 						<div className="header-discussion-card-actions-delete">
-							<Link to="/create_comment">Comment</Link>
+							{token && (
+								<button>
+									<Link to="/create_comment">Comment</Link>
+								</button>
+							)}
 						</div>
-						<div className="header-discussion-card-actions-delete">
-							<button>Delete post</button>
-						</div>
+						{showDelete && (
+							<div className="header-discussion-card-actions-delete">
+								<button onClick={handleDelete}>Delete post</button>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>

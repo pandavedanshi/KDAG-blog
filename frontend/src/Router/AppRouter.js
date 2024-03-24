@@ -80,7 +80,7 @@ const AppRouter = () => {
 						{/* <Route path="/discussion_page_id">
 							<DiscussionPage />
 						</Route> */}
-						<Route path="/discussion_page/:post_id">
+						<Route path="/discussion_page/:post_id/:numReplies">
 							<DiscussionPage />
 						</Route>
 

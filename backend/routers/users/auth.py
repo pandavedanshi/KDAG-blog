@@ -1,6 +1,11 @@
 from flask import request, jsonify
 import bcrypt
-from flask_jwt_extended import create_access_token, jwt_required, get_jwt_header
+from flask_jwt_extended import (
+    create_access_token,
+    jwt_required,
+    get_jwt_header,
+    get_jwt_identity,
+)
 from flask import Blueprint
 from bson import ObjectId
 
@@ -79,5 +84,60 @@ def profile(uid):
         }
         return jsonify(user_info), 200
     except Exception as error:
-        print("Error in getting profile ",error)
+        print("Error in getting profile ", error)
         return jsonify({"message": "Error in fetching profile"}), 500
+
+
+@user_auth.route("/profile_self/<string:uid>", methods=["GET"])
+@jwt_required()
+def profile_self(uid):
+    try:
+        from app import mongo
+
+        users = mongo.db.users
+        user = users.find_one(ObjectId(uid))
+        if not user:
+            return jsonify({"message": "No such user exists"}), 401
+        user_info = {key: value for key, value in user.items() if key != "_id"}
+        user_info["password"] = user["password"]
+
+        return jsonify(user_info), 200
+    except Exception as error:
+        print("Error in getting profile ", error)
+        return jsonify({"message": "Error in fetching profile"}), 500
+
+
+    
+@user_auth.route("/edit_profile/<string:uid>", methods=["PUT"])
+@jwt_required()
+def edit_profile(uid):
+    try:
+        from app import mongo
+
+        users = mongo.db.users
+        data = request.get_json()
+        current_user = get_jwt_identity()
+        user = users.find_one({"_id": ObjectId(uid)})
+        if not user:
+            return jsonify({"message": "No such user exists"}), 401
+
+        reqd_fields = ["username", "f_name", "l_name", "email", "phone", "college"]
+
+        updated_data = {key: user.get(key) for key in reqd_fields}
+
+        for key in reqd_fields:
+            if data.get(key) is not None:
+                updated_data[key] = data[key]
+
+        users.update_one({"_id": ObjectId(uid)}, {"$set": updated_data})
+
+        updated_user = users.find_one({"_id": ObjectId(uid)})
+
+        updated_user["_id"] = str(updated_user["_id"])
+
+        return jsonify({"message": "Profile edited successfully", "user": updated_user}), 200
+    except Exception as error:
+        print(error)
+        return jsonify({"message": "Error in profile editing"}), 500
+
+

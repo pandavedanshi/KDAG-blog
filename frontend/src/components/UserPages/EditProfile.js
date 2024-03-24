@@ -8,15 +8,20 @@ import "./EditProfile.css";
 
 const EditProfile = (props) => {
 	const { user_id } = useParams();
-	const [userData, setUserData] = useState([]);
+	const [userData, setUserData] = useState({});
+	const token = localStorage.getItem("access_token");
 	useEffect(() => {
 		const fetchUserInfo = async () => {
 			try {
 				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/user/profile/${user_id}`, {
 				const response = await fetch(
-					`http://127.0.0.1:8080/user/profile/${user_id}`,
+					`http://127.0.0.1:8080/user/profile_self/${user_id}`,
 					{
 						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+							Authorization: `Bearer ${token}`,
+						},
 					}
 				);
 				if (!response.ok) {
@@ -27,7 +32,6 @@ const EditProfile = (props) => {
 					const jsonData = await response.json();
 					console.log("User Info fetched successfully:", jsonData.message);
 					setUserData(jsonData);
-					console.log(jsonData);
 				}
 			} catch (error) {
 				console.error("Error fetching User Info:", error);
@@ -42,39 +46,58 @@ const EditProfile = (props) => {
 	const history = useHistory();
 	const [toggle, setToggle] = useState(false);
 	const password_hashed = "***************  ";
-	const [newPasswordButton, setNewPasswordButton] = useState(false);
-	const [username, setUsername] = useState("_username_123.abc");
-	const [firstName, setFirstName] = useState("FirstName");
-	const [lastName, setLastName] = useState("LastName");
-	const [college, setCollege] = useState(
-		"Indian Institute of Technology,Kharagpur"
-	);
-	const [email, setEmail] = useState("email.abc@email.com");
-	const [phone, setPhone] = useState("1234567890");
-	const [currPassword, setCurrPassword] = useState("password123  ");
+	const [username, setUsername] = useState(userData.username);
+	const [firstName, setFirstName] = useState(userData.f_name);
+	const [lastName, setLastName] = useState(userData.l_name);
+	const [college, setCollege] = useState(userData.college);
+	const [email, setEmail] = useState(userData.email);
+	const [phone, setPhone] = useState(userData.phone);
 
-	const password_toggle = () => {
-		setToggle(!toggle);
-	};
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		console.log(
-			username,
-			firstName,
-			lastName,
-			college,
-			email,
-			phone,
-			currPassword
-		);
-	};
+	// const password_toggle = () => {
+	// 	setToggle(!toggle);
+	// };
 
 	useEffect(() => {
 		if (!showLogout) {
 			history.push("/auth");
 		}
 	}, [showLogout]);
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		const newData = {
+			username : "Aakarsh123",
+			f_name : "Aakarsh",
+			l_name : "Raaj",
+			email : "aakarsh@mail.com",
+			college : "IIT KGP",
+			phone : "99999999999",
+
+		};
+
+		// await fetch(`${process.env.REACT_APP_FETCH_URL}/user/login`, {
+		const token = localStorage.getItem("access_token");
+		await fetch(`http://127.0.0.1:8080/user/edit_profile/${user_id}`, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${token}`,
+			},
+			body: JSON.stringify({
+				...newData,
+			}),
+		}).then(async (res) => {
+			let jsonData = await res.json();
+			if (!res.ok) {
+				// toast.error(jsonData.message);
+				console.log(jsonData.message);
+			}
+			else {
+				console.log("Profile edited sucessfully");
+				history.push(`/user_profile_self/${user_id}`);
+			}
+		});
+	};
 
 	return (
 		<div>
@@ -103,7 +126,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="text"
-									value={userData.f_name}
+									value={userData.f_name}	
 									onChange={(e) => setFirstName(e.target.value)}
 								/>
 							</div>
@@ -148,7 +171,7 @@ const EditProfile = (props) => {
 								/>
 							</div>
 
-							<div className="edit_profile_password">
+							{/* <div className="edit_profile_password">
 								<label>Password</label>
 								<br />
 								<input
@@ -163,7 +186,7 @@ const EditProfile = (props) => {
 										<img src={password_show_img} />
 									)}
 								</button>
-							</div>
+							</div> */}
 							<input type="submit" value="Update" />
 						</form>
 					</div>

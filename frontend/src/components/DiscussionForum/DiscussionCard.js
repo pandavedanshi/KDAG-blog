@@ -5,11 +5,11 @@ import icon_viewed from "./asset_viewed.png";
 import icon_commented from "./asset_comment.png";
 import { Link } from "react-router-dom";
 
-const DiscussionCard = ({ post }) => {
+const DiscussionCard = ({ post, numReplies }) => {
 
 	return (
 		<Link
-			to={`/discussion_page/${post.post_id}`}
+			to={`/discussion_page/${post.post_id}/${numReplies}`}
 			className="discussion-card-container"
 		>
 			<div className="discussion-card">
@@ -28,13 +28,13 @@ const DiscussionCard = ({ post }) => {
 					</div>
 				</div>
 				<div className="discussion-card-actions item item-fixed">
-					<div className="discussion-card-actions-viewed">
+					{/* <div className="discussion-card-actions-viewed">
 						<img src={icon_viewed} alt="Viewed" />
 						{post.views}
-					</div>
+					</div> */}
 					<div className="discussion-card-actions-commented">
 						<img src={icon_commented} alt="Commented" />
-						{post.comments}
+						{numReplies}
 						
 					</div>
 				</div>

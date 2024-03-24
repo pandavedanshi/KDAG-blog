@@ -6,6 +6,8 @@ import Dropdown from "./Dropdown";
 import { Link, NavLink } from "react-router-dom";
 import forum_img from "../../../assets/pics/forum.png";
 import register_img from "../../../assets/pics/register.png";
+import profile_icon from "../../../assets/pics/profile_icon.png";
+import { jwtDecode } from "jwt-decode";
 
 const active_style = {
 	borderBottom: "2px solid rgba(255, 255, 255, 0.8)",
@@ -14,6 +16,22 @@ const active_style = {
 };
 
 const Navbar = ({ color, noborder, showLogout }) => {
+	const [userId, setUserId] = useState("empty");
+	const token = localStorage.getItem("access_token");
+
+	useEffect(() => {
+		if (token) {
+			try {
+				const decodedToken = jwtDecode(token);
+				if (decodedToken && decodedToken.sub && decodedToken.sub.user_id) {
+					setUserId(decodedToken.sub.user_id);
+				}
+			} catch (error) {
+				console.error("Error decoding token:", error);
+			}
+		}
+	}, [token]);
+
 	useEffect(() => {
 		const navColor = (e) => {
 			let nav = document.getElementsByClassName("kdag-nav")[0];
@@ -109,6 +127,16 @@ const Navbar = ({ color, noborder, showLogout }) => {
 								</NavLink>
 							</div>
 						)}
+						{showLogout && (
+							<div className="kdag-nav-item">
+								<NavLink
+									activeStyle={active_style}
+									to={`/user_profile_self/${userId}`}
+								>
+									<img src={profile_icon} alt="" />
+								</NavLink>
+							</div>
+						)}
 						{/* <div className="kdag-nav-item">
               <Link to="#">Go Down</Link>
             </div> */}
@@ -178,6 +206,14 @@ const Navbar = ({ color, noborder, showLogout }) => {
 											<NavLink to="/auth">
 												{" "}
 												<img src={register_img} alt="" />
+											</NavLink>
+										</li>
+									)}
+									{!showLogout && (
+										<li>
+											<NavLink to={`/user_profile_self/${userId}`}>
+												{" "}
+												<img src={profile_icon} alt="" />
 											</NavLink>
 										</li>
 									)}

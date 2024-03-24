@@ -1,18 +1,40 @@
-from flask import request, jsonify, Flask
-from flask_jwt_extended import jwt_required, JWTManager
+from flask import request, jsonify
+from flask_jwt_extended import jwt_required, get_jwt_identity 
 from flask import Blueprint
 from bson import ObjectId
 import base64
-from flask_cors import CORS
-
-
-app = Flask(__name__)
-CORS(app, supports_credentials=True)
-jwt = JWTManager(app)
 
 post_crud = Blueprint("post_crud", __name__)
 
 
+# @post_crud.route("/create_post/<string:sid>", methods=["POST"])
+# @jwt_required()
+# def add_post(sid):
+#     try:
+#         from app import mongo
+
+#         users = mongo.db.users
+#         if not users.find_one(ObjectId(sid)):
+#             return jsonify({"message": "Invalid student id"}), 401
+#         # data = request.form.get()
+#         post_data = {}
+#         # post_data['message'] = data['message']
+#         post_data["message"] = request.form["message"]
+#         post_data["replies"] = []
+#         post_data["author_id"] = sid
+#         img_file = request.files.get("img")
+
+#         if not img_file:
+#             post_data["image"] = "No image attached"
+#         else:
+#             img_data = img_file.read()
+#             post_data["image"] = img_data
+#         posts = mongo.db.posts
+#         posts.insert_one(post_data)
+#         return jsonify({"message": "Post Created"}), 200
+#     except Exception as error:
+#         print("Error" ,error)
+#         return jsonify({"message": "Error in posting"}), 500
 @post_crud.route("/create_post/<string:sid>", methods=["POST"])
 @jwt_required()
 def add_post(sid):
@@ -22,25 +44,30 @@ def add_post(sid):
         users = mongo.db.users
         if not users.find_one(ObjectId(sid)):
             return jsonify({"message": "Invalid student id"}), 401
-        # data = request.form.get()
-        post_data = {}
-        # post_data['message'] = data['message']
-        post_data["message"] = request.form["message"]
+
+        post_data = request.get_json()  # Get JSON data from request
+        if not post_data:
+            return jsonify({"message": "No JSON data received"}), 400
+        
         post_data["replies"] = []
+
         post_data["author_id"] = sid
         img_file = request.files.get("img")
 
         if not img_file:
-            post_data["image"] = "No image attached"
+            post_data["image"] = None
         else:
             img_data = img_file.read()
             post_data["image"] = img_data
+
         posts = mongo.db.posts
         posts.insert_one(post_data)
+
         return jsonify({"message": "Post Created"}), 200
     except Exception as error:
-        print(error)
+        print("Error:", error)
         return jsonify({"message": "Error in posting"}), 500
+
 
 
 # @post_crud.route('/get_posts', methods=['GET'])
@@ -88,6 +115,7 @@ def get_posts():
                     + " "
                     + users.find_one(ObjectId(post["author_id"]))["l_name"],
                     "image": image_base64,
+                    "replies": len(post["replies"]), 
                     "author_id": post["author_id"],
                     "post_id": str(post["_id"]),
                 }
@@ -161,3 +189,29 @@ def get_post(pid):
     except Exception as error:
         print("Error fetching post:", error)
         return jsonify({"message": "Error in fetching post"}), 500
+    
+    
+@post_crud.route('/delete_post/<string:pid>/<string:uid>', methods=['DELETE'])
+@jwt_required()
+def delete_post(pid, uid):
+    try:
+        from app import mongo
+
+        posts = mongo.db.posts
+        user_id = ObjectId(uid)
+
+        post = posts.find_one(ObjectId(pid))
+        if not post:
+            return jsonify({"message": "Invalid post id"}), 404
+
+        post_user = ObjectId(post['author_id'])
+
+        if user_id != post_user:
+            return jsonify({"message": "You are not authorized to delete this post"}), 402
+
+        posts.delete_one({'_id': ObjectId(pid)})
+        return jsonify({'message': 'Post deleted successfully'}), 200
+    except Exception as error:
+        print(error)
+        return jsonify({"message": "Error in deleting posts"}), 500
+
