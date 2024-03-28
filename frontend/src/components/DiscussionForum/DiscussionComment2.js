@@ -16,6 +16,7 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 	const [showDelete, setShowDelete] = useState(false);
 	const [jsonData, setJsonData] = useState([]);
 	const nextLevelReplies = reply.replies.length;
+	console.log(level);
 
 	useEffect(() => {
 		const fetchUserInfo = async () => {
@@ -30,12 +31,11 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 				if (!response.ok) {
 					const jsonData = await response.json();
 					// toast.error(jsonData.message);
-					console.log(jsonData);
+					console.log(jsonData.message);
 				} else {
 					const jsonData = await response.json();
 					console.log("User Info fetched successfully:", jsonData.message);
 					setAuthorName(jsonData.username);
-					console.log("sdfadsfa", jsonData);
 				}
 			} catch (error) {
 				console.error("Error fetching User Info:", error);
@@ -73,6 +73,7 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/get_posts`, {
 				const formData = {
 					level: level,
+
 				};
 				const response = await fetch(
 					`http://127.0.0.1:8080/reply/get_replies/${post_id}`,
@@ -89,7 +90,7 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 				if (!response.ok) {
 					const jsonData = await response.json();
 					// toast.error(jsonData.message);
-					console.log(jsonData);
+					console.log(jsonData.message);
 				} else {
 					const jsonData = await response.json();
 					console.log("replies fetched successfully:", jsonData.message);
@@ -158,7 +159,9 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 						<div className="header-discussion-card-actions-delete">
 							{token && (
 								<button>
-									<Link to="/create_comment">Comment</Link>
+									<Link to={`/create_comment/${post_id}/${level}`}>
+										Comment
+									</Link>
 								</button>
 							)}
 						</div>

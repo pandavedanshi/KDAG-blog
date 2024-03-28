@@ -19,6 +19,8 @@ const HeaderDiscussion = () => {
 	const [userId, setUserId] = useState("empty");
 	const token = localStorage.getItem("access_token");
 	const [showDelete, setShowDelete] = useState(false);
+	const [currLevel, setCurrLevel] = useState("none")
+
 	useEffect(() => {
 		if (userId === post.author_id) {
 			setShowDelete(true);
@@ -82,7 +84,6 @@ const HeaderDiscussion = () => {
 
 	const handleDelete = async () => {
 		try {
-			console.log(post_id, "////////////", userId);
 			// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/get_posts`, {
 			const response = await fetch(
 				`http://127.0.0.1:8080/delete_post/${post_id}/${userId}`,
@@ -168,7 +169,7 @@ const HeaderDiscussion = () => {
 						<div className="header-discussion-card-actions-delete">
 							{token && (
 								<button>
-									<Link to="/create_comment">Comment</Link>
+									<Link to={`/create_comment/${post_id}/${currLevel}`}>Comment</Link>
 								</button>
 							)}
 						</div>

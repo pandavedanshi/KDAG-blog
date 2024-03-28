@@ -166,7 +166,9 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 						<div className="header-discussion-card-actions-delete">
 							{token && (
 								<button>
-									<Link to="/create_comment">Comment</Link>
+									<Link to={`/create_comment/${post_id}/${level}`}>
+										Comment
+									</Link>
 								</button>
 							)}
 						</div>

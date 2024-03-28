@@ -68,7 +68,7 @@ const AppRouter = () => {
 						<Route path="/create_discussion">
 							<CreateDiscussion showLogout={showLogout} />
 						</Route>
-						<Route path="/create_comment">
+						<Route path="/create_comment/:post_id/:currLevel">
 							<CreateComment showLogout={showLogout} />
 						</Route>
 						<Route path="/user_profile_self/:user_id">

@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./AuthPage.css";
 
 const AuthPage = (props) => {
+	const particless = React.useMemo(() => <Particless />, []);
 	const { showLogout, setShowLogout } = props;
 	const history = useHistory();
 	const [isSignUpActive, setIsSignUpActive] = useState(false);
@@ -219,7 +220,7 @@ const AuthPage = (props) => {
 
 				<ToastContainer />
 			</Fade>
-			<Particless />
+			{particless}
 		</>
 	);
 };
