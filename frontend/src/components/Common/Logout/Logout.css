@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 7%;
     right: 3%;
-	z-index: 1000000;
+	z-index: 555555;
 }
 
 .logout_container_01{
@@ -15,7 +15,7 @@
 
 .logout_container_01 button{
     border-radius: 50%;
-    cursor: pointer;
+	cursor:none;
     padding: 10px 12px;
 	border-radius: 60px;
 	font-weight: 600;

@@ -21,7 +21,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	cursor: pointer;
 }
 .profile_self_container .profile_self_icon .profile_self_img_box {
 	position: absolute;

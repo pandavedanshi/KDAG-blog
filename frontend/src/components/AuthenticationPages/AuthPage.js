@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Fade from "react-reveal/Fade";
 import { useHistory } from "react-router-dom";
 import Particless from "../Common/Particles/Particless";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import "./AuthPage.css";
 
 const AuthPage = (props) => {
@@ -12,7 +12,8 @@ const AuthPage = (props) => {
 	const history = useHistory();
 	const [isSignUpActive, setIsSignUpActive] = useState(false);
 	const [rDirect, setRDirect] = useState(false);
-
+	const [showUsermessage, setShowUsermessage] = useState(false);
+	const [userMessage, setUserMessage] = useState("");
 	const [register_firstName, setRegister_firstName] = useState("");
 	const [register_lastName, setRegister_lastName] = useState("");
 	const [register_userName, setRegister_userName] = useState("");
@@ -21,9 +22,14 @@ const AuthPage = (props) => {
 	const [register_password, setRegister_password] = useState("");
 	const [register_retypePassword, setRegister_retypePassword] = useState("");
 	const [register_phone, setRegister_phone] = useState("");
-
 	const [login_username, setLogin_username] = useState("");
 	const [login_password, setLogin_password] = useState("");
+
+	if (showUsermessage) {
+		setTimeout(() => {
+			setUserMessage(false);
+		}, 30000);
+	}
 
 	const toggleForm = () => {
 		setIsSignUpActive((prev) => !prev);
@@ -32,8 +38,25 @@ const AuthPage = (props) => {
 	const submitRegister = async (e) => {
 		e.preventDefault();
 
+		if (register_phone.length !== 10) {
+			setUserMessage("The phone number must be 10 digits long");
+			setShowUsermessage(true);
+			return;
+		}
+
 		if (register_retypePassword !== register_password) {
-			console.log("The passwords you have typed do not match");
+			setUserMessage("The passwords you have typed do not match");
+			setShowUsermessage(true);
+			return;
+		}
+
+		const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+		if (!passwordRegex.test(register_password)) {
+			setUserMessage(
+				"Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one number"
+			);
+			setShowUsermessage(true);
 			return;
 		}
 
@@ -47,26 +70,32 @@ const AuthPage = (props) => {
 			password: register_password,
 		};
 
-		const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/user/signup`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({
-				...user_data,
-			}),
-		});
+		const response = await fetch(
+			`${process.env.REACT_APP_FETCH_URL}/user/signup`,
+			{
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					...user_data,
+				}),
+			}
+		);
 		try {
 			if (response.ok) {
 				const content = await response.json();
-				console.log("Registration successful");
+				setUserMessage("Registration successful");
+				setShowUsermessage(true);
 				setIsSignUpActive(!isSignUpActive);
 			} else {
 				const jsonData = await response.json();
-				toast.error(jsonData.message);
-				console.log(jsonData.message);
+				// toast.error(jsonData.message);
+				setUserMessage(jsonData.message);
+				setShowUsermessage(true);
 			}
 		} catch (error) {
-			console.error("Error occurred during registration:", error);
-			toast.error("An error occurred during registration.");
+			setUserMessage(error);
+			setShowUsermessage(true);
+			// toast.error("An error occurred during registration.");
 		}
 	};
 
@@ -88,12 +117,12 @@ const AuthPage = (props) => {
 		}).then(async (res) => {
 			let jsonData = await res.json();
 			if (!res.ok) {
-				toast.error(jsonData.message);
-				console.log(jsonData);
-			}
-			//   setLoading(false);
-			else {
-				console.log("login successful");
+				// toast.error(jsonData.message);
+				setUserMessage(jsonData);
+				setShowUsermessage(true);
+			} else {
+				setUserMessage("login successful");
+				setShowUsermessage(true);
 				localStorage.setItem("access_token", jsonData.access_token);
 				setRDirect(true);
 				setShowLogout(true);
@@ -114,6 +143,11 @@ const AuthPage = (props) => {
 			<Fade left>
 				{!showLogout && (
 					<div className="auth-outer-container">
+						{showUsermessage ? (
+							<div className="user_message">{userMessage}</div>
+						) : (
+							<div></div>
+						)}
 						<div className={`auth-container ${isSignUpActive ? "active" : ""}`}>
 							<div className="form-container sign-up">
 								<form onSubmit={submitRegister}>
@@ -142,10 +176,15 @@ const AuthPage = (props) => {
 										onChange={(e) => setRegister_college(e.target.value)}
 									/>
 									<input
-										type="tel"
+										type="number"
 										placeholder="Phone"
 										required
 										onChange={(e) => setRegister_phone(e.target.value)}
+										style={{
+											"-webkit-appearance": "textfield",
+											"-moz-appearance": "textfield",
+											appearance: "textfield",
+										}}
 									/>
 									<input
 										type="email"
@@ -194,7 +233,7 @@ const AuthPage = (props) => {
 											Sign in to unlock access to your account and explore all
 											the features our website has to offer.
 										</p>
-										<button className="hidden" onClick={toggleForm}>
+										<button className="hidden" onClick={toggleForm} style={{cursor:"none"}}>
 											Sign In
 										</button>
 									</div>
@@ -204,7 +243,7 @@ const AuthPage = (props) => {
 											It looks like you haven't registered yet. Register now to
 											unlock access to all of the site's features.
 										</p>
-										<button className="hidden" onClick={toggleForm}>
+										<button className="hidden" onClick={toggleForm} style={{cursor:"none"}}>
 											Sign Up
 										</button>
 									</div>
@@ -214,7 +253,7 @@ const AuthPage = (props) => {
 					</div>
 				)}
 
-				<ToastContainer />
+				{/* <ToastContainer /> */}
 			</Fade>
 			{particless}
 		</>

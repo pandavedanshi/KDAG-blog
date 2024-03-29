@@ -18,7 +18,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	cursor: pointer;
 }
 .edit_profile_button a {
 	display: flex;
@@ -29,7 +28,6 @@
 }
 .edit_profile_button a img {
 	height: 25px;
-	cursor: pointer;
 }
 .edit_profile_button_icon {
 	border: green solid 2px;
@@ -53,7 +51,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	cursor: pointer;
 }
 .profile_container .profile_icon .profile_img_box {
 	position: absolute;

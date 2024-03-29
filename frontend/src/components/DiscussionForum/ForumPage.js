@@ -41,8 +41,8 @@ const ForumPage = () => {
 				<div className="discussion-cards">
 					<div className="discussion-card-create-new">
 						<div className="discussion-card-button-container">
-							<button>
-								<Link to="/create_discussion">
+							<button style={{cursor:"none"}}>
+								<Link to="/create_discussion" style={{cursor:"none"}}>
 									<img src={icon_add} />
 									New Discussion
 								</Link>

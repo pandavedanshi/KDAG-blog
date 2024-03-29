@@ -19,7 +19,7 @@ const HeaderDiscussion = () => {
 	const [userId, setUserId] = useState("empty");
 	const token = localStorage.getItem("access_token");
 	const [showDelete, setShowDelete] = useState(false);
-	const [currLevel, setCurrLevel] = useState("none")
+	const [currLevel, setCurrLevel] = useState("none");
 
 	useEffect(() => {
 		if (userId === post.author_id) {
@@ -143,10 +143,16 @@ const HeaderDiscussion = () => {
 					{/* <div className="header-discussion-card-description-heading">
 						Description Title Description Title Description Title
 					</div> */}
-					<div className="header-discussion-card-posted-by">
+					<div
+						className="header-discussion-card-posted-by"
+						style={{ cursor: "none" }}
+					>
 						<Link to={userProfileLink}>{post.author_name}</Link>
 					</div>
-					<div className="header-discussion-card-last-comment-date">
+					<div
+						className="header-discussion-card-last-comment-date"
+						style={{ cursor: "none" }}
+					>
 						posted on <span>{post.date}</span>
 					</div>
 
@@ -159,21 +165,28 @@ const HeaderDiscussion = () => {
 							53
 						</div> */}
 						<div className="header-discussion-card-actions-commented">
-							<button onClick={toggleReplies}>
+							<button onClick={toggleReplies} style={{cursor:"none"}}>
 								<img src={icon_commented} />
 								{numReplies}
 							</button>
 						</div>
 						<div className="header-discussion-card-actions-delete">
 							{token && (
-								<button>
-									<Link to={`/create_comment/${post_id}/${currLevel}`}>Comment</Link>
+								<button style={{ cursor: "none" }}>
+									<Link
+										style={{ cursor: "none" }}
+										to={`/create_comment/${post_id}/${currLevel}`}
+									>
+										Comment
+									</Link>
 								</button>
 							)}
 						</div>
 						{showDelete && (
 							<div className="header-discussion-card-actions-delete">
-								<button onClick={handleDelete}>Delete post</button>
+								<button onClick={handleDelete} style={{ cursor: "none" }}>
+									Delete post
+								</button>
 							</div>
 						)}
 					</div>

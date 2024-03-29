@@ -190,7 +190,7 @@ const EditProfile = (props) => {
 									)}
 								</button>
 							</div> */}
-							<input type="submit" value="Update" />
+							<input type="submit" value="Update" style={{cursor:"none"}}/>
 						</form>
 					</div>
 				</div>

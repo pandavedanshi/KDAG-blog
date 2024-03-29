@@ -8,6 +8,20 @@
 	justify-content: center;
 }
 
+.user_message{
+	border: red solid 2px;
+	color: rgb(255, 161, 161);
+	padding: 10px;
+	position: absolute;
+	top: 105px;
+	font-size: 18px;
+	font-weight: 700;
+	z-index: 9999999;
+	border-radius: 25px;
+	background: rgba(255, 0, 0, 0.096);
+	backdrop-filter: blur(5px);
+}
+
 .auth-container * {
 	margin: 0;
 	padding: 0;
@@ -53,7 +67,7 @@
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
 	margin-top: 10px;
-	cursor: pointer;
+	cursor: none;
 }
 
 .auth-container button[type="submit"] {
@@ -65,7 +79,7 @@
 	font-weight: 600;
 	letter-spacing: 0.5px;
 	margin-top: 10px;
-	cursor: pointer;
+	cursor: none;
 	background-image: linear-gradient(to right, #4E3EFF, #40dfe4, #30dd8a, #269660);
 	background-size: 300% 100%;
 	transition: all 0.3s;
@@ -320,4 +334,12 @@
 		font-size: 12px;
 		font-weight: 600;
 	}
+	.user_message{
+	padding: 8px;
+	top: 95px;
+	font-size: 15px;
+	border-radius: 25px;
+	background: rgba(255, 0, 0, 0.2);
+	backdrop-filter: blur(10px);
+}
 }

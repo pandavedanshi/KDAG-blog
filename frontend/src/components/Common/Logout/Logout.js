@@ -27,8 +27,8 @@ const Logout = (props) => {
 	};
 
 	const logout_button = (
-		<div className="logout_container_01">
-			<button onClick={handle_logout}>
+		<div className="logout_container_01" >
+			<button onClick={handle_logout} style={{cursor:"none"}}>
 				<img src={logout_icon} alt="img" />
 			</button>
 		</div>
