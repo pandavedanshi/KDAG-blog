@@ -16,7 +16,7 @@ const Header = () => {
       <div className={`forum-page-header ${isVisible ? "show" : ""}`}>
         <div class="forum-page-header-title">DISCUSSION FORUM</div>
         <div class="forum-page-header-subtitle" style={{ fontSize: "1.2rem" }}>
-      This is the sample description to the page. Please follow the community guidelines.</div>
+      Please follow the community guidelines.</div>
     </div>
   );
 };

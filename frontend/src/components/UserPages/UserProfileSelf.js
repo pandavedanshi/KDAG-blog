@@ -23,6 +23,7 @@ import Fade from "react-reveal/Fade";
 import "./UserProfileSelf.css";
 
 const UserProfileSelf = (props) => {
+	const particless = React.useMemo(() => <Particless />, []);
 	const { user_id } = useParams();
 	const [userData, setUserData] = useState([]);
 	const token = localStorage.getItem("access_token");
@@ -295,7 +296,7 @@ const UserProfileSelf = (props) => {
 							</div>
 						</div>
 					</Fade>
-					<Particless />
+					{particless}
 				</div>
 			)}
 		</>
