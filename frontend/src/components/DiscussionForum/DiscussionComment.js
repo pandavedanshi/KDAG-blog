@@ -197,7 +197,7 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 					</div>
 					<div className="discussion-comment-bottom">
 						<div className="discussion-comment-posted-by">
-							<Link to={userProfileLink}>{authorName}</Link>
+							<Link to={userProfileLink} style={{ cursor: "none" }}>{authorName}</Link>
 						</div>
 						{/* <div className="header-discussion-card-posted-by">
 							<Link to={userProfileLink}>{authorName}</Link>
@@ -207,15 +207,16 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 							<span>{reply.date}</span>
 						</div>
 						<div className="discussion-comment-actions-commented">
-							<button onClick={toggleReplies}>
+							<button onClick={toggleReplies} style={{ cursor: "none" }}>
 								<img src={icon_commented} />
 								{nextLevelReplies}
 							</button>
 						</div>
 						<div className="header-discussion-card-actions-delete">
 							{token && (
-								<button>
+								<button style={{ cursor: "none" }}>
 									<Link
+									style={{ cursor: "none" }}
 										to={`/create_comment/${post_id}/${encodeURIComponent(
 											level
 										)}`}
@@ -227,7 +228,7 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 						</div>
 						{showDelete && (
 							<div className="header-discussion-card-actions-delete">
-								<button onClick={handleDelete}>Delete</button>
+								<button onClick={handleDelete} style={{ cursor: "none" }}>Delete</button>
 							</div>
 						)}
 						{/* <div className="discussion-comment-actions">

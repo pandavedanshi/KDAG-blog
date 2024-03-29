@@ -163,6 +163,11 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 		}
 	}, [deleted]);
 
+	const userProfileLink =
+		userId === reply.author_id
+			? `/user_profile_self/${reply.author_id}`
+			: `/user_profile_public/${reply.author_id}`;
+
 	return (
 		<div className="discussion-comment-container">
 			<div className="discussion-comment">
@@ -187,21 +192,26 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					</div>
 					<div className="discussion-comment-bottom">
-						<div className="discussion-comment-posted-by">{authorName}</div>
+						<div className="discussion-comment-posted-by">
+							<Link to={userProfileLink} style={{ cursor: "none" }}>
+								{authorName}
+							</Link>
+						</div>
 
 						<div className="discussion-comment-last-comment-date">
 							<span>{reply.date}</span>
 						</div>
 						<div className="discussion-comment-actions-commented">
-							<button onClick={toggleReplies}>
+							<button onClick={toggleReplies} style={{ cursor: "none" }}>
 								<img src={icon_commented} />
 								{nextLevelReplies}
 							</button>
 						</div>
 						<div className="header-discussion-card-actions-delete">
 							{token && (
-								<button>
+								<button style={{ cursor: "none" }}>
 									<Link
+										style={{ cursor: "none" }}
 										to={`/create_comment/${post_id}/${encodeURIComponent(
 											level
 										)}`}
@@ -213,7 +223,9 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 						</div>
 						{showDelete && (
 							<div className="header-discussion-card-actions-delete">
-								<button onClick={handleDelete}>Delete</button>
+								<button onClick={handleDelete} style={{ cursor: "none" }}>
+									Delete
+								</button>
 							</div>
 						)}
 					</div>

@@ -8,7 +8,7 @@
 	justify-content: center;
 }
 
-.user_message{
+.user_message {
 	border: red solid 2px;
 	color: rgb(255, 161, 161);
 	padding: 10px;
@@ -21,6 +21,7 @@
 	background: rgba(255, 0, 0, 0.096);
 	backdrop-filter: blur(5px);
 }
+
 
 .auth-container * {
 	margin: 0;
@@ -80,7 +81,13 @@
 	letter-spacing: 0.5px;
 	margin-top: 10px;
 	cursor: none;
-	background-image: linear-gradient(to right, #4E3EFF, #40dfe4, #30dd8a, #269660);
+	background-image: linear-gradient(
+		to right,
+		#4e3eff,
+		#40dfe4,
+		#30dd8a,
+		#269660
+	);
 	background-size: 300% 100%;
 	transition: all 0.3s;
 	width: 300px;
@@ -334,12 +341,12 @@
 		font-size: 12px;
 		font-weight: 600;
 	}
-	.user_message{
-	padding: 8px;
-	top: 95px;
-	font-size: 15px;
-	border-radius: 25px;
-	background: rgba(255, 0, 0, 0.2);
-	backdrop-filter: blur(10px);
-}
+	.user_message {
+		padding: 8px;
+		top: 95px;
+		font-size: 15px;
+		border-radius: 25px;
+		background: rgba(255, 0, 0, 0.2);
+		backdrop-filter: blur(10px);
+	}
 }

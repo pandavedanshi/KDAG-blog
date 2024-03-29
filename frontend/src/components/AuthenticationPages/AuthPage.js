@@ -27,8 +27,8 @@ const AuthPage = (props) => {
 
 	if (showUsermessage) {
 		setTimeout(() => {
-			setUserMessage(false);
-		}, 30000);
+			setShowUsermessage(false);
+		}, 25000);
 	}
 
 	const toggleForm = () => {
@@ -37,6 +37,19 @@ const AuthPage = (props) => {
 
 	const submitRegister = async (e) => {
 		e.preventDefault();
+
+		const isValidEmail = (email) => {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			return emailRegex.test(email);
+		};
+
+		if (!isValidEmail(register_email)) {
+			setUserMessage(
+				"Please enter a valid email address."
+			);
+			setShowUsermessage(true);
+			return;
+		}
 
 		if (register_phone.length !== 10) {
 			setUserMessage("The phone number must be 10 digits long");
@@ -95,7 +108,6 @@ const AuthPage = (props) => {
 		} catch (error) {
 			setUserMessage(error);
 			setShowUsermessage(true);
-			// toast.error("An error occurred during registration.");
 		}
 	};
 
@@ -106,28 +118,37 @@ const AuthPage = (props) => {
 			password: login_password,
 		};
 
-		await fetch(`${process.env.REACT_APP_FETCH_URL}/user/login`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				...user_data,
-			}),
-		}).then(async (res) => {
-			let jsonData = await res.json();
-			if (!res.ok) {
-				// toast.error(jsonData.message);
-				setUserMessage(jsonData);
+		try {
+			const response = await fetch(
+				`${process.env.REACT_APP_FETCH_URL}/user/login`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						...user_data,
+					}),
+				}
+			);
+
+			if (!response.ok) {
+				const jsonData = await response.json();
+				setUserMessage(jsonData.message);
 				setShowUsermessage(true);
-			} else {
-				setUserMessage("login successful");
-				setShowUsermessage(true);
-				localStorage.setItem("access_token", jsonData.access_token);
-				setRDirect(true);
-				setShowLogout(true);
+				return;
 			}
-		});
+
+			const jsonData = await response.json();
+			setUserMessage("Login successful");
+			setShowUsermessage(true);
+			localStorage.setItem("access_token", jsonData.access_token);
+			setRDirect(true);
+			setShowLogout(true);
+		} catch (error) {
+			setUserMessage("An error occurred during login. Please try again later.");
+			setShowUsermessage(true);
+		}
 	};
 
 	if (rDirect) {
@@ -143,11 +164,10 @@ const AuthPage = (props) => {
 			<Fade left>
 				{!showLogout && (
 					<div className="auth-outer-container">
-						{showUsermessage ? (
-							<div className="user_message">{userMessage}</div>
-						) : (
-							<div></div>
+						{showUsermessage && (
+							<div className={`user_message`}>{userMessage}</div>
 						)}
+
 						<div className={`auth-container ${isSignUpActive ? "active" : ""}`}>
 							<div className="form-container sign-up">
 								<form onSubmit={submitRegister}>
@@ -233,7 +253,11 @@ const AuthPage = (props) => {
 											Sign in to unlock access to your account and explore all
 											the features our website has to offer.
 										</p>
-										<button className="hidden" onClick={toggleForm} style={{cursor:"none"}}>
+										<button
+											className="hidden"
+											onClick={toggleForm}
+											style={{ cursor: "none" }}
+										>
 											Sign In
 										</button>
 									</div>
@@ -243,7 +267,11 @@ const AuthPage = (props) => {
 											It looks like you haven't registered yet. Register now to
 											unlock access to all of the site's features.
 										</p>
-										<button className="hidden" onClick={toggleForm} style={{cursor:"none"}}>
+										<button
+											className="hidden"
+											onClick={toggleForm}
+											style={{ cursor: "none" }}
+										>
 											Sign Up
 										</button>
 									</div>
