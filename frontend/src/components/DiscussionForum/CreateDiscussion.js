@@ -4,10 +4,18 @@ import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 
-
 import "./CreateDiscussion.css";
 
 const CreateDiscussion = (props) => {
+	const particless = React.useMemo(() => <Particless />, []);
+	const currentDate = new Date();
+	const day = currentDate.getDate();
+	const month = currentDate.getMonth() + 1;
+	const year = currentDate.getFullYear();
+	const formattedDate = `${day.toString().padStart(2, "0")}-${month
+		.toString()
+		.padStart(2, "0")}-${year.toString().slice(-2)}`;
+
 	const [rDirect, setRDirect] = useState(false);
 	const [userId, setUserId] = useState("empty");
 	const token = localStorage.getItem("access_token");
@@ -38,15 +46,13 @@ const CreateDiscussion = (props) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			
-			console.log(process.env.REACT_APP_FETCH_URL);
 			const formData = {
 				message: discussionContent,
+				date: formattedDate,
 			};
 
 			const response = await fetch(
-				// `${process.env.REACT_APP_FETCH_URL}/create_post/${userId}`,
-				`http://127.0.0.1:8080/create_post/${userId}`,
+				`${process.env.REACT_APP_FETCH_URL}/create_post/${userId}`,
 				{
 					method: "POST",
 					headers: {
@@ -99,7 +105,7 @@ const CreateDiscussion = (props) => {
 					</Fade>
 				</div>
 			)}
-			<Particless />
+			{particless }
 		</div>
 	);
 };

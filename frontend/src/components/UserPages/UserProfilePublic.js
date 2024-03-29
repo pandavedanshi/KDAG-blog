@@ -20,9 +20,8 @@ const UserProfilePublic = (props) => {
 	useEffect(() => {
 		const fetchUserInfo = async () => {
 			try {
-				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/user/profile/${user_id}`, {
 				const response = await fetch(
-					`http://127.0.0.1:8080/user/profile/${user_id}`,
+					`${process.env.REACT_APP_FETCH_URL}/user/profile/${user_id}`,
 					{
 						method: "GET",
 					}
@@ -35,7 +34,6 @@ const UserProfilePublic = (props) => {
 					const jsonData = await response.json();
 					console.log("User Info fetched successfully:", jsonData.message);
 					setUserData(jsonData);
-					console.log(jsonData);
 				}
 			} catch (error) {
 				console.error("Error fetching User Info:", error);

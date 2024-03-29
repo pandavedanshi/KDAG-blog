@@ -8,13 +8,25 @@ import { jwtDecode } from "jwt-decode";
 import "./CreateDiscussion.css";
 
 const CreateComment = (props) => {
+	const particless = React.useMemo(() => <Particless />, []);
+	const currentDate = new Date();
+	const day = currentDate.getDate();
+	const month = currentDate.getMonth() + 1;
+	const year = currentDate.getFullYear();
+	const formattedDate = `${day.toString().padStart(2, "0")}-${month
+		.toString()
+		.padStart(2, "0")}-${year.toString().slice(-2)}`;
+
 	const { showLogout } = props;
-	const { post_id, currLevel } = useParams();
+	const { post_id } = useParams();
+	let { currLevel } = useParams();
+	currLevel = decodeURIComponent(currLevel);
 	const history = useHistory();
 	const [commentMessage, setCommentMessage] = useState("");
 	const token = localStorage.getItem("access_token");
 	const [rdirect, setRdirect] = useState(false);
 	const [level, setLevel] = useState(currLevel);
+	console.log(currLevel);
 	const [authorId, setAuthorId] = useState("");
 
 	useEffect(() => {
@@ -49,10 +61,10 @@ const CreateComment = (props) => {
 				message: commentMessage,
 				author_id: authorId,
 				level: level,
+				date: formattedDate,
 			};
-
 			const response = await fetch(
-				`http://127.0.0.1:8080/reply/create_reply/${post_id}`,
+				`${process.env.REACT_APP_FETCH_URL}/reply/create_reply/${post_id}`,
 				{
 					method: "POST",
 					headers: {
@@ -104,7 +116,7 @@ const CreateComment = (props) => {
 					</Fade>
 				</div>
 			)}
-			<Particless />
+			{particless}
 		</div>
 	);
 };

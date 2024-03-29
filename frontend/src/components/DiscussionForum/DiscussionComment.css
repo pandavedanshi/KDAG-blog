@@ -17,8 +17,8 @@
 	border-radius: 10px;
 	transition: all 0.5s;
 	background: rgba(255, 255, 255, 0.05);
-	backdrop-filter: blur(3px);
 	flex-grow: 1;
+	backdrop-filter: blur(3px);
 }
 
 /* .discussion-comment-image-container {
@@ -42,12 +42,12 @@
 	min-height: 110px;
 	padding: 12px;
 	background: rgba(255, 255, 255, 0.06);
-	backdrop-filter: blur(8px);
 	border-radius: 6px;
 	font-style: italic;
 	transition: all 0.5s;
 	width: 100%;
 	padding-bottom: 2px;
+	backdrop-filter: blur(8px);
 }
 .discussion-comment-description-details {
 	font-size: 15px;
@@ -84,12 +84,16 @@
 	color: cyan;
 	display: flex;
 	align-items: flex-end;
+	transition: all 0.3s;
+}
+.discussion-comment-posted-by:hover {
+	text-shadow: 0px 0px 15px cyan;
+	font-size: 18px;
 }
 .discussion-comment-last-comment {
 	height: 110px;
 	width: 200px;
 	background: rgba(255, 255, 255, 0.06);
-	backdrop-filter: blur(8px);
 	border-radius: 6px;
 	color: rgb(197, 197, 197);
 	font-style: italic;
@@ -100,6 +104,7 @@
 	justify-content: center;
 	font-weight: 500;
 	transition: all 0.5s;
+	backdrop-filter: blur(8px);
 }
 .discussion-comment-last-comment-user span {
 	font-weight: 600;

@@ -11,8 +11,7 @@ const ForumPage = () => {
 	useEffect(() => {
 		const fetchPosts = async () => {
 			try {
-				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/get_posts`, {
-				const response = await fetch(`http://127.0.0.1:8080/get_posts`, {
+				const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/get_posts`, {
 					method: "GET",
 				});
 				if (!response.ok) {

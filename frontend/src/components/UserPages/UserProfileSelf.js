@@ -29,9 +29,8 @@ const UserProfileSelf = (props) => {
 	useEffect(() => {
 		const fetchUserInfo = async () => {
 			try {
-				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/user/profile/${user_id}`, {
 				const response = await fetch(
-					`http://127.0.0.1:8080/user/profile_self/${user_id}`,
+					`${process.env.REACT_APP_FETCH_URL}/user/profile_self/${user_id}`,
 					{
 						method: "GET",
 						headers: {
@@ -48,7 +47,6 @@ const UserProfileSelf = (props) => {
 					const jsonData = await response.json();
 					console.log("User Info fetched successfully:", jsonData.message);
 					setUserData(jsonData);
-					console.log(jsonData);
 				}
 			} catch (error) {
 				console.error("Error fetching User Info:", error);
@@ -144,7 +142,7 @@ const UserProfileSelf = (props) => {
 								>
 									<img src={phone2_img} />
 								</div>
-								<div
+								{/* <div
 									className={`profile_self_img_box ${
 										activeContent === "content7" && "profile_self_active"
 									}`}
@@ -152,7 +150,7 @@ const UserProfileSelf = (props) => {
 									onMouseOver={() => handleMouseOver("content7")}
 								>
 									<img src={password2_img} />
-								</div>
+								</div> */}
 							</div>
 
 							<div className="profile_self_content">
@@ -274,13 +272,12 @@ const UserProfileSelf = (props) => {
 									}`}
 									id="content7"
 								>
-									<div className="profile_self_card">
+									{/* <div className="profile_self_card">
 										<div className="profile_self_img_box">
 											<img src={password_img} />
 										</div>
 										<div className="profile_self_text_box">
 											<h2 className="profile_self_password_view">
-												{/* {toggle ? userData.password : password_hashed} */}
 												{toggle ? "userData.password" : password_hashed}
 												<button onClick={password_toggle}>
 													{toggle ? (
@@ -293,7 +290,7 @@ const UserProfileSelf = (props) => {
 												<span>Password</span>
 											</h2>
 										</div>
-									</div>
+									</div> */}
 								</div>
 							</div>
 						</div>

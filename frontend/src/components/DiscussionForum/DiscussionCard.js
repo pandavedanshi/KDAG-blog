@@ -6,7 +6,6 @@ import icon_commented from "./asset_comment.png";
 import { Link } from "react-router-dom";
 
 const DiscussionCard = ({ post, numReplies }) => {
-
 	return (
 		<Link
 			to={`/discussion_page/${post.post_id}/${numReplies}`}
@@ -35,15 +34,14 @@ const DiscussionCard = ({ post, numReplies }) => {
 					<div className="discussion-card-actions-commented">
 						<img src={icon_commented} alt="Commented" />
 						{numReplies}
-						
 					</div>
 				</div>
 				<div className="discussion-card-last-comment item item-fixed">
-					<div className="discussion-card-last-comment-user">
-						<strong>Last post</strong> by <span>{post.last_commenter}</span>
-					</div>
+					{/* <div className="discussion-card-last-comment-user">
+						<span>{post.date}</span>
+					</div> */}
 					<div className="discussion-card-last-comment-date">
-						at <span>{post.last_comment_date}</span>
+						<strong>Last edited</strong> on <span>{post.date}</span>
 					</div>
 				</div>
 			</div>

@@ -50,9 +50,8 @@ const HeaderDiscussion = () => {
 	useEffect(() => {
 		const fetchPosts = async () => {
 			try {
-				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/get_posts`, {
 				const response = await fetch(
-					`http://127.0.0.1:8080/get_post/${post_id}`,
+					`${process.env.REACT_APP_FETCH_URL}/get_post/${post_id}`,
 					{
 						method: "GET",
 					}
@@ -84,9 +83,8 @@ const HeaderDiscussion = () => {
 
 	const handleDelete = async () => {
 		try {
-			// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/get_posts`, {
 			const response = await fetch(
-				`http://127.0.0.1:8080/delete_post/${post_id}/${userId}`,
+				`${process.env.REACT_APP_FETCH_URL}/delete_post/${post_id}/${userId}`,
 				{
 					method: "DELETE",
 					headers: {
@@ -149,7 +147,7 @@ const HeaderDiscussion = () => {
 						<Link to={userProfileLink}>{post.author_name}</Link>
 					</div>
 					<div className="header-discussion-card-last-comment-date">
-						posted <span>13:35 22 Dec 2023</span>
+						posted on <span>{post.date}</span>
 					</div>
 
 					<div className="header-discussion-card-description-details">

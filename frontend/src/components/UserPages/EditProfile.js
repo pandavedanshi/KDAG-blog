@@ -7,15 +7,25 @@ import password_hidden_img from "../../assets/pics/password_hidden.png";
 import "./EditProfile.css";
 
 const EditProfile = (props) => {
+	const particless = React.useMemo(() => <Particless />, []);
 	const { user_id } = useParams();
-	const [userData, setUserData] = useState({});
 	const token = localStorage.getItem("access_token");
+	const { showLogout } = props;
+	const history = useHistory();
+	const [toggle, setToggle] = useState(false);
+	const password_hashed = "***************  ";
+	const [username, setUsername] = useState("");
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [college, setCollege] = useState("");
+	const [email, setEmail] = useState("");
+	const [phone, setPhone] = useState("");
+
 	useEffect(() => {
 		const fetchUserInfo = async () => {
 			try {
-				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/user/profile/${user_id}`, {
 				const response = await fetch(
-					`http://127.0.0.1:8080/user/profile_self/${user_id}`,
+					`${process.env.REACT_APP_FETCH_URL}/user/profile_self/${user_id}`,
 					{
 						method: "GET",
 						headers: {
@@ -31,7 +41,12 @@ const EditProfile = (props) => {
 				} else {
 					const jsonData = await response.json();
 					console.log("User Info fetched successfully:", jsonData.message);
-					setUserData(jsonData);
+					setFirstName(jsonData.f_name);
+					setCollege(jsonData.college);
+					setEmail(jsonData.email);
+					setLastName(jsonData.l_name);
+					setPhone(jsonData.phone);
+					setUsername(jsonData.username);
 				}
 			} catch (error) {
 				console.error("Error fetching User Info:", error);
@@ -41,17 +56,6 @@ const EditProfile = (props) => {
 
 		fetchUserInfo();
 	}, []);
-
-	const { showLogout } = props;
-	const history = useHistory();
-	const [toggle, setToggle] = useState(false);
-	const password_hashed = "***************  ";
-	const [username, setUsername] = useState(userData.username);
-	const [firstName, setFirstName] = useState(userData.f_name);
-	const [lastName, setLastName] = useState(userData.l_name);
-	const [college, setCollege] = useState(userData.college);
-	const [email, setEmail] = useState(userData.email);
-	const [phone, setPhone] = useState(userData.phone);
 
 	// const password_toggle = () => {
 	// 	setToggle(!toggle);
@@ -66,18 +70,17 @@ const EditProfile = (props) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const newData = {
-			username : "Aakarsh123",
-			f_name : "Aakarsh",
-			l_name : "Raaj",
-			email : "aakarsh@mail.com",
-			college : "IIT KGP",
-			phone : "99999999999",
+			username : username,
+			f_name : firstName,
+			l_name : lastName,
+			email : email,
+			college : college,
+			phone : phone,
 
 		};
 
-		// await fetch(`${process.env.REACT_APP_FETCH_URL}/user/login`, {
 		const token = localStorage.getItem("access_token");
-		await fetch(`http://127.0.0.1:8080/user/edit_profile/${user_id}`, {
+		await fetch(`${process.env.REACT_APP_FETCH_URL}/user/edit_profile/${user_id}`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
@@ -117,7 +120,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="text"
-									value={userData.username}
+									value={username}
 									onChange={(e) => setUsername(e.target.value)}
 								/>
 							</div>
@@ -126,7 +129,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="text"
-									value={userData.f_name}	
+									value={firstName}	
 									onChange={(e) => setFirstName(e.target.value)}
 								/>
 							</div>
@@ -136,7 +139,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="text"
-									value={userData.l_name}
+									value={lastName}
 									onChange={(e) => setLastName(e.target.value)}
 								/>
 							</div>
@@ -146,7 +149,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="text"
-									value={userData.college}
+									value={college}
 									onChange={(e) => setCollege(e.target.value)}
 								/>
 							</div>
@@ -156,7 +159,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="email"
-									value={userData.email}
+									value={email}
 									onChange={(e) => setEmail(e.target.value)}
 								/>
 							</div>
@@ -166,7 +169,7 @@ const EditProfile = (props) => {
 								<br />
 								<input
 									type="tel"
-									value={userData.phone}
+									value={phone}
 									onChange={(e) => setPhone(e.target.value)}
 								/>
 							</div>
@@ -192,7 +195,7 @@ const EditProfile = (props) => {
 					</div>
 				</div>
 			)}
-			<Particless />
+			{particless }
 		</div>
 	);
 };

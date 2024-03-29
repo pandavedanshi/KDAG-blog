@@ -64,6 +64,7 @@ def get_posts():
                     "image": image_base64,
                     "replies": len(post["replies"]), 
                     "author_id": post["author_id"],
+                    "date" : post["date"],
                     "post_id": str(post["_id"]),
                 }
             )
@@ -98,6 +99,7 @@ def get_post(pid):
             + " "
             + users.find_one(ObjectId(post["author_id"]))["l_name"],
             "author_id": post["author_id"],
+            "date" : post["date"],
             "image": image_base64,
             "replies": post["replies"],
         }

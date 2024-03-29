@@ -31,9 +31,9 @@
 	padding: 25px;
 	height: 95%;
 	background: linear-gradient(to right, #00ed631d, #001e2b45);
-	backdrop-filter: blur(10px);
 	border-bottom-right-radius: 15px;
 	border-top-right-radius: 200px;
+	backdrop-filter: blur(10px);
 }
 
 .edit_profile_container form label {

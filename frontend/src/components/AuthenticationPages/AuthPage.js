@@ -29,8 +29,6 @@ const AuthPage = (props) => {
 		setIsSignUpActive((prev) => !prev);
 	};
 
-	// await fetch(`${process.env.REACT_APP_FETCH_URL}/user/signup`, {
-
 	const submitRegister = async (e) => {
 		e.preventDefault();
 
@@ -49,7 +47,7 @@ const AuthPage = (props) => {
 			password: register_password,
 		};
 
-		const response = await fetch("http://127.0.0.1:8080/user/signup", {
+		const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/user/signup`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({
@@ -78,10 +76,8 @@ const AuthPage = (props) => {
 			username: login_username,
 			password: login_password,
 		};
-		console.log(process.env.REACT_APP_FETCH_URL);
 
-		// await fetch(`${process.env.REACT_APP_FETCH_URL}/user/login`, {
-		await fetch(`http://127.0.0.1:8080/user/login`, {
+		await fetch(`${process.env.REACT_APP_FETCH_URL}/user/login`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

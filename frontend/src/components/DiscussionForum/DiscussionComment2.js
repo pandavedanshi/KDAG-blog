@@ -4,13 +4,17 @@ import "./DiscussionComment.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import DiscussionComment from "./DiscussionComment";
 import icon_commented from "./asset_comment.png";
+import { useHistory } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
 const DiscussionComment2 = ({ post_id, level, reply }) => {
 	const [showReplies, setShowReplies] = useState(false);
 	const [replies, setReplies] = useState([]);
+	const [deleted, setDeleted] = useState(false);
 	const [authorId, setAuthorId] = useState(reply.author_id);
 	const [authorName, setAuthorName] = useState("");
+	const [date, setDate] = useState("");
+	const history = useHistory();
 	const [userId, setUserId] = useState("empty");
 	const token = localStorage.getItem("access_token");
 	const [showDelete, setShowDelete] = useState(false);
@@ -21,9 +25,8 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 	useEffect(() => {
 		const fetchUserInfo = async () => {
 			try {
-				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/user/profile/${user_id}`, {
 				const response = await fetch(
-					`http://127.0.0.1:8080/user/profile/${authorId}`,
+					`${process.env.REACT_APP_FETCH_URL}/user/profile/${authorId}`,
 					{
 						method: "GET",
 					}
@@ -36,6 +39,7 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 					const jsonData = await response.json();
 					console.log("User Info fetched successfully:", jsonData.message);
 					setAuthorName(jsonData.username);
+					setDate(jsonData.date);
 				}
 			} catch (error) {
 				console.error("Error fetching User Info:", error);
@@ -52,7 +56,7 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 		} else {
 			setShowDelete(false);
 		}
-	}, [reply.author_id]);
+	}, [reply.author_id, userId]);
 
 	useEffect(() => {
 		if (token) {
@@ -73,10 +77,9 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/get_posts`, {
 				const formData = {
 					level: level,
-
 				};
 				const response = await fetch(
-					`http://127.0.0.1:8080/reply/get_replies/${post_id}`,
+					`${process.env.REACT_APP_FETCH_URL}/reply/get_replies/${post_id}`,
 					{
 						method: "POST",
 						headers: {
@@ -121,6 +124,45 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 		  ))
 		: [];
 
+	const handleDelete = async () => {
+		try {
+			const formData = {
+				level: level,
+			};
+			const response = await fetch(
+				`${process.env.REACT_APP_FETCH_URL}/reply/delete_reply/${post_id}`,
+				{
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
+					},
+					body: JSON.stringify({
+						...formData,
+					}),
+				}
+			);
+			if (!response.ok) {
+				const jsonData = await response.json();
+				// toast.error(jsonData.message);
+				console.log("Error", jsonData);
+			} else {
+				const jsonData = await response.json();
+				console.log("reply deleted successfully", jsonData.message);
+				setDeleted(true);
+			}
+		} catch (error) {
+			console.error("Error deleting replies", error);
+			// toast.error("Error fetching posts. Please try again later.");
+		}
+	};
+
+	useEffect(() => {
+		if (deleted) {
+			history.push("/forum");
+		}
+	}, [deleted]);
+
 	return (
 		<div className="discussion-comment-container">
 			<div className="discussion-comment">
@@ -148,7 +190,7 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 						<div className="discussion-comment-posted-by">{authorName}</div>
 
 						<div className="discussion-comment-last-comment-date">
-							posted on <span>22 Dec 2023</span>
+							<span>{reply.date}</span>
 						</div>
 						<div className="discussion-comment-actions-commented">
 							<button onClick={toggleReplies}>
@@ -159,7 +201,11 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 						<div className="header-discussion-card-actions-delete">
 							{token && (
 								<button>
-									<Link to={`/create_comment/${post_id}/${level}`}>
+									<Link
+										to={`/create_comment/${post_id}/${encodeURIComponent(
+											level
+										)}`}
+									>
 										Comment
 									</Link>
 								</button>
@@ -167,7 +213,7 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 						</div>
 						{showDelete && (
 							<div className="header-discussion-card-actions-delete">
-								<button>Delete post</button>
+								<button onClick={handleDelete}>Delete</button>
 							</div>
 						)}
 					</div>

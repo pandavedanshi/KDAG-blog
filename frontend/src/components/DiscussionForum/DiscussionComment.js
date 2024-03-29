@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Fade from "react-reveal/Fade";
 import "./DiscussionComment.css";
+import { useHistory } from "react-router-dom";
 import DiscussionComment2 from "./DiscussionComment2";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import icon_commented from "./asset_comment.png";
@@ -11,8 +12,9 @@ import { jwtDecode } from "jwt-decode";
 const DiscussionComment = ({ post_id, level, reply }) => {
 	const [showReplies, setShowReplies] = useState(false);
 	const [userId, setUserId] = useState("empty");
-
+	const history = useHistory();
 	const [authorId, setAuthorId] = useState(reply.author_id);
+	const [deleted, setDeleted] = useState(false);
 	const [authorName, setAuthorName] = useState("");
 	const token = localStorage.getItem("access_token");
 	const [jsonData, setJsonData] = useState([]);
@@ -22,13 +24,13 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 	useEffect(() => {
 		const fetchUserInfo = async () => {
 			try {
-				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/user/profile/${user_id}`, {
 				const response = await fetch(
-					`http://127.0.0.1:8080/user/profile/${authorId}`,
+					`${process.env.REACT_APP_FETCH_URL}/user/profile/${authorId}`,
 					{
 						method: "GET",
 					}
 				);
+
 				if (!response.ok) {
 					const jsonData = await response.json();
 					// toast.error(jsonData.message);
@@ -37,7 +39,6 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 					const jsonData = await response.json();
 					console.log("User Info fetched successfully:", jsonData.message);
 					setAuthorName(jsonData.username);
-					console.log("sdfadsfa", jsonData);
 				}
 			} catch (error) {
 				console.error("Error fetching User Info:", error);
@@ -54,7 +55,12 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 		} else {
 			setShowDelete(false);
 		}
-	}, [reply.author_id]);
+	}, [reply.author_id, userId]);
+
+	const userProfileLink =
+		userId === reply.author_id
+			? `/user_profile_self/${reply.author_id}`
+			: `/user_profile_public/${reply.author_id}`;
 
 	useEffect(() => {
 		if (token) {
@@ -72,12 +78,11 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 	useEffect(() => {
 		const fetchReplies = async () => {
 			try {
-				// const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/get_posts`, {
 				const formData = {
 					level: level,
 				};
 				const response = await fetch(
-					`http://127.0.0.1:8080/reply/get_replies/${post_id}`,
+					`${process.env.REACT_APP_FETCH_URL}/reply/get_replies/${post_id}`,
 					{
 						method: "POST",
 						headers: {
@@ -125,6 +130,45 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 		  ))
 		: [];
 
+	const handleDelete = async () => {
+		try {
+			const formData = {
+				level: level,
+			};
+			const response = await fetch(
+				`${process.env.REACT_APP_FETCH_URL}/reply/delete_reply/${post_id}`,
+				{
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
+					},
+					body: JSON.stringify({
+						...formData,
+					}),
+				}
+			);
+			if (!response.ok) {
+				const jsonData = await response.json();
+				// toast.error(jsonData.message);
+				console.log("Error", jsonData);
+			} else {
+				const jsonData = await response.json();
+				console.log("reply deleted successfully", jsonData.message);
+				setDeleted(true);
+			}
+		} catch (error) {
+			console.error("Error deleting replies", error);
+			// toast.error("Error fetching posts. Please try again later.");
+		}
+	};
+
+	useEffect(() => {
+		if (deleted) {
+			history.push("/forum");
+		}
+	}, [deleted]);
+
 	return (
 		<div className="discussion-comment-container">
 			<div className="discussion-comment">
@@ -152,10 +196,15 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					</div>
 					<div className="discussion-comment-bottom">
-						<div className="discussion-comment-posted-by">{authorName}</div>
+						<div className="discussion-comment-posted-by">
+							<Link to={userProfileLink}>{authorName}</Link>
+						</div>
+						{/* <div className="header-discussion-card-posted-by">
+							<Link to={userProfileLink}>{authorName}</Link>
+						</div> */}
 
 						<div className="discussion-comment-last-comment-date">
-							posted on <span>22 Dec 2023</span>
+							<span>{reply.date}</span>
 						</div>
 						<div className="discussion-comment-actions-commented">
 							<button onClick={toggleReplies}>
@@ -166,7 +215,11 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 						<div className="header-discussion-card-actions-delete">
 							{token && (
 								<button>
-									<Link to={`/create_comment/${post_id}/${level}`}>
+									<Link
+										to={`/create_comment/${post_id}/${encodeURIComponent(
+											level
+										)}`}
+									>
 										Comment
 									</Link>
 								</button>
@@ -174,7 +227,7 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 						</div>
 						{showDelete && (
 							<div className="header-discussion-card-actions-delete">
-								<button>Delete post</button>
+								<button onClick={handleDelete}>Delete</button>
 							</div>
 						)}
 						{/* <div className="discussion-comment-actions">
