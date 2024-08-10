@@ -7,7 +7,7 @@ import {
 	faCalendarDays,
 	faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import Poster from "../../assets/pics/events/Spring_of_Realtime_LLMs.png";
+import Poster from "../../assets/pics/events/KDAG ML Digest.jpg";
 
 //Components
 import Content from "./Content/Content.js";
@@ -18,7 +18,9 @@ import certificate from "../../assets/KDSH2022Certificates/Akash Kundu.png";
 import Header from "./Header/Header";
 
 const LandingPage = () => {
-	console.log("KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG ");
+	console.log(
+		"KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG "
+	);
 	const eligibleCandidates = [
 		["Aman Sharma", "amankumarsharma4084@gmail.com"],
 		["Kushaz Sehgal", "kushaz.sehgal@gmail.com"],
@@ -258,7 +260,7 @@ const LandingPage = () => {
 							<div className="banner-heading">
 								<h3 style={{ fontSize: "35px", fontWeight: "600" }}>
 									{/* CampusPulse: Igniting Innovation with Data */}
-									Spring of Realtime LLMs Bootcamp
+									ML Digest Blog Series 
 								</h3>
 							</div>
 						</div>
@@ -284,30 +286,20 @@ const LandingPage = () => {
                 and Mila, Canada.
 							</p> */}
 							<p>
-								Already registered for the "Spring of Realtime LLMs Bootcamp"?
-								If not, then you're missing out on some fantastic prizes and
-								invaluable learning opportunities!
+								We are excited to announce our collaboration with{" "}
+								<strong>Chi SquareX</strong> , one of India's top deep-tech startups
+								specializing in data science, machine learning, and AI.
+								Together, we're launching <strong>'ML Digest'</strong>, a blog series dedicated
+								to bringing you the latest advancements, trends, and insights in
+								machine learning and deep technology.
 								<br />
 								<br />
-								🏆Prizes Await!
-								<br />
-								<br />
-								Top 3 Participants: Win 3 XBOX Controllers each to elevate your
-								gaming experience! Participants Ranked 3 to 6: Take home JBL
-								Speakers for immersive sound quality. Participants Ranked 7 to
-								9: Enhance your photography skills with Phone Camera Lenses! 👕
-								Plus, there's a T-shirt and certificate for everyone who
-								completes the bootcamp.
-								<br />
-								<br />
-								📅 Mark Your Calendars:
-								<br />
-								Bootcamp Commencement: Starting on Monday, March 4th, 2024, join
-								us for three weeks of intensive learning.
-								<br />
-								Secure your spot and seize the opportunity to master realtime
-								LLMs with industry experts! Don't miss out on this chance to
-								level up your skills and win exciting prizes!
+								Starting on August 9th, this series will feature in-depth
+								articles, expert analyses, and cutting-edge research designed to
+								keep you informed and inspired by the industry's best. Stay
+								tuned for regular updates and get ready to explore the future of
+								technology with 'ML Digest.' Follow us and be part of the
+								innovation wave!
 							</p>
 						</div>
 					</div>
@@ -317,7 +309,7 @@ const LandingPage = () => {
 					<div className="banner-info-flex">
 						<div className="banner-info">
 							<FontAwesomeIcon icon={faCalendarDays} className="icon" shake />
-							<p id="banner-info">Starting on 4th March 2024</p>
+							<p id="banner-info">Starting on 9th August 2024</p>
 							<FontAwesomeIcon icon={faLocationDot} className="icon" flip />
 							<p id="banner-info">Online</p>
 						</div>
@@ -325,7 +317,7 @@ const LandingPage = () => {
 					{/* banner info ends */}
 
 					{/* banner button starts */}
-					<div className="banner-button-flex">
+					{/* <div className="banner-button-flex">
 						<a
 							href="https://docs.google.com/forms/d/e/1FAIpQLSeEyLD3U5-ZY47Hq1SN7sa354tAnCHeYUZzVTwMT7WQY6TGyw/viewform"
 							// href = "https://docs.google.com/forms/d/e/1FAIpQLScesbGd90BYDtRVTpAxmcMtwL4XmohK8VUOWPXD9p8SnyY-0Q/viewform?usp=sf_link"
@@ -337,12 +329,15 @@ const LandingPage = () => {
 								</button>
 							</div>
 						</a>
-						<a href="https://docs.google.com/forms/d/e/1FAIpQLSeEyLD3U5-ZY47Hq1SN7sa354tAnCHeYUZzVTwMT7WQY6TGyw/viewform" target="blank">
+						<a
+							href="https://docs.google.com/forms/d/e/1FAIpQLSeEyLD3U5-ZY47Hq1SN7sa354tAnCHeYUZzVTwMT7WQY6TGyw/viewform"
+							target="blank"
+						>
 							<button id="banner-button-media" class="btn-12">
 								<span>Register Now</span>
 							</button>
 						</a>
-					</div>
+					</div> */}
 				</div>
 				{/* banner button ends */}
 
