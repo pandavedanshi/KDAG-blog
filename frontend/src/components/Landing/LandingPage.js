@@ -1,14 +1,12 @@
 import React from "react";
 import EventCount from "./countdown/count";
 import "./LandingPage.css";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faCalendarDays,
 	faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-// import Poster from "../../assets/pics/Landscape.png";
 import Poster from "../../assets/pics/events/Spring_of_Realtime_LLMs.png";
 
 //Components
@@ -20,6 +18,7 @@ import certificate from "../../assets/KDSH2022Certificates/Akash Kundu.png";
 import Header from "./Header/Header";
 
 const LandingPage = () => {
+	console.log("KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG ");
 	const eligibleCandidates = [
 		["Aman Sharma", "amankumarsharma4084@gmail.com"],
 		["Kushaz Sehgal", "kushaz.sehgal@gmail.com"],
