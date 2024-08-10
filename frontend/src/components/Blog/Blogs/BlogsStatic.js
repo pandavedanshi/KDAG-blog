@@ -1,3 +1,4 @@
+import img15 from "../../../assets/pics/blogs/Decoding Math Notes.png"
 import img14 from "../../../assets/pics/blogs/google_cloud_credits.png"
 import img13 from "../../../assets/pics/blogs/UnveilingtheCosmos.png"
 import img12 from "../../../assets/pics/blogs/3d_Ken_Burns.gif"
@@ -168,6 +169,17 @@ const blogs = [
         tag: ["Data Science", "Machine Learning", "Google", "Cloud Credits", "Computing Power"],
         link: "https://kdagiit.medium.com/unlocking-horizons-with-google-cloud-credits-2fd0ed44d5d0",
         date: "17 Oct,2023"
+    },
+    {
+        index: "15",
+        img: img15,
+        topic: "ML Digest Blog Series",
+        title: "Decoding Math Notes: Apple's Latest Feature on iPadOS 18 and Uncovering VLMs",
+        authors: {},
+        description: "Welcome to the first post of ML Digest! In this series, brought to you by KDAG and Chi SquareX, we’ll explore the latest in machine learning, AI, and their impact on the world. In this inaugural post, we dive into Apple’s new iPadOS 18 feature that decodes math notes using Vision Language Models (VLMs). This technology combines computer vision with natural language processing to interpret handwritten math, enhancing educational tools and user experiences. Discover how Apple’s integration of VLMs is setting the stage for the future of AI-driven learning.",
+        tag: ["Machine Learning","AI","Computer Vision","Natural Language Processing","Education Technology","iPadOS","Vision Language Models"],
+        link: "https://kdagiit.medium.com/decoding-math-notes-apples-latest-feature-on-ipados-18-and-uncovering-vlms-d21f9a2ddfae",
+        date: "9 Aug, 2024"
     }
 
 ];

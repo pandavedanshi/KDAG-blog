@@ -58,7 +58,8 @@ const Countdown = ({ eventDate }) => {
 
   return (
     <div className='Banner-Eventislive'>
-      <h1>Registrations are Open Now</h1>
+      {/* <h1>Registrations are Open Now</h1> */}
+      <h1>Stay Tuned for More!</h1>
     </div>
   );
 };
