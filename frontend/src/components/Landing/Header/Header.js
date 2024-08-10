@@ -5,6 +5,7 @@ import logoBlue from "./../../../assets/svgs/logo-blue.svg";
 import headerGraphics from "./../../../assets/pics/main-screen.png";
 import logoTrans1 from "./../../../assets/svgs/logo-trans-1.svg";
 const Header = () => {
+  console.log("KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG ");
   return (
     <>
       <div className="header-container">
