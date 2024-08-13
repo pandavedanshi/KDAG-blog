@@ -1,3 +1,4 @@
+import img16 from "../../../assets/pics/blogs/ML_Digest_Llama_3o1.jpg"
 import img15 from "../../../assets/pics/blogs/Decoding Math Notes.png"
 import img14 from "../../../assets/pics/blogs/google_cloud_credits.png"
 import img13 from "../../../assets/pics/blogs/UnveilingtheCosmos.png"
@@ -180,6 +181,17 @@ const blogs = [
         tag: ["Machine Learning","AI","Computer Vision","Natural Language Processing","Education Technology","iPadOS","Vision Language Models"],
         link: "https://kdagiit.medium.com/decoding-math-notes-apples-latest-feature-on-ipados-18-and-uncovering-vlms-d21f9a2ddfae",
         date: "9 Aug, 2024"
+    },
+    {
+        index: "16",
+        img: img16,
+        topic: "ML Digest Blog Series",
+        title: "Breaking Barriers With LLAMA 3.1: A New Era of Open-Source AI",
+        authors: {},
+        description: "We’re back with another exciting post in the ML Digest series! Brought to you by KDAG and Chi SquareX, this blog dives into the latest advancements in AI technology. In this edition, we explore LLaMA 3.1, the groundbreaking model that’s revolutionizing the open-source AI landscape. Discover how this new release is setting new standards and pushing the boundaries of artificial intelligence with its cutting-edge features.Join us as we delve into the innovations of LLaMA 3.1 and its impact on the future of AI. Whether you're passionate about AI development or just curious about the latest tech trends, this blog provides a deep dive into the transformative potential of LLaMA 3.1.",
+        tag: ["LLaMA 3.1","AI","Open-Source AI","Natural Language Processing","AI Innovation","Language Models"],
+        link: "https://kdagiit.medium.com/breaking-barriers-with-llama-3-1-a-new-era-of-open-source-ai-8dedadf0dfeb",
+        date: "13 Aug, 2024"
     }
 
 ];
