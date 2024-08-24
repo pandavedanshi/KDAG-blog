@@ -1,5 +1,23 @@
 const members = [
 	{
+		name: "Kinjal Sensharma",
+		image: "images/Alumni_All_Images/Graduating Batch of 2024/Kinjal.jpeg",
+		email: "kssencoc@gmail.com",
+		facebook:
+			"https://www.facebook.com/share/RhRiQSs3bq4dudLb/?mibextid=qi2Omg",
+		twitter: "www.twitter.com",
+		linkedin: "https://www.linkedin.com/in/kinjal-sensharma-2597081bb/",
+	},
+	{
+		name: "Ayush Aryan",
+		image: "images/Alumni_All_Images/Graduating Batch of 2024/Ayush.jpeg",
+		email: "ayush.aryan71@gmail.com",
+		facebook:
+			"https://www.facebook.com/share/4bNEJzLLTrn9hGNv/?mibextid=qi2Omg",
+		twitter: "www.twitter.com",
+		linkedin: "https://www.linkedin.com/in/ayush-aryan-b73b24200",
+	},
+	{
 		image: "images/Advisors_2024_Photos/Nisarg.jpeg",
 		name: "Nisarg Bhavsar",
 		email: "nisargbhavsar25@gmail.com",
@@ -85,25 +103,6 @@ const members = [
 		twitter: "www.twitter.com",
 		linkedin: "https://www.linkedin.com/in/divyanshubaurai/",
 	},
-	
-    {
-        name: "Kinjal Sensharma",
-		image:"images/Alumni_All_Images/Graduating Batch of 2024/Kinjal.jpeg",
-		email: "kssencoc@gmail.com",
-		facebook: "https://www.facebook.com/share/RhRiQSs3bq4dudLb/?mibextid=qi2Omg",
-		twitter: "www.twitter.com",
-		linkedin: "https://www.linkedin.com/in/kinjal-sensharma-2597081bb/",
-		
-    },
-    {
-        name: "Ayush Aryan",
-		image:"images/Alumni_All_Images/Graduating Batch of 2024/Ayush.jpeg",
-		email: "ayush.aryan71@gmail.com",
-		facebook: "https://www.facebook.com/share/4bNEJzLLTrn9hGNv/?mibextid=qi2Omg",
-		twitter: "www.twitter.com",
-		linkedin: "https://www.linkedin.com/in/ayush-aryan-b73b24200",
-		
-    }
 ];
 
 export default members;
