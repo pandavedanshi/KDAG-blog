@@ -24,6 +24,7 @@ import EditProfile from '../components/UserPages/EditProfile.js';
 import Logout from '../components/Common/Logout/Logout.js';
 import CreateComment from '../components/DiscussionForum/CreateComment.js';
 import GalleryPage from '../components/GalleryPage/GalleyPage.js';
+import ImageGrid from "../components/GalleryPage/ImageGrid/ImageGrid.js";
 
 const AppRouter = () => {
   const [showLogout, setShowLogout] = useState(true);
@@ -87,7 +88,9 @@ const AppRouter = () => {
             <Route path="/discussion_page/:post_id/:numReplies">
               <DiscussionPage />
             </Route>
-
+			<Route path="/events-gallery">
+			  <ImageGrid />
+			</Route>
             <Route path="/winter-workshop">
               <WinterWorkshop />
             </Route>
