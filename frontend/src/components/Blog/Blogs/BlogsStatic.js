@@ -1,3 +1,4 @@
+import img18 from "../../../assets/pics/blogs/Neuralangelo.jpg"
 import img17 from "../../../assets/pics/blogs/SAM2.jpg"
 import img16 from "../../../assets/pics/blogs/ML_Digest_Llama_3o1.jpg"
 import img15 from "../../../assets/pics/blogs/Decoding Math Notes.png"
@@ -204,7 +205,19 @@ const blogs = [
         tag: ["SAM2","AI","Machine Learning","ComputerVision","KDAG","Innovation", "ChiSquareX"],
         link: "https://kdagiit.medium.com/advancing-video-and-image-segmentation-a-deep-dive-into-sam2-e9f30d9456e3",
         date: "22 Aug, 2024"
+    },
+    {
+        index: "18",
+        img: img18,
+        topic: "ML Digest Blog Series",
+        title: "Neuralangelo: Where Code Becomes Canvas",
+        authors: {},
+        description: "We’re back with another exciting post in the ML Digest series! Brought to you by KDAG and Chi SquareX, this blog continues to explore the cutting-edge developments in AI technology. In this edition, we focus on Neuralangelo by NVIDIA, a revolutionary AI model that transforms the digital canvas of code into lifelike 3D masterpieces.Discover how Neuralangelo is pushing the boundaries of 3D reconstruction by seamlessly integrating advanced computer vision and neural networks. Whether you’re an AI enthusiast or curious about the latest tech innovations, this blog provides a deep dive into how Nvidia’s Neuralangelo is redefining the future of digital artistry.",
+        tag: ["NVIDIA","AI","Machine Learning","KDAG","digital canvas", "ChiSquareX"],
+        link: "http://bit.ly/neuralangelo",
+        date: "5 Sept, 2024"
     }
+
 
 
 ];
