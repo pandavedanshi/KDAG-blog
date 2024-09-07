@@ -78,11 +78,16 @@ const Carousel = (props) => {
         <div className="embla__container">
           {slides.map((index) => (
             <div className="embla__slide" key={index}>
-              <img
-                className="embla__slide__img"
-                src={`https://picsum.photos/600/350?v=${index}`}
-                alt="Your alt text"
-              />
+              <a href="/events-gallery">
+                <img
+                  className="embla__slide__img"
+                  src={`https://picsum.photos/600/350?v=${index}`}
+                  alt="Your alt text"
+                />
+                <div class="overlay">
+                  <h3>Event Name</h3>
+                </div>
+              </a>
             </div>
           ))}
         </div>

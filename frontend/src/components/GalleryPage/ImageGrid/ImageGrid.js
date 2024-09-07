@@ -9,7 +9,7 @@ const ImageGrid = () => {
     const fetchImages = () => {
       const imageUrls = Array.from({ length: 10 }, () => {
         const width = 400;
-        const height =  400;
+        const height = 400;
         return `https://picsum.photos/${width}/${height}`;
       });
       setImages(imageUrls);
@@ -20,21 +20,23 @@ const ImageGrid = () => {
 
   return (
     <>
+      <div className="events-gallery-header">
+        <h1>Unforgettable</h1>
+        <p>
+          Ooh, like we in a hurry No, no I won't tell nobody You're on your
+          level too Tryna do what lovers do
+        </p>
+      </div>
 
-    <div className='events-gallery-header'>
-        <h1>Event Name</h1>
-        <p>lorem jhfewiuhfkjewb fwiufhbeskjbf ewuoifbs,jcnbewiuof hewkjmcnewiufbe sjvewiuf vhew ewufhewkjbwf jfhewiuf jkegfewiufb mwefhewiuhfk </p>
-    </div>
+      <div className="image-grid">
+        {images.map((url, index) => (
+          <div key={index} className="image-grid-item">
+            <img src={url} alt={`Random Image ${index + 1}`} />
+          </div>
+        ))}
 
-    <div className="image-grid">
-      {images.map((url, index) => (
-        <div key={index} className="image-grid-item">
-        <img src={url} alt={`Random Image ${index + 1}`} />
-        </div>
-      ))}
-
-      <Particless />
-    </div>
+        <Particless />
+      </div>
     </>
   );
 };
