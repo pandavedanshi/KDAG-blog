@@ -21,11 +21,8 @@ const ImageGrid = () => {
   return (
     <>
       <div className="events-gallery-header">
-        <h1>Unforgettable</h1>
-        <p>
-          Ooh, like we in a hurry No, no I won't tell nobody You're on your
-          level too Tryna do what lovers do
-        </p>
+        <h1>Event Name</h1>
+        <p>Small Description for the event</p>
       </div>
 
       <div className="image-grid">

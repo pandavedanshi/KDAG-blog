@@ -20,9 +20,10 @@ const Header = () => {
           className="resources-list-header-subtitle"
           style={{ fontSize: '1.15rem' }}
         >
-          Fucking good time never hurt nobody. I got a little drink but its not
-          Bacardi. If you loved the girl then I'm so so sorry. I got to give it
-          to her like we're in a marriage.
+          Join us on a visual journey through our history. Our event gallery
+          captures the energy, innovation, and collaboration that define our
+          community. Explore behind-the-scenes glimpses and hands-on projects
+          that have shaped our journey.
         </div>
       </div>
     </div>
