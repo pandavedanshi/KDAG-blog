@@ -14,16 +14,15 @@ const Header = () => {
 
   return (
     <div>
-      <div className={`resources-list-header ${isVisible ? 'show' : ''}`}>
+      <div className={`resources-list-header-gallery ${isVisible ? 'show' : ''}`}>
         <div className="resources-list-header-title">Gallery</div>
         <div
           className="resources-list-header-subtitle"
           style={{ fontSize: '1.15rem' }}
         >
-          Join us on a visual journey through our history. Our event gallery
-          captures the energy, innovation, and collaboration that define our
-          community. Explore behind-the-scenes glimpses and hands-on projects
-          that have shaped our journey.
+          Explore our Event Highlights! From ground breaking ideas to creativity
+          sprints, see the moments that make our Events unforgettable. Get a
+          glimpse of the action and the innovation that drives us!
         </div>
       </div>
     </div>
