@@ -1,6 +1,6 @@
 .events-gallery-header {
   padding-top: 20vh;
-  padding-bottom: 10vh;
+  padding-bottom: 5vh;
 }
 
 .events-gallery-header p {
@@ -17,21 +17,36 @@
   padding: 0 2vw;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding-bottom: 10vh;
+  padding-bottom: 20vh;
 }
 
 .image-grid-item img {
-  width: 100%;
-  height: auto;
+  height: 24vw;
+  width: 30vw;
   border-radius: 10px;
   object-fit: cover;
-  display: block;
 }
 
 .image-grid-item {
   justify-self: center;
   align-self: center;
   width: 30vw;
-  height: 30vw;
+  height: 24vw;
+}
+
+@media (max-width: 480px) {
+  .image-grid-item img {
+    height: 60vw;
+    width: 80vw;
+  }
+
+  .image-grid-item {
+    width: 80vw;
+    height: 30vw;
+    margin: 10vh 0;
+  }
+
+  .events-gallery-header {
+    padding-bottom: 0;
+  }
 }

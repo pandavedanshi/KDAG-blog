@@ -81,11 +81,11 @@ const Carousel = (props) => {
               <a href="/events-gallery">
                 <img
                   className="embla__slide__img"
-                  src={`https://picsum.photos/600/350?v=${index}`}
+                  src={`images/gallery/KDSH/10.jpg`}
                   alt="Your alt text"
                 />
                 <div class="overlay">
-                  <h3>Event Name</h3>
+                  <h3>KDSH</h3>
                 </div>
               </a>
             </div>

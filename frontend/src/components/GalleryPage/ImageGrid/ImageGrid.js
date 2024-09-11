@@ -21,14 +21,17 @@ const ImageGrid = () => {
   return (
     <>
       <div className="events-gallery-header">
-        <h1>Event Name</h1>
-        <p>Small Description for the event</p>
+        <h1>Kharagpur Data Science Hackathon</h1>
+        <p>
+          Our flagship event , where participants from India's top colleges will
+          be applying their brilliant minds.{' '}
+        </p>
       </div>
 
       <div className="image-grid">
         {images.map((url, index) => (
           <div key={index} className="image-grid-item">
-            <img src={url} alt={`Random Image ${index + 1}`} />
+            <img src={`images/gallery/KDSH/${index + 1}.jpg`} alt={`Random`} />
           </div>
         ))}
 
