@@ -111,7 +111,7 @@ const Navbar = ({ color, noborder, showLogout }) => {
                 Team
               </NavLink>
             </div>
-            <div className="kdag-nav-item">
+            {/* <div className="kdag-nav-item">
               <NavLink
                 onClick={closeMobileMenu}
                 activeStyle={active_style}
@@ -119,7 +119,7 @@ const Navbar = ({ color, noborder, showLogout }) => {
               >
                 Alumni
               </NavLink>
-            </div>
+            </div> */}
             <div className="kdag-nav-item">
               <NavLink activeStyle={active_style} to="/forum">
                 <img src={forum_img} alt="" />
