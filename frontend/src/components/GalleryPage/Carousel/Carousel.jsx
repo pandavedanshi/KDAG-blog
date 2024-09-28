@@ -85,7 +85,7 @@ const Carousel = (props) => {
                   alt="Your alt text"
                 />
                 <div class="overlay">
-                  <h3>KDSH</h3>
+                  <h3>KDSH 24</h3>
                 </div>
               </a>
             </div>
