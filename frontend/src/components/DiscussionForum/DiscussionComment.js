@@ -9,17 +9,48 @@ import profileImage from "./profile.jpeg";
 import icon_heart from "./asset_heart.png";
 import { jwtDecode } from "jwt-decode";
 
+import upvote_img from "./../../assets/pics/upvote.png";
+import downvote_img from "./../../assets/pics/downvote.png";
+import already_upvoted_img from "./../../assets/pics/already_upvoted.png";
+import already_downvoted_img from "./../../assets/pics/already_downvoted.png";
+
 const DiscussionComment = ({ post_id, level, reply }) => {
 	const [showReplies, setShowReplies] = useState(false);
 	const [userId, setUserId] = useState("empty");
 	const history = useHistory();
 	const [authorId, setAuthorId] = useState(reply.author_id);
 	const [deleted, setDeleted] = useState(false);
+	const [isAdmin, setIsAdmin] = useState(false);
 	const [authorName, setAuthorName] = useState("");
 	const token = localStorage.getItem("access_token");
 	const [jsonData, setJsonData] = useState([]);
 	const [showDelete, setShowDelete] = useState(false);
 	const nextLevelReplies = reply.replies.length;
+
+	const [upvotes, setUpvotes] = useState(0);
+	const [downvotes, setDownvotes] = useState(0);
+	const [isUpvoted, setIsUpvoted] = useState(false);
+	const [isDownvoted, setIsDownvoted] = useState(false);
+
+	useEffect(() => {
+		setUpvotes(reply["upvotes"]);
+		setDownvotes(reply["downvotes"]);
+		if (token === null) {
+			setIsUpvoted(false);
+			setIsDownvoted(false);
+			return;
+		}
+		if (reply.voters.includes(userId) && upvotes !== 0) {
+			setIsUpvoted(true);
+			setIsDownvoted(false);
+		} else if (reply.voters_downvoted.includes(userId) && downvotes !== 0) {
+			setIsUpvoted(false);
+			setIsDownvoted(true);
+		} else {
+			setIsUpvoted(false);
+			setIsDownvoted(false);
+		}
+	}, [reply, userId, token]);
 
 	useEffect(() => {
 		const fetchUserInfo = async () => {
@@ -34,7 +65,6 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 				if (!response.ok) {
 					const jsonData = await response.json();
 					// toast.error(jsonData.message);
-					console.log(jsonData);
 				} else {
 					const jsonData = await response.json();
 					console.log("User Info fetched successfully:", jsonData.message);
@@ -68,6 +98,7 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 				const decodedToken = jwtDecode(token);
 				if (decodedToken && decodedToken.sub && decodedToken.sub.user_id) {
 					setUserId(decodedToken.sub.user_id);
+					setIsAdmin(decodedToken.sub.is_admin);
 				}
 			} catch (error) {
 				console.error("Error decoding token:", error);
@@ -96,7 +127,6 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 				if (!response.ok) {
 					const jsonData = await response.json();
 					// toast.error(jsonData.message);
-					console.log(jsonData);
 				} else {
 					const jsonData = await response.json();
 					console.log("replies fetched successfully:", jsonData.message);
@@ -118,14 +148,11 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 	const next_replies = jsonData.replies
 		? jsonData.replies.map((reply, index) => (
 				<Fade bottom key={index + 1}>
-					{/* <> */}
 					<DiscussionComment2
 						post_id={post_id}
 						level={`${level}/${index + 1}`}
 						reply={reply}
 					/>
-					{/* {console.log("ajdshfakjsdf", reply)} */}
-					{/* </> */}
 				</Fade>
 		  ))
 		: [];
@@ -169,6 +196,100 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 		}
 	}, [deleted]);
 
+	const handleUpVote = async () => {
+		try {
+			if (!token) {
+				throw new Error("User is not authenticated.");
+			}
+
+			const formData = {
+				level: level,
+			};
+
+			const response = await fetch(
+				`${process.env.REACT_APP_FETCH_URL}/reply/upvote/${post_id}`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
+					},
+					body: JSON.stringify({
+						...formData,
+					}),
+				}
+			);
+
+			if (!response.ok) {
+				throw new Error("Failed to upvote the post");
+			}
+
+			const result = await response.json();
+
+			setUpvotes(result.newUpvoteCount);
+			setDownvotes(result.newDownvoteCount);
+			if (result?.new_voters?.includes(userId)) {
+				setIsUpvoted(true);
+				setIsDownvoted(false);
+			} else if (result?.new_voters_downvoted?.includes(userId)) {
+				setIsDownvoted(true);
+				setIsUpvoted(false);
+			} else {
+				setIsDownvoted(false);
+				setIsUpvoted(false);
+			}
+		} catch (error) {
+			console.error("Error during upvote:", error.message);
+		}
+	};
+
+	const handleDownVote = async () => {
+		try {
+			if (!token) {
+				throw new Error("User is not authenticated.");
+			}
+
+			const formData = {
+				level: level,
+			};
+
+			const response = await fetch(
+				`${process.env.REACT_APP_FETCH_URL}/reply/downvote/${post_id}`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
+					},
+					body: JSON.stringify({
+						...formData,
+					}),
+				}
+			);
+
+			if (!response.ok) {
+				throw new Error("Failed to downvote the post");
+			}
+
+			const result = await response.json();
+
+			setUpvotes(result.newUpvoteCount);
+			setDownvotes(result.newDownvoteCount);
+			if (result?.new_voters?.includes(userId)) {
+				setIsUpvoted(true);
+				setIsDownvoted(false);
+			} else if (result?.new_voters_downvoted?.includes(userId)) {
+				setIsDownvoted(true);
+				setIsUpvoted(false);
+			} else {
+				setIsDownvoted(false);
+				setIsUpvoted(false);
+			}
+		} catch (error) {
+			console.error("Error during downvote:", error.message);
+		}
+	};
+
 	return (
 		<div className="discussion-comment-container">
 			<div className="discussion-comment">
@@ -197,14 +318,20 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 					</div>
 					<div className="discussion-comment-bottom">
 						<div className="discussion-comment-posted-by">
-							<Link to={userProfileLink} style={{ cursor: "none" }}>{authorName}</Link>
+							<div>
+								<Link to={userProfileLink} style={{ cursor: "none" }}>
+									{authorName}
+								</Link>
+							</div>
 						</div>
 						{/* <div className="header-discussion-card-posted-by">
 							<Link to={userProfileLink}>{authorName}</Link>
 						</div> */}
 
 						<div className="discussion-comment-last-comment-date">
-							<span>{reply.date}</span>
+							<div>
+								<span>{reply.date}</span>
+							</div>
 						</div>
 						<div className="discussion-comment-actions-commented">
 							<button onClick={toggleReplies} style={{ cursor: "none" }}>
@@ -216,7 +343,7 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 							{token && (
 								<button style={{ cursor: "none" }}>
 									<Link
-									style={{ cursor: "none" }}
+										style={{ cursor: "none" }}
 										to={`/create_comment/${post_id}/${encodeURIComponent(
 											level
 										)}`}
@@ -226,9 +353,11 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 								</button>
 							)}
 						</div>
-						{showDelete && (
+						{(showDelete || isAdmin) && (
 							<div className="header-discussion-card-actions-delete">
-								<button onClick={handleDelete} style={{ cursor: "none" }}>Delete</button>
+								<button onClick={handleDelete} style={{ cursor: "none" }}>
+									Delete
+								</button>
 							</div>
 						)}
 						{/* <div className="discussion-comment-actions">
@@ -237,6 +366,26 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 								53
 							</div>
 						</div> */}
+					</div>
+				</div>
+				<div className="discussion-votes-replies">
+					<div className="discussion-votes-upvotes">
+						<button onClick={handleUpVote}>
+							<img
+								src={isUpvoted ? already_upvoted_img : upvote_img}
+								alt="upvote_img"
+							/>
+						</button>
+						<span>{upvotes}</span>
+					</div>
+					<div className="discussion-votes-downvotes">
+						<button onClick={handleDownVote}>
+							<img
+								src={isDownvoted ? already_downvoted_img : downvote_img}
+								alt="upvote_img"
+							/>
+						</button>
+						<span>{downvotes}</span>
 					</div>
 				</div>
 			</div>

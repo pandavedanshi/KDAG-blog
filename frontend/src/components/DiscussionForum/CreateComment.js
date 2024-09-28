@@ -26,7 +26,7 @@ const CreateComment = (props) => {
 	const token = localStorage.getItem("access_token");
 	const [rdirect, setRdirect] = useState(false);
 	const [level, setLevel] = useState(currLevel);
-	console.log(currLevel);
+	// console.log(currLevel);
 	const [authorId, setAuthorId] = useState("");
 
 	useEffect(() => {

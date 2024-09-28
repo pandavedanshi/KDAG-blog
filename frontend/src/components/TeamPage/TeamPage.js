@@ -14,7 +14,7 @@ const TeamPage = () => {
     <>
       <Header />
       <a href="/alumni" >
-        <button className="floating-action-button">Alumini</button>
+        <button className="floating-action-button">ALUMNI</button>
       </a>
       <Fade left>
         <TeamPageHeading text="Heads" />

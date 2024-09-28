@@ -21,10 +21,9 @@ const ImageGrid = () => {
   return (
     <>
       <div className="events-gallery-header">
-        <h1>Kharagpur Data Science Hackathon</h1>
+        <h1>Kharagpur Data Science Hackathon 2024</h1>
         <p>
-          Our flagship event , where participants from India's top colleges will
-          be applying their brilliant minds.{' '}
+        Our flagship event ,where the brightest minds from all across India participate to develop cutting-edge solutions through innovation and creativity.{' '}
         </p>
       </div>
 

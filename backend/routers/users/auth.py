@@ -26,6 +26,9 @@ def user_signup():
             data["password"].encode("utf-8"), bcrypt.gensalt()
         ).decode("utf-8")
         user_data["password"] = hashed_password
+
+        user_data["is_admin"] = False
+        user_data["active"] = False
         users = mongo.db.users
         if users.find_one({"username": data["username"]}):
             return jsonify({"message": "Please choose a different username"}), 500
@@ -35,6 +38,26 @@ def user_signup():
         print(error)
         return jsonify({"message": "Error in signing up"}), 500
 
+
+# /////////////////////////////////////////////////////////////////////////////////////////
+# @user_auth.route("/add_fields_to_users", methods=["POST"])
+# def add_fields_to_users():
+#     try:
+#         from app import mongo
+#         mongo.db.users.update_many(
+#             {},
+#             {
+#                 "$set": {
+#                     "is_admin": False,  # Set default value for is_admin
+#                     "active": True      # Set default value for active
+#                 }
+#             }
+#         )
+#         return jsonify({"message": "Fields added to all users successfully!"}), 200
+#     except Exception as error:
+#         print(f"Error updating users: {error}")
+#         return jsonify({"message": "Error updating users"}), 500
+# /////////////////////////////////////////////////////////////////////////////////////////
 
 @user_auth.route("/login", methods=["POST"])
 def user_login():
@@ -47,22 +70,36 @@ def user_login():
         if user and bcrypt.checkpw(
             data["password"].encode("utf-8"), user["password"].encode("utf-8")
         ):
-            # access_token = create_access_token(identity=data['username'], expires_delta=False)
+            if not user.get("active", False):
+                return (
+                    jsonify(
+                        {
+                            "message": "Account has not been activated. Please contact support."
+                        }
+                    ),
+                    403,
+                )
+            token_identity = {
+                "username": data["username"],
+                "user_id": str(user["_id"]) if user["_id"] else None,
+            }
+            if user.get("is_admin", False):
+                token_identity["is_admin"] = True
+
             access_token = create_access_token(
-                identity={
-                    "username": data["username"],
-                    "user_id": str(user["_id"]) if user["_id"] else None,
-                },
-                expires_delta=False,
+                identity=token_identity, expires_delta=False
             )
+
             return (
                 jsonify(
                     {"message": "Logged in successfully", "access_token": access_token}
                 ),
                 200,
             )
+
         else:
             return jsonify({"message": "Invalid credentials"}), 401
+
     except Exception as error:
         print(error)
         return jsonify({"message": "Error in logging in"}), 500
@@ -77,6 +114,7 @@ def profile(uid):
         user = users.find_one(ObjectId(uid))
         if not user:
             return jsonify({"message": "No such user exists"}), 401
+
         user_info = {
             key: value
             for key, value in user.items()
@@ -98,6 +136,15 @@ def profile_self(uid):
         user = users.find_one(ObjectId(uid))
         if not user:
             return jsonify({"message": "No such user exists"}), 401
+        if not user.get("active", False):
+            return (
+                jsonify(
+                    {
+                        "message": "Account has not been activated. Please contact support."
+                    }
+                ),
+                403,
+            )
         user_info = {key: value for key, value in user.items() if key != "_id"}
         user_info["password"] = user["password"]
 
@@ -107,7 +154,6 @@ def profile_self(uid):
         return jsonify({"message": "Error in fetching profile"}), 500
 
 
-    
 @user_auth.route("/edit_profile/<string:uid>", methods=["PUT"])
 @jwt_required()
 def edit_profile(uid):
@@ -135,9 +181,10 @@ def edit_profile(uid):
 
         updated_user["_id"] = str(updated_user["_id"])
 
-        return jsonify({"message": "Profile edited successfully", "user": updated_user}), 200
+        return (
+            jsonify({"message": "Profile edited successfully", "user": updated_user}),
+            200,
+        )
     except Exception as error:
         print(error)
         return jsonify({"message": "Error in profile editing"}), 500
-
-
