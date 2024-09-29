@@ -156,12 +156,22 @@
   bottom: 20px;
   z-index: 100;
   right: 20px;
-  background-color: #dc001a;
-  border-radius: 10px;
-  padding: 0.8rem 1.2rem;
-  font-size: 1.5rem;
-  border: none;
+  background: transparent;
+  backdrop-filter: blur(3px);
+  border-radius: 100px;
+  border: solid red 2px;
+  padding: 8px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  text-shadow: 0 0 10px black;
+  font-style: italic;
   color: white;
+  transition: all 0.2s;
+  cursor: none !important;
+}
+
+.floating-action-button:hover {
+  box-shadow: 0 0 10px rgb(255, 0, 0);
 }
 
 @media screen and (max-width: 1000px) {

@@ -3,6 +3,12 @@
   padding-bottom: 5vh;
 }
 
+.events-gallery-header h1 {
+  font-size: 50px;
+  font-weight: 800;
+  font-family: sans-serif;
+}
+
 .events-gallery-header p {
   text-align: center;
   padding: 10px 50px;
