@@ -13,8 +13,8 @@ const TeamPage = () => {
   return (
     <>
       <Header />
-      <a href="/alumni" >
-        <button className="floating-action-button">Alumini</button>
+      <a href="/alumni">
+        <button className="floating-action-button">Alumni</button>
       </a>
       <Fade left>
         <TeamPageHeading text="Heads" />
