@@ -189,6 +189,9 @@ const Navbar = ({ color, noborder, showLogout }) => {
                     <NavLink to="/events">Events</NavLink>
                   </li>
                   <li>
+                    <NavLink to="/gallery">Gallery</NavLink>
+                  </li>
+                  <li>
                     <NavLink to="/resources">Resources</NavLink>
                   </li>
                   <li>
