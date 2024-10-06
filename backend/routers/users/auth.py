@@ -1,4 +1,4 @@
-from flask import request, jsonify
+from flask import request, jsonify,Blueprint
 import bcrypt
 from flask_jwt_extended import (
     create_access_token,
@@ -6,10 +6,86 @@ from flask_jwt_extended import (
     get_jwt_header,
     get_jwt_identity,
 )
-from flask import Blueprint
 from bson import ObjectId
 
 user_auth = Blueprint("user_auth", __name__)
+
+
+
+
+
+
+
+
+
+
+import requests
+from google.oauth2 import id_token
+from google.auth.transport import requests as google_requests
+
+
+REDIRECT_URI = "http://localhost:3000/google-auth/callback"; 
+
+
+
+
+@user_auth.route("/auth/google/callback", methods=["POST"])
+def google_callback():
+    try:
+        data = request.get_json()
+        code = data.get('code')
+
+        # Exchange the authorization code for an access token
+        token_response = requests.post(
+            "https://oauth2.googleapis.com/token",
+            data={
+                "code": code,
+                "client_id": GOOGLE_CLIENT_ID,
+                "client_secret": GOOGLE_CLIENT_SECRET,
+                "redirect_uri": REDIRECT_URI,
+                "scope" : "email",
+                "grant_type": "authorization_code",
+            },
+        )
+
+        token_response_data = token_response.json()
+
+        if token_response.status_code != 200:
+            return jsonify({"error": "Failed to obtain access token", "details": token_response_data}), 400
+
+        access_token = token_response_data.get("access_token")
+        refresh_token = token_response_data.get("refresh_token")
+        id_token_str = token_response_data.get("id_token")
+
+        if id_token_str:
+            id_info = id_token.verify_oauth2_token(id_token_str, google_requests.Request(), GOOGLE_CLIENT_ID)
+            print('User info from Google:', id_info)
+        else:
+            return jsonify({"error": "Failed to obtain ID token"}), 400
+
+        # Here, you would typically save or update user info in your database
+        # e.g., mongo.db.users.update_one({"email": id_info["email"]}, {"$set": user_data}, upsert=True)
+
+        return jsonify({
+            "message": "Authentication successful",
+            "user_info": id_info,
+            "refresh_token": refresh_token,
+            "access_token": access_token
+        }), 200
+
+    except Exception as e:
+        print("Error in Google OAuth callback:", e)
+        return jsonify({"error": "An error occurred during the authentication process."}), 500
+
+
+
+
+
+
+
+
+
+
 
 
 @user_auth.route("/signup", methods=["POST"])

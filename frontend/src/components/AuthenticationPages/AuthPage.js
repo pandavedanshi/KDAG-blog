@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Fade from "react-reveal/Fade";
 import { useHistory } from "react-router-dom";
 import Particless from "../Common/Particles/Particless";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import google_logo from "../../assets/pics/google_logo.png";
 import "./AuthPage.css";
 
 const AuthPage = (props) => {
@@ -24,6 +23,9 @@ const AuthPage = (props) => {
 	const [register_phone, setRegister_phone] = useState("");
 	const [login_username, setLogin_username] = useState("");
 	const [login_password, setLogin_password] = useState("");
+	const [remaining_credentials, setRemaining_credentials] = useState(false);
+
+	const token = localStorage.getItem("access_token");
 
 	if (showUsermessage) {
 		setTimeout(() => {
@@ -38,18 +40,16 @@ const AuthPage = (props) => {
 	const submitRegister = async (e) => {
 		e.preventDefault();
 
-		const isValidEmail = (email) => {
-			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-			return emailRegex.test(email);
-		};
+		// const isValidEmail = (email) => {
+		// 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		// 	return emailRegex.test(email);
+		// };
 
-		if (!isValidEmail(register_email)) {
-			setUserMessage(
-				"Please enter a valid email address."
-			);
-			setShowUsermessage(true);
-			return;
-		}
+		// if (!isValidEmail(register_email)) {
+		// 	setUserMessage("Please enter a valid email address.");
+		// 	setShowUsermessage(true);
+		// 	return;
+		// }
 
 		if (register_phone.length !== 10) {
 			setUserMessage("The phone number must be 10 digits long");
@@ -57,21 +57,21 @@ const AuthPage = (props) => {
 			return;
 		}
 
-		if (register_retypePassword !== register_password) {
-			setUserMessage("The passwords you have typed do not match");
-			setShowUsermessage(true);
-			return;
-		}
+		// if (register_retypePassword !== register_password) {
+		// 	setUserMessage("The passwords you have typed do not match");
+		// 	setShowUsermessage(true);
+		// 	return;
+		// }
 
-		const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+		// const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
-		if (!passwordRegex.test(register_password)) {
-			setUserMessage(
-				"Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one number"
-			);
-			setShowUsermessage(true);
-			return;
-		}
+		// if (!passwordRegex.test(register_password)) {
+		// 	setUserMessage(
+		// 		"Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one number"
+		// 	);
+		// 	setShowUsermessage(true);
+		// 	return;
+		// }
 
 		const user_data = {
 			f_name: register_firstName,
@@ -80,7 +80,7 @@ const AuthPage = (props) => {
 			college: register_college,
 			phone: register_phone,
 			email: register_email,
-			password: register_password,
+			// password: register_password,
 		};
 
 		const response = await fetch(
@@ -155,8 +155,16 @@ const AuthPage = (props) => {
 		history.push("/forum");
 	}
 
-	if (showLogout) {
+	if (showLogout && token != null) {
 		history.push("/forum");
+	}
+
+	const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+	const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
+
+	function handleGoogleAuth() {
+		const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&access_type=offline&scope=email&prompt=consent`;
+		window.location.href = googleAuthUrl;
 	}
 
 	return (
@@ -171,60 +179,51 @@ const AuthPage = (props) => {
 						<div className={`auth-container ${isSignUpActive ? "active" : ""}`}>
 							<div className="form-container sign-up">
 								<form onSubmit={submitRegister}>
-									<h1>Create Account</h1>
-									<input
-										type="text"
-										placeholder="First Name"
-										required
-										onChange={(e) => setRegister_firstName(e.target.value)}
-									/>
-									<input
-										type="text"
-										placeholder="Last Name"
-										onChange={(e) => setRegister_lastName(e.target.value)}
-									/>
-									<input
-										type="text"
-										placeholder="Username"
-										required
-										onChange={(e) => setRegister_userName(e.target.value)}
-									/>
-									<input
-										type="text"
-										placeholder="College"
-										required
-										onChange={(e) => setRegister_college(e.target.value)}
-									/>
-									<input
-										type="number"
-										placeholder="Phone"
-										required
-										onChange={(e) => setRegister_phone(e.target.value)}
-										style={{
-											"-webkit-appearance": "textfield",
-											"-moz-appearance": "textfield",
-											appearance: "textfield",
-										}}
-									/>
-									<input
-										type="email"
-										placeholder="Email"
-										required
-										onChange={(e) => setRegister_email(e.target.value)}
-									/>
-									<input
-										type="password"
-										placeholder="Password"
-										required
-										onChange={(e) => setRegister_password(e.target.value)}
-									/>
-									<input
-										type="password"
-										placeholder="Retype Password"
-										required
-										onChange={(e) => setRegister_retypePassword(e.target.value)}
-									/>
-									<button type="submit">Sign Up</button>
+									{!remaining_credentials && (
+										<>
+											<h1>Create Account</h1>
+											<button className="GoogleSignup" onClick={handleGoogleAuth}>
+												<img src={google_logo} alt="google_logo" />
+												<p>Sign Up with Google</p>
+											</button>
+										</>
+									)}
+									{remaining_credentials && (
+										<>
+											<h1>Create Account</h1>
+											<input
+												type="text"
+												placeholder="First Name"
+												required
+												onChange={(e) => setRegister_firstName(e.target.value)}
+											/>
+											<input
+												type="text"
+												placeholder="Last Name"
+												onChange={(e) => setRegister_lastName(e.target.value)}
+											/>
+											<input
+												type="text"
+												placeholder="Username"
+												required
+												onChange={(e) => setRegister_userName(e.target.value)}
+											/>
+											<input
+												type="text"
+												placeholder="College"
+												required
+												onChange={(e) => setRegister_college(e.target.value)}
+											/>
+											<input
+												type="number"
+												placeholder="Phone No."
+												required
+												onChange={(e) => setRegister_phone(e.target.value)}
+											/>
+
+											<button type="submit">Sign Up</button>
+										</>
+									)}
 								</form>
 							</div>
 							<div className="form-container sign-in">
@@ -289,3 +288,23 @@ const AuthPage = (props) => {
 };
 
 export default AuthPage;
+
+// <input
+// 	type="email"
+// 	placeholder="Email"
+// 	required
+// 	onChange={(e) => setRegister_email(e.target.value)}
+// />
+
+// <input
+// 	type="password"
+// 	placeholder="Password"
+// 	required
+// 	onChange={(e) => setRegister_password(e.target.value)}
+// />
+// <input
+// 	type="password"
+// 	placeholder="Retype Password"
+// 	required
+// 	onChange={(e) => setRegister_retypePassword(e.target.value)}
+// />

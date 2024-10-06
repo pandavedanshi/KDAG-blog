@@ -25,6 +25,7 @@ import Logout from '../components/Common/Logout/Logout.js';
 import CreateComment from '../components/DiscussionForum/CreateComment.js';
 import GalleryPage from '../components/GalleryPage/GalleyPage.js';
 import ImageGrid from '../components/GalleryPage/ImageGrid/ImageGrid.js';
+import GoogleCallback from "../components/AuthenticationPages/GoogleCallback.js";
 
 const AppRouter = () => {
   const [showLogout, setShowLogout] = useState(true);
@@ -60,6 +61,9 @@ const AppRouter = () => {
             </Route>
             <Route path="/auth">
               <AuthPage showLogout={showLogout} setShowLogout={setShowLogout} />
+            </Route>
+            <Route path="/google-auth/callback">
+              <GoogleCallback />
             </Route>
             <Route path="/alumni">
               <AlumniPage />
