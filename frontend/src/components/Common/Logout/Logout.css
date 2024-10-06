@@ -1,7 +1,7 @@
 .logout_outer_container_01{
     position: fixed;
-    bottom: 7%;
-    right: 3%;
+    bottom: 10%;
+    right: 25px;
 	z-index: 555555;
 }
 
