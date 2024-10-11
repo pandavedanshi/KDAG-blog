@@ -7,6 +7,7 @@ import icon_add from "./asset_addition_symbol.png";
 import { Link } from "react-router-dom";
 
 const ForumPage = () => {
+	const particless = React.useMemo(() => <Particless />, []);
 	const [posts, setPosts] = useState([]);
 	const [searchQuery, setSearchQuery] = useState("");
 	const [filteredPosts, setFilteredPosts] = useState([]);
@@ -45,7 +46,7 @@ const ForumPage = () => {
 		);
 		setFilteredPosts(filtered);
 	};
-
+ 
 	return (
 		<>
 			<Fade left>
@@ -83,7 +84,7 @@ const ForumPage = () => {
 					))}
 				</div>
 			</div>
-			<Particless />
+			{particless }
 		</>
 	);
 };

@@ -71,7 +71,6 @@ const CreateDiscussion = () => {
 				console.log("Error creating discussion(response):", jsonData.message);
 			} else {
 				const jsonData = await response.json();
-				console.log("Discussion created successfully:", jsonData.message);
 				setRDirect(true);
 			}
 		} catch (error) {

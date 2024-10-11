@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 const AuthStatus = () => {
+	console.log("Auth Status component called");
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [userInfo, setUserInfo] = useState(null);
 	const history = useHistory();
