@@ -67,7 +67,6 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 					// toast.error(jsonData.message);
 				} else {
 					const jsonData = await response.json();
-					console.log("User Info fetched successfully:", jsonData.message);
 					setAuthorName(jsonData.username);
 				}
 			} catch (error) {
@@ -96,7 +95,7 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 		if (token) {
 			try {
 				const decodedToken = jwtDecode(token);
-				if (decodedToken && decodedToken.sub && decodedToken.sub.user_id) {
+				if (decodedToken && decodedToken.sub && decodedToken.sub.user_id) {	
 					setUserId(decodedToken.sub.user_id);
 					setIsAdmin(decodedToken.sub.is_admin);
 				}
@@ -129,7 +128,6 @@ const DiscussionComment = ({ post_id, level, reply }) => {
 					// toast.error(jsonData.message);
 				} else {
 					const jsonData = await response.json();
-					console.log("replies fetched successfully:", jsonData.message);
 					setJsonData(jsonData);
 				}
 			} catch (error) {

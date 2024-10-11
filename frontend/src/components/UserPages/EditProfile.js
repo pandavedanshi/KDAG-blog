@@ -1,19 +1,16 @@
 import Particless from "../Common/Particles/Particless";
 import { useHistory } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import password_show_img from "../../assets/pics/password_show.png";
-import password_hidden_img from "../../assets/pics/password_hidden.png";
 import "./EditProfile.css";
 
-const EditProfile = (props) => {
+const EditProfile = () => {
 	const particless = React.useMemo(() => <Particless />, []);
 	const { user_id } = useParams();
 	const token = localStorage.getItem("access_token");
-	const { showLogout } = props;
+	const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext); 
 	const history = useHistory();
-	const [toggle, setToggle] = useState(false);
-	const password_hashed = "***************  ";
 	const [username, setUsername] = useState("");
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
@@ -36,7 +33,6 @@ const EditProfile = (props) => {
 				);
 				if (!response.ok) {
 					const jsonData = await response.json();
-					// toast.error(jsonData.message);
 					console.log(jsonData);
 				} else {
 					const jsonData = await response.json();
@@ -50,22 +46,17 @@ const EditProfile = (props) => {
 				}
 			} catch (error) {
 				console.error("Error fetching User Info:", error);
-				// toast.error("Error fetching posts. Please try again later.");
 			}
 		};
 
 		fetchUserInfo();
 	}, []);
 
-	// const password_toggle = () => {
-	// 	setToggle(!toggle);
-	// };
-
 	useEffect(() => {
-		if (!showLogout) {
+		if (!isLoggedIn) {
 			history.push("/auth");
 		}
-	}, [showLogout]);
+	}, [isLoggedIn]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -92,7 +83,6 @@ const EditProfile = (props) => {
 		}).then(async (res) => {
 			let jsonData = await res.json();
 			if (!res.ok) {
-				// toast.error(jsonData.message);
 				console.log(jsonData.message);
 			}
 			else {
@@ -104,7 +94,7 @@ const EditProfile = (props) => {
 
 	return (
 		<div>
-			{showLogout && (
+			{isLoggedIn && (
 				<div className="edit_profile_outer_container">
 					<div className="edit_profile_container">
 						<div className="edit_profile_heading">
@@ -173,23 +163,6 @@ const EditProfile = (props) => {
 									onChange={(e) => setPhone(e.target.value)}
 								/>
 							</div>
-
-							{/* <div className="edit_profile_password">
-								<label>Password</label>
-								<br />
-								<input
-									type="password"
-									value={userData.password}
-									onChange={(e) => setCurrPassword(e.target.value)}
-								/>
-								<button onClick={password_toggle}>
-									{toggle ? (
-										<img src={password_hidden_img} />
-									) : (
-										<img src={password_show_img} />
-									)}
-								</button>
-							</div> */}
 							<input type="submit" value="Update" style={{cursor:"none"}}/>
 						</form>
 					</div>

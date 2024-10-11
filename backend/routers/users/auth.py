@@ -1,39 +1,42 @@
-from flask import request, jsonify,Blueprint
-import bcrypt
+from google.auth.transport import requests as google_requests
+from flask import request, jsonify, Blueprint
+from google.oauth2 import id_token
+from dotenv import load_dotenv
+from flask import make_response
 from flask_jwt_extended import (
     create_access_token,
+    create_refresh_token,
     jwt_required,
     get_jwt_header,
     get_jwt_identity,
+    verify_jwt_in_request,
+    decode_token,
 )
 from bson import ObjectId
+import requests
+import bcrypt
+import jwt
+import os
 
+load_dotenv()
 user_auth = Blueprint("user_auth", __name__)
 
-
-
-
-
-
-
-
-
-
-import requests
-from google.oauth2 import id_token
-from google.auth.transport import requests as google_requests
-
-
-REDIRECT_URI = "http://localhost:3000/google-auth/callback"; 
-
-
-
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
+GOOGLE_TOKEN_INFO_URL = os.getenv("GOOGLE_TOKEN_INFO_URL")
+GOOGLE_TOKEN_INFO_URL_2 = os.getenv("GOOGLE_TOKEN_INFO_URL_2")
+REDIRECT_URI = os.getenv("REDIRECT_URI")
 
 @user_auth.route("/auth/google/callback", methods=["POST"])
 def google_callback():
     try:
+        from app import mongo
+
         data = request.get_json()
-        code = data.get('code')
+        code = data.get("code")
+
+        if not code:
+            return jsonify({"error": "No authorization code provided"}), 400
 
         # Exchange the authorization code for an access token
         token_response = requests.post(
@@ -43,49 +46,187 @@ def google_callback():
                 "client_id": GOOGLE_CLIENT_ID,
                 "client_secret": GOOGLE_CLIENT_SECRET,
                 "redirect_uri": REDIRECT_URI,
-                "scope" : "email",
+                "scope": "email",
                 "grant_type": "authorization_code",
             },
         )
 
-        token_response_data = token_response.json()
-
         if token_response.status_code != 200:
-            return jsonify({"error": "Failed to obtain access token", "details": token_response_data}), 400
-
+            return (
+                jsonify(
+                    {
+                        "error": "Failed to obtain access token",
+                    }
+                ),
+                400,
+            )
+        
+        token_response_data = token_response.json()
         access_token = token_response_data.get("access_token")
         refresh_token = token_response_data.get("refresh_token")
         id_token_str = token_response_data.get("id_token")
+        expires_in = token_response_data.get("expires_in")
+
+        if expires_in:
+            print(f"Access token expires in {expires_in} seconds.")
+        else:
+            print("Expiration time not provided in the token response.")
+
+        users = mongo.db.users
+        user_data = {}
+        user_data["is_admin"] = False
+        user_data["active"] = False
+        user_data["f_name"] = ""
+        user_data["l_name"] = ""
+        user_data["username"] = ""
+        user_data["phone"] = ""
+        user_data["college"] = ""
+        user_data["f_name"] = ""
 
         if id_token_str:
-            id_info = id_token.verify_oauth2_token(id_token_str, google_requests.Request(), GOOGLE_CLIENT_ID)
-            print('User info from Google:', id_info)
+            try:
+                id_info = id_token.verify_oauth2_token(
+                    id_token_str, google_requests.Request(), GOOGLE_CLIENT_ID
+                )
+                email = id_info.get("email")
+
+            except ValueError as e:
+                print("Error during token validation:", str(e))
+                return jsonify({"error": "Invalid ID token"}), 400
+
+            print("User info from Google:", id_info)
+            if not email:
+                return jsonify({"error": "No email found in ID token"}), 400
+
+            user = users.find_one({"email": email})
+
+            if not user:
+                user_data["email"] = email
+                users.insert_one(user_data)
+            else:
+                is_admin = user.get("is_admin")
+                uid = str(user.get("_id"))
+                jwt_access_token = create_access_token(
+                    identity={"user_id": uid, "google_access_token": access_token, "is_admin": is_admin}
+                )
+                jwt_refresh_token = create_refresh_token(
+                    identity={"user_id": uid, "google_refresh_token": refresh_token, "is_admin": is_admin}
+                )
+                response = make_response(
+                    jsonify(
+                        {
+                            "message": "You already have an account. Logging you in",
+                            "uid": uid,
+                            "user_info": id_info,
+                            "redirect": "Forum_page_",
+                            "access_token": jwt_access_token,
+                            "refresh_token": jwt_refresh_token,
+                        }
+                    )
+                )
+                return response, 200
         else:
             return jsonify({"error": "Failed to obtain ID token"}), 400
 
-        # Here, you would typically save or update user info in your database
-        # e.g., mongo.db.users.update_one({"email": id_info["email"]}, {"$set": user_data}, upsert=True)
+        user = users.find_one({"email": email})
+        is_admin = user.get("is_admin")
+        uid = str(user.get("_id"))
+        jwt_access_token = create_access_token(
+            identity={"user_id": uid, "google_access_token": access_token, "is_admin": is_admin}
+        )
+        jwt_refresh_token = create_refresh_token(
+            identity={"user_id": uid, "google_refresh_token": refresh_token, "is_admin": is_admin}
+        )
+        response = make_response(
+            jsonify(
+                {
+                    "message": "User account successfully activated. Please complete the remaining details.",
+                    "uid": uid,
+                    "user_info": id_info,
+                    "redirect": "usual_redirect_page_",
+                    "access_token": jwt_access_token,
+                    "refresh_token": jwt_refresh_token,
+                }
+            )
+        )
 
-        return jsonify({
-            "message": "Authentication successful",
-            "user_info": id_info,
-            "refresh_token": refresh_token,
-            "access_token": access_token
-        }), 200
-
+        return response, 200
     except Exception as e:
         print("Error in Google OAuth callback:", e)
-        return jsonify({"error": "An error occurred during the authentication process."}), 500
+        return (
+            jsonify({"error": "An error occurred during the authentication process."}),
+            500,
+        )
 
 
+@user_auth.route("/auth/google/status", methods=["GET"])
+def auth_status():
+    verify_jwt_in_request()
+    auth_header = request.headers.get("Authorization")
+    if not auth_header:
+        return jsonify({"loggedIn": False, "user": None}), 401
 
+    if not auth_header.startswith("Bearer "):
+        return jsonify({"loggedIn": False, "user": None}), 401
 
+    access_token = auth_header.split(" ")[1]
 
+    try:
+        decoded_token = decode_token(access_token)
+        google_access_token = decoded_token.get("sub", {}).get("google_access_token")
 
+        if not google_access_token:
+            return (
+                jsonify(
+                    {
+                        "loggedIn": False,
+                        "user": None,
+                        "error": "No Google access token found in JWT",
+                    }
+                ),
+                401,
+            )
 
+        response = requests.get(
+            GOOGLE_TOKEN_INFO_URL_2, params={"access_token": google_access_token}
+        )
 
+        if response.status_code != 200:
+            response_data = response.json()
+            print("false but access token there")
+            if response_data.get("error_description") == "Invalid Value":
+                print("Access token expired")
+                return (
+                    jsonify(
+                        {
+                            "loggedIn": False,
+                            "user": None,
+                            "error": "Access token has expired",
+                        }
+                    ),
+                    401,
+                )
+            return (
+                jsonify(
+                    {
+                        "loggedIn": False,
+                        "user": None,
+                        "error": response_data.get(
+                            "error_description", "Invalid access token"
+                        ),
+                    }
+                ),
+                401,
+            )
 
+        user_info = response.json()
+        print("true")
+        return jsonify({"loggedIn": True, "user": user_info})
 
+    except jwt.InvalidTokenError:
+        return jsonify({"message": "Invalid token"}), 401
+    except Exception as e:
+        return jsonify({"message": f"Error occurred: {str(e)}"}), 500
 
 
 @user_auth.route("/signup", methods=["POST"])
@@ -93,23 +234,36 @@ def user_signup():
     try:
         from app import mongo
 
-        data = request.get_json()
-        user_data = {}
-        reqd_fields = ["username", "f_name", "l_name", "email", "phone", "college"]
-        for key in reqd_fields:
-            user_data[key] = data[key]
-        hashed_password = bcrypt.hashpw(
-            data["password"].encode("utf-8"), bcrypt.gensalt()
-        ).decode("utf-8")
-        user_data["password"] = hashed_password
-
-        user_data["is_admin"] = False
-        user_data["active"] = False
         users = mongo.db.users
-        if users.find_one({"username": data["username"]}):
-            return jsonify({"message": "Please choose a different username"}), 500
-        users.insert_one(user_data)
-        return jsonify({"message": "Signup successful"}), 200
+        data = request.get_json()
+
+        uid = data.get("uid")
+
+        reqd_fields = ["username", "f_name", "l_name", "phone", "college"]
+
+        user = users.find_one({"_id": ObjectId(uid)})
+        if not user:
+            return (
+                jsonify(
+                    {
+                        "message": "Something is not right! Please try to signup again using google"
+                    }
+                ),
+                400,
+            )
+
+        updated_data = {key: data.get(key, user.get(key)) for key in reqd_fields}
+        updated_data["active"] = True
+
+        if users.find_one({"username": updated_data["username"]}):
+            return jsonify({"message": "Please choose a different username"}), 400
+
+        users.update_one({"_id": ObjectId(data.get("uid"))}, {"$set": updated_data})
+
+        updated_user = users.find_one({"_id": ObjectId(data.get("uid"))})
+        updated_user["_id"] = str(updated_user["_id"])
+
+        return jsonify({"message": "Signup successful", "user": updated_user}), 200
     except Exception as error:
         print(error)
         return jsonify({"message": "Error in signing up"}), 500
@@ -134,6 +288,7 @@ def user_signup():
 #         print(f"Error updating users: {error}")
 #         return jsonify({"message": "Error updating users"}), 500
 # /////////////////////////////////////////////////////////////////////////////////////////
+
 
 @user_auth.route("/login", methods=["POST"])
 def user_login():
@@ -185,16 +340,22 @@ def user_login():
 def profile(uid):
     try:
         from app import mongo
-
         users = mongo.db.users
         user = users.find_one(ObjectId(uid))
         if not user:
-            return jsonify({"message": "No such user exists"}), 401
+            user_info = {
+                "username" : "User does not exist",
+                "f_name" : "User does not exist",
+                "l_name" : "User does not exist",
+                "email" : "User does not exist",
+                "college" : "User does not exist",
+            }
+            return jsonify(user_info), 201
 
         user_info = {
             key: value
             for key, value in user.items()
-            if key != "_id" and key != "password" and key != "phone"
+            if key not in ["_id", "password", "phone"]
         }
         return jsonify(user_info), 200
     except Exception as error:
@@ -207,22 +368,35 @@ def profile(uid):
 def profile_self(uid):
     try:
         from app import mongo
+        auth_header = request.headers.get("Authorization")
+        if not auth_header:
+            return jsonify({"loggedIn": False, "user": None}), 401
+
+        if not auth_header.startswith("Bearer "):
+            return jsonify({"loggedIn": False, "user": None}), 401
+
+        access_token = auth_header.split(" ")[1]
+        decoded_token = decode_token(access_token)
+        google_access_token = decoded_token.get("sub", {}).get("google_access_token")
+
+        token_info_response = requests.get(
+            GOOGLE_TOKEN_INFO_URL_2,
+            params={"access_token": google_access_token}
+        )
+
+        token_info = token_info_response.json()
+
+        if 'error' in token_info:
+            return jsonify({"message": "Invalid access token"}), 401
+
 
         users = mongo.db.users
         user = users.find_one(ObjectId(uid))
+
         if not user:
             return jsonify({"message": "No such user exists"}), 401
-        if not user.get("active", False):
-            return (
-                jsonify(
-                    {
-                        "message": "Account has not been activated. Please contact support."
-                    }
-                ),
-                403,
-            )
+        
         user_info = {key: value for key, value in user.items() if key != "_id"}
-        user_info["password"] = user["password"]
 
         return jsonify(user_info), 200
     except Exception as error:
@@ -235,17 +409,19 @@ def profile_self(uid):
 def edit_profile(uid):
     try:
         from app import mongo
-
         users = mongo.db.users
         data = request.get_json()
         current_user = get_jwt_identity()
+        if current_user["user_id"] != uid:
+            return jsonify({"message": "Unauthorized access"}), 403
+
         user = users.find_one({"_id": ObjectId(uid)})
         if not user:
             return jsonify({"message": "No such user exists"}), 401
 
         reqd_fields = ["username", "f_name", "l_name", "email", "phone", "college"]
-
         updated_data = {key: user.get(key) for key in reqd_fields}
+
 
         for key in reqd_fields:
             if data.get(key) is not None:
@@ -255,7 +431,11 @@ def edit_profile(uid):
 
         updated_user = users.find_one({"_id": ObjectId(uid)})
 
-        updated_user["_id"] = str(updated_user["_id"])
+        if updated_data["username"] and updated_data["f_name"] and updated_data["college"]:
+            users.update_one({"_id": ObjectId(uid)}, {"$set": {"active": True}})
+
+        updated_user = users.find_one({"_id": ObjectId(uid)})
+        updated_user["_id"] = str(updated_user["_id"])  
 
         return (
             jsonify({"message": "Profile edited successfully", "user": updated_user}),

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Particless from "../Common/Particles/Particless";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
@@ -7,6 +7,7 @@ import name from "../../assets/pics/name.png";
 import email from "../../assets/pics/email.png";
 import college from "../../assets/pics/college.png";
 import username2 from "../../assets/pics/username2.png";
+import { AuthContext } from "../../context/AuthContext";
 import name2 from "../../assets/pics/name2.png";
 import email2 from "../../assets/pics/email2.png";
 import college2 from "../../assets/pics/college2.png";
@@ -14,9 +15,11 @@ import user_profile from "../../assets/pics/user_profile.png";
 import Fade from "react-reveal/Fade";
 import "./UserProfilePublic.css";
 
-const UserProfilePublic = (props) => {
+const UserProfilePublic = () => {
 	const { user_id } = useParams();
 	const [userData, setUserData] = useState([]);
+	const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext); 
+
 	useEffect(() => {
 		const fetchUserInfo = async () => {
 			try {
@@ -44,13 +47,12 @@ const UserProfilePublic = (props) => {
 		fetchUserInfo();
 	}, []);
 	
-	const { showLogout } = props;
 	const history = useHistory();
 	useEffect(() => {
-		if (!showLogout) {
+		if (!isLoggedIn) {
 			history.push("/auth");
 		}
-	}, [showLogout]);
+	}, [isLoggedIn]);
 	const [activeContent, setActiveContent] = useState("content3");
 
 	const handleMouseOver = (contentId) => {
@@ -59,7 +61,7 @@ const UserProfilePublic = (props) => {
 
 	return (
 		<>
-			{showLogout && (
+			{isLoggedIn && (
 				<div className="outer_profile_container">
 					<Fade left>
 						<div className="profile_container">

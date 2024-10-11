@@ -1,29 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Particless from "../Common/Particles/Particless";
 import username_img from "../../assets/pics/username.png";
+import { AuthContext } from "../../context/AuthContext";
 import name_img from "../../assets/pics/name.png";
 import email_img from "../../assets/pics/email.png";
 import college_img from "../../assets/pics/college.png";
 import phone_img from "../../assets/pics/phone.png";
-import password_img from "../../assets/pics/password.png";
 import username2_img from "../../assets/pics/username2.png";
 import phone2_img from "../../assets/pics/phone2.png";
 import name2_img from "../../assets/pics/name2.png";
 import email2_img from "../../assets/pics/email2.png";
 import college2_img from "../../assets/pics/college2.png";
-import password2_img from "../../assets/pics/password2.png";
 import user_profile_img from "../../assets/pics/user_profile.png";
 import edit_icon_img from "../../assets/pics/edit.png";
-import password_show_img from "../../assets/pics/password_show.png";
-import password_hidden_img from "../../assets/pics/password_hidden.png";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import Fade from "react-reveal/Fade";
 import "./UserProfileSelf.css";
 
-const UserProfileSelf = (props) => {
+const UserProfileSelf = () => {
 	const particless = React.useMemo(() => <Particless />, []);
+	const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext); 
 	const { user_id } = useParams();
 	const [userData, setUserData] = useState([]);
 	const token = localStorage.getItem("access_token");
@@ -36,35 +34,31 @@ const UserProfileSelf = (props) => {
 						method: "GET",
 						headers: {
 							"Content-Type": "application/json",
-							Authorization: `Bearer ${token}`,
+							"Authorization": `Bearer ${token}`,
 						},
 					}
 				);
+				
 				if (!response.ok) {
 					const jsonData = await response.json();
-					// toast.error(jsonData.message);
-					console.log(jsonData);
 				} else {
 					const jsonData = await response.json();
-					console.log("User Info fetched successfully:", jsonData.message);
 					setUserData(jsonData);
 				}
 			} catch (error) {
 				console.error("Error fetching User Info:", error);
-				// toast.error("Error fetching posts. Please try again later.");
 			}
 		};
 
 		fetchUserInfo();
 	}, []);
 
-	const { showLogout } = props;
 	const history = useHistory();
 	useEffect(() => {
-		if (!showLogout) {
+		if (!isLoggedIn) {
 			history.push("/auth");
 		}
-	}, [showLogout]);
+	}, [isLoggedIn]);
 	const [activeContent, setActiveContent] = useState("content6");
 	const [toggle, setToggle] = useState(false);
 	const password_hashed = "***************  ";
@@ -79,7 +73,7 @@ const UserProfileSelf = (props) => {
 
 	return (
 		<>
-			{showLogout && (
+			{isLoggedIn && (
 				<div className="outer_profile_self_container">
 					<div className="edit_profile_button">
 						<Link to={`/edit_profile/${user_id}`}>

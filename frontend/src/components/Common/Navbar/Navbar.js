@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Button } from './Button';
 import './Navbar.css';
 import logo from './../../../assets/pics/KDAG-textnew.png';
@@ -8,6 +8,8 @@ import forum_img from '../../../assets/pics/forum.png';
 import register_img from '../../../assets/pics/register.png';
 import profile_icon from '../../../assets/pics/profile_icon.png';
 import { jwtDecode } from 'jwt-decode';
+import { AuthContext } from "../../../context/AuthContext";
+
 
 const active_style = {
   borderBottom: '2px solid rgba(255, 255, 255, 0.8)',
@@ -15,7 +17,8 @@ const active_style = {
   color: 'rgba(255, 255, 255, 0.8)',
 };
 
-const Navbar = ({ color, noborder, showLogout }) => {
+const Navbar = ({ noborder }) => {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [userId, setUserId] = useState('empty');
   const token = localStorage.getItem('access_token');
 
@@ -125,14 +128,14 @@ const Navbar = ({ color, noborder, showLogout }) => {
                 <img src={forum_img} alt="" />
               </NavLink>
             </div>
-            {!showLogout && (
+            {!isLoggedIn && (
               <div className="kdag-nav-item">
                 <NavLink activeStyle={active_style} to="/auth">
                   <img src={register_img} alt="" />
                 </NavLink>
               </div>
             )}
-            {showLogout && (
+            {isLoggedIn && (
               <div className="kdag-nav-item">
                 <NavLink
                   activeStyle={active_style}
@@ -209,7 +212,7 @@ const Navbar = ({ color, noborder, showLogout }) => {
                       <img src={forum_img} alt="" />
                     </NavLink>
                   </li>
-                  {!showLogout && (
+                  {!isLoggedIn && (
                     <li>
                       <NavLink to="/auth">
                         {' '}
@@ -217,7 +220,7 @@ const Navbar = ({ color, noborder, showLogout }) => {
                       </NavLink>
                     </li>
                   )}
-                  {!showLogout && (
+                  {!isLoggedIn && (
                     <li>
                       <NavLink to={`/user_profile_self/${userId}`}>
                         {' '}

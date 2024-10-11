@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Particless from "../Common/Particles/Particless";
 import "./AuthPage.css";
 import Fade from "react-reveal/Fade";
 
 const GoogleAuthCallback = () => {
 	const location = useLocation();
+	const history = useHistory();
+
 	const particless = React.useMemo(() => <Particless />, []);
 	const [isSignUpActive, setIsSignUpActive] = useState(false);
 	const [showUsermessage, setShowUsermessage] = useState(false);
@@ -14,8 +17,9 @@ const GoogleAuthCallback = () => {
 	const [register_lastName, setRegister_lastName] = useState("");
 	const [register_userName, setRegister_userName] = useState("");
 	const [register_college, setRegister_college] = useState("");
-	const [register_email, setRegister_email] = useState("");
 	const [register_phone, setRegister_phone] = useState("");
+	const [redirect, setRedirect] = useState("");
+	const [uid, setUid] = useState("");
 
 	if (showUsermessage) {
 		setTimeout(() => {
@@ -24,13 +28,17 @@ const GoogleAuthCallback = () => {
 	}
 
 	useEffect(() => {
+		if (redirect == "Forum_page_") {
+			history.push("/forum");
+		}
+	}, [redirect]);
+
+	useEffect(() => {
 		const queryParams = new URLSearchParams(location.search);
 		const code = queryParams.get("code");
 
-		console.log("-------------------", code);
-
 		if (code) {
-			fetch("http://localhost:8080/user/auth/google/callback", {
+			fetch(`${process.env.REACT_APP_FETCH_URL}/user/auth/google/callback`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -45,6 +53,11 @@ const GoogleAuthCallback = () => {
 				})
 				.then((data) => {
 					console.log("Response from backend:", data);
+					const { access_token, refresh_token } = data;
+					localStorage.setItem("access_token", access_token);
+					localStorage.setItem("refresh_token", refresh_token);
+					setRedirect(data.redirect);
+					setUid(data.uid);
 				})
 				.catch((error) => {
 					console.error("Error during authentication:", error);
@@ -56,8 +69,8 @@ const GoogleAuthCallback = () => {
 
 	const submitRegister = async (e) => {
 		e.preventDefault();
-		if (register_phone.length !== 10) {
-			setUserMessage("The phone number must be 10 digits long");
+		if (register_phone.length !== 10 || isNaN(register_phone)) {
+			setUserMessage("Please Enter a valid numeric phone number");
 			setShowUsermessage(true);
 			return;
 		}
@@ -68,25 +81,34 @@ const GoogleAuthCallback = () => {
 			username: register_userName,
 			college: register_college,
 			phone: register_phone,
-			email: register_email,
+			uid: uid,
 		};
+
+		const token  = localStorage.getItem("access_token")
 
 		const response = await fetch(
 			`${process.env.REACT_APP_FETCH_URL}/user/signup`,
 			{
 				method: "POST",
-				headers: { "Content-Type": "application/json" },
+				headers: {
+					"Content-Type": "application/json",
+					"Authorization" : `Bearer ${token}`,
+				},
 				body: JSON.stringify({
 					...user_data,
 				}),
 			}
 		);
+
 		try {
 			if (response.ok) {
 				const content = await response.json();
 				setUserMessage("Registration successful");
 				setShowUsermessage(true);
 				setIsSignUpActive(!isSignUpActive);
+				setInterval(() => {
+					history.push("/forum");
+				}, 2000);
 			} else {
 				const jsonData = await response.json();
 				setUserMessage(jsonData.message);

@@ -89,7 +89,6 @@ const HeaderDiscussion = () => {
 					console.log("Error", jsonData);
 				} else {
 					const jsonData = await response.json();
-					console.log("Post fetched successfully:", jsonData.message);
 					setPost(jsonData.post);
 					setJsonData(jsonData);
 					setUpvotes(jsonData.post.upvotes);
@@ -124,16 +123,13 @@ const HeaderDiscussion = () => {
 			);
 			if (!response.ok) {
 				const jsonData = await response.json();
-				// toast.error(jsonData.message);
 				console.log("Error", jsonData);
 			} else {
 				const jsonData = await response.json();
-				console.log("Post fetched successfully:", jsonData.message);
 				setDeleted(true);
 			}
 		} catch (error) {
 			console.error("Error fetching posts:", error);
-			// toast.error("Error fetching posts. Please try again later.");
 		}
 	};
 

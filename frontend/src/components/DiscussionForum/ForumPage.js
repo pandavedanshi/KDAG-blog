@@ -14,22 +14,22 @@ const ForumPage = () => {
 	useEffect(() => {
 		const fetchPosts = async () => {
 			try {
-				const response = await fetch(`${process.env.REACT_APP_FETCH_URL}/get_posts`, {
-					method: "GET",
-				});
+				const response = await fetch(
+					`${process.env.REACT_APP_FETCH_URL}/get_posts`,
+					{
+						method: "GET",
+					}
+				);
 				if (!response.ok) {
 					const jsonData = await response.json();
-					// toast.error(jsonData.message);
 					console.log(jsonData.message);
 				} else {
 					const jsonData = await response.json();
-					console.log("Posts fetched successfully:", jsonData.message);
 					setPosts(jsonData.posts);
 					setFilteredPosts(jsonData.posts);
 				}
 			} catch (error) {
 				console.error("Error fetching posts:", error);
-				// toast.error("Error fetching posts. Please try again later.");
 			}
 		};
 
@@ -38,9 +38,10 @@ const ForumPage = () => {
 
 	const handleSearch = (e) => {
 		setSearchQuery(e.target.value);
-		const filtered = posts.filter((post) =>
-			post.author_name.toLowerCase().includes(e.target.value.toLowerCase()) ||
-			post.message.toLowerCase().includes(e.target.value.toLowerCase())
+		const filtered = posts.filter(
+			(post) =>
+				post.author_name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+				post.message.toLowerCase().includes(e.target.value.toLowerCase())
 		);
 		setFilteredPosts(filtered);
 	};
