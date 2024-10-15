@@ -52,7 +52,6 @@ const GoogleAuthCallback = () => {
 					return response.json();
 				})
 				.then((data) => {
-					console.log("Response from backend:", data);
 					const { access_token } = data;
 					localStorage.setItem("access_token", access_token);
 					setRedirect(data.redirect);
