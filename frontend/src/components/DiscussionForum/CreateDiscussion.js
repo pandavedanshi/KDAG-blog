@@ -1,13 +1,15 @@
 import Particless from "../Common/Particles/Particless";
 import Fade from "react-reveal/Fade";
 import { useHistory } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import { jwtDecode } from "jwt-decode";
 
 import "./CreateDiscussion.css";
 
-const CreateDiscussion = (props) => {
+const CreateDiscussion = () => {
 	const particless = React.useMemo(() => <Particless />, []);
+	const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext); 
 	const currentDate = new Date();
 	const day = currentDate.getDate();
 	const month = currentDate.getMonth() + 1;
@@ -33,15 +35,14 @@ const CreateDiscussion = (props) => {
 		}
 	}, [token]);
 
-	const { showLogout } = props;
 	const history = useHistory();
 	const [discussionContent, setDiscussionContent] = useState("");
 
 	useEffect(() => {
-		if (!showLogout) {
+		if (!isLoggedIn) {
 			history.push("/auth");
 		}
-	}, [showLogout]);
+	}, [isLoggedIn]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -70,7 +71,6 @@ const CreateDiscussion = (props) => {
 				console.log("Error creating discussion(response):", jsonData.message);
 			} else {
 				const jsonData = await response.json();
-				console.log("Discussion created successfully:", jsonData.message);
 				setRDirect(true);
 			}
 		} catch (error) {
@@ -84,14 +84,13 @@ const CreateDiscussion = (props) => {
 
 	return (
 		<div>
-			{showLogout && (
+			{isLoggedIn && (
 				<div className="create-discussion-container">
 					<div className="discussion-circle"></div>
 					<Fade right>
 						<div className="create-discussion-form-container">
 							<form onSubmit={handleSubmit}>
 								<h1>Create Discussion</h1>
-								{/* <input type="text" placeholder="Title" required /> */}
 								<textarea
 									type="text"
 									placeholder="Discussion content"

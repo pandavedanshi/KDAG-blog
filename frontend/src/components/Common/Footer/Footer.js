@@ -45,6 +45,9 @@ const Footer = () => {
                     <NavLink to="/team">
                         | Contact Us
                     </NavLink>
+                    <NavLink to="/privacy-policy">
+                    &nbsp;| Privacy Policy
+                    </NavLink>
                 </div>
             </div>
         </div>

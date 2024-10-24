@@ -1,34 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Fade from "react-reveal/Fade";
-import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthContext";
 import logout_icon from "../../../assets/pics/logout.png";
 import "./Logout.css";
 
-const Logout = (props) => {
-	const { showLogout, setShowLogout } = props;
-	const authToken = localStorage.getItem("access_token");
-	const history = useHistory();
+const Logout = () => {
+	const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
-	useEffect(() => {
-		if (authToken) {
-			console.log("User is authenticated");
-			setShowLogout(true);
-		} else {
-			console.log("User is not authenticated");
-			setShowLogout(false);
+	const handle_logout = async () => {
+		try {
+			localStorage.removeItem("access_token");
+			localStorage.removeItem("refresh_token");
+			setIsLoggedIn(false);
+		} catch (error) {
+			console.error("Error during logout:", error);
 		}
-	}, [showLogout]);
-
-	const handle_logout = () => {
-		localStorage.removeItem("access_token");
-		console.log("User logged out");
-		history.push("/auth");
-		setShowLogout(false);
 	};
 
 	const logout_button = (
-		<div className="logout_container_01" >
-			<button onClick={handle_logout} style={{cursor:"none"}}>
+		<div className="logout_container_01">
+			<button onClick={handle_logout} style={{ cursor: "none" }}>
 				<img src={logout_icon} alt="img" />
 			</button>
 		</div>
@@ -37,7 +28,7 @@ const Logout = (props) => {
 	return (
 		<Fade left>
 			<div className="logout_outer_container_01">
-				{showLogout && logout_button}
+				{isLoggedIn && logout_button}
 			</div>
 		</Fade>
 	);

@@ -6,6 +6,7 @@ from flask_cors import CORS
 from routers.users.auth import user_auth
 from routers.posts.post_crud import post_crud
 from routers.replies.handle_replies import reply_crud
+from routers.puzzle_repo.puzzle_repo import puzzle_repo
 import os
 
 app = Flask(__name__)
@@ -19,6 +20,8 @@ CORS(app)
 app.register_blueprint(user_auth, url_prefix='/user')
 app.register_blueprint(post_crud, url_prefix='/')
 app.register_blueprint(reply_crud, url_prefix='/reply')
+app.register_blueprint(puzzle_repo, url_prefix='/puzzle_repo')
+
 
 @app.route('/', methods=['GET'])
 def home():

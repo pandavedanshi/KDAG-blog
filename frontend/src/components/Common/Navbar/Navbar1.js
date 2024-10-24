@@ -69,11 +69,12 @@ const Navbar = ({ color, noborder }) => {
 								Forum
 							</NavLink>
 						</div>
+						{!isLoggedIn && (
 						<div className="kdag-nav-item">
 							<NavLink activeStyle={active_style} to="/auth">
 								Register
 							</NavLink>
-						</div>
+						</div>)}
 						{/* <div className="kdag-nav-item">
               <Link to="#">Go Down</Link>
             </div> */}
