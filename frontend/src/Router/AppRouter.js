@@ -27,6 +27,7 @@ import GalleryPage from "../components/GalleryPage/GalleyPage.js";
 import ImageGrid from "../components/GalleryPage/ImageGrid/ImageGrid.js";
 import GoogleCallback from "../components/AuthenticationPages/GoogleCallback.js";
 import { AuthProvider } from "../context/AuthContext.js";
+import CommunityGuidelines from "../components/DiscussionForum/CommunityGuidelines.js";
 
 const AppRouter = () => {
 	return (
@@ -97,6 +98,9 @@ const AppRouter = () => {
 							</Route>
 							<Route path="/certificate-generation">
 								<CertificateGeneration />
+							</Route>
+							<Route path="/community-guidelines">
+								<CommunityGuidelines />
 							</Route>
 						</Switch>
 					</ScrollToTop>
