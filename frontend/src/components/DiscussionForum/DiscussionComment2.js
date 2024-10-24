@@ -63,17 +63,14 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 				);
 				if (!response.ok) {
 					const jsonData = await response.json();
-					// toast.error(jsonData.message);
 					console.log(jsonData.message);
 				} else {
 					const jsonData = await response.json();
-					console.log("User Info fetched successfully:", jsonData.message);
 					setAuthorName(jsonData.username);
 					setDate(jsonData.date);
 				}
 			} catch (error) {
 				console.error("Error fetching User Info:", error);
-				// toast.error("Error fetching posts. Please try again later.");
 			}
 		};
 
@@ -122,11 +119,9 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 				);
 				if (!response.ok) {
 					const jsonData = await response.json();
-					// toast.error(jsonData.message);
 					console.log(jsonData.message);
 				} else {
 					const jsonData = await response.json();
-					console.log("replies fetched successfully:", jsonData.message);
 					setJsonData(jsonData);
 				}
 			} catch (error) {
@@ -173,7 +168,6 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 			);
 			if (!response.ok) {
 				const jsonData = await response.json();
-				// toast.error(jsonData.message);
 				console.log("Error", jsonData);
 			} else {
 				const jsonData = await response.json();
@@ -182,7 +176,6 @@ const DiscussionComment2 = ({ post_id, level, reply }) => {
 			}
 		} catch (error) {
 			console.error("Error deleting replies", error);
-			// toast.error("Error fetching posts. Please try again later.");
 		}
 	};
 

@@ -1,14 +1,16 @@
 import Particless from "../Common/Particles/Particless";
 import Fade from "react-reveal/Fade";
 import { useHistory } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { jwtDecode } from "jwt-decode";
 
 import "./CreateDiscussion.css";
 
-const CreateComment = (props) => {
+const CreateComment = () => {
 	const particless = React.useMemo(() => <Particless />, []);
+	const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext); 
 	const currentDate = new Date();
 	const day = currentDate.getDate();
 	const month = currentDate.getMonth() + 1;
@@ -17,7 +19,6 @@ const CreateComment = (props) => {
 		.toString()
 		.padStart(2, "0")}-${year.toString().slice(-2)}`;
 
-	const { showLogout } = props;
 	const { post_id } = useParams();
 	let { currLevel } = useParams();
 	currLevel = decodeURIComponent(currLevel);
@@ -49,10 +50,10 @@ const CreateComment = (props) => {
 	}, [token]);
 
 	useEffect(() => {
-		if (!showLogout) {
+		if (!isLoggedIn) {
 			history.push("/auth");
 		}
-	}, [showLogout]);
+	}, [isLoggedIn]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -96,7 +97,7 @@ const CreateComment = (props) => {
 
 	return (
 		<div>
-			{showLogout && (
+			{isLoggedIn && (
 				<div className="create-discussion-container">
 					<div className="discussion-circle"></div>
 					<Fade right>

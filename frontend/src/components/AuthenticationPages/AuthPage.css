@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
-
 .auth-outer-container {
 	padding-top: 160px;
 	padding-bottom: 120px;
@@ -160,6 +159,45 @@
 .form-container input[type="password"]:focus {
 	box-shadow: 0 0 5px rgba(255, 255, 255, 0.76);
 }
+
+.form-container input[type="number"]::-webkit-inner-spin-button,
+.form-container input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form-container input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.form-container form .GoogleSignup{
+	height: 40px;
+	background: white;
+	border-radius: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 10px;
+	cursor: none;
+	transition: all 0.3s;
+}
+
+.form-container form .GoogleSignup:hover{
+	box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.2);
+}
+
+.form-container form .GoogleSignup p{
+	text-transform: none;
+	color: black;
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.form-container form .GoogleSignup img{
+	height: 30px;
+	margin-right: 10px;
+}
+
 
 .sign-in {
 	left: 0;

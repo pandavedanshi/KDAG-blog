@@ -25,85 +25,91 @@ import Logout from "../components/Common/Logout/Logout.js";
 import CreateComment from "../components/DiscussionForum/CreateComment.js";
 import GalleryPage from "../components/GalleryPage/GalleyPage.js";
 import ImageGrid from "../components/GalleryPage/ImageGrid/ImageGrid.js";
+import GoogleCallback from "../components/AuthenticationPages/GoogleCallback.js";
+import { AuthProvider } from "../context/AuthContext.js";
+import CommunityGuidelines from "../components/DiscussionForum/CommunityGuidelines.js";
 import PrivacyPolicy from "../components/Privacy Policies/PrivacyPolicy.js";
 
 const AppRouter = () => {
-	const [showLogout, setShowLogout] = useState(true);
-
 	return (
 		<React.StrictMode>
 			<Router>
-				<MousePointer />
-				<Navbar showLogout={showLogout} />
-				<Logout showLogout={showLogout} setShowLogout={setShowLogout} />
-				<ScrollToTop>
-					<Switch>
-						<Route exact path="/">
-							<LandingPage />
-						</Route>
-						<Route path="/KDSH2022">
-							<KDSH2022 />
-						</Route>
-						<Route path="/blogs">
-							<BlogPage />
-						</Route>
-						<Route path="/resources">
-							<ResourcesPage />
-						</Route>
-						<Route path="/events">
-							<EventsPage />
-						</Route>
-						<Route path="/gallery">
-							<GalleryPage />
-						</Route>
-						<Route path="/team">
-							<TeamPage />
-						</Route>
-						<Route path="/auth">
-							<AuthPage showLogout={showLogout} setShowLogout={setShowLogout} />
-						</Route>
-						<Route path="/alumni">
-							<AlumniPage />
-						</Route>
-						<Route path="/forum">
-							<ForumPage />
-						</Route>
-						<Route path="/edit_profile/:user_id">
-							<EditProfile showLogout={showLogout} />
-						</Route>
-						<Route path="/create_discussion">
-							<CreateDiscussion showLogout={showLogout} />
-						</Route>
-						<Route path="/create_comment/:post_id/:currLevel">
-							<CreateComment showLogout={showLogout} />
-						</Route>
-						<Route path="/user_profile_self/:user_id">
-							<UserProfileSelf showLogout={showLogout} />
-						</Route>
-						<Route path="/user_profile_public/:user_id">
-							<UserProfilePublic showLogout={showLogout} />
-						</Route>
-						{/* <Route path="/discussion_page_id">
-							<DiscussionPage />
-						</Route> */}
-						<Route path="/discussion_page/:post_id/:numReplies">
-							<DiscussionPage />
-						</Route>
-						<Route path="/events-gallery">
-							<ImageGrid />
-						</Route>
-						<Route path="/winter-workshop">
-							<WinterWorkshop />
-						</Route>
-						<Route path="/privacy-policy">
+				<AuthProvider>
+					<MousePointer />
+					<Navbar />
+					<Logout />
+					<ScrollToTop>
+						<Switch>
+							<Route exact path="/">
+								<LandingPage />
+							</Route>
+							<Route path="/KDSH2022">
+								<KDSH2022 />
+							</Route>
+							<Route path="/blogs">
+								<BlogPage />
+							</Route>
+							<Route path="/resources">
+								<ResourcesPage />
+							</Route>
+							<Route path="/events">
+								<EventsPage />
+							</Route>
+							<Route path="/gallery">
+								<GalleryPage />
+							</Route>
+							<Route path="/team">
+								<TeamPage />
+							</Route>
+							<Route path="/auth">
+								<AuthPage />
+							</Route>
+							<Route path="/google-auth/callback">
+								<GoogleCallback />
+							</Route>
+							<Route path="/alumni">
+								<AlumniPage />
+							</Route>
+							<Route path="/forum">
+								<ForumPage />
+							</Route>
+							<Route path="/edit_profile/:user_id">
+								<EditProfile />
+							</Route>
+							<Route path="/create_discussion">
+								<CreateDiscussion />
+							</Route>
+							<Route path="/create_comment/:post_id/:currLevel">
+								<CreateComment />
+							</Route>
+							<Route path="/user_profile_self/:user_id">
+								<UserProfileSelf />
+							</Route>
+							<Route path="/user_profile_public/:user_id">
+								<UserProfilePublic />
+							</Route>
+							<Route path="/discussion_page/:post_id/:numReplies">
+								<DiscussionPage />
+							</Route>
+							<Route path="/events-gallery">
+								<ImageGrid />
+							</Route>
+							<Route path="/winter-workshop">
+								<WinterWorkshop />
+							</Route>
+    	       <Route path="/privacy-policy">
 							<PrivacyPolicy />
 						</Route>
-						<Route path="/certificate-generation">
-							<CertificateGeneration />
-						</Route>
-					</Switch>
-				</ScrollToTop>
-				<Footer />
+							<Route path="/certificate-generation">
+								<CertificateGeneration />
+							</Route>
+							<Route path="/community-guidelines">
+								<CommunityGuidelines />
+							</Route>
+						</Switch>
+					</ScrollToTop>
+					<Footer />
+				</AuthProvider>
 			</Router>
 		</React.StrictMode>
 	);

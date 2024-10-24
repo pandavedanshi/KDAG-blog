@@ -14,8 +14,18 @@ def add_post(sid):
         from app import mongo
 
         users = mongo.db.users
-        if not users.find_one(ObjectId(sid)):
+        user = users.find_one(ObjectId(sid))
+        if not user:
             return jsonify({"message": "Invalid student id"}), 401
+        if not user.get("active", False):
+            return (
+                jsonify(
+                    {
+                        "message": "Account has not been activated. Please update your info to activate account."
+                    }
+                ),
+                403,
+            )
 
         post_data = request.get_json()
         if not post_data:
@@ -83,12 +93,19 @@ def get_posts():
                 image_base64 = base64.b64encode(image_data).decode("utf-8")
             else:
                 image_base64 = None
+
+            author_id = post.get("author_id")
+            user = users.find_one(ObjectId(author_id)) if author_id else None
+
+            if user:
+                author_name = f"{user['f_name']} {user['l_name']}"
+            else:
+                author_name = "-----"
+
             all_posts_list.append(
                 {
+                    "author_name": author_name,
                     "message": post["message"],
-                    "author_name": users.find_one(ObjectId(post["author_id"]))["f_name"]
-                    + " "
-                    + users.find_one(ObjectId(post["author_id"]))["l_name"],
                     "image": image_base64,
                     "replies": len(post["replies"]),
                     "author_id": post["author_id"],
@@ -122,11 +139,17 @@ def get_post(pid):
         else:
             image_base64 = None
 
+        author_id = post.get("author_id")
+        user = users.find_one(ObjectId(author_id)) if author_id else None
+
+        if user:
+            author_name = f"{user['f_name']} {user['l_name']}"
+        else:
+            author_name = "-----"
+
         reqd_post = {
             "message": post["message"],
-            "author_name": users.find_one(ObjectId(post["author_id"]))["f_name"]
-            + " "
-            + users.find_one(ObjectId(post["author_id"]))["l_name"],
+            "author_name": author_name,
             "author_id": post["author_id"],
             "date": post["date"],
             "image": image_base64,
@@ -162,6 +185,15 @@ def delete_post(pid, uid):
         user = users.find_one({"_id": user_id})
         if not user:
             return jsonify({"message": "User not found"}), 404
+        if not user.get("active", False):
+            return (
+                jsonify(
+                    {
+                        "message": "Account has not been activated. Please update your info to activate account."
+                    }
+                ),
+                403,
+            )
 
         is_admin = user.get("is_admin", False)
 
@@ -183,7 +215,7 @@ def delete_post(pid, uid):
 def upvote_post(pid):
     try:
         from app import mongo
-        
+
         user_identity = get_jwt_identity()
         uid = user_identity["user_id"]
 
@@ -216,13 +248,13 @@ def upvote_post(pid):
             {
                 "$inc": {
                     "upvotes": changes["upvotes"],
-                    "downvotes": changes["downvotes"]
+                    "downvotes": changes["downvotes"],
                 },
                 "$set": {
                     "voters": changes["voters"],
-                    "voters_downvoted": changes["voters_downvoted"]
-                }
-            }
+                    "voters_downvoted": changes["voters_downvoted"],
+                },
+            },
         )
 
         new_upvote_count = post["upvotes"] + changes["upvotes"]
@@ -230,15 +262,18 @@ def upvote_post(pid):
         new_voters = changes["voters"]
         new_voters_downvoted = changes["voters_downvoted"]
 
-        return jsonify(
-            {
-                "message": "Post upvoted successfully",
-                "newUpvoteCount": new_upvote_count,
-                "newDownvoteCount": new_downvote_count,
-                "new_voters": new_voters,
-                "new_voters_downvoted": new_voters_downvoted,
-            }   
-        ), 200
+        return (
+            jsonify(
+                {
+                    "message": "Post upvoted successfully",
+                    "newUpvoteCount": new_upvote_count,
+                    "newDownvoteCount": new_downvote_count,
+                    "new_voters": new_voters,
+                    "new_voters_downvoted": new_voters_downvoted,
+                }
+            ),
+            200,
+        )
 
     except Exception as error:
         print(f"Error during upvoting: {error}")
@@ -283,29 +318,32 @@ def downvote_post(pid):
             {
                 "$inc": {
                     "upvotes": changes["upvotes"],
-                    "downvotes": changes["downvotes"]
+                    "downvotes": changes["downvotes"],
                 },
                 "$set": {
                     "voters": changes["voters"],
-                    "voters_downvoted": changes["voters_downvoted"]
-                }
-            }
+                    "voters_downvoted": changes["voters_downvoted"],
+                },
+            },
         )
-        
+
         new_downvote_count = post["downvotes"] + changes["downvotes"]
         new_upvote_count = post["upvotes"] + changes["upvotes"]
         new_voters = changes["voters"]
         new_voters_downvoted = changes["voters_downvoted"]
 
-        return jsonify(
-            {
-                "message": "Post downvoted successfully",
-                "newUpvoteCount": new_upvote_count,
-                "newDownvoteCount": new_downvote_count,
-                "new_voters": new_voters,
-                "new_voters_downvoted": new_voters_downvoted,
-            }
-        ), 200
+        return (
+            jsonify(
+                {
+                    "message": "Post downvoted successfully",
+                    "newUpvoteCount": new_upvote_count,
+                    "newDownvoteCount": new_downvote_count,
+                    "new_voters": new_voters,
+                    "new_voters_downvoted": new_voters_downvoted,
+                }
+            ),
+            200,
+        )
 
     except Exception as error:
         print(f"Error during downvoting: {error}")
