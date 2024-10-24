@@ -28,6 +28,7 @@ import ImageGrid from "../components/GalleryPage/ImageGrid/ImageGrid.js";
 import GoogleCallback from "../components/AuthenticationPages/GoogleCallback.js";
 import { AuthProvider } from "../context/AuthContext.js";
 import CommunityGuidelines from "../components/DiscussionForum/CommunityGuidelines.js";
+import PrivacyPolicy from "../components/Privacy Policies/PrivacyPolicy.js";
 
 const AppRouter = () => {
 	return (
@@ -96,6 +97,9 @@ const AppRouter = () => {
 							<Route path="/winter-workshop">
 								<WinterWorkshop />
 							</Route>
+    	       <Route path="/privacy-policy">
+							<PrivacyPolicy />
+						</Route>
 							<Route path="/certificate-generation">
 								<CertificateGeneration />
 							</Route>
