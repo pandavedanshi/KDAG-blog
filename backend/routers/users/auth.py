@@ -24,10 +24,10 @@ user_auth = Blueprint("user_auth", __name__)
 
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
-GOOGLE_TOKEN_INFO_URL = os.getenv("GOOGLE_TOKEN_INFO_URL")
-GOOGLE_TOKEN_INFO_URL_2 = os.getenv("GOOGLE_TOKEN_INFO_URL_2")
 REDIRECT_URI = os.getenv("REDIRECT_URI")
 GOOGLE_TOKEN_URL = os.getenv("GOOGLE_TOKEN_URL")
+GOOGLE_TOKEN_INFO_URL = os.getenv("GOOGLE_TOKEN_INFO_URL")
+GOOGLE_TOKEN_INFO_URL_2 = os.getenv("GOOGLE_TOKEN_INFO_URL_2")
 
 
 @user_auth.route("/auth/google/callback", methods=["POST"])
