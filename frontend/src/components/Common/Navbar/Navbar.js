@@ -10,6 +10,8 @@ import profile_icon from '../../../assets/pics/profile_icon.png';
 import { jwtDecode } from 'jwt-decode';
 import { AuthContext } from "../../../context/AuthContext";
 
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const active_style = {
   borderBottom: '2px solid rgba(255, 255, 255, 0.8)',
@@ -18,6 +20,7 @@ const active_style = {
 };
 
 const Navbar = ({ noborder }) => {
+  const history = useHistory();
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [userId, setUserId] = useState('empty');
   const token = localStorage.getItem('access_token');
@@ -34,6 +37,12 @@ const Navbar = ({ noborder }) => {
       }
     }
   }, [token]);
+
+  useEffect(() => {
+    if (window.location.pathname.endsWith('index.html')) {
+      history.push('/');
+    }
+  }, [history]);
 
   useEffect(() => {
     const navColor = (e) => {
