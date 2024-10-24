@@ -9,8 +9,6 @@ import register_img from '../../../assets/pics/register.png';
 import profile_icon from '../../../assets/pics/profile_icon.png';
 import { jwtDecode } from 'jwt-decode';
 import { AuthContext } from "../../../context/AuthContext";
-
-import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 const active_style = {
