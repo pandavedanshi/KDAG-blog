@@ -14,7 +14,7 @@ const events = [
     {
         id: 0,
         title: "Spring of Realtime LLMs Bootcamp 2024",
-        location: "Nalanda Classroom Complex, NC111",
+        location: "Online",
         date:"2nd March 2024 - 25th March 2024",
         link: "https://unstop.com/o/K4h6B1e?lb=Yxt5XWS",
         image: LLM_2024,
@@ -46,8 +46,8 @@ const events = [
     {
         id: 4,
         title: "Campus Pulse 2023",
-        location: "Nalanda Classroom Complex, NR221",
-        date:"1st April 2023 - 2nd April 2023",
+        location: "IIT Kharagpur",
+        date:"13th November, 2023 - 15th January, 2024",
         image: campus_pulse2024,
         resources: "https://docs.google.com/document/d/1bFgQODQLFZLzT8UNobxP3KhZWFmCjnyLMLu2o_m-sVE/edit?tab=t.0",
     },
