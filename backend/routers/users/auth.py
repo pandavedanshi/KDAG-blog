@@ -180,7 +180,7 @@ def google_callback():
     except Exception as e:
         print("Error in Google OAuth callback:", e)
         return (
-            jsonify({"error": "An error occurred during the authentication process."}),
+            jsonify({"error": "An error occurred during the authentication process -- {e}"}),
             500,
         )
 

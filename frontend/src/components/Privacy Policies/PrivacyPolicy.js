@@ -17,15 +17,6 @@ const PrivacyPolicy = () => {
 				We use Your Personal data to provide and improve the Service. By using
 				the Service, You agree to the collection and use of information in
 				accordance with this Privacy Policy.
-				{/* This Privacy Policy has been
-				created with the help of the{" "}
-				<a
-					href="https://www.termsfeed.com/privacy-policy-generator/"
-					target="_blank"
-				>
-					Privacy Policy Generator
-				</a>
-				. */}
 			</p>
 			<h2>Interpretation and Definitions</h2>
 			<h3>Interpretation</h3>
@@ -44,15 +35,12 @@ const PrivacyPolicy = () => {
 						access our Service or parts of our Service.
 					</p>
 				</li>
-				{/* <li>
+				<li>
 					<p>
 						<strong>Affiliate</strong> means an entity that controls, is
-						controlled by or is under common control with a party, where
-						&quot;control&quot; means ownership of 50% or more of the shares,
-						equity interest or other securities entitled to vote for election of
-						directors or other managing authority.
+						controlled by or is under common control with a party.
 					</p>
-				</li> */}
+				</li>
 				<li>
 					<p>
 						<strong>Company</strong> (referred to as either &quot;the
@@ -113,11 +101,11 @@ const PrivacyPolicy = () => {
 						<strong>Website</strong> refers to Kharagpur Data Analytics Groups,
 						accessible from{" "}
 						<a
-							href="https://www.kdagiitkgp.org/"
+							href="https://www.kdagiitkgp.com/"
 							rel="external nofollow noopener"
 							target="_blank"
 						>
-							https://www.kdagiitkgp.org/
+							https://www.kdagiitkgp.com/
 						</a>
 					</p>
 				</li>
