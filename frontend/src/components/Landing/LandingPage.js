@@ -18,9 +18,6 @@ import certificate from "../../assets/KDSH2022Certificates/Akash Kundu.png";
 import Header from "./Header/Header";
 
 const LandingPage = () => {
-	console.log(
-		"KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG KDAG "
-	);
 	const eligibleCandidates = [
 		["Aman Sharma", "amankumarsharma4084@gmail.com"],
 		["Kushaz Sehgal", "kushaz.sehgal@gmail.com"],
