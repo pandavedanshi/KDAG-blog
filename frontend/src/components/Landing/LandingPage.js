@@ -7,7 +7,8 @@ import {
 	faCalendarDays,
 	faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import Poster from "../../assets/pics/events/KDAG ML Digest.jpg";
+// import Poster from "../../assets/pics/events/KDAG ML Digest.jpg";
+import KDSH5thEdition from '../../assets/pics/events/KDSH 5TH edition.jpg';
 
 //Components
 import Content from "./Content/Content.js";
@@ -257,7 +258,7 @@ const LandingPage = () => {
 							<div className="banner-heading">
 								<h3 style={{ fontSize: "35px", fontWeight: "600" }}>
 									{/* CampusPulse: Igniting Innovation with Data */}
-									ML Digest Blog Series 
+									5th Edition of the Kharagpur Data Science Hackathon 
 								</h3>
 							</div>
 						</div>
@@ -265,7 +266,7 @@ const LandingPage = () => {
 					<div className="banner-content-flex">
 						<img
 							className="banner-poster"
-							src={Poster}
+							src={KDSH5thEdition}
 							alt="Poster"
 							// height={250}
 						/>
@@ -283,21 +284,12 @@ const LandingPage = () => {
                 and Mila, Canada.
 							</p> */}
 							<p>
-								We are excited to announce our collaboration with{" "}
-								<strong>Chi SquareX</strong> , one of India's top deep-tech startups
-								specializing in data science, machine learning, and AI.
-								Together, we're launching <strong>'ML Digest'</strong>, a blog series dedicated
-								to bringing you the latest advancements, trends, and insights in
-								machine learning and deep technology.
-								<br />
-								<br />
-								Starting on August 9th, this series will feature in-depth
-								articles, expert analyses, and cutting-edge research designed to
-								keep you informed and inspired by the industry's best. Stay
-								tuned for regular updates and get ready to explore the future of
-								technology with 'ML Digest.' Follow us and be part of the
-								innovation wave!
-							</p>
+							"Without data, you're just another person with an opinion." - W. Edwards Deming <br />
+
+                            The 5th Edition of the <strong>Kharagpur Data Science Hackathon</strong> (KDSH) is here to push boundaries and redefine excellence in data science.
+                            Prepare to immerse yourself in cutting-edge machine learning, tackle real-world data challenges, and showcase your innovative solutions. Gain exclusive opportunities to connect with industry leaders, sharpen your expertise, and emerge as a trailblazer in the world of data science.
+                            This is more than a competition; it's a platform to push your limits, ignite your passion for data, and create meaningful change.
+                            </p>
 						</div>
 					</div>
 					{/* banner main ends */}
@@ -306,7 +298,7 @@ const LandingPage = () => {
 					<div className="banner-info-flex">
 						<div className="banner-info">
 							<FontAwesomeIcon icon={faCalendarDays} className="icon" shake />
-							<p id="banner-info">Starting on 9th August 2024</p>
+							<p id="banner-info">Coming Soon</p>
 							<FontAwesomeIcon icon={faLocationDot} className="icon" flip />
 							<p id="banner-info">Online</p>
 						</div>
