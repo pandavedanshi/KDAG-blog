@@ -258,7 +258,7 @@ const LandingPage = () => {
 							<div className="banner-heading">
 								<h3 style={{ fontSize: "35px", fontWeight: "600" }}>
 									{/* CampusPulse: Igniting Innovation with Data */}
-									5th Edition of the Kharagpur Data Science Hackathon 
+									Kharagpur Data Science Hackathon 2025 
 								</h3>
 							</div>
 						</div>
