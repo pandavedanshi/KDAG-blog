@@ -220,7 +220,7 @@ a {
   }
 }
 .banner {
-  height: 200vh;
+  height: 220vh;
   margin-bottom: 13%;
   background-color: rgba(0, 0, 0, 0.7);
   position: relative;
@@ -466,12 +466,12 @@ a {
   background-color: rgb(219, 219, 219) !important;
 }
 .banner-queries {
-  height: 30%;
+  width: 600px;
+  margin: 0 auto;
   padding: 30px;
   position: relative;
   background: rgba(255, 255, 255, 0.042);
   backdrop-filter: blur(10px);
-  margin: 0 30%;
   border-radius: 15px;
   border: 1px white solid;
   padding-top: 0;
@@ -854,9 +854,9 @@ a {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
   .banner {
-    height: 240vh;
+    height: 220vh;
     margin-bottom: 5%;
     background-color: rgba(0, 0, 0, 0.7);
     position: relative;
@@ -972,7 +972,6 @@ a {
   .query-heading {
     height: fit-content;
     width: fit-content;
-    left: 22%;
     color: rgb(0, 0, 0);
     top: -30px;
   }
@@ -1003,9 +1002,8 @@ a {
     width: 80%;
   }
   .banner-queries {
-    height: 30%;
     width: 80%;
-    padding: 30px;
+    padding: 50px 30px;
     left: 10%;
     margin: 0;
     border-radius: 10px;
