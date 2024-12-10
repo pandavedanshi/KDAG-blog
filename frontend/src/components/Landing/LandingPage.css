@@ -91,6 +91,7 @@ body {
 
 .section-contents {
   margin-top: 20rem;
+  margin-bottom: 4rem;
 }
 
 .section-contacts {
@@ -255,7 +256,7 @@ a {
 .banner-heading-flex-container {
   position: relative;
   bottom: 585px;
-  padding: 5px;
+  padding: 10px 5px;
   margin: 0 130px;
   overflow: hidden;
   border-radius: 50px;
