@@ -487,7 +487,7 @@ a {
   width: fit-content;
   color: rgb(0, 0, 0);
   position: absolute;
-  left: 36%;
+  left: 34%;
   top: -30px;
   background: white;
   border-radius: 15px;
@@ -567,7 +567,7 @@ input[type='text']:focus {
   width: fit-content;
   position: relative;
   left: 37%;
-  top: 23px;
+  top: 10px;
   padding-top: 15px;
 }
 /* Banner */
@@ -974,6 +974,7 @@ a {
     width: fit-content;
     color: rgb(0, 0, 0);
     top: -30px;
+    left: 28%;
   }
   .query-submit-button-flex {
     display: flex;
@@ -984,10 +985,8 @@ a {
     width: fit-content;
     position: absolute;
     padding-top: 30px;
-
+    top: 0;
     position: relative;
-    left: 30%;
-    top: 47px;
     padding-top: 30px;
     transform: scale(1.5);
   }
