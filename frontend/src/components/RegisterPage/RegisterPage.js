@@ -3,6 +3,7 @@ import Fade from "react-reveal/Fade";
 import { useHistory } from "react-router-dom";
 import Particless from "../Common/Particles/Particless";
 import "./RegisterPage.css";
+import Axios from 'axios';
 
 const RegisterPage = () => {
     const particless = React.useMemo(() => <Particless />, []);

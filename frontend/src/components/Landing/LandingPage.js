@@ -306,27 +306,17 @@ const LandingPage = () => {
 					{/* banner info ends */}
 
 					{/* banner button starts */}
-					{/* <div className="banner-button-flex">
-						<a
-							href="https://docs.google.com/forms/d/e/1FAIpQLSeEyLD3U5-ZY47Hq1SN7sa354tAnCHeYUZzVTwMT7WQY6TGyw/viewform"
-							// href = "https://docs.google.com/forms/d/e/1FAIpQLScesbGd90BYDtRVTpAxmcMtwL4XmohK8VUOWPXD9p8SnyY-0Q/viewform?usp=sf_link"
-							target="blank"
-						>
-							<div className="banner-button">
-								<button class="btn-12" style={{ cursor: "none" }}>
-									<span>Register Now</span>
-								</button>
-							</div>
-						</a>
-						<a
-							href="https://docs.google.com/forms/d/e/1FAIpQLSeEyLD3U5-ZY47Hq1SN7sa354tAnCHeYUZzVTwMT7WQY6TGyw/viewform"
-							target="blank"
-						>
-							<button id="banner-button-media" class="btn-12">
-								<span>Register Now</span>
-							</button>
-						</a>
-					</div> */}
+					<div className="banner-button-flex">
+                            <a href="/register-kdsh">  <div className="banner-button">
+                        	<button class="btn-12" style={{ cursor: "pointer" }}> <span>Register Now</span>
+                        </button>
+    				</div>
+  							</a>
+  							<a href="/register-kdsh">  <button id="banner-button-media" class="btn-12">
+      							<span>Register Now</span>
+    					</button>
+  							</a>
+					</div>
 				</div>
 				{/* banner button ends */}
 
