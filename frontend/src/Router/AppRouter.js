@@ -29,6 +29,7 @@ import GoogleCallback from "../components/AuthenticationPages/GoogleCallback.js"
 import { AuthProvider } from "../context/AuthContext.js";
 import CommunityGuidelines from "../components/DiscussionForum/CommunityGuidelines.js";
 import PrivacyPolicy from "../components/Privacy Policies/PrivacyPolicy.js";
+import RegisterPage from "../components/RegisterPage/RegisterPage.js";
 
 const AppRouter = () => {
 	return (
@@ -97,14 +98,17 @@ const AppRouter = () => {
 							<Route path="/winter-workshop">
 								<WinterWorkshop />
 							</Route>
-    	       <Route path="/privacy-policy">
-							<PrivacyPolicy />
-						</Route>
+							<Route path="/privacy-policy">
+								<PrivacyPolicy />
+							</Route>
 							<Route path="/certificate-generation">
 								<CertificateGeneration />
 							</Route>
 							<Route path="/community-guidelines">
 								<CommunityGuidelines />
+							</Route>
+							<Route path="/register-kdsh">
+								<RegisterPage />
 							</Route>
 						</Switch>
 					</ScrollToTop>
