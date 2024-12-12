@@ -3,7 +3,7 @@ from flask import request, jsonify, Blueprint
 from google.oauth2 import id_token
 from dotenv import load_dotenv
 from flask import make_response
-from flask_jwt_extended import (
+from flask_jwt_extended import ( 
     create_access_token,
     create_refresh_token,
     jwt_required,
@@ -12,7 +12,7 @@ from flask_jwt_extended import (
     verify_jwt_in_request,
     decode_token,
 )
-from bson import ObjectId
+from bson import ObjectId 
 from datetime import timedelta
 import requests
 import bcrypt
