@@ -1,129 +1,152 @@
 import React, { useState, useContext } from "react";
 import Fade from "react-reveal/Fade";
-import { useHistory } from "react-router-dom";
 import Particless from "../Common/Particles/Particless";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./RegisterPage.css";
 
 const RegisterPage = () => {
-    const particless = React.useMemo(() => <Particless />, []);
-    const history = useHistory();
-    const [showUsermessage, setShowUsermessage] = useState(false);
+	const particless = React.useMemo(() => <Particless />, []);
+	const [showUsermessage, setShowUsermessage] = useState(false);
+	const [numMembers, setNumMembers] = useState(0);
 
-    const token = localStorage.getItem("access_token");
+	if (showUsermessage) {
+		setTimeout(() => {
+			setShowUsermessage(false);
+		}, 25000);
+	}
 
-    if (showUsermessage) {
-        setTimeout(() => {
-            setShowUsermessage(false);
-        }, 25000);
-    }
+	const member = (
+		<>
+			<input type="text" name="firstname" placeholder="First Name" required />
+			<input type="text" name="lastname" placeholder="Last Name"/>
+			<input type="" name="Gender" placeholder="" />
+			<input type="email" name="email" placeholder="Email Id" required />
+			<input type="number" name="phone" placeholder="Contact Number" required />
+			<input type="text" name="college" placeholder="College Name" required />
+			<input type="text" name="degree" placeholder="Degree" required />
+			<input type="number" name="year" placeholder="Year of Study" required />
+			<input type="number" name="year" placeholder="Github Id" required />
+		</>
+	);
 
-    // const toggleForm = () => {
-    //     setIsSignUpActive((prev) => !prev);
-    // };
+	const handleNumMembers = (e) => {
+		const value = e.target.value;
+		if (value > 5) {
+			toast.error("There can be a maximum of 5 participants in a team!", {
+				position: "top-center",
+				draggable: true,
+				theme: "dark",
+			});
+		} else if (value < 2) {
+			toast.error("There have to be a minimum of 2 members in a team!", {
+				position: "top-center",
+				draggable: true,
+				theme: "dark",
+			});
+		} else if (value <= 5) {
+			setNumMembers(Number(value));
+		}
+	};
 
-    // const submitRegister = async (e) => {
-    //     e.preventDefault();
-    // };
+	const renderMembers = () => {
+		let memberElements = [];
+		for (let i = 2; i < numMembers; i++) {
+			memberElements.push(
+				<div key={`member${i + 1}`}>
+					<div className="register-form-details">Details of Member {i + 1}</div>
+					{member}
+				</div>
+			);
+		}
+		return memberElements;
+	};
 
-    // const submitLogin = async (e) => {
-    //     e.preventDefault();
-    // };
+	return (
+		<>
+			<div className="register-container">
+				<Fade top>
+					<div className="register-header">
+						<div className="spacer layer1"></div>
+						<div className="register-kdsh">KDSH 2025</div>
+						<div className="register-kdsh-desc">
+							<p>
+								The 5th Edition of the{" "}
+								<strong>Kharagpur Data Science Hackathon</strong> (KDSH) is here
+								to redefine excellence in data science. Dive into machine
+								learning, solve real-world challenges, and showcase your
+								innovative solutions. Connect with industry leaders, sharpen
+								your skills, and become a trailblazer in the field.
+							</p>
 
-    // if (rDirect) {
-    //     history.push("/forum");
-    // }
+							<p>
+								To participate, please fill in your details in the form below.
+							</p>
 
-    // if (isLoggedIn) {
-    //     history.push("/forum");
-    // }
+							<p>
+								Before registering, ensure you've starred the following GitHub
+								repositories:
+							</p>
 
-    return (
-        <>
-            <Fade left>
-
-                <div className="auth-outer-container">
-                    {/* {showUsermessage && (
-                        <div className={`user_message`}>{userMessage}</div>
-                    )} */}
-
-                    <div className={`auth-container active`}>
-                        <div className="form-container sign-up">
-                            <form >
-                                <div style={{
-                                    maxHeight: "400px", 
-                                    overflowY: "auto",
-                                    padding: "20px",
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    gap: "10px"
-                                }}>
-                                    <h1>REGISTER</h1>
-                                    <br />
-                                    <input type="text" name="name" placeholder="Team Name" required/>
-                                    <div className="details">Details of Team Leader</div>
-                                    <input type="text" name="name" placeholder="Name" required/>
-                                    <input type="email" name="email" placeholder="Email Id" required/>
-                                    <input type="number" name="phone" placeholder="Contact Number" required/>
-                                    <input type="text" name="college" placeholder="College Name" required/>
-                                    <input type="text" name="degree" placeholder="Degree" required/>
-                                    <input type="number" name="year" placeholder="Year of Study" required/>
-                                    <div className="details">Details of Member 1</div>
-                                    <input type="text" name="name" placeholder="Name" required/>
-                                    <input type="email" name="email" placeholder="Email Id" required/>
-                                    <input type="number" name="phone" placeholder="Contact Number" required/>
-                                    <input type="text" name="college" placeholder="College Name" required />
-                                    <input type="text" name="degree" placeholder="Degree" required/>
-                                    <input type="number" name="year" placeholder="Year of Study" required/>
-                                    <div className="details">Details of Member 2</div>
-                                    <input type="text" name="name" placeholder="Name" />
-                                    <input type="email" name="email" placeholder="Email Id" />
-                                    <input type="number" name="phone" placeholder="Contact Number" />
-                                    <input type="text" name="college" placeholder="College Name" />
-                                    <input type="text" name="degree" placeholder="Degree" />
-                                    <input type="number" name="year" placeholder="Year of Study" />
-                                    <div className="details">Details of Member 3</div>
-                                    <input type="text" name="name" placeholder="Name" />
-                                    <input type="email" name="email" placeholder="Email Id" />
-                                    <input type="number" name="phone" placeholder="Contact Number" />
-                                    <input type="text" name="college" placeholder="College Name" />
-                                    <input type="text" name="degree" placeholder="Degree" />
-                                    <input type="number" name="year" placeholder="Year of Study" />
-                                    <br />
-                                    <button className="GoogleSignup">
-                                        <p>Register</p>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div className="toggle-container">
-                            <div className={`toggle active`}>
-                                <div className="toggle-panel toggle-left">
-                                    <h1>Kharagpur Data Science Hackathon</h1>
-                                    <p>
-                                        Kharagpur Data Analytics Group is proud to bring to you the fifth edition of the 'Kharagpur Data Science Hackathon'. <b>Register Here for participating in KDSH 2025...</b>
-                                    </p>
-                                    <p>
-                                        <b>Note:</b> You have to star the following GitHub Repository in order to Register.
-                                    </p>
-                                    <button
-                                        className="hidden"
-                                        style={{ cursor: "none" }}
-                                        onClick={() => window.open("https://github.com/pathwaycom/pathway", "_blank")}
-                                    >
-                                        Link to the Repo
-                                    </button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </Fade>
-            {particless}
-        </>
-    );
+							<ul>
+								<li>
+									<a
+										className="kdsh-link"
+										href="https://github.com/pathwaycom/pathway"
+										target="_blank"
+									>
+										👉Pathway
+									</a>
+								</li>
+								<li>
+									<a
+										className="kdsh-link"
+										href="https://github.com/pathwaycom/llm-app"
+										target="_blank"
+									>
+										👉LLM App
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</Fade>
+				<Fade left>
+					<div className="register-form">
+						<form>
+							<div>
+								<h1 style={{ fontStyle: "italic" }}>REGISTER</h1>
+								<br />
+								<input
+									type="text"
+									name="name"
+									placeholder="Team Name"
+									required
+								/>
+								<input
+									type="text"
+									name="numMembers"
+									placeholder="Number of members"
+									onChange={handleNumMembers}
+								/>
+								<div className="register-form-details">
+									Details of Member 1 : Team Leader
+								</div>
+								{member}
+								<div className="register-form-details">Details of Member 2</div>
+								{member}
+								{renderMembers()}
+								<button className="register-form-submit">
+									<p>Register</p>
+								</button>
+							</div>
+						</form>
+					</div>
+				</Fade>
+			</div>
+			{particless}
+		</>
+	);
 };
 
 export default RegisterPage;

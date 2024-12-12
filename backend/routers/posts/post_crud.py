@@ -6,7 +6,6 @@ import base64
 
 post_crud = Blueprint("post_crud", __name__)
 
-
 @post_crud.route("/create_post/<string:sid>", methods=["POST"])
 @jwt_required()
 def add_post(sid):
@@ -170,7 +169,7 @@ def get_post(pid):
 @jwt_required()
 def delete_post(pid, uid):
     try:
-        from app import mongo
+        from app import mongo 
 
         posts = mongo.db.posts
         users = mongo.db.users
