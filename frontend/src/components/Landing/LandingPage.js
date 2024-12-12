@@ -306,7 +306,7 @@ const LandingPage = () => {
 					{/* banner info ends */}
 
 					{/* banner button starts */}
-					<div className="banner-button-flex">
+					{/* <div className="banner-button-flex">
                             <a href="/register-kdsh">  <div className="banner-button">
                         	<button class="btn-12" style={{ cursor: "pointer" }}> <span>Register Now</span>
                         </button>
@@ -316,7 +316,7 @@ const LandingPage = () => {
       							<span>Register Now</span>
     					</button>
   							</a>
-					</div>
+					</div> */}
 				</div>
 				{/* banner button ends */}
 
