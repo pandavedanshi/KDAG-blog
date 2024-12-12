@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Fade from "react-reveal/Fade";
 import Particless from "../Common/Particles/Particless";
 import { toast } from "react-toastify";
@@ -8,8 +8,19 @@ import "./RegisterPage.css";
 const RegisterPage = () => {
 	const particless = React.useMemo(() => <Particless />, []);
 	const [showUsermessage, setShowUsermessage] = useState(false);
-	const [numMembers, setNumMembers] = useState(0);
 
+	const [numMembers, setNumMembers] = useState(0);
+	const [firstnames , setFirstnames] = useState([]);
+	const [lastnames , setlastnames] = useState([]);
+	const [gender , setGender] = useState([]);
+	const [mails , setMails] = useState([]);
+	const [mobiles , setMobiles] = useState([]);
+	const [college , setCollege] = useState([]);
+	const [degree , setDegree] = useState([]);
+	const [YOS , setYOS] = useState([]);
+	const [GitHubID , setGitHubID] = useState([]);
+	const [team , setTeam] = useState("");
+	
 	if (showUsermessage) {
 		setTimeout(() => {
 			setShowUsermessage(false);
@@ -19,13 +30,20 @@ const RegisterPage = () => {
 	const member = (
 		<>
 			<input type="text" name="firstname" placeholder="First Name" required />
-			<input type="text" name="lastname" placeholder="Last Name"/>
-			<input type="" name="Gender" placeholder="" />
+			<input type="text" name="lastname" placeholder="Last Name" />
+			<div className="register-form-gender">
+				<label for="gender">Select Gender:</label>
+				<select id="gender" name="gender">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+					<option value="other">Other</option>
+				</select>
+			</div>
 			<input type="email" name="email" placeholder="Email Id" required />
 			<input type="number" name="phone" placeholder="Contact Number" required />
 			<input type="text" name="college" placeholder="College Name" required />
 			<input type="text" name="degree" placeholder="Degree" required />
-			<input type="number" name="year" placeholder="Year of Study" required />
+			<input type="number" name="year" placeholder="Year of Study - 1/2/3..." required />
 			<input type="number" name="year" placeholder="Github Id" required />
 		</>
 	);
@@ -61,6 +79,8 @@ const RegisterPage = () => {
 		}
 		return memberElements;
 	};
+
+
 
 	return (
 		<>
