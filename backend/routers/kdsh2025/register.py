@@ -21,27 +21,27 @@ def check_star():
 
         data = request.get_json()
         user = data.get("gitHub_user")
-        print(1)
+
+        if not user:
+            return jsonify({"error": "GitHub user is required."}), 400
+
         access_token = os.getenv("GITHUB_TOKEN")
+        if not access_token:
+            return jsonify({"error": "GitHub token is missing."}), 400
         g = Github(access_token)
-        print(2)
+
         repo_owner = "pathwaycom"
         repo_name = "llm-app"
-        print(3)
         repo = g.get_repo(f"{repo_owner}/{repo_name}")
-        print(4)
-        print(repo)
 
         stargazers = repo.get_stargazers()
-        print(5)
-        print(stargazers)
 
-        has_starred = any(user.login == user for user in stargazers)
-
-        # Store the result in MongoDB
-        # db = mongo.db  # Access the database
-        # collection = db.starred_users  # Access the collection
-        # collection.insert_one({"username": target_username, "starred": has_starred})
+        has_starred = False
+        for starred_user in stargazers:
+            print(starred_user.login)
+            if starred_user.login == user:
+                has_starred = True
+                break
 
         if has_starred:
             result = f"User {user} has starred the repository!"
@@ -71,8 +71,8 @@ def check_star():
         return (
             jsonify(
                 {
-                    "error": e,
+                    "message": e,
                 }
             ),
-            400,
+            200,
         )

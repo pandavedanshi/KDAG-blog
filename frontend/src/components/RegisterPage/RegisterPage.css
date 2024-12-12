@@ -16,7 +16,7 @@
 	left: 38%;
 	font-size: 50px;
 	font-weight: 900;
-	color: white;
+	color: rgba(255, 255, 255, 0.755);
 	padding: 5px 25px;
 	border: solid 5px white;
 	text-wrap: nowrap;
@@ -68,8 +68,29 @@
 	margin-right: 15px;
 	margin-bottom: 15px;
 }
+
+.register-form-gender {
+	color: rgba(255, 255, 255, 0.664);
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.register-form-gender label {
+	margin-left: 8px;
+	margin-right: 10px;
+}
+
+.register-form-gender select {
+	border-radius: 50px;
+	padding-right: 15px;
+}
+.register-form-gender select option {
+	color: #333; 
+}
+
 .register-form-details {
 	color: white;
+	font-weight: 600;
 	position: relative;
 	left: 10px;
 	margin-bottom: 5px;
