@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import useDebounce from "./DebounceHook";
 import Fade from "react-reveal/Fade";
 import Particless from "../Common/Particles/Particless";
 import { toast } from "react-toastify";
@@ -9,44 +10,115 @@ const RegisterPage = () => {
 	const particless = React.useMemo(() => <Particless />, []);
 	const [showUsermessage, setShowUsermessage] = useState(false);
 
-	const [numMembers, setNumMembers] = useState(0);
-	const [firstnames , setFirstnames] = useState([]);
-	const [lastnames , setlastnames] = useState([]);
-	const [gender , setGender] = useState([]);
-	const [mails , setMails] = useState([]);
-	const [mobiles , setMobiles] = useState([]);
-	const [college , setCollege] = useState([]);
-	const [degree , setDegree] = useState([]);
-	const [YOS , setYOS] = useState([]);
-	const [GitHubID , setGitHubID] = useState([]);
-	const [team , setTeam] = useState("");
-	
+	const [numMembers, setNumMembers] = useState(2);
+	const [team, setTeam] = useState("");
+
+	const [members, setMembers] = useState(
+		Array.from({ length: 5 }, () => ({
+			firstname: "",
+			lastname: "",
+			gender: "",
+			mail: "",
+			mobile: "",
+			college: "",
+			degree: "",
+			YOS: "",
+			GitHubID: "",
+			team: "",
+		}))
+	);
+
 	if (showUsermessage) {
 		setTimeout(() => {
 			setShowUsermessage(false);
 		}, 25000);
 	}
 
-	const member = (
-		<>
-			<input type="text" name="firstname" placeholder="First Name" required />
-			<input type="text" name="lastname" placeholder="Last Name" />
-			<div className="register-form-gender">
-				<label for="gender">Select Gender:</label>
-				<select id="gender" name="gender">
-					<option value="male">Male</option>
-					<option value="female">Female</option>
-					<option value="other">Other</option>
-				</select>
-			</div>
-			<input type="email" name="email" placeholder="Email Id" required />
-			<input type="number" name="phone" placeholder="Contact Number" required />
-			<input type="text" name="college" placeholder="College Name" required />
-			<input type="text" name="degree" placeholder="Degree" required />
-			<input type="number" name="year" placeholder="Year of Study - 1/2/3..." required />
-			<input type="number" name="year" placeholder="Github Id" required />
-		</>
-	);
+	const MemberForm = React.memo(({ index, handleInputChange }) => {
+		console.log("Rendering member form", index);
+		return (
+			<>
+				<input
+					type="text"
+					name="firstname"
+					placeholder="First Name"
+					required
+					value={members[index].firstname}
+					onChange={(e) =>
+						handleInputChange(index, "firstname", e.target.value)
+					}
+				/>
+				<input
+					type="text"
+					name="lastname"
+					placeholder="Last Name"
+					value={members[index].lastname}
+					onChange={(e) => handleInputChange(index, "lastname", e.target.value)}
+				/>
+				<div className="register-form-gender">
+					<label for="gender">Select Gender:</label>
+					<select
+						id="gender"
+						name="gender"
+						value={members[index].gender}
+						onChange={(e) => handleInputChange(index, "gender", e.target.value)}
+					>
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+						<option value="other">Other</option>
+					</select>
+				</div>
+				<input
+					type="email"
+					name="email"
+					placeholder="Email Id"
+					required
+					value={members[index].mail}
+					onChange={(e) => handleInputChange(index, "mail", e.target.value)}
+				/>
+				<input
+					type="number"
+					name="phone"
+					placeholder="Contact Number"
+					required
+					value={members[index].mobile}
+					onChange={(e) => handleInputChange(index, "mobile", e.target.value)}
+				/>
+				<input
+					type="text"
+					name="college"
+					placeholder="College Name"
+					required
+					value={members[index].college}
+					onChange={(e) => handleInputChange(index, "college", e.target.value)}
+				/>
+				<input
+					type="text"
+					name="degree"
+					placeholder="Degree"
+					required
+					value={members[index].degree}
+					onChange={(e) => handleInputChange(index, "degree", e.target.value)}
+				/>
+				<input
+					type="number"
+					name="year"
+					placeholder="Year of Study - 1/2/3..."
+					required
+					value={members[index].YOS}
+					onChange={(e) => handleInputChange(index, "YOS", e.target.value)}
+				/>
+				<input
+					type="text"
+					name="year"
+					placeholder="Github Id"
+					required
+					value={members[index].GitHubID}
+					onChange={(e) => handleInputChange(index, "GitHubID", e.target.value)}
+				/>
+			</>
+		);
+	});
 
 	const handleNumMembers = (e) => {
 		const value = e.target.value;
@@ -63,8 +135,85 @@ const RegisterPage = () => {
 				theme: "dark",
 			});
 		} else if (value <= 5) {
-			setNumMembers(Number(value));
+			setNumMembers(value);
 		}
+	};
+
+	const handleTeamName = (e) => {
+		const value = e.target.value;
+		const trimmed = value.trim();
+		if (trimmed === "") {
+			toast.error("Please enter a valid name", {
+				position: "top-center",
+				draggable: true,
+				theme: "dark",
+			});
+			return;
+		}
+		if (value.length > 35) {
+			toast.error("Please Choose a name not more than 35 characters", {
+				position: "top-center",
+				draggable: true,
+				theme: "dark",
+			});
+			return;
+		}
+		const validNameRegex = /^[a-zA-Z\s]*$/;
+		if (!validNameRegex.test(trimmed)) {
+			toast.error("Team name can only contain letters and spaces", {
+				position: "top-center",
+				draggable: true,
+				theme: "dark",
+			});
+			return;
+		}
+
+		setTeam(value);
+	};
+
+	useEffect(() => {
+		console.log("-----------------------------------------------------------");
+		console.log(members);
+	}, [numMembers, members]);
+
+	// const handleInputChange = (index, field, value) => {
+	// 	const updatedMembers = [...members];
+	// 	updatedMembers[index] = {
+	// 		...updatedMembers[index],
+	// 		[field]: value,
+	// 	};
+	// 	setMembers(updatedMembers);
+	// };
+
+	// const handleInputChange = (index, field, value) => {
+	// 	setMembers((prevMembers) => {
+	// 		const updatedMembers = [...prevMembers];
+	// 		updatedMembers[index] = {
+	// 			...updatedMembers[index],
+	// 			[field]: value,
+	// 		};
+	// 		return updatedMembers;
+	// 	});
+	// };
+
+	const [debouncedValue, setDebouncedValue] = useState("");
+
+	const handleInputChange = (index, field, value) => {
+		setMembers((prevMembers) => {
+			const updatedMembers = [...prevMembers];
+			updatedMembers[index] = {
+				...updatedMembers[index],
+				[field]: debouncedValue,
+			};
+			return updatedMembers;
+		});
+	};
+
+	const debouncedInput = useDebounce(debouncedValue, 300);
+
+	const handleOnChange = (index, field, value) => {
+		setDebouncedValue(value);
+		handleInputChange(index, field, debouncedInput);
 	};
 
 	const renderMembers = () => {
@@ -73,14 +222,12 @@ const RegisterPage = () => {
 			memberElements.push(
 				<div key={`member${i + 1}`}>
 					<div className="register-form-details">Details of Member {i + 1}</div>
-					{member}
+					<MemberForm index={i} handleInputChange={handleInputChange} />
 				</div>
 			);
 		}
 		return memberElements;
 	};
-
-
 
 	return (
 		<>
@@ -142,19 +289,21 @@ const RegisterPage = () => {
 									name="name"
 									placeholder="Team Name"
 									required
+									onChange={handleTeamName}
 								/>
 								<input
-									type="text"
+									type="number"
 									name="numMembers"
 									placeholder="Number of members"
 									onChange={handleNumMembers}
+									required
 								/>
 								<div className="register-form-details">
 									Details of Member 1 : Team Leader
 								</div>
-								{member}
+								<MemberForm index={0} handleInputChange={handleInputChange} />
 								<div className="register-form-details">Details of Member 2</div>
-								{member}
+								<MemberForm index={1} handleInputChange={handleInputChange} />
 								{renderMembers()}
 								<button className="register-form-submit">
 									<p>Register</p>
