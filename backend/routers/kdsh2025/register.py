@@ -87,12 +87,12 @@ def get_starred_repositories(github_id):
             return {"error": "GitHub token is missing."}
 
         headers = {"Authorization": f"token {access_token}"}
-        
+
         while url:
             response = requests.get(url, headers=headers)
             if response.status_code == 404:
                 return {"error": "GitHub user not found."}
-            
+
             if response.status_code == 200:
                 all_starred_repositories.extend(response.json())
                 remaining = response.headers.get("X-RateLimit-Remaining")
@@ -149,10 +149,10 @@ def check_repositories(gitHub_users):
             if not missing_repos:
                 missing_repos_by_user[github_id] = "success"
             else:
-                missing_repos_by_user[github_id] = missing_repos  
+                missing_repos_by_user[github_id] = missing_repos
         except Exception as e:
-            missing_repos_by_user[github_id] = f"error"      
-        
+            missing_repos_by_user[github_id] = f"error"
+
     return missing_repos_by_user
 
 
@@ -169,7 +169,7 @@ def check_starred_repositories(missing_repos_by_users):
         else:
             for repo in missing_repos:
                 missing_repos_messages.append(
-                    f""" "{github_id}" has not starred the "{repo}" repository.""" 
+                    f""" "{github_id}" has not starred the "{repo}" repository."""
                 )
             all_starred = False
     if all_starred:
@@ -277,11 +277,7 @@ def check_multiple_stars():
             existing_team = mongo.db.kdsh2025_teams.find_one({"teamName": team_name})
             if existing_team:
                 return (
-                    jsonify(
-                        {
-                            "error": f"Team with name {team_name} already exists."
-                        }
-                    ),
+                    jsonify({"error": f"Team with name {team_name} already exists."}),
                     400,
                 )
 
@@ -327,12 +323,7 @@ def check_multiple_stars():
                 mongo.db.kdsh2025_participants.insert_many(participants_data)
             except Exception as e:
                 return (
-                    jsonify(
-                        {
-                            "error": "Failed to insert participants data: "
-                            + str(e)
-                        }
-                    ),
+                    jsonify({"error": "Failed to insert participants data: " + str(e)}),
                     500,
                 )
 
@@ -355,9 +346,7 @@ def check_multiple_stars():
                 mongo.db.kdsh2025_teams.insert_one(team_data)
             except Exception as e:
                 return (
-                    jsonify(
-                        {"error": "Failed to insert team data: " + str(e)}
-                    ),
+                    jsonify({"error": "Failed to insert team data: " + str(e)}),
                     500,
                 )
 
@@ -366,7 +355,7 @@ def check_multiple_stars():
                 jsonify(
                     {
                         "message": "Successfully registered your team for KDSH 2025!",
-                        "registration":"success"
+                        "registration": "success",
                     }
                 ),
                 200,

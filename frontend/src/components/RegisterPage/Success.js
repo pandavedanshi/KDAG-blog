@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "./RegisterPage.css";
 import "./Success.css";
 
-
 const Success = () => {
 	const particless = React.useMemo(() => <Particless />, []);
 
@@ -23,7 +22,7 @@ const Success = () => {
 								timelines and other details related to the Hackathon visit{" "}
 								<strong>
 									<a
-										style={{ color: "cyan ", fontStyle:"italic"}}
+										style={{ color: "cyan ", fontStyle: "italic" }}
 										className="kdsh-link"
 										href="https://unstop.com/"
 										target="_blank"
