@@ -10,103 +10,8 @@ kdsh2025 = Blueprint("kdsh2025", __name__)
 load_dotenv()
 MONGO_URI = os.getenv("GOOGLE_CLIENT_ID")
 
-
-@kdsh2025.route("/check_star", methods=["GET"])
-def check_star():
-    try:
-        from app import mongo
-
-        data = request.get_json()
-        user = data.get("gitHub_user")
-
-        if not user:
-            return jsonify({"error": "GitHub user is required."}), 400
-
-        access_token = os.getenv("GITHUB_TOKEN")
-        if not access_token:
-            return jsonify({"error": "GitHub token is missing."}), 400
-        g = Github(access_token)
-
-        repo_owner = "pathwaycom"
-        repo_name = "llm-app"
-        repo = g.get_repo(f"{repo_owner}/{repo_name}")
-
-        stargazers = repo.get_stargazers()
-
-        has_starred = False
-        for starred_user in stargazers:
-            print(starred_user.login)
-            if starred_user.login == user:
-                has_starred = True
-                break
-
-        if has_starred:
-            result = f"User {user} has starred the repository!"
-            print(result)
-            return (
-                jsonify(
-                    {
-                        "message": result,
-                    }
-                ),
-                200,
-            )
-        else:
-            result = f"User {user} has not starred the repository."
-            print(result)
-            return (
-                jsonify(
-                    {
-                        "error": result,
-                    }
-                ),
-                400,
-            )
-
-    except Exception as e:
-        print(e)
-        return (
-            jsonify(
-                {
-                    "message": e,
-                }
-            ),
-            200,
-        )
-
 STARGAZERS_CSV_LLM = os.path.join(os.path.dirname(__file__), "llm-app.csv")
 STARGAZERS_CSV_PATHWAY = os.path.join(os.path.dirname(__file__), "pathway.csv")
-
-def count_user_ids_in_csv(file_path):
-    """Count the number of user IDs in the CSV file."""
-    try:
-        with open(file_path, mode="r") as file:
-            reader = csv.reader(file)
-            user_ids = [row[0] for row in reader if row]
-        print("counted from csv")
-        return len(user_ids)
-    except Exception as e:
-        print(f"Error reading CSV file: {e}")
-        return 0
-
-def fetch_stargazer_count_from_github(repo_name):
-    """Fetch the number of stargazers for the given repo."""
-    access_token = os.getenv("GITHUB_TOKEN")
-    if not access_token:
-        return jsonify({"error": "GitHub token is missing."}), 400
-    g = Github(access_token)
-
-    repo_owner = "pathwaycom"
-    try:
-        repo = g.get_repo(f"{repo_owner}/{repo_name}")
-        print("counted from repo")
-        return repo.stargazers_count
-    except Exception as e:
-        print(f"Error fetching stargazer count for {repo_name}: {e}")
-        return (
-            jsonify({"error": f"Failed to fetch stargazer count for {repo_name}."}),
-            500,
-        )
 
 def fetch_stargazers_from_github_llm():
     """Fetch stargazers from GitHub and return as a list."""
@@ -260,18 +165,16 @@ def check_multiple_stars():
                     400,
                 )
 
-        # llm-app
-        num_csv_llm = count_user_ids_in_csv(STARGAZERS_CSV_LLM)
-        num_users_llm = fetch_stargazer_count_from_github("llm-app")
-        print("llm - csv", num_csv_llm)
-        print("llm - repo",num_users_llm)
-        if not num_csv_llm == num_users_llm:          
-            current_stargazers = fetch_stargazers_from_github_llm()
+        
+        current_stargazers = fetch_stargazers_from_github_llm()
+        stargazer_logins = current_stargazers
+        cached_stargazers = read_stargazers_from_csv("llm-app")
+        stargazer_logins = cached_stargazers
+        new_stargazers = set(current_stargazers) - set(cached_stargazers)
+        unstarred_users = set(cached_stargazers) - set(current_stargazers)
+        if new_stargazers or unstarred_users:
             write_stargazers_to_csv(current_stargazers, "llm-app")
             stargazer_logins = current_stargazers
-        else:
-            cached_stargazers = read_stargazers_from_csv("llm-app")
-            stargazer_logins = cached_stargazers
 
         not_starred_users = []
         starred_users = []
@@ -287,18 +190,14 @@ def check_multiple_stars():
             result = f"The GitHub user(s) {not_starred_message} have not starred the llm-app repository, kindly star it to successfully register your team."
             return jsonify({"error": result}), 400
         # ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        # pathaway
-        num_csv_pathway = count_user_ids_in_csv(STARGAZERS_CSV_PATHWAY)
-        num_users_pathway = fetch_stargazer_count_from_github("pathway")
-        print("pathway - csv", num_csv_pathway)
-        print("pathway - repo",num_users_pathway)
-        if not num_csv_pathway == num_users_pathway:          
-            current_stargazers = fetch_stargazers_from_github_llm()
+        current_stargazers = fetch_stargazers_from_github_pathway()
+        cached_stargazers = read_stargazers_from_csv("pathway")
+        stargazer_logins = cached_stargazers
+        new_stargazers = set(current_stargazers) - set(cached_stargazers)
+        unstarred_users = set(cached_stargazers) - set(current_stargazers)
+        if new_stargazers or unstarred_users:
             write_stargazers_to_csv(current_stargazers, "pathway")
             stargazer_logins = current_stargazers
-        else:
-            cached_stargazers = read_stargazers_from_csv("pathway")
-            stargazer_logins = cached_stargazers
 
         not_starred_users = []
         starred_users = []
