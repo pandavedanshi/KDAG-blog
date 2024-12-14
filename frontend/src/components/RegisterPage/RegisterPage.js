@@ -149,7 +149,7 @@ const RegisterPage = () => {
 			console.log(finalData);
 
 			const registerPromise = fetch(
-				"http://localhost:5000/kdsh2025/check_register",
+				`${process.env.REACT_APP_FETCH_URL}/kdsh2025/check_register`,
 				{
 					method: "POST",
 					headers: {
@@ -160,7 +160,11 @@ const RegisterPage = () => {
 			)
 				.then((response) => response.json())
 				.then((data) => {
-					if (data.message && data.registration && data.registration === "success") {
+					if (
+						data.message &&
+						data.registration &&
+						data.registration === "success"
+					) {
 						setSuccessPage(true);
 						toast.success(data.message, {
 							theme: "dark",
