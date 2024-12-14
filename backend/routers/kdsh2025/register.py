@@ -1,11 +1,9 @@
-from flask import Flask, render_template, request, jsonify
-from flask_jwt_extended import jwt_required, get_jwt_identity
-from flask import Blueprint
-from bson import ObjectId
 from github import Github
-from flask_pymongo import PyMongo
 from dotenv import load_dotenv
 import os
+import csv
+from flask import Blueprint, jsonify, request
+import requests
 import json
 
 kdsh2025 = Blueprint("kdsh2025", __name__)
@@ -76,3 +74,304 @@ def check_star():
             ),
             200,
         )
+
+
+# />>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+def get_starred_repositories(github_id):
+    url = f"https://api.github.com/users/{github_id}/starred"
+    all_starred_repositories = []
+
+    try:
+        access_token = os.getenv("GITHUB_TOKEN")
+        if not access_token:
+            return {"error": "GitHub token is missing."}
+
+        headers = {"Authorization": f"token {access_token}"}
+        
+        while url:
+            response = requests.get(url, headers=headers)
+            if response.status_code == 404:
+                return {"error": "GitHub user not found."}
+            
+            if response.status_code == 200:
+                all_starred_repositories.extend(response.json())
+                remaining = response.headers.get("X-RateLimit-Remaining")
+                limit = response.headers.get("X-RateLimit-Limit")
+                print("remaining : ", remaining)
+                print("limit : ", limit)
+                if "Link" in response.headers:
+                    links = response.headers["Link"]
+                    next_page_url = None
+                    for link in links.split(","):
+                        print("link ----- ", link)
+                        if 'rel="next"' in link:
+                            next_page_url = link.split(";")[0].strip().strip("<>")
+                            break
+
+                    url = next_page_url
+                else:
+                    url = None
+            else:
+                return {
+                    "error": f"GitHub API responded with status code {response.status_code}"
+                }
+        return {"starred_repositories": all_starred_repositories}
+
+    except requests.exceptions.Timeout:
+        return {"error": "51:>> " + "Request timed out. Please try again."}
+    except requests.exceptions.RequestException as e:
+        return {"error": "50:>> " + f"Request failed: {str(e)}"}
+
+
+def check_required_repositories(starred_repos):
+    required_repos = ["pathway", "llm-app"]
+    starred_repo_names = [
+        repo["name"] for repo in starred_repos["starred_repositories"]
+    ]
+    missing_repos = [repo for repo in required_repos if repo not in starred_repo_names]
+
+    return missing_repos
+
+
+def check_repositories(gitHub_users):
+    missing_repos_by_user = {}
+
+    for github_id in gitHub_users:
+        try:
+            starred_repos = get_starred_repositories(github_id)
+
+            if starred_repos is None:
+                missing_repos_by_user[github_id] = "Error fetching data"
+                continue
+
+            missing_repos = check_required_repositories(starred_repos)
+
+            if not missing_repos:
+                missing_repos_by_user[github_id] = "success"
+            else:
+                missing_repos_by_user[github_id] = missing_repos  
+        except Exception as e:
+            missing_repos_by_user[github_id] = f"error"      
+        
+    return missing_repos_by_user
+
+
+def check_starred_repositories(missing_repos_by_users):
+    all_starred = True
+    missing_repos_messages = []
+    for github_id, missing_repos in missing_repos_by_users.items():
+        if missing_repos == "success":
+            continue
+        elif missing_repos == "error":
+            missing_repos_messages.append(
+                f""" Please check the GitHub Id "{github_id}" ."""
+            )
+        else:
+            for repo in missing_repos:
+                missing_repos_messages.append(
+                    f""" "{github_id}" has not starred the "{repo}" repository.""" 
+                )
+            all_starred = False
+    if all_starred:
+        print("All users have starred the required repositories.")
+        return "success"
+    else:
+        message = (
+            " ".join(missing_repos_messages)
+            + " Kindly star the repositories to successfully register your team!"
+        )
+        return message
+
+
+@kdsh2025.route("/check_register", methods=["post"])
+def check_multiple_stars():
+    try:
+        from app import mongo
+
+        data = request.get_json()
+
+        if not data:
+            return jsonify({"error": "No data provided."}), 400
+
+        num_members = len(data)
+
+        if num_members < 2:
+            return (
+                jsonify({"error": "There must be at least 2 members in the team."}),
+                400,
+            )
+
+        elif num_members > 5:
+            return (
+                jsonify({"error": "There can be a maximum of 5 members in the team."}),
+                400,
+            )
+
+        if num_members != data[0]["numMembers"]:
+            return (
+                jsonify(
+                    {
+                        # "error": "The data received is not for all members0000"
+                        "error": "There was some error in the server. Please try again. If you face this issue again Contact us. 00"
+                    }
+                ),
+                400,
+            )
+
+        # Check if all members have the same numMembers
+        first_num_members = data[0]["numMembers"]
+
+        for member in data:
+            if member["numMembers"] != first_num_members:
+                return (
+                    jsonify(
+                        {
+                            # "error": "The 'numMembers' value is inconsistent across members1111111."
+                            "error": "There was some error in the server. Please try again. If you face this issue again Contact us. 11"
+                        }
+                    ),
+                    400,
+                )
+
+        # Check if all members have the same teamName
+        first_team_name = data[0]["teamName"]
+        for member in data:
+            if member["teamName"] != first_team_name:
+                return (
+                    jsonify(
+                        {
+                            # "error": "The 'teamName' value is inconsistent across members.222222222"
+                            "error": "There was some error in the server. Please try again. If you face this issue again Contact us. 22"
+                        }
+                    ),
+                    400,
+                )
+
+        gitHub_users = [member["GitHubID"] for member in data]
+        if not gitHub_users:
+            return jsonify({"error": "GitHub users are required."}), 400
+        for member in data:
+            if not member.get("GitHubID"):
+                return (
+                    jsonify(
+                        {
+                            "error": f"GitHub ID for {member.get('firstname')} is missing."
+                        }
+                    ),
+                    400,
+                )
+
+        missing_repos_by_users = check_repositories(gitHub_users)
+
+        starred_users = check_starred_repositories(missing_repos_by_users)
+
+        if starred_users != "success":
+            return jsonify({"error": "55:>> " + starred_users}), 400
+
+        if starred_users == "success":
+            print("The members have starred the github id")
+            team_name = data[0]["teamName"]
+            num_members = data[0]["numMembers"]
+
+            # Step 1: Check if the team already exists
+            existing_team = mongo.db.kdsh2025_teams.find_one({"teamName": team_name})
+            if existing_team:
+                return (
+                    jsonify(
+                        {
+                            "error": f"Team with name {team_name} already exists."
+                        }
+                    ),
+                    400,
+                )
+
+            # Step 2: Check if any GitHub IDs already exist in participants collection
+            existing_participants = []
+            for user in gitHub_users:
+                existing_user = mongo.db.kdsh2025_participants.find_one(
+                    {"GitHubID": user}
+                )
+                if existing_user:
+                    existing_participants.append(user)
+
+            if existing_participants:
+                existing_participants_message = ", ".join(existing_participants)
+                return (
+                    jsonify(
+                        {
+                            "error": f"GitHub user(s) {existing_participants_message} already have registered."
+                        }
+                    ),
+                    400,
+                )
+            # Step 3: Store data in participants collection
+            participants_data = []
+            for member in data:
+                participants_data.append(
+                    {
+                        "isTeamLeader": member["isTeamLeader"],
+                        "firstname": member["firstname"],
+                        "lastname": member["lastname"],
+                        "gender": member["gender"],
+                        "mail": member["mail"],
+                        "mobile": member["mobile"],
+                        "college": member["college"],
+                        "degree": member["degree"],
+                        "YOS": member["YOS"],
+                        "GitHubID": member["GitHubID"],
+                        "teamName": team_name,
+                        "numMembers": num_members,
+                    }
+                )
+            try:
+                mongo.db.kdsh2025_participants.insert_many(participants_data)
+            except Exception as e:
+                return (
+                    jsonify(
+                        {
+                            "error": "Failed to insert participants data: "
+                            + str(e)
+                        }
+                    ),
+                    500,
+                )
+
+            # Step 4: Store data in teams collection
+            team_leader = next(member for member in data if member["isTeamLeader"])
+            remaining_members = [
+                member for member in data if not member["isTeamLeader"]
+            ]
+
+            team_data = {
+                "teamName": team_name,
+                "numMembers": num_members,
+                "teamleader_github": team_leader["GitHubID"],
+                "teamleader_email": team_leader["mail"],
+                "members_github": [member["GitHubID"] for member in remaining_members],
+                "members_email": [member["mail"] for member in remaining_members],
+            }
+
+            try:
+                mongo.db.kdsh2025_teams.insert_one(team_data)
+            except Exception as e:
+                return (
+                    jsonify(
+                        {"error": "Failed to insert team data: " + str(e)}
+                    ),
+                    500,
+                )
+
+            # Step 5: Send success message
+            return (
+                jsonify(
+                    {
+                        "message": "Successfully registered your team for KDSH 2025!",
+                        "registration":"success"
+                    }
+                ),
+                200,
+            )
+
+    except Exception as e:
+        print(f"error: 60  + {e}")
+        return jsonify({"error": "1:>> " + str(e)}), 500

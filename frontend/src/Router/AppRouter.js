@@ -30,6 +30,7 @@ import { AuthProvider } from "../context/AuthContext.js";
 import CommunityGuidelines from "../components/DiscussionForum/CommunityGuidelines.js";
 import PrivacyPolicy from "../components/Privacy Policies/PrivacyPolicy.js";
 import RegisterPage from "../components/RegisterPage/RegisterPage.js";
+import Success from "../components/RegisterPage/Success.js";
 
 const AppRouter = () => {
 	return (
@@ -109,6 +110,9 @@ const AppRouter = () => {
 							</Route>
 							<Route path="/register-kdsh">
 								<RegisterPage />
+							</Route>
+							<Route path="/register-success">
+								<Success />
 							</Route>
 						</Switch>
 					</ScrollToTop>
