@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import os
 import csv
 from flask import Blueprint, jsonify, request
+import requests
 import json
 
 kdsh2025 = Blueprint("kdsh2025", __name__)
@@ -74,139 +75,138 @@ def check_star():
             200,
         )
 
-STARGAZERS_CSV_LLM = os.path.join(os.path.dirname(__file__), "llm-app.csv")
-STARGAZERS_CSV_PATHWAY = os.path.join(os.path.dirname(__file__), "pathway.csv")
 
-def count_user_ids_in_csv(file_path):
-    """Count the number of user IDs in the CSV file."""
+# />>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+def get_starred_repositories(github_id):
+    url = f"https://api.github.com/users/{github_id}/starred"
+    all_starred_repositories = []
+
     try:
-        with open(file_path, mode="r") as file:
-            reader = csv.reader(file)
-            user_ids = [row[0] for row in reader if row]
-        print("counted from csv")
-        return len(user_ids)
-    except Exception as e:
-        print(f"Error reading CSV file: {e}")
-        return 0
+        access_token = os.getenv("GITHUB_TOKEN")
+        if not access_token:
+            return {"error": "GitHub token is missing."}
 
-def fetch_stargazer_count_from_github(repo_name):
-    """Fetch the number of stargazers for the given repo."""
-    access_token = os.getenv("GITHUB_TOKEN")
-    if not access_token:
-        return jsonify({"error": "GitHub token is missing."}), 400
-    g = Github(access_token)
+        headers = {"Authorization": f"token {access_token}"}
+        
+        while url:
+            response = requests.get(url, headers=headers)
+            if response.status_code == 404:
+                return {"error": "GitHub user not found."}
+            
+            if response.status_code == 200:
+                all_starred_repositories.extend(response.json())
+                remaining = response.headers.get("X-RateLimit-Remaining")
+                limit = response.headers.get("X-RateLimit-Limit")
+                print("remaining : ", remaining)
+                print("limit : ", limit)
+                if "Link" in response.headers:
+                    links = response.headers["Link"]
+                    next_page_url = None
+                    for link in links.split(","):
+                        print("link ----- ", link)
+                        if 'rel="next"' in link:
+                            next_page_url = link.split(";")[0].strip().strip("<>")
+                            break
 
-    repo_owner = "pathwaycom"
-    try:
-        repo = g.get_repo(f"{repo_owner}/{repo_name}")
-        print("counted from repo")
-        return repo.stargazers_count
-    except Exception as e:
-        print(f"Error fetching stargazer count for {repo_name}: {e}")
-        return (
-            jsonify({"error": f"Failed to fetch stargazer count for {repo_name}."}),
-            500,
+                    url = next_page_url
+                else:
+                    url = None
+            else:
+                return {
+                    "error": f"GitHub API responded with status code {response.status_code}"
+                }
+        return {"starred_repositories": all_starred_repositories}
+
+    except requests.exceptions.Timeout:
+        return {"error": "51:>> " + "Request timed out. Please try again."}
+    except requests.exceptions.RequestException as e:
+        return {"error": "50:>> " + f"Request failed: {str(e)}"}
+
+
+def check_required_repositories(starred_repos):
+    required_repos = ["pathway", "llm-app"]
+    starred_repo_names = [
+        repo["name"] for repo in starred_repos["starred_repositories"]
+    ]
+    missing_repos = [repo for repo in required_repos if repo not in starred_repo_names]
+
+    return missing_repos
+
+
+def check_repositories(gitHub_users):
+    missing_repos_by_user = {}
+
+    for github_id in gitHub_users:
+        try:
+            starred_repos = get_starred_repositories(github_id)
+
+            if starred_repos is None:
+                missing_repos_by_user[github_id] = "Error fetching data"
+                continue
+
+            missing_repos = check_required_repositories(starred_repos)
+
+            if not missing_repos:
+                missing_repos_by_user[github_id] = "success"
+            else:
+                missing_repos_by_user[github_id] = missing_repos  
+        except Exception as e:
+            missing_repos_by_user[github_id] = f"error"      
+        
+    return missing_repos_by_user
+
+
+def check_starred_repositories(missing_repos_by_users):
+    all_starred = True
+    missing_repos_messages = []
+    for github_id, missing_repos in missing_repos_by_users.items():
+        if missing_repos == "success":
+            continue
+        elif missing_repos == "error":
+            missing_repos_messages.append(
+                f""" Please check the GitHub Id "{github_id}" ."""
+            )
+        else:
+            for repo in missing_repos:
+                missing_repos_messages.append(
+                    f""" "{github_id}" has not starred the "{repo}" repository.""" 
+                )
+            all_starred = False
+    if all_starred:
+        print("All users have starred the required repositories.")
+        return "success"
+    else:
+        message = (
+            " ".join(missing_repos_messages)
+            + " Kindly star the repositories to successfully register your team!"
         )
-
-def fetch_stargazers_from_github_llm():
-    """Fetch stargazers from GitHub and return as a list."""
-    access_token = os.getenv("GITHUB_TOKEN")
-    if not access_token:
-        return jsonify({"error": "GitHub token is missing."}), 400
-    g = Github(access_token)
-
-    repo_owner = "pathwaycom"
-    repo1_name = "llm-app"
-
-    try:
-        repo = g.get_repo(f"{repo_owner}/{repo1_name}")
-        print("Importing all starred users for llm-app repo")
-
-        stargazers = set()
-        for stargazer in repo.get_stargazers():
-            stargazers.add(stargazer.login)
-        return list(stargazers)
-
-    except Exception as e:
-        print(f"Error fetching stargazers: {e}")
-        return jsonify({"error": "Failed to fetch stargazers from GitHub."}), 500
-
-def fetch_stargazers_from_github_pathway():
-    """Fetch stargazers from GitHub and return as a list."""
-    access_token = os.getenv("GITHUB_TOKEN")
-    if not access_token:
-        return jsonify({"error": "GitHub token is missing."}), 400
-    g = Github(access_token)
-
-    repo_owner = "pathwaycom"
-    repo2_name = "pathway"
-
-    try:
-        repo2 = g.get_repo(f"{repo_owner}/{repo2_name}")
-        print("Importing all starred users for pathway repo")
-
-        stargazers = set()
-        for stargazer in repo2.get_stargazers():
-            stargazers.add(stargazer.login)
-        return list(stargazers)
-
-    except Exception as e:
-        print(f"Error fetching stargazers: {e}")
-        return jsonify({"error": "Failed to fetch stargazers from GitHub."}), 500
-
-def read_stargazers_from_csv(repo_type):
-    """Read stargazers from the locally stored CSV file."""
-    print(f"Reading stargazers from CSV for {repo_type}")
-    file_path = STARGAZERS_CSV_LLM if repo_type == "llm-app" else STARGAZERS_CSV_PATHWAY
-
-    if not os.path.exists(file_path):
-        print(f"{repo_type} CSV file does not exist. Returning empty list.")
-        return []
-    try:
-        with open(file_path, mode="r") as file:
-            reader = csv.reader(file)
-            stargazers = [row[0] for row in reader if row]
-            print(f"Successfully read stargazers from {repo_type} CSV.")
-            return stargazers
-    except Exception as e:
-        print(f"Error reading from CSV for {repo_type}: {e}")
-        return []
-
-def write_stargazers_to_csv(stargazers, repo_type):
-    """Write stargazers to the CSV file."""
-    print(f"Writing stargazers to CSV for {repo_type}: {stargazers}")
-    file_path = STARGAZERS_CSV_LLM if repo_type == "llm-app" else STARGAZERS_CSV_PATHWAY
-
-    try:
-        with open(file_path, mode="w", newline="") as file:
-            writer = csv.writer(file)
-            for user in stargazers:
-                writer.writerow([user])
-        print(f"Successfully wrote stargazers to {repo_type} CSV.")
-    except Exception as e:
-        print(f"Error writing to CSV for {repo_type}: {e}")
+        return message
 
 
-@kdsh2025.route("/check_register", methods=["get"])
+@kdsh2025.route("/check_register", methods=["post"])
 def check_multiple_stars():
     try:
         from app import mongo
 
         data = request.get_json()
+
         if not data:
             return jsonify({"error": "No data provided."}), 400
 
         num_members = len(data)
+
         if num_members < 2:
             return (
                 jsonify({"error": "There must be at least 2 members in the team."}),
                 400,
             )
+
         elif num_members > 5:
             return (
                 jsonify({"error": "There can be a maximum of 5 members in the team."}),
                 400,
             )
+
         if num_members != data[0]["numMembers"]:
             return (
                 jsonify(
@@ -220,6 +220,7 @@ def check_multiple_stars():
 
         # Check if all members have the same numMembers
         first_num_members = data[0]["numMembers"]
+
         for member in data:
             if member["numMembers"] != first_num_members:
                 return (
@@ -260,61 +261,14 @@ def check_multiple_stars():
                     400,
                 )
 
-        # llm-app
-        num_csv_llm = count_user_ids_in_csv(STARGAZERS_CSV_LLM)
-        num_users_llm = fetch_stargazer_count_from_github("llm-app")
-        print("llm - csv", num_csv_llm)
-        print("llm - repo",num_users_llm)
-        if not num_csv_llm == num_users_llm:          
-            current_stargazers = fetch_stargazers_from_github_llm()
-            write_stargazers_to_csv(current_stargazers, "llm-app")
-            stargazer_logins = current_stargazers
-        else:
-            cached_stargazers = read_stargazers_from_csv("llm-app")
-            stargazer_logins = cached_stargazers
+        missing_repos_by_users = check_repositories(gitHub_users)
 
-        not_starred_users = []
-        starred_users = []
+        starred_users = check_starred_repositories(missing_repos_by_users)
 
-        for user in gitHub_users:
-            if user in stargazer_logins:
-                starred_users.append(user)
-            else:
-                not_starred_users.append(user)
+        if starred_users != "success":
+            return jsonify({"error": "55:>> " + starred_users}), 400
 
-        if not_starred_users:
-            not_starred_message = ", ".join(not_starred_users)
-            result = f"The GitHub user(s) {not_starred_message} have not starred the llm-app repository, kindly star it to successfully register your team."
-            return jsonify({"error": result}), 400
-        # ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        # pathaway
-        num_csv_pathway = count_user_ids_in_csv(STARGAZERS_CSV_PATHWAY)
-        num_users_pathway = fetch_stargazer_count_from_github("pathway")
-        print("pathway - csv", num_csv_pathway)
-        print("pathway - repo",num_users_pathway)
-        if not num_csv_pathway == num_users_pathway:          
-            current_stargazers = fetch_stargazers_from_github_llm()
-            write_stargazers_to_csv(current_stargazers, "pathway")
-            stargazer_logins = current_stargazers
-        else:
-            cached_stargazers = read_stargazers_from_csv("pathway")
-            stargazer_logins = cached_stargazers
-
-        not_starred_users = []
-        starred_users = []
-
-        for user in gitHub_users:
-            if user in stargazer_logins:
-                starred_users.append(user)
-            else:
-                not_starred_users.append(user)
-
-        if not_starred_users:
-            not_starred_message = ", ".join(not_starred_users)
-            result = f"The GitHub user(s) {not_starred_message} have not starred the pathway repository, kindly star it to successfully register your team."
-            return jsonify({"error": result}), 400
-        # ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if starred_users:
+        if starred_users == "success":
             print("The members have starred the github id")
             team_name = data[0]["teamName"]
             num_members = data[0]["numMembers"]
@@ -323,7 +277,11 @@ def check_multiple_stars():
             existing_team = mongo.db.kdsh2025_teams.find_one({"teamName": team_name})
             if existing_team:
                 return (
-                    jsonify({"error": f"Team with name {team_name} already exists."}),
+                    jsonify(
+                        {
+                            "error": f"Team with name {team_name} already exists."
+                        }
+                    ),
                     400,
                 )
 
@@ -341,12 +299,11 @@ def check_multiple_stars():
                 return (
                     jsonify(
                         {
-                            "error": f"GitHub user(s) {existing_participants_message} already exist in the participants database."
+                            "error": f"GitHub user(s) {existing_participants_message} already have registered."
                         }
                     ),
                     400,
                 )
-
             # Step 3: Store data in participants collection
             participants_data = []
             for member in data:
@@ -370,7 +327,12 @@ def check_multiple_stars():
                 mongo.db.kdsh2025_participants.insert_many(participants_data)
             except Exception as e:
                 return (
-                    jsonify({"error": "Failed to insert participants data: " + str(e)}),
+                    jsonify(
+                        {
+                            "error": "Failed to insert participants data: "
+                            + str(e)
+                        }
+                    ),
                     500,
                 )
 
@@ -392,16 +354,24 @@ def check_multiple_stars():
             try:
                 mongo.db.kdsh2025_teams.insert_one(team_data)
             except Exception as e:
-                return jsonify({"error": "Failed to insert team data: " + str(e)}), 500
+                return (
+                    jsonify(
+                        {"error": "Failed to insert team data: " + str(e)}
+                    ),
+                    500,
+                )
 
             # Step 5: Send success message
             return (
                 jsonify(
-                    {"message": "Successfully registered your team for KDSH 2025!"}
+                    {
+                        "message": "Successfully registered your team for KDSH 2025!",
+                        "registration":"success"
+                    }
                 ),
                 200,
             )
 
     except Exception as e:
-        print(f"Error: {e}")
-        return jsonify({"message": str(e)}), 500
+        print(f"error: 60  + {e}")
+        return jsonify({"error": "1:>> " + str(e)}), 500

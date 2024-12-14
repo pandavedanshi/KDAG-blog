@@ -1,16 +1,17 @@
-.register-container .register-header .spacer {
+.success-container .register-header .spacer {
 	aspect-ratio: 1500/700;
 	width: 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+	height: 100vh;
 }
 
-.register-container .register-header .layer1 {
+.success-container .register-header .layer1 {
 	background-image: url("./../../assets/KDSH2025_waves.svg");
 }
 
-.register-container .register-header .register-kdsh {
+.success-container .register-header .register-kdsh {
 	position: absolute;
 	top: 155px;
 	left: 38%;
@@ -22,7 +23,7 @@
 	text-wrap: nowrap;
 }
 
-.register-container .register-header .register-kdsh-desc {
+.success-container .register-header .register-kdsh-desc {
 	border: solid rgba(255, 255, 255, 0.178) 2px;
 	padding: 25px;
 	font-weight: 600;
@@ -38,7 +39,7 @@
 	margin: 0 200px;
 }
 
-.register-container .register-header .register-kdsh-desc ul {
+.success-container .register-header .register-kdsh-desc ul {
 	list-style: none;
 	text-decoration: none;
 	color: aqua;
@@ -46,7 +47,7 @@
 	width: max-content;
 }
 
-.register-container .register-header .register-kdsh-desc ul li:hover {
+.success-container .register-header .register-kdsh-desc ul li:hover {
 	text-shadow: cyan 0 0 8px;
 }
 
@@ -142,13 +143,13 @@ input[type="number"] {
 }
 
 @media (max-width: 1285px) {
-	.register-container .register-header .register-kdsh {
+	.success-container .register-header .register-kdsh {
 		top: 125px;
 		left: 36%;
 		padding: 5px 25px;
 	}
 
-	.register-container .register-header .register-kdsh-desc {
+	.success-container .register-header .register-kdsh-desc {
 		padding: 20px;
 		font-weight: 600;
 		top: 265px;
@@ -157,14 +158,14 @@ input[type="number"] {
 }
 
 @media (max-width: 1060px) {
-	.register-container .register-header .register-kdsh {
+	.success-container .register-header .register-kdsh {
 		top: 120px;
 		left: 34%;
 		font-size: 45px;
 		padding: 5px 25px;
 	}
 
-	.register-container .register-header .register-kdsh-desc {
+	.success-container .register-header .register-kdsh-desc {
 		padding: 20px;
 		font-weight: 600;
 		top: 240px;
@@ -177,14 +178,14 @@ input[type="number"] {
 }
 
 @media (max-width: 880px) {
-	.register-container .register-header .register-kdsh {
+	.success-container .register-header .register-kdsh {
 		top: 110px;
 		left: 34%;
 		font-size: 45px;
 		padding: 5px 25px;
 	}
 
-	.register-container .register-header .register-kdsh-desc {
+	.success-container .register-header .register-kdsh-desc {
 		padding: 20px;
 		font-weight: 600;
 		top: 240px;
@@ -196,14 +197,14 @@ input[type="number"] {
 }
 
 @media (max-width: 750px) {
-	.register-container .register-header .register-kdsh {
+	.success-container .register-header .register-kdsh {
 		top: 110px;
 		left: 32%;
 		font-size: 45px;
 		padding: 5px 25px;
 	}
 
-	.register-container .register-header .register-kdsh-desc {
+	.success-container .register-header .register-kdsh-desc {
 		padding: 20px;
 		font-weight: 600;
 		top: 240px;
@@ -215,14 +216,14 @@ input[type="number"] {
 }
 
 @media (max-width: 700px) {
-	.register-container .register-header .register-kdsh {
+	.success-container .register-header .register-kdsh {
 		top: 110px;
 		left: 28%;
 		font-size: 45px;
 		padding: 5px 25px;
 	}
 
-	.register-container .register-header .register-kdsh-desc {
+	.success-container .register-header .register-kdsh-desc {
 		padding: 20px;
 		font-weight: 600;
 		top: 240px;
@@ -235,14 +236,14 @@ input[type="number"] {
 }
 
 @media (max-width: 575px) {
-	.register-container .register-header .register-kdsh {
+	.success-container .register-header .register-kdsh {
 		top: 100px;
 		left: 24%;
 		font-size: 45px;
 		padding: 5px 25px;
 	}
 
-	.register-container .register-header .register-kdsh-desc {
+	.success-container .register-header .register-kdsh-desc {
 		padding: 20px;
 		font-weight: 600;
 		top: 220px;
@@ -255,7 +256,7 @@ input[type="number"] {
 }
 
 @media (max-width: 500px) {
-	.register-container .register-header .register-kdsh {
+	.success-container .register-header .register-kdsh {
 		top: 100px;
 		left: 20%;
 		font-size: 45px;
@@ -267,14 +268,14 @@ input[type="number"] {
 }
 
 @media (max-width: 460px) {
-	.register-container .register-header .register-kdsh {
+	.success-container .register-header .register-kdsh {
 		top: 100px;
 		left: 22%;
 		font-size: 35px;
 		padding: 5px 25px;
 	}
 
-	.register-container .register-header .register-kdsh-desc {
+	.success-container .register-header .register-kdsh-desc {
 		padding: 20px;
 		font-weight: 600;
 		top: 220px;
@@ -296,14 +297,14 @@ input[type="number"] {
 }
 
 @media (max-width: 395px) {
-	.register-container .register-header .register-kdsh {
+	.success-container .register-header .register-kdsh {
 		top: 100px;
 		left: 18%;
 		font-size: 35px;
 		padding: 5px 25px;
 	}
 
-	.register-container .register-header .register-kdsh-desc {
+	.success-container .register-header .register-kdsh-desc {
 		padding: 20px;
 		font-weight: 600;
 		top: 220px;

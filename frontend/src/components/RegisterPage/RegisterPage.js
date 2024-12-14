@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Fade from "react-reveal/Fade";
 import Particless from "../Common/Particles/Particless";
 import { toast } from "react-toastify";
@@ -6,13 +6,21 @@ import "react-toastify/dist/ReactToastify.css";
 import { handleSubmit } from "./useFormStates";
 import useFormStates from "./useFormStates";
 import "./RegisterPage.css";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const RegisterPage = () => {
 	const particless = React.useMemo(() => <Particless />, []);
+	const [successPage, setSuccessPage] = useState(false);
+	const history = useHistory();
+
+	useEffect(() => {
+		if (successPage) {
+			history.push("/register-success");
+		}
+	}, [successPage, history]);
 
 	const handleRegister = (e) => {
 		e.preventDefault();
-		toast.success("registration initiated");
 
 		const checkData = [
 			{
@@ -140,25 +148,46 @@ const RegisterPage = () => {
 			const finalData = formData.slice(0, numMembers);
 			console.log(finalData);
 
-			fetch("http://localhost:5000/kdsh2025/check_register", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(finalData),
-			})
+			const registerPromise = fetch(
+				"http://localhost:5000/kdsh2025/check_register",
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(finalData),
+				}
+			)
 				.then((response) => response.json())
 				.then((data) => {
-					if (data.message) {
-						toast.success(data.message);
+					if (data.message && data.registration && data.registration === "success") {
+						setSuccessPage(true);
+						toast.success(data.message, {
+							theme: "dark",
+						});
 					} else if (data.error) {
-						toast.error(data.error);
+						toast.error(data.error, {
+							theme: "dark",
+							autoClose: 10000,
+						});
 					}
 				})
 				.catch((error) => {
 					console.error("Error during registration:", error);
 					toast.error("Registration failed, please try again later.");
 				});
+			toast.promise(
+				registerPromise,
+				{
+					pending:
+						"Registering your team...This may take a few minutes, Please stay with us!!!",
+					error: "Registration failed. Please try again.",
+				},
+				{
+					position: "top-center",
+					autoClose: 6000,
+				}
+			);
 		} else {
 			return false;
 		}
@@ -341,8 +370,8 @@ const RegisterPage = () => {
 							</p>
 
 							<p>
-								Before registering, ensure you've starred the following GitHub
-								repositories:
+								Before registering, kindly ensure all your team members have
+								starred the following GitHub repositories:
 							</p>
 
 							<ul>
@@ -353,7 +382,7 @@ const RegisterPage = () => {
 										target="_blank"
 										rel="noreferrer noopener"
 									>
-										👉Pathway
+										👉 Pathway
 									</a>
 								</li>
 								<li>
@@ -363,7 +392,7 @@ const RegisterPage = () => {
 										target="_blank"
 										rel="noreferrer noopener"
 									>
-										👉LLM App
+										👉 LLM App
 									</a>
 								</li>
 							</ul>
@@ -727,7 +756,7 @@ const RegisterPage = () => {
 									</>
 								)}
 								{/* 555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555 */}
-								{numMembers === 5 && (
+								{numMembers == 5 && (
 									<>
 										<div className="register-form-details">
 											Details of Member 5
