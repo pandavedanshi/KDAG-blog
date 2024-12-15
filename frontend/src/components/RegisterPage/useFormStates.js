@@ -86,9 +86,14 @@ export const checkYOS = (yos) => {
 	return yosNum;
 };
 
+const validateUsername = (username) => {
+	const regex = /^[a-zA-Z0-9]([a-zA-Z0-9-]{0,37}[a-zA-Z0-9])?$/;
+	return regex.test(username);
+};
+
 export const checkGitHubID = (githubID) => {
 	if (githubID.trim() === "") {
-		toast.error("GitHub ID cannot be empty.", {
+		toast.error("GitHub Username cannot be empty.", {
 			position: "top-center",
 			draggable: true,
 			theme: "dark",
@@ -96,16 +101,18 @@ export const checkGitHubID = (githubID) => {
 		return null;
 	}
 
-	if (/\s/.test(githubID)) {
-		toast.error("GitHub ID cannot contain spaces.", {
+	const cleanedGithubID = githubID.replace(/\s+/g, "");
+
+	if (validateUsername(cleanedGithubID)) {
+		return cleanedGithubID;
+	} else {
+		toast.error("Please ensure all GitHub Usernames are Valid.", {
 			position: "top-center",
 			draggable: true,
 			theme: "dark",
 		});
 		return null;
 	}
-
-	return githubID;
 };
 
 export const handleSubmit = (name, mobile, college, YOS, GitHubID) => {

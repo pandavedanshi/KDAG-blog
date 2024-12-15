@@ -60,30 +60,46 @@
 	width: 80%;
 	position: relative;
 	left: 10%;
-	margin-bottom: 25px;
+	margin-bottom: 300px;
 	margin-top: 100px;
 }
 
-.register-form input {
-	border-radius: 50px;
+.register-form-icons {
+	box-sizing: border-box;
+	border: 1px rgba(255, 255, 255, 0.2) solid;
+	display: inline-block;
+	padding-left: 7px;
 	margin-right: 15px;
 	margin-bottom: 15px;
 }
 
+.register-form-icons img {
+	height: 25px;
+	margin-right: 6px;
+	margin-bottom: 2px;
+}
+
+.register-form input {
+	border-radius: 0px;
+}
+
 .register-form-gender {
 	color: rgba(255, 255, 255, 0.664);
-	display: flex;
+	display: inline-block;
+	margin-right: 15px;
 	align-items: center;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
+	border: 1px rgba(255, 255, 255, 0.2) solid;
 }
 .register-form-gender label {
-	margin-left: 8px;
 	margin-right: 10px;
+	margin-left: 10px;
 }
 
 .register-form-gender select {
-	border-radius: 50px;
+	border-radius: 0px;
 	padding-right: 15px;
+	width: 245px;
 }
 .register-form-gender select option {
 	color: #333;
@@ -93,8 +109,8 @@
 	color: white;
 	font-weight: 600;
 	position: relative;
-	left: 10px;
 	margin-bottom: 5px;
+	font-size: 18px;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -234,6 +250,12 @@ input[type="number"] {
 	}
 }
 
+@media (max-width: 600px) {
+	.register-form-gender select {
+		width: 260px;
+	}
+}
+
 @media (max-width: 575px) {
 	.register-container .register-header .register-kdsh {
 		top: 100px;
@@ -251,6 +273,18 @@ input[type="number"] {
 	}
 	.register-form {
 		margin-top: 450px;
+	}
+}
+
+@media (max-width: 515px) {
+
+	
+		.register-form-gender select {
+			width: 225px;
+		}
+	
+	.register-form input {
+		width: 265px;
 	}
 }
 
@@ -286,12 +320,47 @@ input[type="number"] {
 	}
 
 	.register-form input {
-		width: 255px;
 		height: 40px;
 	}
 
 	.register-form-submit {
 		min-width: 255px;
+	}
+}
+
+@media (max-width: 480px) {
+	.register-form input {
+		width: 240px;
+	}
+	.register-form-gender select {
+		width: 200px;
+	}
+}
+
+@media (max-width: 450px) {
+	.register-form input {
+		width: 230px;
+	}
+	.register-form-gender select {
+		width: 170px;
+	}
+}
+
+@media (max-width: 450px) {
+	.register-form input {
+		width: 210px;
+	}
+	.register-form-gender select {
+		width: 170px;
+	}
+}
+
+@media (max-width: 400px) {
+	.register-form input {
+		width: 200px;
+	}
+	.register-form-gender select {
+		width: 160px;
 	}
 }
 
@@ -312,5 +381,14 @@ input[type="number"] {
 	}
 	.register-form {
 		margin-top: 530px;
+	}
+}
+
+@media (max-width: 386px) {
+	.register-form input {
+		width: 190px;
+	}
+	.register-form-gender select {
+		width: 150px;
 	}
 }

@@ -140,8 +140,8 @@ def check_repositories(gitHub_users):
         try:
             starred_repos = get_starred_repositories(github_id)
 
-            if starred_repos is None:
-                missing_repos_by_user[github_id] = "Error fetching data"
+            if "error" in starred_repos:
+                missing_repos_by_user[github_id] = "error"
                 continue
 
             missing_repos = check_required_repositories(starred_repos)
@@ -164,14 +164,14 @@ def check_starred_repositories(missing_repos_by_users):
             continue
         elif missing_repos == "error":
             missing_repos_messages.append(
-                f""" Please check the GitHub Id "{github_id}" ."""
+                f""" Please check the GitHub Id <{github_id}> ."""
             )
         else:
-            for repo in missing_repos:
-                missing_repos_messages.append(
-                    f""" "{github_id}" has not starred the "{repo}" repository."""
-                )
+            repo_messages = [f'GitHub user <{github_id}> has not starred the "']
+            repo_messages.append('", "'.join(missing_repos))
+            repo_messages.append('" repository(s).')
             all_starred = False
+            missing_repos_messages.append("".join(repo_messages))
     if all_starred:
         print("All users have starred the required repositories.")
         return "success"
@@ -207,47 +207,71 @@ def check_multiple_stars():
                 400,
             )
 
-        if num_members != data[0]["numMembers"]:
+        # Check if all members have the same numMembers
+        try:
+            num_members_ = [member["numMembers"] for member in data]
+        except KeyError as e:
+            return (
+                jsonify({"error": f"Missing key: {str(e)} in one or more members."}),
+                400,
+            )
+        if len(set(num_members_)) != 1:
             return (
                 jsonify(
                     {
-                        # "error": "The data received is not for all members0000"
-                        "error": "There was some error in the server. Please try again. If you face this issue again Contact us. 00"
+                        "error": "There was some error in the server. Please try again. If you face this issue again Contact us. 11"
                     }
                 ),
                 400,
             )
 
-        # Check if all members have the same numMembers
-        first_num_members = data[0]["numMembers"]
-
-        for member in data:
-            if member["numMembers"] != first_num_members:
-                return (
-                    jsonify(
-                        {
-                            # "error": "The 'numMembers' value is inconsistent across members1111111."
-                            "error": "There was some error in the server. Please try again. If you face this issue again Contact us. 11"
-                        }
-                    ),
-                    400,
-                )
+        if not num_members == data[0]["numMembers"]:
+            print("error -- num_members")
+            return (
+                jsonify(
+                    {
+                        "error": "There was some error in the server. Please try again. If you face this issue again Contact us. 11"
+                    }
+                ),
+                400,
+            )
 
         # Check if all members have the same teamName
-        first_team_name = data[0]["teamName"]
-        for member in data:
-            if member["teamName"] != first_team_name:
-                return (
-                    jsonify(
-                        {
-                            # "error": "The 'teamName' value is inconsistent across members.222222222"
-                            "error": "There was some error in the server. Please try again. If you face this issue again Contact us. 22"
-                        }
-                    ),
-                    400,
-                )
+        try:
+            team_names = [member["teamName"] for member in data]
+        except KeyError as e:
+            return (
+                jsonify({"error": f"Missing key: {str(e)} in one or more members."}),
+                400,
+            )
+        if len(set(team_names)) != 1:
+            return (
+                jsonify(
+                    {
+                        "error": "There was some error in the server. Please try again. If you face this issue again Contact us. 22"
+                    }
+                ),
+                400,
+            )
 
-        gitHub_users = [member["GitHubID"] for member in data]
+        # Check if there are duplicates in the extracted GitHub IDs
+        try:
+            gitHub_users = [member["GitHubID"] for member in data]
+        except KeyError as e:
+            return (
+                jsonify({"error": f"Missing key: {str(e)} in one or more members."}),
+                400,
+            )
+        if len(gitHub_users) != len(set(gitHub_users)):
+            return (
+                jsonify(
+                    {
+                        "error": "GitHub ID must be unique across all members. Duplicate found."
+                    }
+                ),
+                400,
+            )
+
         if not gitHub_users:
             return jsonify({"error": "GitHub users are required."}), 400
         for member in data:

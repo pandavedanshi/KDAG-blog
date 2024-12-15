@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import KDSH2022 from "../components/Events/Individual_Events/KDSH2022_bundle/KDSH2022";
