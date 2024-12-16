@@ -78,7 +78,7 @@ def check_star():
 
 # />>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 def get_starred_repositories(github_id):
-    url = f"https://api.github.com/users/{github_id}/starred"
+    url = f"https://api.github.com/users/{github_id}/starred?per_page=100"
     all_starred_repositories = []
 
     try:
@@ -86,17 +86,28 @@ def get_starred_repositories(github_id):
         if not access_token:
             return {"error": "GitHub token is missing."}
 
-        headers = {"Authorization": f"token {access_token}"}
+        headers = {
+            "Authorization": f"token {access_token}",
+            "Accept": "application/vnd.github+json",
+        }
 
         while url:
             response = requests.get(url, headers=headers)
             if response.status_code == 404:
+                print("error -- 404 -- ", github_id)
                 return {"error": "GitHub user not found."}
 
-            if response.status_code == 200:
+            elif response.status_code == 403:
+                return {"error": "Rate limit exceeded. Please try again later."}
+
+            elif response.status_code == 200:
+                print("200 -- proceeding with getting the rest of the urls")
                 all_starred_repositories.extend(response.json())
                 remaining = response.headers.get("X-RateLimit-Remaining")
                 limit = response.headers.get("X-RateLimit-Limit")
+                if remaining <= 2:
+                    return {"error": "Rate limit exceeded"}
+
                 print("remaining : ", remaining)
                 print("limit : ", limit)
                 if "Link" in response.headers:
@@ -139,11 +150,10 @@ def check_repositories(gitHub_users):
     for github_id in gitHub_users:
         try:
             starred_repos = get_starred_repositories(github_id)
-
             if "error" in starred_repos:
                 missing_repos_by_user[github_id] = "error"
                 continue
-
+            
             missing_repos = check_required_repositories(starred_repos)
 
             if not missing_repos:
@@ -151,6 +161,7 @@ def check_repositories(gitHub_users):
             else:
                 missing_repos_by_user[github_id] = missing_repos
         except Exception as e:
+            print("check_repo : ", e)
             missing_repos_by_user[github_id] = f"error"
 
     return missing_repos_by_user
@@ -163,6 +174,7 @@ def check_starred_repositories(missing_repos_by_users):
         if missing_repos == "success":
             continue
         elif missing_repos == "error":
+            all_starred = False
             missing_repos_messages.append(
                 f""" Please check the GitHub Id <{github_id}> ."""
             )
@@ -189,7 +201,6 @@ def check_multiple_stars():
         from app import mongo
 
         data = request.get_json()
-
         if not data:
             return jsonify({"error": "No data provided."}), 400
 
@@ -200,7 +211,6 @@ def check_multiple_stars():
                 jsonify({"error": "There must be at least 2 members in the team."}),
                 400,
             )
-
         elif num_members > 5:
             return (
                 jsonify({"error": "There can be a maximum of 5 members in the team."}),
@@ -219,18 +229,16 @@ def check_multiple_stars():
             return (
                 jsonify(
                     {
-                        "error": "There was some error in the server. Please try again. If you face this issue again Contact us. 11"
+                        "error": "There was some error in the server. Please try again. If you face this issue again Contact us at kdag.kgp@gmail.com. 11"
                     }
                 ),
                 400,
             )
-
         if not num_members == data[0]["numMembers"]:
-            print("error -- num_members")
             return (
                 jsonify(
                     {
-                        "error": "There was some error in the server. Please try again. If you face this issue again Contact us. 11"
+                        "error": "There was some error in the server. Please try again. If you face this issue again Contact us at kdag.kgp@gmail.com. 11"
                     }
                 ),
                 400,
@@ -248,7 +256,7 @@ def check_multiple_stars():
             return (
                 jsonify(
                     {
-                        "error": "There was some error in the server. Please try again. If you face this issue again Contact us. 22"
+                        "error": "There was some error in the server. Please try again. If you face this issue again Contact us at kdag.kgp@gmail.com. 22"
                     }
                 ),
                 400,
@@ -286,13 +294,12 @@ def check_multiple_stars():
                 )
 
         missing_repos_by_users = check_repositories(gitHub_users)
-
         starred_users = check_starred_repositories(missing_repos_by_users)
 
         if starred_users != "success":
             return jsonify({"error": "55:>> " + starred_users}), 400
 
-        if starred_users == "success":
+        elif starred_users == "success":
             print("The members have starred the github id")
             team_name = data[0]["teamName"]
             num_members = data[0]["numMembers"]

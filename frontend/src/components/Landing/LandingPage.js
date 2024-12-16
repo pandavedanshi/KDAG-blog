@@ -3,12 +3,13 @@ import EventCount from "./countdown/count";
 import "./LandingPage.css";
 import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./SponsorSlider.css";
 import {
 	faCalendarDays,
 	faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 // import Poster from "../../assets/pics/events/KDAG ML Digest.jpg";
-import KDSH5thEdition from '../../assets/pics/events/KDSH 5TH edition.jpg';
+import KDSH5thEdition from "../../assets/pics/events/KDSH 5TH edition.jpg";
 
 //Components
 import Content from "./Content/Content.js";
@@ -17,6 +18,7 @@ import Particless from "../Common/Particles/Particless";
 import video1 from "./Video/final.mp4";
 import certificate from "../../assets/KDSH2022Certificates/Akash Kundu.png";
 import Header from "./Header/Header";
+import associate_sponsor from "./../../assets/kdsh2025_associate_sponsor.jpg";
 
 const LandingPage = () => {
 	const eligibleCandidates = [
@@ -45,39 +47,39 @@ const LandingPage = () => {
 		["Sandeep Mishra", "sandeepmishraismyname@gmail.com"],
 	];
 
-	useEffect(() => {
-		const form = document.getElementById("form");
-		const submitButton = document.getElementById("btn-12-submit");
-		let scriptURL =
-			"https://script.google.com/macros/s/AKfycbymnbrSfFeJPVH1DYX8AlQdWfUbd3Qb8SvpD-C8pkvCHdKEGNhcVSVLrwYY6zzk4O-gwA/exec";
+	// useEffect(() => {
+	// 	const form = document.getElementById("form");
+	// 	const submitButton = document.getElementById("btn-12-submit");
+	// 	let scriptURL =
+	// 		"https://script.google.com/macros/s/AKfycbymnbrSfFeJPVH1DYX8AlQdWfUbd3Qb8SvpD-C8pkvCHdKEGNhcVSVLrwYY6zzk4O-gwA/exec";
 
-		form.addEventListener("submit", (e) => {
-			submitButton.disabled = true;
-			e.preventDefault();
-			let requestBody = new FormData(form);
-			let name = document.getElementById("query-box-name").value;
-			let email = document.getElementById("query-box-email").value;
-			let query = document.getElementById("query-box-query").value;
+	// 	form.addEventListener("submit", (e) => {
+	// 		submitButton.disabled = true;
+	// 		e.preventDefault();
+	// 		let requestBody = new FormData(form);
+	// 		let name = document.getElementById("query-box-name").value;
+	// 		let email = document.getElementById("query-box-email").value;
+	// 		let query = document.getElementById("query-box-query").value;
 
-			fetch(scriptURL, { method: "POST", body: requestBody })
-				.then((response) => {
-					alert("Thank you for submitting!! Your query has been recorded");
-					submitButton.disabled = false;
-				})
-				.catch((error) => {
-					submitButton.disabled = false;
-				});
-		});
-	}, []);
+	// 		fetch(scriptURL, { method: "POST", body: requestBody })
+	// 			.then((response) => {
+	// 				alert("Thank you for submitting!! Your query has been recorded");
+	// 				submitButton.disabled = false;
+	// 			})
+	// 			.catch((error) => {
+	// 				submitButton.disabled = false;
+	// 			});
+	// 	});
+	// }, []);
 
-	useEffect(() => {
-		const form = document.querySelector("#form");
+	// useEffect(() => {
+	// 	const form = document.querySelector("#form");
 
-		// Cleanup event listener when component is unmounted
-		return () => {
-			form.removeEventListener("submit", null);
-		};
-	}, []);
+	// 	// Cleanup event listener when component is unmounted
+	// 	return () => {
+	// 		form.removeEventListener("submit", null);
+	// 	};
+	// }, []);
 
 	// function importAll(r) {
 	//   let images = {};
@@ -258,7 +260,7 @@ const LandingPage = () => {
 							<div className="banner-heading">
 								<h3 style={{ fontSize: "35px", fontWeight: "600" }}>
 									{/* CampusPulse: Igniting Innovation with Data */}
-									Kharagpur Data Science Hackathon 2025 
+									Kharagpur Data Science Hackathon 2025
 								</h3>
 							</div>
 						</div>
@@ -284,12 +286,19 @@ const LandingPage = () => {
                 and Mila, Canada.
 							</p> */}
 							<p>
-							"Without data, you're just another person with an opinion." - W. Edwards Deming <br />
-
-                            The 5th Edition of the <strong>Kharagpur Data Science Hackathon</strong> (KDSH) is here to push boundaries and redefine excellence in data science.
-                            Prepare to immerse yourself in cutting-edge machine learning, tackle real-world data challenges, and showcase your innovative solutions. Gain exclusive opportunities to connect with industry leaders, sharpen your expertise, and emerge as a trailblazer in the world of data science.
-                            This is more than a competition; it's a platform to push your limits, ignite your passion for data, and create meaningful change.
-                            </p>
+								"Without data, you're just another person with an opinion." - W.
+								Edwards Deming <br />
+								The 5th Edition of the{" "}
+								<strong>Kharagpur Data Science Hackathon</strong> (KDSH) is here
+								to push boundaries and redefine excellence in data science.
+								Prepare to immerse yourself in cutting-edge machine learning,
+								tackle real-world data challenges, and showcase your innovative
+								solutions. Gain exclusive opportunities to connect with industry
+								leaders, sharpen your expertise, and emerge as a trailblazer in
+								the world of data science. This is more than a competition; it's
+								a platform to push your limits, ignite your passion for data,
+								and create meaningful change.
+							</p>
 						</div>
 					</div>
 					{/* banner main ends */}
@@ -320,6 +329,58 @@ const LandingPage = () => {
 				</div>
 				{/* banner button ends */}
 
+				<div className="kdsh2025_header">
+					Introducing Sponsors for KDSH 2025
+				</div>
+
+				<div className="kdsh2025_sponsors">
+					<img src={associate_sponsor} alt="associate_sponsor" />
+				</div>
+
+				{/* <div className="kdsh2025-sponsor-slider">
+					<ul>
+						<li>
+							<img src={associate_sponsor} alt="associate_sponsor" />
+						</li>
+						<li>
+							<img src={associate_sponsor} alt="associate_sponsor" />
+						</li>
+						<li>
+							<img src={associate_sponsor} alt="associate_sponsor" />
+						</li>
+						<li>
+							<img src={associate_sponsor} alt="associate_sponsor" />
+						</li>
+						<li>
+							<img src={associate_sponsor} alt="associate_sponsor" />
+						</li>
+						<li>
+							<img src={associate_sponsor} alt="associate_sponsor" />
+						</li>
+					</ul>
+
+					<ul aria-hidden="true">
+						<li>
+							<img src={associate_sponsor} alt="associate_sponsor" />
+						</li>
+						<li>
+							<img src={associate_sponsor} alt="associate_sponsor" />
+						</li>
+						<li>
+							<img src={associate_sponsor} alt="associate_sponsor" />
+						</li>
+						<li>
+							<img src={associate_sponsor} alt="associate_sponsor" />
+						</li>
+						<li>
+							<img src={associate_sponsor} alt="associate_sponsor" />
+						</li>
+						<li>
+							<img src={associate_sponsor} alt="associate_sponsor" />
+						</li>
+					</ul>
+				</div> */}
+
 				<div className="banner-countdown">
 					<div className="banner-count-flex">
 						<EventCount />
@@ -327,7 +388,7 @@ const LandingPage = () => {
 				</div>
 
 				{/* banner queries starts */}
-				<div className="banner-queries">
+				{/* <div className="banner-queries">
 					<div className="query-heading-flex">
 						<div className="query-heading">
 							<h2 style={{ fontSize: "20px", fontWeight: "700" }}>
@@ -358,13 +419,13 @@ const LandingPage = () => {
 								</div>
 							</div>
 						</form>
-					</div>
+					</div> */}
 					{/* <div className="query-box-flex">
 						<input type="text" id="query-box-name" />
 						<input type="text" id="query-box-email" />
 						<input type="text" id="query-box-query" />
-					</div> */}
-					{/* <div className="query-submit-button-flex">
+					</div> 
+					 <div className="query-submit-button-flex">
 						<div className="query-submit-button">
 							<button
 								class="btn-12"
@@ -376,8 +437,8 @@ const LandingPage = () => {
 							</button>
 						</div>
 					</div> */}
-				</div>
-				{/* banner queries ends */}
+				{/* </div> */}
+				{/* -------------------------------------------------------------banner queries ends */}
 
 				{/* <link rel="stylesheet" href="dd" >Register Now</link> */}
 			</section>
