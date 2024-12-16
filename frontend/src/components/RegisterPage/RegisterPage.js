@@ -14,6 +14,7 @@ import college_icon from "./../../assets/kdsh2025_college.png";
 import degree_icon from "./../../assets/kdsh2025_degree.png";
 import YOS_icon from "./../../assets/kdsh2025_YOS.png";
 import github_icon from "./../../assets/kdsh2025_github.png";
+import gender_icon from "./../../assets/kdsh2025_gender.png";
 
 const RegisterPage = () => {
 	const particless = React.useMemo(() => <Particless />, []);
@@ -186,7 +187,7 @@ const RegisterPage = () => {
 					} else if (data.error) {
 						toast.error(data.error, {
 							theme: "dark",
-							autoClose: 15000,
+							autoClose: 10000,
 						});
 					}
 				})
@@ -421,10 +422,18 @@ const RegisterPage = () => {
 					<div className="register-form">
 						<form onSubmit={handleRegister}>
 							<div>
-								<h1 style={{ fontStyle: "italic", textShadow:"0 0 50px #1c1cf0, 0 0 100px red", marginBottom:"25px" }}>REGISTER</h1>
+								<h1
+									style={{
+										fontStyle: "italic",
+										textShadow: "0 0 50px #1c1cf0, 0 0 100px red",
+										marginBottom: "25px",
+									}}
+								>
+									REGISTER
+								</h1>
 								<br />
 								<input
-								style={{marginRight:"15px",marginBottom:"15px"}}
+									style={{ marginRight: "15px", marginBottom: "15px" }}
 									type="text"
 									name="name"
 									placeholder="Team Name"
@@ -432,7 +441,7 @@ const RegisterPage = () => {
 									onChange={handleTeamName}
 								/>
 								<input
-								style={{marginBottom:"15px"}}
+									style={{ marginBottom: "15px" }}
 									type="number"
 									name="numMembers"
 									placeholder="Number of members"
@@ -466,7 +475,9 @@ const RegisterPage = () => {
 										/>
 									</div>
 									<div className="register-form-gender">
-										<label htmlFor="gender">Select Gender</label>
+										<label htmlFor="gender">
+											<img src={gender_icon} alt="gender" />
+										</label>
 										<select
 											id="gender"
 											name="gender"
@@ -570,7 +581,9 @@ const RegisterPage = () => {
 										/>
 									</div>
 									<div className="register-form-gender">
-										<label htmlFor="gender">Select Gender</label>
+										<label htmlFor="gender">
+											<img src={gender_icon} alt="gender" />
+										</label>
 										<select
 											id="gender"
 											name="gender"
@@ -679,7 +692,9 @@ const RegisterPage = () => {
 												/>
 											</div>
 											<div className="register-form-gender">
-												<label htmlFor="gender">Select Gender</label>
+												<label htmlFor="gender">
+													<img src={gender_icon} alt="gender" />
+												</label>
 												<select
 													id="gender"
 													name="gender"
@@ -790,7 +805,9 @@ const RegisterPage = () => {
 												/>
 											</div>
 											<div className="register-form-gender">
-												<label htmlFor="gender">Select Gender</label>
+												<label htmlFor="gender">
+													<img src={gender_icon} alt="gender" />
+												</label>
 												<select
 													id="gender"
 													name="gender"
@@ -901,7 +918,9 @@ const RegisterPage = () => {
 												/>
 											</div>
 											<div className="register-form-gender">
-												<label htmlFor="gender">Select Gender</label>
+												<label htmlFor="gender">
+													<img src={gender_icon} alt="gender" />
+												</label>
 												<select
 													id="gender"
 													name="gender"
