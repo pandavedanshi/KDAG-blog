@@ -329,13 +329,13 @@ const LandingPage = () => {
 				</div>
 				{/* banner button ends */}
 
-				<div className="kdsh2025_header">
+				{/* <div className="kdsh2025_header">
 					Introducing Sponsors for KDSH 2025
 				</div>
 
 				<div className="kdsh2025_sponsors">
 					<img src={associate_sponsor} alt="associate_sponsor" />
-				</div>
+				</div> */}
 
 				{/* <div className="kdsh2025-sponsor-slider">
 					<ul>
