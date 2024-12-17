@@ -105,8 +105,6 @@ def get_starred_repositories(github_id):
                 all_starred_repositories.extend(response.json())
                 remaining = response.headers.get("X-RateLimit-Remaining")
                 limit = response.headers.get("X-RateLimit-Limit")
-                if remaining <= 2:
-                    return {"error": "Rate limit exceeded"}
 
                 print("remaining : ", remaining)
                 print("limit : ", limit)
