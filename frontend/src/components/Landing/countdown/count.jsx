@@ -68,9 +68,6 @@ const EventCount = () => {
   const [month, setMonth] = useState(1);
   const [year, setYear] = useState(2022);
   const eventDate = new Date(year, month - 1, day);
-
-
-
   return (
     <div className='page'>
       <Countdown eventDate={eventDate} />

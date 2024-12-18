@@ -1,135 +1,105 @@
 from github import Github
 from dotenv import load_dotenv
-import os
-import csv
+import os, csv, json, requests, asyncio, aiohttp
 from flask import Blueprint, jsonify, request
-import requests
-import json
 
 kdsh2025 = Blueprint("kdsh2025", __name__)
 
 load_dotenv()
-MONGO_URI = os.getenv("GOOGLE_CLIENT_ID")
 
 
-@kdsh2025.route("/check_star", methods=["GET"])
-def check_star():
+async def fetch_page(session, url, headers):
+    """Fetch a single page of starred repositories."""
     try:
-        from app import mongo
-
-        data = request.get_json()
-        user = data.get("gitHub_user")
-
-        if not user:
-            return jsonify({"error": "GitHub user is required."}), 400
-
-        access_token = os.getenv("GITHUB_TOKEN")
-        if not access_token:
-            return jsonify({"error": "GitHub token is missing."}), 400
-        g = Github(access_token)
-
-        repo_owner = "pathwaycom"
-        repo_name = "llm-app"
-        repo = g.get_repo(f"{repo_owner}/{repo_name}")
-
-        stargazers = repo.get_stargazers()
-
-        has_starred = False
-        for starred_user in stargazers:
-            print(starred_user.login)
-            if starred_user.login == user:
-                has_starred = True
-                break
-
-        if has_starred:
-            result = f"User {user} has starred the repository!"
-            print(result)
-            return (
-                jsonify(
-                    {
-                        "message": result,
-                    }
-                ),
-                200,
-            )
-        else:
-            result = f"User {user} has not starred the repository."
-            print(result)
-            return (
-                jsonify(
-                    {
-                        "error": result,
-                    }
-                ),
-                400,
-            )
-
+        async with session.get(url, headers=headers) as response:
+            if response.status == 404:
+                print(f"Error -- 404 -- {url}")
+                return {"error": "GitHub user not found."}
+            elif response.status == 403:
+                print("rate exceeded")
+                return {"error1": "Rate limit exceeded. Please try again later."}
+            elif response.status == 200:
+                print(f"200 -- Fetched {url}")
+                return await response.json()
+            else:
+                return {"error": f"GitHub API responded with status {response.status}"}
     except Exception as e:
-        print(e)
-        return (
-            jsonify(
-                {
-                    "message": e,
-                }
-            ),
-            200,
-        )
+        return {"error": f"Request failed for {url}: {str(e)}"}
 
 
-# />>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-def get_starred_repositories(github_id):
-    url = f"https://api.github.com/users/{github_id}/starred?per_page=100"
+def get_last_page_number(link_header):
+    """Extract the last page number from the 'Link' header."""
+    if not link_header:
+        return 1  # If no pagination, there's only one page
+    for link in link_header.split(","):
+        if 'rel="last"' in link:
+            last_url = link.split(";")[0].strip().strip("<>")
+            return int(last_url.split("page=")[-1].split("&")[0])
+    return 1
+
+
+async def get_starred_repositories_async(github_id):
+    base_url = f"https://api.github.com/users/{github_id}/starred?per_page=100"
     all_starred_repositories = []
 
-    try:
-        access_token = os.getenv("GITHUB_TOKEN")
-        if not access_token:
-            return {"error": "GitHub token is missing."}
+    # Step 1: Fetch the first page to get the 'Link' header
+    access_token = os.getenv("GITHUB_TOKEN")
+    if not access_token:
+        return {"error": "GitHub token is missing."}
 
-        headers = {
-            "Authorization": f"token {access_token}",
-            "Accept": "application/vnd.github+json",
-        }
+    headers = {
+        "Authorization": f"token {access_token}",
+        "Accept": "application/vnd.github+json",
+    }
 
-        while url:
-            response = requests.get(url, headers=headers)
-            if response.status_code == 404:
+    async with aiohttp.ClientSession() as session:
+        async with session.get(base_url, headers=headers) as response:
+            if response.status == 404:
                 print("error -- 404 -- ", github_id)
                 return {"error": "GitHub user not found."}
 
-            elif response.status_code == 403:
-                return {"error": "Rate limit exceeded. Please try again later."}
+            elif response.status == 403:
+                print(await response.json())
+                print("403 -- ")
+                return {"error1": "Rate limit exceeded. Please try again later."}
 
-            elif response.status_code == 200:
+            elif response.status == 200:
                 print("200 -- proceeding with getting the rest of the urls")
-                all_starred_repositories.extend(response.json())
+                response_ = await response.json()
+                all_starred_repositories.extend(response_)
                 remaining = response.headers.get("X-RateLimit-Remaining")
                 limit = response.headers.get("X-RateLimit-Limit")
-
                 print("remaining : ", remaining)
                 print("limit : ", limit)
-                if "Link" in response.headers:
-                    links = response.headers["Link"]
-                    next_page_url = None
-                    for link in links.split(","):
-                        print("link ----- ", link)
-                        if 'rel="next"' in link:
-                            next_page_url = link.split(";")[0].strip().strip("<>")
-                            break
 
-                    url = next_page_url
-                else:
-                    url = None
-            else:
-                return {
-                    "error": f"GitHub API responded with status code {response.status_code}"
-                }
-        return {"starred_repositories": all_starred_repositories}
+                # Step 2: Get the last page number from the Link header
+                link_header = response.headers.get("Link", "")
+                last_page = get_last_page_number(link_header)
+                print(f"Total pages: {last_page}")
 
-    except requests.exceptions.Timeout:
-        return {"error": "51:>> " + "Request timed out. Please try again."}
-    except requests.exceptions.RequestException as e:
-        return {"error": "50:>> " + f"Request failed: {str(e)}"}
+                if last_page > 9:
+                    return {"error1": "Rate limit exceeded. Please try again later."}
+
+                # Step 3: Dynamically create the list of URLs
+                urls = [f"{base_url}&page={page}" for page in range(2, last_page + 1)]
+                print(f"Fetching URLs: {urls}")
+
+                # Step 4: Fetch all pages asynchronously
+                tasks = [fetch_page(session, url, headers) for url in urls]
+                results = await asyncio.gather(*tasks, return_exceptions=True)
+
+                # Step 5: Combine all repositories
+                for result in results:
+                    if isinstance(result, list):
+                        all_starred_repositories.extend(result)
+
+    return {"starred_repositories": all_starred_repositories}
+
+
+def get_starred_repositories(github_id):
+    """Wrapper function to run the async function."""
+    print(github_id)
+    return asyncio.run(get_starred_repositories_async(github_id))
 
 
 def check_required_repositories(starred_repos):
@@ -147,11 +117,16 @@ def check_repositories(gitHub_users):
 
     for github_id in gitHub_users:
         try:
+            print("starting get_starred_repositories")
             starred_repos = get_starred_repositories(github_id)
             if "error" in starred_repos:
                 missing_repos_by_user[github_id] = "error"
                 continue
-            
+
+            if "error1" in starred_repos:
+                missing_repos_by_user[github_id] = "error1"
+                return missing_repos_by_user
+
             missing_repos = check_required_repositories(starred_repos)
 
             if not missing_repos:
@@ -176,6 +151,11 @@ def check_starred_repositories(missing_repos_by_users):
             missing_repos_messages.append(
                 f""" Please check the GitHub Id <{github_id}> ."""
             )
+        elif missing_repos == "error1":
+            all_starred = False
+            missing_repos_messages = [
+                "The server seems to be experiencing unexpected load. Please try again after some time. If the issue persists contact us at kdag.kgp@gmail.com"
+            ]
         else:
             repo_messages = [f'GitHub user <{github_id}> has not starred the "']
             repo_messages.append('", "'.join(missing_repos))
@@ -291,6 +271,7 @@ def check_multiple_stars():
                     400,
                 )
 
+        print(gitHub_users)
         missing_repos_by_users = check_repositories(gitHub_users)
         starred_users = check_starred_repositories(missing_repos_by_users)
 
@@ -302,15 +283,7 @@ def check_multiple_stars():
             team_name = data[0]["teamName"]
             num_members = data[0]["numMembers"]
 
-            # Step 1: Check if the team already exists
-            existing_team = mongo.db.kdsh2025_teams.find_one({"teamName": team_name})
-            if existing_team:
-                return (
-                    jsonify({"error": f"Team with name {team_name} already exists."}),
-                    400,
-                )
-
-            # Step 2: Check if any GitHub IDs already exist in participants collection
+            # Step 1: Check if any GitHub IDs already exist in participants collection
             existing_participants = []
             for user in gitHub_users:
                 existing_user = mongo.db.kdsh2025_participants.find_one(
@@ -329,6 +302,15 @@ def check_multiple_stars():
                     ),
                     400,
                 )
+
+            # Step 2: Check if the team already exists
+            existing_team = mongo.db.kdsh2025_teams.find_one({"teamName": team_name})
+            if existing_team:
+                return (
+                    jsonify({"error": f"Team with name {team_name} already exists."}),
+                    400,
+                )
+
             # Step 3: Store data in participants collection
             participants_data = []
             for member in data:
