@@ -163,8 +163,8 @@ const RegisterPage = () => {
 			}
 
 			const registerPromise = fetch(
-				`${process.env.REACT_APP_FETCH_URL}/kdsh2025/check_register`,
-				// `http://localhost:5000/kdsh2025/check_register`,
+				// `${process.env.REACT_APP_FETCH_URL}/kdsh2025/check_register`,
+				`http://localhost:5000/kdsh2025/check_register`,
 				{
 					method: "POST",
 					headers: {
