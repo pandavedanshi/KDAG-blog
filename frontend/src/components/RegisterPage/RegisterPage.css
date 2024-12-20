@@ -1,0 +1,404 @@
+.register-container .register-header .spacer {
+	aspect-ratio: 1500/700;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.register-container .register-header .layer1 {
+	background-image: url("./../../assets/KDSH2025_waves.svg");
+}
+
+.register-container .register-header .register-kdsh {
+	position: absolute;
+	top: 155px;
+	left: 38%;
+	font-size: 50px;
+	font-weight: 900;
+	color: rgb(255, 255, 255);
+	padding: 5px 25px;
+	border: solid 5px white;
+	text-wrap: nowrap;
+}
+
+.register-container .register-header .register-kdsh-desc {
+	border: solid rgba(255, 255, 255, 0.178) 2px;
+	padding: 25px;
+	font-weight: 600;
+	text-align: justify;
+	position: absolute;
+	top: 300px;
+	font-size: 20px;
+	line-height: 25px;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	background: rgba(255, 255, 255, 0.045);
+	border-radius: 15px;
+	margin: 0 200px;
+}
+
+.register-container .register-header .register-kdsh-desc ul {
+	list-style: none;
+	text-decoration: none;
+	color: aqua;
+	transition: all 0.3s;
+	width: max-content;
+}
+
+.register-container .register-header .register-kdsh-desc ul li:hover {
+	text-shadow: cyan 0 0 8px;
+}
+
+.register-form {
+	border: solid rgba(255, 255, 255, 0.05) 2px;
+	border-top: 5px solid #1c1cf0;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	background: rgba(255, 255, 255, 0.045);
+	padding: 25px;
+	width: 80%;
+	position: relative;
+	left: 10%;
+	margin-bottom: 300px;
+	margin-top: 100px;
+}
+
+.register-form-icons {
+	box-sizing: border-box;
+	border: 1px rgba(255, 255, 255, 0.2) solid;
+	display: inline-block;
+	padding-left: 7px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+}
+
+.register-form-icons img {
+	height: 25px;
+	margin-right: 6px;
+	margin-bottom: 2px;
+}
+
+.register-form input {
+	border-radius: 0px;
+}
+
+.register-form-gender {
+	box-sizing: border-box;
+	color: rgba(255, 255, 255, 0.664);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	top: -5px;
+	border: 1px rgba(255, 255, 255, 0.2) solid;
+	margin-right: 15px;
+	margin-bottom: 10px;
+	margin-top: 5px;
+}
+.register-form-gender label {
+	margin-right: 6px;
+	margin-left: 7px;
+	box-sizing: border-box;
+	display: inline-block;
+}
+
+.register-form-gender label img{
+	height: 25px;
+	padding-top: 2px;
+}
+
+.register-form-gender select {
+	border-radius: 0px;
+
+}
+.register-form-gender select option {
+	color: #333;
+}
+
+.register-form-details {
+	color: white;
+	font-weight: 600;
+	position: relative;
+	margin-bottom: 5px;
+	font-size: 18px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	appearance: textfield;
+	-moz-appearance: textfield;
+}
+
+.register-form-submit {
+	background: transparent;
+	min-width: 300px;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.register-form-submit p {
+	text-align: center;
+	background-image: linear-gradient(
+		to right,
+		#1c1cf0,
+		#40dfe4,
+		#30dd8a,
+		#269660
+	);
+	padding: 10px;
+	background-size: 300% 100%;
+	width: 100%;
+	color: white;
+	box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
+	border-radius: 30px;
+	border: none;
+	transition: 0.3s;
+}
+
+.register-form-submit p:hover {
+	background-position: 100% 0;
+	text-shadow: 0 0 10px white;
+}
+
+@media (max-width: 1285px) {
+	.register-container .register-header .register-kdsh {
+		top: 125px;
+		left: 36%;
+		padding: 5px 25px;
+	}
+
+	.register-container .register-header .register-kdsh-desc {
+		padding: 20px;
+		font-weight: 600;
+		top: 265px;
+		margin: 0 100px;
+	}
+}
+
+@media (max-width: 1060px) {
+	.register-container .register-header .register-kdsh {
+		top: 120px;
+		left: 34%;
+		font-size: 45px;
+		padding: 5px 25px;
+	}
+
+	.register-container .register-header .register-kdsh-desc {
+		padding: 20px;
+		font-weight: 600;
+		top: 240px;
+		margin: 0 100px;
+	}
+
+	.register-form {
+		margin-top: 200px;
+	}
+}
+
+@media (max-width: 880px) {
+	.register-container .register-header .register-kdsh {
+		top: 110px;
+		left: 34%;
+		font-size: 45px;
+		padding: 5px 25px;
+	}
+
+	.register-container .register-header .register-kdsh-desc {
+		padding: 20px;
+		font-weight: 600;
+		top: 240px;
+		margin: 0 90px;
+	}
+	.register-form {
+		margin-top: 300px;
+	}
+}
+
+@media (max-width: 750px) {
+	.register-container .register-header .register-kdsh {
+		top: 110px;
+		left: 32%;
+		font-size: 45px;
+		padding: 5px 25px;
+	}
+
+	.register-container .register-header .register-kdsh-desc {
+		padding: 20px;
+		font-weight: 600;
+		top: 240px;
+		margin: 0 90px;
+	}
+	.register-form {
+		margin-top: 360px;
+	}
+}
+
+@media (max-width: 700px) {
+	.register-container .register-header .register-kdsh {
+		top: 110px;
+		left: 28%;
+		font-size: 45px;
+		padding: 5px 25px;
+	}
+
+	.register-container .register-header .register-kdsh-desc {
+		padding: 20px;
+		font-weight: 600;
+		top: 240px;
+		margin: 0 50px;
+		font-size: 18px;
+	}
+	.register-form {
+		margin-top: 450px;
+	}
+}
+
+@media (max-width: 600px) {
+	.register-form-gender select {
+		/* width: 260px; */
+	}
+}
+
+@media (max-width: 575px) {
+	.register-container .register-header .register-kdsh {
+		top: 100px;
+		left: 24%;
+		font-size: 45px;
+		padding: 5px 25px;
+	}
+
+	.register-container .register-header .register-kdsh-desc {
+		padding: 20px;
+		font-weight: 600;
+		top: 220px;
+		margin: 0 40px;
+		font-size: 16px;
+	}
+	.register-form {
+		margin-top: 450px;
+	}
+}
+
+@media (max-width: 515px) {
+
+	
+		.register-form-gender select {
+			width: 265px;
+		}
+	
+	.register-form input {
+		width: 265px;
+	}
+}
+
+@media (max-width: 500px) {
+	.register-container .register-header .register-kdsh {
+		top: 100px;
+		left: 20%;
+		font-size: 45px;
+		padding: 5px 25px;
+	}
+	.register-form {
+		margin-top: 500px;
+	}
+}
+
+@media (max-width: 460px) {
+	.register-container .register-header .register-kdsh {
+		top: 100px;
+		left: 22%;
+		font-size: 35px;
+		padding: 5px 25px;
+	}
+
+	.register-container .register-header .register-kdsh-desc {
+		padding: 20px;
+		font-weight: 600;
+		top: 220px;
+		margin: 0 30px;
+		font-size: 16px;
+	}
+	.register-form {
+		margin-top: 500px;
+	}
+
+	.register-form input {
+		height: 40px;
+	}
+
+	.register-form-submit {
+		min-width: 255px;
+	}
+}
+
+@media (max-width: 480px) {
+	.register-form input {
+		width: 240px;
+	}
+	.register-form-gender select {
+		width: 240px;
+	}
+}
+
+@media (max-width: 450px) {
+	.register-form input {
+		width: 230px;
+	}
+	.register-form-gender select {
+		width: 210px;
+	}
+}
+
+@media (max-width: 450px) {
+	.register-form input {
+		width: 210px;
+	}
+	
+}
+
+@media (max-width: 400px) {
+	.register-form input {
+		width: 200px;
+	}
+	.register-form-gender select {
+		width: 202px;
+	}
+}
+
+@media (max-width: 395px) {
+	.register-container .register-header .register-kdsh {
+		top: 100px;
+		left: 18%;
+		font-size: 35px;
+		padding: 5px 25px;
+	}
+
+	.register-container .register-header .register-kdsh-desc {
+		padding: 20px;
+		font-weight: 600;
+		top: 220px;
+		margin: 0 20px;
+		font-size: 16px;
+	}
+	.register-form {
+		margin-top: 530px;
+	}
+}
+
+@media (max-width: 386px) {
+	.register-form input {
+		width: 190px;
+	}
+	.register-form-gender select {
+		width: 192px;
+	}
+}

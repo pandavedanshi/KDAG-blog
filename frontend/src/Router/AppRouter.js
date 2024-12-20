@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import KDSH2022 from "../components/Events/Individual_Events/KDSH2022_bundle/KDSH2022";
@@ -29,6 +29,8 @@ import GoogleCallback from "../components/AuthenticationPages/GoogleCallback.js"
 import { AuthProvider } from "../context/AuthContext.js";
 import CommunityGuidelines from "../components/DiscussionForum/CommunityGuidelines.js";
 import PrivacyPolicy from "../components/Privacy Policies/PrivacyPolicy.js";
+import RegisterPage from "../components/RegisterPage/RegisterPage.js";
+import Success from "../components/RegisterPage/Success.js";
 
 const AppRouter = () => {
 	return (
@@ -97,14 +99,20 @@ const AppRouter = () => {
 							<Route path="/winter-workshop">
 								<WinterWorkshop />
 							</Route>
-    	       <Route path="/privacy-policy">
-							<PrivacyPolicy />
-						</Route>
+							<Route path="/privacy-policy">
+								<PrivacyPolicy />
+							</Route>
 							<Route path="/certificate-generation">
 								<CertificateGeneration />
 							</Route>
 							<Route path="/community-guidelines">
 								<CommunityGuidelines />
+							</Route>
+							<Route path="/register-kdsh">
+								<RegisterPage />
+							</Route>
+							<Route path="/register-success">
+								<Success />
 							</Route>
 						</Switch>
 					</ScrollToTop>

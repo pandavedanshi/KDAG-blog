@@ -58,20 +58,16 @@ const Countdown = ({ eventDate }) => {
 
   return (
     <div className='Banner-Eventislive'>
-      {/* <h1>Registrations are Open Now</h1> */}
       <h1>Stay Tuned for More!</h1>
     </div>
   );
 };
 
 const EventCount = () => {
-  const [day, setDay] = useState(11);    // set Event date , month and year 
-  const [month, setMonth] = useState(10);
-  const [year, setYear] = useState(2023);
+  const [day, setDay] = useState(27);    // set Event date , month and year 
+  const [month, setMonth] = useState(1);
+  const [year, setYear] = useState(2022);
   const eventDate = new Date(year, month - 1, day);
-
-
-
   return (
     <div className='page'>
       <Countdown eventDate={eventDate} />
